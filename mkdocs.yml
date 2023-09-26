@@ -1,6 +1,6 @@
 site_name: Soar documentation
-repo_url: http://github.com/moschmdt/Documentation
-repo_name: moschmdt/Documentation
+repo_url: http://github.com/SoarGroup/Documentation
+repo_name: SoarGroup/Documentation
 copyright: SoarGroup &copy;
 
 theme:
