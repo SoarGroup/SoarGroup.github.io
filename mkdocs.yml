@@ -1,0 +1,78 @@
+site_name: Soar documentation
+repo_url: http://github.com/moschmdt/Documentation
+repo_name: moschmdt/Documentation
+copyright: SoarGroup &copy;
+
+theme:
+  name: material
+  locale: en
+  features:
+    - content.code.copy
+    - navigation.tabs
+    - navigation.footer
+    - navigation.top
+    - navigation.indexes
+    - navigation.expand
+    - header.autohide
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  logo: Images/soar.png
+  custom_dir: overrides
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+markdown_extensions:
+  - extra
+  - tables
+  - mdx_math
+  - fenced_code
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - pymdownx.arithmatex:
+      generic: true
+
+nav:
+  - Soar:
+      - index.md
+      - Research:
+          - Publications: "soar/Publications.md"
+          - Research Groups: "soar/ResearchGroups.md"
+          - Academic Institutions: "soar/OtherAcademicInstitutions.md"
+          - Commerical Soar Organizations: "soar/CommercialSoarOrganizations.md"
+  - Soar Manual:
+      - soar_manual/index.md
+  - Explanations:
+      - explanations/index.md
+  - Tutorials:
+      - tutorials/index.md
+      - Official Soar Tutorials:
+          - "tutorials/soar_tutorial/index.md"
+  - HowTo Guides:
+      - how_to/index.md
+      - Building Soar and ROS1: "how_to/BuildingSoarRos.md"
+  - Reference:
+      - reference/index.md
+  - Tag Index: "soar/tags.md"
+
+plugins:
+  - search
+  - img2figv2
+  - tags:
+      tags_file: soar/tags.md
