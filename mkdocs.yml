@@ -88,7 +88,7 @@ nav:
         - epmem: "reference/cli/cmd_epmem.md"
         - clog: "reference/cli/cmd_clog.md"
         - visualize: "reference/cli/cmd_visualize.md"
-        - preference: "reference/cli/cmd_preference.md"
+        - preference: "reference/cli/cmd_preferences.md"
         - excise: "reference/cli/cmd_excise.md"
         - production: "reference/cli/cmd_production.md"
         - wma: "reference/cli/cmd_wma.md"
