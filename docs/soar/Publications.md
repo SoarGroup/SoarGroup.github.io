@@ -459,8 +459,8 @@ Gunetti, P., Dodd, T., Thompson, H. (2013). [Simulation of a Soar-Based
 Autonomous Mission Management System for Unmanned
 Aircraft](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Sim_Soar_Autonomous_Mission_Management_Unmanned_Aircraft.pdf),
 Journal of Aerospace Computing, Information, and Communication, Vol. 10,
-No. 2, pp. 53-70. [AIAA
-link](http://arc.aiaa.org/doi/abs/10.2514/1.53282?journalCode=jacic)
+<!-- markdown-link-check-disable-next-line -->
+No. 2, pp. 53-70. [AIAA link](http://arc.aiaa.org/doi/abs/10.2514/1.53282?journalCode=jacic)
 
 Li, J., Laird, J. (2013). [The Computational Problem of Prospective
 Memory](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Li2013TheComputationalProblem.pdf)*.
@@ -565,7 +565,7 @@ California.
 
 Mohan, S., Mininger, A., Kirk, J. and Laird, J. E. (2012). [Learning
 Grounded Language through Situated Interactive
-Instruction](http://www.shiwali.me/content/mohan_AAAIFS_2012.pdf), In
+Instruction](https://aaai.org/papers/05662-learning-grounded-language-through-situated-interactive-instruction/), In
 Papers from Robots Learning Interactively from Human Teachers (AAAI Fall
 Symposium Series), November 2012, Washington D.C.
 

@@ -23,7 +23,7 @@ development.  Other projects include the development of the Psychological Soar
 Tutorial and the Soar FAQ. For more information contact frank.ritter at psu.edu.
 
 
-[University of Portland](http://faculty.up.edu/nuxoll/): Research is in
+[University of Portland](https://www.up.edu/directory/Andrew-Nuxoll.html): Research is in
 improving the effectiveness of the episodic memory system. Much of the work is
 done external to Soar while honoring architectural requirements of Soar. Recent
 projects include: a survey of forgetting mechanisms, using memories to build
@@ -55,22 +55,11 @@ also uses Soar to implement an architecture for an autonomous poker player. The
 agent uses Soar to play poker with the poker server set up by the University of
 Alberta Computer Poker Research Group.  
 
-[University of Southern California](http://www.isi.edu/soar/soar-homepage.html)
+University of Southern California
 and the Institute for Creative Technologies
 
-
-[The Intelligent Agent Group](http://www.port.ac.uk/departments/academic/ct/research/intelligentagentsgroupIAG/)
-at the University of Portsmouth: Currently involved in a range of Soar related
-activities, particularly:
-
-- Soar agents for intelligent control in synthetic environments
-- teamwork/C2 structures within groups of Soar agents
-- off-line knowledge extraction from legacy production sets
-- Soar development tools
-- We are also exploring the potential for using Soar in situated, robot control.
-
 [Bar Ilan University](http://www.cs.biu.ac.il/~galk/), Israel is home to the
-[MAVERICK group](http://www.cs.biu.ac.il/~maverick/), which conducts research in
+[MAVERICK group](https://u.cs.biu.ac.il/~kaminkg/maverick/), which conducts research in
 social intelligence, multi-agent and multi-robot systems, and plan recognition.
 Work in Soar has focused on developing Soar-based teamwork capabilities for
 modeling para-military units, multi-agent plan recognition and mirroring, and
