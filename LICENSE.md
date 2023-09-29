@@ -1,4 +1,6 @@
 # License
+
+<!-- markdown-link-check-disable-next-line -->
 Soar is distributed under the [BSD License](https://opensource.org/license/bsd-2-clause/)
 
 Copyright &copy; 2000-2012. The Regents of University of Michigan. Copyright (C) 
