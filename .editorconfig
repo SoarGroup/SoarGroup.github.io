@@ -1,14 +1,13 @@
 [*]
-charset = utf-8
 end_of_line = lf
-insert_final_newline = true
 trim_trailing_whitespace = true
+charset = utf-8
 indent_style = space
-indent_size = 2
-
-[*.py]
 indent_size = 4
+insert_final_newline = true
+tab_width = 4
 
 [*.md]
-indent_size = 4
-trim_trailing_whitespace = flase
+# Trailing whitespace is meaningful in markdown;
+# see https://daringfireball.net/projects/markdown/syntax#block
+trim_trailing_whitespace = false
