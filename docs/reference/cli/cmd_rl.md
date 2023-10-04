@@ -69,8 +69,7 @@ Soar tracks some RL statistics over the lifetime of the agent. These can be acce
 
 ### RL Delta-Bar-Delta
 
-This is an experimental feature of Soar RL. It based on the work in Richard S. Sutton's paper "Adapting Bias by Gradient Descent: An Incremental Version of Delta-Bar-Delta", available online at http://webdocs.cs.ualberta.ca/~sutton/papers/sutton-92a.pdf.
-
+This is an experimental feature of Soar RL. It based on the work in Richard S. Sutton's paper "Adapting Bias by Gradient Descent: An Incremental Version of Delta-Bar-Delta", available online at http://incompleteideas.net/papers/sutton-92a.pdf.
 Delta Bar Delta (DBD) is implemented in Soar RL as a decay mode. It changes the way all the rules in the eligibility trace get their values updated. In order to implement this, the agent gets an additional learning parameter **`meta-learning-rate`** and each rule gets two additional decay parameters: beta and h. The meta learning rate is set manually; the per-rule features are handled automatically by the DBD algorithm. The key idea is that the meta parameters keep track of how much a rule's RL value has been updated recently, and if a rule gets updates in the same direction multiple times in a row then subsequent updates in the same direction will have more effect. So DBD acts sort of like momentum for the learning rate.
 
 To enable DBD, use `rl --set decay-mode delta-bar-delta`. To change the meta learning rate, use e.g. `rl --set meta-learning-rate 0.1`. When you execute `rl`, under the "Experimental" section of output you'll see the current settings for `decay-mode` and `meta-learning-rate`. Also, if a rule gets printed concisely (e.g. by executing `p`), and the rule is an RL rule, and the decay mode is set to delta-bar-delta, then instead of printing the rule name followed by the update count and the RL value, it will print the rule name, beta, h, update count, and RL value.
