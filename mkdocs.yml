@@ -55,9 +55,19 @@ nav:
           - Publications: "soar/Publications.md"
           - Research Groups: "soar/ResearchGroups.md"
           - Academic Institutions: "soar/OtherAcademicInstitutions.md"
-          - Commerical Soar Organizations: "soar/CommercialSoarOrganizations.md"
+          - Commercial Soar Organizations: "soar/CommercialSoarOrganizations.md"
   - Soar Manual:
       - soar_manual/index.md
+      - Introduction:  "soar_manual/01_Introduction.md"
+      - The Soar Architecture: "soar_manual/02_TheSoarArchitecture.md"
+      - Syntax of Soar Programs: "soar_manual/03_SyntaxOfSoarPrograms.md"
+      - Procedural Knowledge Learning: "soar_manual/04_ProceduralKnowledgeLearning.md"
+      - Reinforcement Learning: "soar_manual/05_ReinforcementLearning.md"
+      - Semantic Memory: "soar_manual/06_SemanticMemory.md"
+      - Episodic Memory: "soar_manual/07_EpisodicMemory.md"
+      - Spatial Visual System: "soar_manual/08_SpatialVisualSystem.md"
+      - Soar User Interface: "soar_manual/09_SoarUserInterface.md"
+      - Blocksworld: "soar_manual/blocksworld.md"
   - Explanations:
       - explanations/index.md
   - Tutorials:
