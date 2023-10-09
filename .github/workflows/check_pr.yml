@@ -1,0 +1,25 @@
+name: Pull-Request Check
+
+on:
+  pull_request:
+
+jobs:
+  check-pull-request:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+
+    - uses: gaurav-nelson/github-action-markdown-link-check@v1
+      with:
+        check-modified-files-only: 'yes'
+        base-branch: main
+
+    - uses: DavidAnson/markdownlint-cli2-action@v13
+      continue-on-error: true
+      with:
+        globs: '**/*.md'
+        config: '.markdownlint.json'
+
+    - run: pip install -r requirements.txt
+    - run: mkdocs build -s -v
+
