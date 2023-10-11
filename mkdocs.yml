@@ -70,13 +70,27 @@ nav:
       - Blocksworld: "soar_manual/blocksworld.md"
   - Explanations:
       - explanations/index.md
+      - Basic Kernel Terminology: "explanations/BasicKernelTerminology.md"
+      - Design Dogma: "explanations/DesignDogma.md"
+      - Threads in SML: "explanations/ThreadsInSML.md"
+      - Timers: "explanations/Timers.md"
+      - Waterfall: "explanations/Waterfall.md"
   - Tutorials:
       - tutorials/index.md
+      - Java Soar Debugger Intro: tutorials/IntroSoarDebugger.md
+      - Soar Markup Language: tutorials/SMLQuickStartGuide.md
       - Official Soar Tutorials:
           - "tutorials/soar_tutorial/index.md"
+          - Tank and Eaters Configuration: "tutorials/soar_tutorial/TankEatersConfigFile.md"
   - HowTo Guides:
       - how_to/index.md
       - Building Soar and ROS1: "how_to/BuildingSoarRos.md"
+      - CLI Parsing Code: how_to/CLIParsingCode.md
+      - How to compile SML Clients: how_to/HowToCompileSmlClients.md
+      - IO and Reward Links: how_to/IOAndRewardLinks.md
+      - Memory Leak Debugging with Visual Studio: how_to/MemoryLeakDebuggingWithVisualStudio.md
+      - SML Output Link Guide: how_to/SMLOutputLinkGuide.md
+      - Soar Technical FAQ: how_to/SoarTechnicalFAQ.md
   - Reference:
       - reference/index.md
       - Command Line Interface: 
