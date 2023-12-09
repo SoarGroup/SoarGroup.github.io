@@ -15,7 +15,7 @@ jobs:
         base-branch: main
 
     - uses: DavidAnson/markdownlint-cli2-action@v13
-      continue-on-error: true
+      continue-on-error: false
       with:
         globs: '**/*.md'
         config: '.markdownlint.json'
