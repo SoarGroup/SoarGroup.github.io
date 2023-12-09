@@ -1,9 +1,10 @@
 name: Generate PDF Documenatation
 
-on: 
+on:
   push:
     branches:
       main
+  workflow_dispatch:
 
 jobs:
   convert_via_pandoc:
