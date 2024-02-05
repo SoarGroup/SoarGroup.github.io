@@ -6,12 +6,13 @@ authors:
 tags:
   - sml
   - threads
+  - architecture
 ---
 
 # Threads in SML
 
 This document is intended to explain how threads are used in Soar 8.6 and later
-(this document is being written against 8.6.3). It assumes you already have a
+(this document is up-to-date as of 9.6). It assumes you already have a
 passing familiarity with both Soar and the SML interface language. This is
 advanced reading, for those who want to understand everything that's going on
 "under the hood".
@@ -24,40 +25,40 @@ relatively simple. The kernel is either run in the client's thread or in its
 own separate thread. This choice is made by the client when it initializes the
 Soar kernel by calling either `Kernel::CreateKernelInCurrentThread()`
 or `Kernel::CreateKernelInNewThread()`. A remote connection
-(`Kernel::CreateRemoteConnection()`) doesn't affect the way the kernel is run,
+(`Kernel::CreateRemoteConnection()`) doesn't affect the way the kernel is run;
 this is determined by the local client that created the kernel initially. If
-the kernel is running in its own thread, I will name this thread the _KernelThread_.
+the kernel is running in its own thread, I will name this thread the _Kernel Thread_.
 
 The client side is potentially more complex. First, the client application may
 inherently be multi-threaded, such as a Java GUI app or it may be a simple
 single-threaded C++ program (e.g. a command line utility). Second, the calls to
 start Soar running (e.g. `RunAllAgentsForever`) block, so many clients will
 choose to execute this call in a separate thread in order to keep the rest of
-the application responsive. I'll call this the _RunThread_, which means the thread
+the application responsive. I'll call this the _Run Thread_, which means the thread
 where the run call is initiated. Finally, SML itself starts up (by default) a
-thread called the _EventThread_. This thread is intended to keep the client
+thread called the _Event Thread_. This thread is intended to keep the client
 responsive without a lot of work by the application developer.
 
 This gives us a picture of the overall set of threads:
 
 | Runs           | in         | Description                                                                                                                                                                 |
 | -------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| KernelThread   | Kernel     | Keeps the kernel responsive to external commands (i.e. ones coming in over a socket connection).                                                                            |
-| EventThread    | Client SML | Used to service incoming events sent by the kernel if Soar is not running (i.e. productions are not firing). This thread is optional but is created by default.             |
-| RunThread      | Client     | Point that run commands are executed. This thread is created by the client, either explicitly with a new thread or implicitly by calling run from the client's main thread. |
+| Kernel Thread   | Kernel     | Keeps the kernel responsive to external commands (i.e. ones coming in over a socket connection).                                                                            |
+| Event Thread    | Client SML | Used to service incoming events sent by the kernel if Soar is not running (i.e. productions are not firing). This thread is optional but is created by default.             |
+| Run Thread      | Client     | Point that run commands are executed. This thread is created by the client, either explicitly with a new thread or implicitly by calling run from the client's main thread. |
 | Client Threads | Client     | Other threads that the client application may have for its own use. Typical examples are window manager threads in GUI apps.                                                |
 
 ## Why Have Multiple Threads At All?
 
 As we're about to dive into the complexity of the threading in SML, one obvious
-question is why not just have a single thread and make everyone's life easier.
-Well, the answer is that would make the SML/ kernel developer's life easier but
-at the cost of making the client/ application developer's life harder. Let me
+question is: why not just have a single thread and make everyone's life easier?
+Well, the answer is that that would make the SML/ kernel developer's life easier, but
+at the cost of making the client/application developer's life harder. Let me
 explain why that is more fully.
 
 ## Why Have a Kernel Thread?
 
-With Soar 8.6 a single Soar kernel can have multiple clients connected to it at
+With Soar 9.6, a single Soar kernel can have multiple clients connected to it at
 once. A common situation is an environment in Java that has a local connection
 to the kernel itself. A debugger is connected remotely to the kernel and a
 logging application is also remotely connected. Commands can be sent to the
@@ -68,7 +69,7 @@ In the single-threaded model, the kernel is running in the same thread as the
 client that created it (in our example, the Java environment). In this case,
 the client is required to poll the socket periodically to see if new commands
 have arrived. This is exactly what the method `Kernel::CheckForIncomingCommands()`
-does and clients that call `CreateKernelInCurrentThread()` are required to call
+does, and clients that call `CreateKernelInCurrentThread()` are required to call
 this periodically. But making such periodic calls is often difficult for a
 client. In the case of the Java app the user would need to start some sort of
 timer and poll across to the kernel whenever it went off. If they fail to
@@ -82,21 +83,21 @@ if the client is not allowed to block while getting input from the keyboard.
 So the result is that we recommend running the kernel in its own thread in most
 cases. That separate thread checks for new commands coming in from either the
 socket or the local client. In this model, commands are always run in the
-kernel's thread. That means if the local client calls "run" what actually
-happens is that command is placed on a message queue and the kernel thread then
+kernel's thread. That means that, if the local client calls `run`, what actually
+happens is that the `run` command is placed on a message queue and the kernel thread then
 pulls the command from that queue and executes it. That's important to
-understand if you're trying to debug a problem at the kernel level as the
+understand if you're trying to debug a problem at the kernel level, since the
 client's function call just adds a message to a queue and you usually need to
 break the execution at the point that the kernel's thread has picked up the
 message (e.g. in `KernelSML::ProcessCommand()`). You won't see the client's
-triggering call higher up in the call stack at that point as it's in a
+triggering call higher up in the call stack at that point because it's in a
 different thread.
 
 ## Why Have an Event Thread?
 
 When Soar is running, it is constantly generating a stream of events. These
 events are posted to each client, allowing the client to know what's going on
-during the course of a run. The _EventThread_ exists to help clients remain
+during the course of a run. The _Event Thread_ exists to help clients remain
 responsive to these incoming events. The first thing to understand about Soar
 events is that they are **synchronous calls**. That is to say, the kernel blocks
 during the call to send each client a message that a particular event has
@@ -167,7 +168,7 @@ while (!stopped)
 
 With this model we really want the run call to block so that each single step
 was a single call (writing this where `Run-agents-1-step` is non-blocking would
-be much harder). But over the development of 8.6 we learned that we really
+be much harder). But, over the development of 8.6, we learned that we really
 didn't want this model and instead we now have a model more like this:
 
 ```Java
