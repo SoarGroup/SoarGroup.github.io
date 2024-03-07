@@ -112,7 +112,7 @@ gamut of tests that hand-written rules can and can have any element variablized.
       element.
       - For actions, the three elements refer to the identifier, attribute and
       value of the WME being created.
-- An element is either a variable, like `<s>` or a literal constant, like `23`,
+- An element is either a variable, like `<s>` or a literal constant, like `23`,
   `3.3`, or `someString`
 
 ### Identity
@@ -120,7 +120,7 @@ gamut of tests that hand-written rules can and can have any element variablized.
 Before we can discuss the algorithm, we must first define one of its central
 concepts: *identity*.
 
-- **An identity is the set of all variables in a trace that refer to the same
+- **An identity is the set of all variables in a trace that refer to the same
 underlying object.**
       - So we can say that two *variables* are said to *share an identity* if they
       both refer to the same underlying object.
@@ -527,10 +527,10 @@ To handle this limitation,EBC keeps track of all constraints found in
 non-operational conditions that it encounters while backtracing in the following
 manner:
 
-- It stores constraints on the value a single identity, for example>= 0,< 23.
-- It stores relational constraints between two identities, for example>
+- It stores constraints on the value a single identity, for example>= 0,< 23.
+- It stores relational constraints between two identities, for example>
 `<min>`, `< <max>` or `<> <other>`.
-- EBC stores all of these constraints based on the underlying identities, not
+- EBC stores all of these constraints based on the underlying identities, not
 the variables used. For example, if a variable<foo>had the constraint<> <other>,
 EBC would record that the variables that share the identity of<foo>cannot have
 the same value as variables that share the identity of<other>.
@@ -1194,18 +1194,18 @@ See Section 9.4.1 for more detailed information about the chunk command’s sett
 
 By default, explanation-based chunking is off.
 
-- To turn on chunking: `chunk always`
-- To turn off chunking: `chunk never`
+- To turn on chunking: `chunk always`
+- To turn off chunking: `chunk never`
 
 In real world agents, there may be certain problem spaces in which you don’t
 want your agent to learn rules. Chunking has a mechanism to allow agents to
 dynamically specify the states in which rules are learned.
 
-- To turn off chunking in all states except ones manually flagged on:
+- To turn off chunking in all states except ones manually flagged on:
    - Use chunk only setting.
    - Design an agent rule that executes the RHS action force-learn, which only
    matches in states in which you want to learn rules.
--To turn on chunking in all states except ones manually flagged off:
+- To turn on chunking in all states except ones manually flagged off:
    - Use chunk except setting.
    - Design an agent rule that executes the RHS action dont-learn, which only
    matches in states in which you don’t want to learn rules.
@@ -1267,32 +1267,32 @@ See Section 9.4.1 for more information about the chunk singleton command.
 
 **Printing Rules**
 
-To print all chunks learned: 
+- To print all chunks learned: 
 `print --chunks` or `print -c`
 
-To print all justifications learned (and still matching): 
+- To print all justifications learned (and still matching): 
 `print --justifications` or `print -j`
 
-To print a rule or justification:
+- To print a rule or justification:
 `print <rule-name>`
 
 For more information on print, see section 9.3.1 on page 217.
 
 **Trace Messages**
 
-To print when new rules are learned (just the name):
+- To print when new rules are learned (just the name):
 `trace --learning 1` or `trace -l 1`
 
-To print when new rules are learned (the full rule):
+- To print when new rules are learned (the full rule):
 `trace --learning 2` or `trace -l 2`
 
-To print a trace of the conditions as they are collected during backtracing:
+- To print a trace of the conditions as they are collected during backtracing:
 `trace --backtracing` or `trace -b`
 
-To print warnings about chunking issues detected while learning:
+- To print warnings about chunking issues detected while learning:
 `trace --chunk-warnings` or `trace -C`
 
-To print when learned chunks match and fire:
+- To print when learned chunks match and fire:
 `trace --backtracing` or `trace -b`
 
 For more information on trace, see section 9.6.1 on page 259.
@@ -1388,17 +1388,17 @@ mechanism as described in section 9.6.3 on page 269.
 
 #### Interrupting Execution To Examine Learning
 
-To stop Soar after each successful learning episode:
+- To stop Soar after each successful learning episode:
 ```
 chunk interrupt on
 ```
 
-To stop Soar after detecting any learning issue:
+- To stop Soar after detecting any learning issue:
 ```
 chunk warning-interrupt on
 ```
 
-To stop Soar after learning a rule that the explainer recorded:
+- To stop Soar after learning a rule that the explainer recorded:
 ```
 chunk explain-interrupt on
 ```

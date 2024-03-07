@@ -301,10 +301,12 @@ operator- no-change impasse. When this occurs, the number of decision cycles the
 RL operator at the superstate remains selected is dependent upon the processing
 in the impasse state. Consider the operator trace in Figure 5.1.
 
-At decision cycle 1, RL operatorO1is selected inS1and causes an
-operator-no-change impass for three decision cycles.  In the substateS2,
-operatorsO2,O3, andO4are selected and applied sequentially.  Meanwhile inS1,
-rewardsr 2 ,r 3 , andr 4 are put on thereward-linksequentially.  Finally, the
+- At decision cycle 1, RL operatorO1is selected inS1and causes an
+operator-no-change impass for three decision cycles.
+- In the substateS2,
+operatorsO2,O3, andO4are selected and applied sequentially.
+- Meanwhile inS1,
+rewardsr 2 ,r 3 , andr 4 are put on thereward-linksequentially.  - Finally, the
 impasse is resolved by O4, the proposal for O1 is retracted, and RL operatorO5is
 selected inS1.
 

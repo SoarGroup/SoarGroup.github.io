@@ -51,10 +51,13 @@ lowercase letters in a case-insensitive manner, for example, when using the
 [`print` command](../reference/cli/cmd_print.md). But internally, they are actually
 uppercase letters.)
 
-- **Constants**: There are three types of constants: integers, floating-point, and symbolic constants: - Integer constants (numbers). The range of values depends on the machine
+- **Constants**: There are three types of constants: integers, floating-point, and symbolic constants: 
+    - Integer constants (numbers). The range of values depends on the machine
   and implementation you’re using, but it is at least [-2 billion...+2
-  billion]. - Floating-point constants (numbers). The range depends on the machine and
-  implementation you’re using. - Symbolic constants. These are symbols with arbitrary names. A constant can use
+  billion]. 
+    - Floating-point constants (numbers). The range depends on the machine and
+  implementation you’re using. 
+    - Symbolic constants. These are symbols with arbitrary names. A constant can use
   any combination of letters, digits, or `$%&*+-/:<=>?_`. Other characters (such as blank
   spaces) can be included by surrounding the complete constant name with vertical
   bars: `|This is a constant|`. (The vertical bars aren’t part of the name; they’re
