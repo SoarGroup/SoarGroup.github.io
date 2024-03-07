@@ -1,3 +1,5 @@
+# Run this file from the root directory of this repository, otherwise
+# the template.tex file path does not match.
 mkdir output
 
 pandoc \
@@ -17,5 +19,5 @@ pandoc \
     docs/soar_manual/07_EpisodicMemory.md \
     docs/soar_manual/08_SpatialVisualSystem.md \
     docs/soar_manual/09_SoarUserInterface.md \
-    docs/reference/cli/* \
+    docs/reference/cli/*.md \
     -o output/SoarManual.pdf
