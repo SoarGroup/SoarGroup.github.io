@@ -2,12 +2,16 @@ site_name: Soar documentation
 repo_url: http://github.com/SoarGroup/Documentation
 repo_name: SoarGroup/Documentation
 copyright: SoarGroup &copy;
+edit_uri: edit/main/docs/
 
 theme:
   name: material
   locale: en
   features:
     - content.code.copy
+    - content.action.view
+    - content.action.edit
+    - content.tooltips
     - navigation.tabs
     - navigation.footer
     - navigation.top
@@ -15,16 +19,22 @@ theme:
     - navigation.expand
     - header.autohide
   palette:
-    - scheme: default
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
-    - scheme: slate
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
-  logo: Images/soar.png
-  custom_dir: overrides
+      logo: Images/soar.png
+      custom_dir: overrides
 
 extra_javascript:
   - javascripts/mathjax.js
@@ -41,50 +51,57 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.snippets
+  - abbr
+  - attr_list
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
   - pymdownx.superfences
   - attr_list
   - md_in_html
   - pymdownx.arithmatex:
       generic: true
 
+watch:
+  - includes
+
 nav:
   - Soar:
       - index.md
       - Research:
-          - Publications: "soar/Publications.md"
-          - Research Groups: "soar/ResearchGroups.md"
-          - Academic Institutions: "soar/OtherAcademicInstitutions.md"
-          - Commercial Soar Organizations: "soar/CommercialSoarOrganizations.md"
+          - Publications: soar/Publications.md
+          - Research Groups: soar/ResearchGroups.md
+          - Academic Institutions: soar/OtherAcademicInstitutions.md
+          - Commercial Soar Organizations: soar/CommercialSoarOrganizations.md
   - Soar Manual:
       - soar_manual/index.md
-      - Introduction:  "soar_manual/01_Introduction.md"
-      - The Soar Architecture: "soar_manual/02_TheSoarArchitecture.md"
-      - Syntax of Soar Programs: "soar_manual/03_SyntaxOfSoarPrograms.md"
-      - Procedural Knowledge Learning: "soar_manual/04_ProceduralKnowledgeLearning.md"
-      - Reinforcement Learning: "soar_manual/05_ReinforcementLearning.md"
-      - Semantic Memory: "soar_manual/06_SemanticMemory.md"
-      - Episodic Memory: "soar_manual/07_EpisodicMemory.md"
-      - Spatial Visual System: "soar_manual/08_SpatialVisualSystem.md"
-      - Soar User Interface: "soar_manual/09_SoarUserInterface.md"
-      - Blocksworld: "soar_manual/blocksworld.md"
+      - Introduction: soar_manual/01_Introduction.md
+      - The Soar Architecture: soar_manual/02_TheSoarArchitecture.md
+      - Syntax of Soar Programs: soar_manual/03_SyntaxOfSoarPrograms.md
+      - Procedural Knowledge Learning: soar_manual/04_ProceduralKnowledgeLearning.md
+      - Reinforcement Learning: soar_manual/05_ReinforcementLearning.md
+      - Semantic Memory: soar_manual/06_SemanticMemory.md
+      - Episodic Memory: soar_manual/07_EpisodicMemory.md
+      - Spatial Visual System: soar_manual/08_SpatialVisualSystem.md
+      - Soar User Interface: soar_manual/09_SoarUserInterface.md
+      - Blocksworld: soar_manual/blocksworld.md
   - Explanations:
       - explanations/index.md
-      - Basic Kernel Terminology: "explanations/BasicKernelTerminology.md"
-      - Design Dogma: "explanations/DesignDogma.md"
-      - Threads in SML: "explanations/ThreadsInSML.md"
-      - Timers: "explanations/Timers.md"
-      - Waterfall: "explanations/Waterfall.md"
+      - Basic Kernel Terminology: explanations/BasicKernelTerminology.md
+      - Design Dogma: explanations/DesignDogma.md
+      - Threads in SML: explanations/ThreadsInSML.md
+      - Timers: explanations/Timers.md
+      - Waterfall: explanations/Waterfall.md
   - Tutorials:
       - tutorials/index.md
       - Java Soar Debugger Intro: tutorials/IntroSoarDebugger.md
       - Soar Markup Language: tutorials/SMLQuickStartGuide.md
       - Official Soar Tutorials:
-          - "tutorials/soar_tutorial/index.md"
-          - Tank and Eaters Configuration: "tutorials/soar_tutorial/TankEatersConfigFile.md"
+          - tutorials/soar_tutorial/index.md
+          - Tank and Eaters Configuration: tutorials/soar_tutorial/TankEatersConfigFile.md
   - HowTo Guides:
       - how_to/index.md
-      - Building Soar and ROS1: "how_to/BuildingSoarRos.md"
+      - Building Soar and ROS1: how_to/BuildingSoarRos.md
       - CLI Parsing Code: how_to/CLIParsingCode.md
       - How to compile SML Clients: how_to/HowToCompileSmlClients.md
       - IO and Reward Links: how_to/IOAndRewardLinks.md
@@ -93,47 +110,45 @@ nav:
       - Soar Technical FAQ: how_to/SoarTechnicalFAQ.md
   - Reference:
       - reference/index.md
-      - Command Line Interface: 
-        - "reference/cli/index.md"
-        - alias: "reference/cli/cmd_alias.md"
-        - trace: "reference/cli/cmd_trace.md"
-        - help: "reference/cli/cmd_help.md"
-        - sp: "reference/cli/cmd_sp.md"
-        - load: "reference/cli/cmd_load.md"
-        - gp: "reference/cli/cmd_gp.md"
-        - wm: "reference/cli/cmd_wm.md"
-        - rl: "reference/cli/cmd_rl.md"
-        - default_wme_depth: "reference/cli/cmd_default_wme_depth.md"
-        - stop_soar: "reference/cli/cmd_stop_soar.md"
-        - alias: "reference/cli/cmd_alias.md"
-        - echo: "reference/cli/cmd_echo.md"
-        - command_to_file: "reference/cli/cmd_command_to_file.md"
-        - unalias: "reference/cli/cmd_unalias.md"
-        - epmem: "reference/cli/cmd_epmem.md"
-        - clog: "reference/cli/cmd_clog.md"
-        - visualize: "reference/cli/cmd_visualize.md"
-        - preference: "reference/cli/cmd_preferences.md"
-        - excise: "reference/cli/cmd_excise.md"
-        - production: "reference/cli/cmd_production.md"
-        - wma: "reference/cli/cmd_wma.md"
-        - smem: "reference/cli/cmd_smem.md"
-        - chunk: "reference/cli/cmd_chunk.md"
-        - soar: "reference/cli/cmd_soar.md"
-        - run: "reference/cli/cmd_run.md"
-        - svs: "reference/cli/cmd_svs.md"
-        - explain: "reference/cli/cmd_explain.md"
-        - init_soar: "reference/cli/cmd_init_soar.md"
-        - decide: "reference/cli/cmd_decide.md"
-        - print: "reference/cli/cmd_print.md"
-        - debug: "reference/cli/cmd_debug.md"
-        - stats: "reference/cli/cmd_stats.md"
-        - timers: "reference/cli/cmd_timers.md"
-        - watch: "reference/cli/cmd_watch.md"
-        - save: "reference/cli/cmd_save.md"
-        - max_nil_output_cycles: "reference/cli/cmd_max_nil_output_cycles.md"
-        - file_system: "reference/cli/cmd_file_system.md"
-        - output: "reference/cli/cmd_output.md"
-  - Tag Index: "soar/tags.md"
+      - Command Line Options for Debugging and CLI: reference/CommandLineOptionsForDebuggerAndCLI.md
+      - Command Line Interface:
+          - reference/cli/index.md
+          - alias: reference/cli/cmd_alias.md
+          - chunk: reference/cli/cmd_chunk.md
+          - command_to_file: reference/cli/cmd_command_to_file.md
+          - debug: reference/cli/cmd_debug.md
+          - decide: reference/cli/cmd_decide.md
+          - default_wme_depth: reference/cli/cmd_default_wme_depth.md
+          - echo: reference/cli/cmd_echo.md
+          - epmem: reference/cli/cmd_epmem.md
+          - excise: reference/cli/cmd_excise.md
+          - explain: reference/cli/cmd_explain.md
+          - file_system: reference/cli/cmd_file_system.md
+          - gp: reference/cli/cmd_gp.md
+          - help: reference/cli/cmd_help.md
+          - init_soar: reference/cli/cmd_init_soar.md
+          - load: reference/cli/cmd_load.md
+          - max_nil_output_cycles: reference/cli/cmd_max_nil_output_cycles.md
+          - output: reference/cli/cmd_output.md
+          - preference: reference/cli/cmd_preferences.md
+          - print: reference/cli/cmd_print.md
+          - production: reference/cli/cmd_production.md
+          - rl: reference/cli/cmd_rl.md
+          - run: reference/cli/cmd_run.md
+          - save: reference/cli/cmd_save.md
+          - smem: reference/cli/cmd_smem.md
+          - soar: reference/cli/cmd_soar.md
+          - sp: reference/cli/cmd_sp.md
+          - stats: reference/cli/cmd_stats.md
+          - stop_soar: reference/cli/cmd_stop_soar.md
+          - svs: reference/cli/cmd_svs.md
+          - timers: reference/cli/cmd_timers.md
+          - trace: reference/cli/cmd_trace.md
+          - visualize: reference/cli/cmd_visualize.md
+          - watch: reference/cli/cmd_watch.md
+          - wm: reference/cli/cmd_wm.md
+          - wma: reference/cli/cmd_wma.md
+  - Tag Index: soar/tags.md
 
 plugins:
   - search
