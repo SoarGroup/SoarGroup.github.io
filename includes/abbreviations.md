@@ -1,4 +1,4 @@
-<!-- <!-- markdownlint-disable-file MD041-->
+<!-- markdownlint-disable-file MD041-->
 
 *[SGIO]: Soar General Input/Output Interface
 *[Tcl]: Tool Command Language
