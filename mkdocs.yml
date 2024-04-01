@@ -107,6 +107,14 @@ nav:
       - Soar Markup Language: tutorials/SMLQuickStartGuide.md
       - Official Soar Tutorials:
           - tutorials/soar_tutorial/index.md
+          - Part I Simple Soar Programs: tutorials/soar_tutorial/01.md
+          - Part II Simple External Interaction: tutorials/soar_tutorial/02.md
+          - Part III Subgoals: tutorials/soar_tutorial/03.md
+          - Part IV More Simple Problem Solving: tutorials/soar_tutorial/04.md
+          - Part V Planning and Learning: tutorials/soar_tutorial/05.md
+          - Part VI Reinforcement Learning: tutorials/soar_tutorial/06.md
+          - Part VII Semantic Memory: tutorials/soar_tutorial/07.md
+          - Part VIII Episodic Memory: tutorials/soar_tutorial/08.md
           - Tank and Eaters Configuration: tutorials/soar_tutorial/TankEatersConfigFile.md
   - HowTo Guides:
       - how_to/index.md
