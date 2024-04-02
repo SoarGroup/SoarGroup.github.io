@@ -7,5 +7,9 @@
         "ul_multi": 3,
         "ol_multi": 2,
         "ol_single": 2
+    },
+    "MD013": {
+        "tables": false,
+        "code_blocks": false
     }
 }
