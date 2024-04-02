@@ -92,6 +92,7 @@ nav:
       - explanations/index.md
       - Basic Kernel Terminology: explanations/BasicKernelTerminology.md
       - Design Dogma: explanations/DesignDogma.md
+      - Soar Programmer's Guide: explanations/SoarProgrammersGuide.md
       - Threads in SML: explanations/ThreadsInSML.md
       - Timers: explanations/Timers.md
       - Waterfall: explanations/Waterfall.md
