@@ -4,6 +4,15 @@ mkdir output
 
 pandoc \
     --pdf-engine=lualatex \
+    --listings \
+    --number-sections \
+    --lua-filter=docs/soar_manual/path_filter.lua \
+    docs/reference/cli/cmd_*.md \
+    --shift-heading-level-by=1 \
+    -o output/cli.tex
+
+pandoc \
+    --pdf-engine=lualatex \
     --resource-path=docs/soar_manual/ \
     --template=docs/soar_manual/template.tex \
     --listings \
@@ -19,5 +28,7 @@ pandoc \
     docs/soar_manual/07_EpisodicMemory.md \
     docs/soar_manual/08_SpatialVisualSystem.md \
     docs/soar_manual/09_SoarUserInterface.md \
-    docs/reference/cli/*.md \
+    output/cli.tex \
     -o output/SoarManual.pdf
+
+rm output/cli.tex

@@ -119,20 +119,15 @@ nav:
           - reference/cli/index.md
           - alias: reference/cli/cmd_alias.md
           - chunk: reference/cli/cmd_chunk.md
-          - command_to_file: reference/cli/cmd_command_to_file.md
           - debug: reference/cli/cmd_debug.md
           - decide: reference/cli/cmd_decide.md
-          - default_wme_depth: reference/cli/cmd_default_wme_depth.md
           - echo: reference/cli/cmd_echo.md
           - epmem: reference/cli/cmd_epmem.md
-          - excise: reference/cli/cmd_excise.md
           - explain: reference/cli/cmd_explain.md
           - file_system: reference/cli/cmd_file_system.md
           - gp: reference/cli/cmd_gp.md
           - help: reference/cli/cmd_help.md
-          - init_soar: reference/cli/cmd_init_soar.md
           - load: reference/cli/cmd_load.md
-          - max_nil_output_cycles: reference/cli/cmd_max_nil_output_cycles.md
           - output: reference/cli/cmd_output.md
           - preference: reference/cli/cmd_preferences.md
           - print: reference/cli/cmd_print.md
@@ -144,14 +139,10 @@ nav:
           - soar: reference/cli/cmd_soar.md
           - sp: reference/cli/cmd_sp.md
           - stats: reference/cli/cmd_stats.md
-          - stop_soar: reference/cli/cmd_stop_soar.md
           - svs: reference/cli/cmd_svs.md
-          - timers: reference/cli/cmd_timers.md
           - trace: reference/cli/cmd_trace.md
           - visualize: reference/cli/cmd_visualize.md
-          - watch: reference/cli/cmd_watch.md
           - wm: reference/cli/cmd_wm.md
-          - wma: reference/cli/cmd_wma.md
   - Tag Index: soar/tags.md
 
 plugins:

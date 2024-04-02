@@ -1,36 +1,41 @@
-## File System
+# File System
 
 Soar can handle the following Unix-style file system navigation commands
 
-### pwd
+## pwd
 
 Print the current working directory.
 
-### ls
+## ls
 
 List the contents of the current working directory.
 
-### cd
+## cd
 
-Change the current working directory. If run with no arguments, returns to the directory that the command line interface was started in, often referred to as the _home_ directory.
+Change the current working directory. If run with no arguments, returns to the
+directory that the command line interface was started in, often referred to as
+the _home_ directory.
 
-### dirs
+## dirs
 
-This command lists the directory stack. Agents can move through a directory structure by pushing and popping directory names. The dirs command returns the stack.
+This command lists the directory stack. Agents can move through a directory
+structure by pushing and popping directory names. The dirs command returns the
+stack.
 
-### pushd
+## pushd
 
-Push the directory on to the stack. Can be relative path name or a fully specified one.
+Push the directory on to the stack. Can be relative path name or a fully
+specified one.
 
-### popd
+## popd
 
-Pop the current working directory off the stack and change to the next directory on the stack. Can be relative pathname or a fully specified path.
+Pop the current working directory off the stack and change to the next directory
+on the stack. Can be relative pathname or a fully specified path.
 
+## Default Aliases
 
-#### Default Aliases
-```
+```bash
 chdir        cd
 dir          ls
 topd         pwd
 ```
-

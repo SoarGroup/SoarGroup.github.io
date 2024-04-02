@@ -33,4 +33,4 @@ echo This is the first run with disks = 12
 
 ## See Also
 
-[clog](./cmd_output.md#default-aliases)
+-   [clog](./cmd_output.md#default-aliases)

@@ -1,18 +1,19 @@
-## help
+# help
 
 Provide formatted usage information about Soar commands.
 
-#### Synopsis
+## Synopsis
 
-```
+```bash
 help [command_name]
 ```
 
-### Default Aliases
+## Default Aliases
 
-- `?`
-- `man`
+-   `?`
+-   `man`
 
 ### Description
 
-This command prints formatted help for the given command name. Issue alone to see what topics have help available.
+This command prints formatted help for the given command name. Issue alone to
+see what topics have help available.

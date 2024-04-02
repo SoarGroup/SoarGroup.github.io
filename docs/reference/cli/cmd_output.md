@@ -154,10 +154,9 @@ be confusing.
 
 The `print-depth` command reflects the default depth used when working memory
 elements are printed (using the [print](./cmd_print.md)). The default value is
-
-1. This default depth can be overridden on any particular call to the
-   [print](./cmd_print.md) command by explicitly using the `--depth` flag, e.g.
-   `print --depth 10 args`.
+`1`. This default depth can be overridden on any particular call to the
+[print](./cmd_print.md) command by explicitly using the `--depth` flag, e.g.
+`print --depth 10 args`.
 
 By default, the [print](./cmd_print.md) command prints _objects_ in working
 memory, not just the individual working memory element. To limit the output to

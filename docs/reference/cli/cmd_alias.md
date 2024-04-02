@@ -18,8 +18,7 @@ post-pended to the given definition and then that entire string is executed as a
 command. The definition must be a single command, multiple commands are not
 allowed. The alias procedure checks to see if the name already exists, and does
 not destroy existing procedures or aliases by the same name. Existing aliases
-can be removed by using the [unalias](./cmd_alias.md#default-alias)
-command.
+can be removed by using the [unalias](#default-alias) command.
 
 ## Removing an existing alias
 
@@ -64,7 +63,7 @@ To check what a specific alias is defined as, you would type
 alias wmes
 ```
 
-### Default Alias
+## Default Alias
 
 ```bash
 a               alias

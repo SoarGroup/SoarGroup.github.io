@@ -1,10 +1,10 @@
-## explain
+# explain
 
 Allows you to explore how rules were learned.
 
-#### Synopsis
+## Synopsis
 
-```
+```bash
 ======= Explainer Commands and Settings =======
 explain ?                                             Print this help listing
 ---------------- What to Record ---------------
@@ -21,31 +21,36 @@ instantiation <inst id>                               Explain instantiation
 explanation-trace                                     Switch explanation trace
 wm-trace                                              Switch to WM trace
 ------------ Supporting Analysis --------------
-constraints                                           Display extra transitive 
-                                                       constraints required by 
+constraints                                           Display extra transitive
+                                                       constraints required by
                                                        problem-solving
-identity                                              Display identity to 
+identity                                              Display identity to
                                                        identity set mappings
-stats                                                 Display statistics about 
+stats                                                 Display statistics about
                                                        currently discussed chunk
 ------------------ Settings -------------------
-after-action-report                    [ on | OFF ]   Print statistics to file 
+after-action-report                    [ on | OFF ]   Print statistics to file
                                                        on init and exit
-only-chunk-identities                  [ ON | off ]   Identity analysis only 
-                                                       prints identities sets 
+only-chunk-identities                  [ ON | off ]   Identity analysis only
+                                                       prints identities sets
                                                        found in chunk
 -----------------------------------------------
 
 To change a setting:                               explain <setting> [<value>]
 For a detailed explanation of these settings:      help explain
 ```
+
 ### Summary Screen
 
-Using the `explain` command without any arguments will display a summary of which rule firings the explainer is watching for learning.  It also shows which chunk or justification the user has specified is the current focus of its output, i.e. the chunk being discussed.
+Using the `explain` command without any arguments will display a summary of
+which rule firings the explainer is watching for learning. It also shows which
+chunk or justification the user has specified is the current focus of its
+output, i.e. the chunk being discussed.
 
-Tip:  This is a good way to get a chunk id so that you don't have to type or paste in a chunk name.
+Tip: This is a good way to get a chunk id so that you don't have to type or
+paste in a chunk name.
 
-```
+```bash
 =======================================================
                    Explainer Summary
 =======================================================
@@ -72,13 +77,14 @@ Use 'explain chunk [ <chunk-name> | id ]' to discuss the formation of that chunk
 Use 'explain ?' to learn more about explain's sub-command and settings.
 ```
 
-### explain chunk
+## explain chunk
 
 This starts the process.
 
-Tip:  Use `c`, which is an alias to `explain chunk`, to quickly start discussing a chunk, for example:
+Tip: Use `c`, which is an alias to `explain chunk`, to quickly start discussing
+a chunk, for example:
 
-```
+```bash
 soar % c 3
 Now explaining chunk*apply*move-gripper-above*pass*top-state*OpNoChange*t6-1.
 - Note that future explain commands are now relative
@@ -108,11 +114,16 @@ sp {chunk*apply*move-gripper-above*pass*top-state*OpNoChange*t6-1
 2:    (<g2> ^destination <c1> +)                      ([165] ^destination [161] +)
 }
 ```
-### explain formation
 
-`explain formation` provides an explanation of the initial rule that fired which created a result. This is what is called the 'base instantiation' and is what led to the chunk being learned. Other rules may also be base instantiations if they previously created children of the base instantiation's results. They also will be listed in the initial formation output.
+## explain formation
 
-```
+`explain formation` provides an explanation of the initial rule that fired which
+created a result. This is what is called the 'base instantiation' and is what
+led to the chunk being learned. Other rules may also be base instantiations if
+they previously created children of the base instantiation's results. They also
+will be listed in the initial formation output.
+
+```bash
 soar % explain formation
 ------------------------------------------------------------------------------------
 The formation of chunk 'chunk*apply*move-gripper-above*pass*top-state*OpNoChange*t6-1' (c 1)
@@ -136,21 +147,27 @@ Explanation trace of instantiation # 31            (match of rule apply*move-gri
 2:    (<gripper> ^destination <des> +)             ([165] ^destination [161] +)
 ------
 ```
+
 This chunk summarizes the problem-solving involved in the following 5 rule firings:
-```
+
+```bash
    i 27 (elaborate*state*top-state)
    i 28 (elaborate*state*operator*name)
    i 29 (pick-up*elaborate*desired)
    i 30 (pick-up*propose*move-gripper-above)
    i 31 (apply*move-gripper-above*pass*top-state)
 ```
-### explain instantiation
 
-This is probably one of the most common things you will do while using the explainer.  You are essentially browsing the instantiation graph one rule at a time.
+## explain instantiation
 
-Tip:  Use `i`, which is an alias to `explain instantiation`, to quickly view an instantiation, for example:
+This is probably one of the most common things you will do while using the
+explainer. You are essentially browsing the instantiation graph one rule at a
+time.
 
-```
+Tip: Use `i`, which is an alias to `explain instantiation`, to quickly view an
+instantiation, for example:
+
+```bash
 soar % i 30
 Explanation trace of instantiation # 30            (match of rule pick-up*propose*move-gripper-above at level 3)
 - Shortest path to a result: i 30 -> i 31
@@ -170,15 +187,20 @@ Explanation trace of instantiation # 30            (match of rule pick-up*propos
 2:    (<op1> ^name move-gripper-above +)           ([158] ^name move-gripper-above +)
 3:    (<op1> ^destination <mblock> +)              ([158] ^destination [154] +)
 ```
-### explain explanation-trace and wm-trace
 
-In most cases, users spend most of their time browsing the explanation trace. This is where chunking learns most of the subtle relationships that you are likely to be debugging. But users will also need to examine the working memory trace to see the specific values matched.  
+## explain explanation-trace and wm-trace
+
+In most cases, users spend most of their time browsing the explanation trace.
+This is where chunking learns most of the subtle relationships that you are
+likely to be debugging. But users will also need to examine the working memory
+trace to see the specific values matched.
 
 To switch between traces, you can use the `explain e` and the `explain w` commands.
 
-Tip:  Use `et` and 'wt', which are aliases to the above two commands, to quickly switch between traces.
+Tip: Use `et` and 'wt', which are aliases to the above two commands, to quickly
+switch between traces.
 
-```
+```bash
 soar % explain w
 Working memory trace of instantiation # 30     (match of rule pick-up*propose*move-gripper-above at level 3)
 1:    (S9 ^name pick-up)                               No         i 28 (elaborate*state*operator*name)
@@ -195,23 +217,41 @@ Working memory trace of instantiation # 30     (match of rule pick-up*propose*mo
 2:    (O9 ^name move-gripper-above) +
 3:    (O9 ^destination B3) +
 ```
-### explain constraints
 
-This feature explains any constraints on the value of variables in the chunk that were required by the problem-solving that occurred in the substate. If these constraints were not met, the problem-solving would not have occurred.
+## explain constraints
 
-Explanation-based chunking tracks constraints as they apply to identity sets rather than how they apply to specific variables or identifiers.  This means that sometimes constraints that appear in a chunk may have been a result of conditions that tested sub-state working memory element. Such conditions don't result in actual conditions in the chunk, but they can provide constraints. `explain constraints` allows users to see where such constraints came from.
+This feature explains any constraints on the value of variables in the chunk
+that were required by the problem-solving that occurred in the substate. If
+these constraints were not met, the problem-solving would not have occurred.
 
-This feature is not yet implemented. You can use `explain stats` to see if any transitive constraints were added to a particular chunk.
+Explanation-based chunking tracks constraints as they apply to identity sets
+rather than how they apply to specific variables or identifiers. This means that
+sometimes constraints that appear in a chunk may have been a result of
+conditions that tested sub-state working memory element. Such conditions don't
+result in actual conditions in the chunk, but they can provide constraints.
+`explain constraints` allows users to see where such constraints came from.
 
-### explain identity
+This feature is not yet implemented. You can use `explain stats` to see if any
+transitive constraints were added to a particular chunk.
 
-`explain identity` will show the mappings from variable identities to identity sets. If available, the variable in a chunk that an identity set maps to will also be displayed. (Requires a debug build because of efficiency cost.)
+## explain identity
 
-Variable identities are the ID values that are displayed when explaining an individual chunk or instantiation. An identity set is a set of variable identities that were unified to a particular variable mapping. The null identity set indicates identities that should not be generalized, i.e. they retain their matched literal value even if the explanation trace indicates that the original rule had a variable in that element.
+`explain identity` will show the mappings from variable identities to identity
+sets. If available, the variable in a chunk that an identity set maps to will
+also be displayed. (Requires a debug build because of efficiency cost.)
 
-By default, only identity sets that appear in the chunk will be displayed in the identity analysis. To see the identity set mappings for other sets, change the `only-chunk-identities` setting to `off`.
+Variable identities are the ID values that are displayed when explaining an
+individual chunk or instantiation. An identity set is a set of variable
+identities that were unified to a particular variable mapping. The null identity
+set indicates identities that should not be generalized, i.e. they retain their
+matched literal value even if the explanation trace indicates that the original
+rule had a variable in that element.
 
-```
+By default, only identity sets that appear in the chunk will be displayed in the
+identity analysis. To see the identity set mappings for other sets, change the
+`only-chunk-identities` setting to `off`.
+
+```bash
 soar % explain identity
 =========================================================================
 -             Variablization Identity to Identity Set Mappings          -
@@ -249,10 +289,11 @@ Instantiation 65:
   319 -> 492          | IdSet 20  | <t>       | New identity set
 ```
 
-### explain stats
+## explain stats
 
 `explain stats` prints statistics about the chunk being discussed.
-```
+
+```bash
 ===========================================================
 Statistics for 'chunk*apply*move-gripper-above*pass*top-state*OpNoChange*t6-1' (c 1):
 ===========================================================
@@ -279,20 +320,36 @@ Constraints attached                                       0
 Duplicates chunks later created                            0
 Conditions merged                                          2
 ```
-### After-Action Reports
 
-The explainer has an option to create text files that contain statistics about the rules learned by an agent during a particular run. When enabled, the explainer will write out a file with the statistics when either Soar exits or a `soar init` is executed.  This option is still considered experimental and in beta.
+## After-Action Reports
 
-### Visualizing an Explanation
+The explainer has an option to create text files that contain statistics about
+the rules learned by an agent during a particular run. When enabled, the
+explainer will write out a file with the statistics when either Soar exits or a
+`soar init` is executed. This option is still considered experimental and in
+beta.
 
-Soar's `visualize` command allows you to create images that represent processing that the explainer recorded.  There are two types of explainer-related visualizations.
+## Visualizing an Explanation
 
-(1) The visualizer can create an image that shows the entire instantiation graph at once and how it contributed to the learned rule.  The graph includes arrows that show the dependencies between actions in one rule and conditions in others.  This image is one of the most effective ways to understand how a chunk was formed, especially for particularly complex chunks.  To use this feature, first choose a chunk for discussion.  You can then issue the `visualize` command with the appropriate settings.
+Soar's `visualize` command allows you to create images that represent processing
+that the explainer recorded. There are two types of explainer-related
+visualizations.
 
-(2) The visualizer can also create an image that shows how identities were joined during identity analysis.  This can be useful in determining why two elements were assigned the same variable.
+(1) The visualizer can create an image that shows the entire instantiation graph
+at once and how it contributed to the learned rule. The graph includes arrows
+that show the dependencies between actions in one rule and conditions in others.
+This image is one of the most effective ways to understand how a chunk was
+formed, especially for particularly complex chunks. To use this feature, first
+choose a chunk for discussion. You can then issue the `visualize` command with
+the appropriate settings.
 
-### Default Aliases
-```
+(2) The visualizer can also create an image that shows how identities were
+joined during identity analysis. This can be useful in determining why two
+elements were assigned the same variable.
+
+## Default Aliases
+
+```bash
 c    explain chunk
 i    explain instantiation
 
@@ -304,7 +361,7 @@ et   explain explanation-trace
 wt   explain wm-trace
 ```
 
-### See Also
+## See Also
 
-[chunk](./cmd_chunk.md) 
-[visualize](./cmd_visualize.md)
+-   [chunk](./cmd_chunk.md)
+-   [visualize](./cmd_visualize.md)
