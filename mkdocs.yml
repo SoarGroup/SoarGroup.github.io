@@ -64,6 +64,7 @@ markdown_extensions:
 
 watch:
   - includes
+  - overrides
 
 nav:
   - Soar:
