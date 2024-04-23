@@ -47,7 +47,7 @@ about working memory activation.
 
 To get the activation of individual WMEs, use `print -i`.
 To get the reference history of an individual WME, use
-`wm activation -h|--history `<`timetag`>. For example:
+`wm activation -h|--history <timetag>`. For example:
 
 ```bash
 print --internal s1

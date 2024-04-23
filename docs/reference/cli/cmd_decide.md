@@ -1,6 +1,7 @@
 # decide
 
-Commands and settings related to the selection of operators during the Soar decision process
+Commands and settings related to the selection of operators during the Soar
+decision process
 
 ## Synopsis
 

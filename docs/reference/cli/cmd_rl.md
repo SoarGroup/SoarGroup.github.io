@@ -83,7 +83,7 @@ statistic will list the values of all statistics.
 This is an experimental feature of Soar RL. It based on the work in Richard S.
 Sutton's paper "Adapting Bias by Gradient Descent: An Incremental Version of
 Delta-Bar-Delta", available online at
-http://incompleteideas.net/papers/sutton-92a.pdf.
+<http://incompleteideas.net/papers/sutton-92a.pdf>.
 Delta Bar Delta (DBD) is implemented in Soar RL as a decay mode. It changes the
 way all the rules in the eligibility trace get their values updated. In order to
 implement this, the agent gets an additional learning parameter
@@ -178,7 +178,7 @@ default behavior for `rl -t` is to print the trace for the top state.)
 
 Here are some sample dot invocations for the top state:
 
-| **Option**                   | **Description**                |
+| **Option**                   | **Description**                |                                              |
 | :--------------------------- | :----------------------------- | -------------------------------------------- |
 | `dot -Tps rl.dot -o rl.ps`   | `ps2pdf rl.ps`                 | Generate a .ps file and convert it to .pdf.  |
 | `dot -Tsvg rl.dot -o rl.svg` | `inkscape -f rl.svg -A rl.pdf` | Generate a .svg file and convert it to .pdf. |

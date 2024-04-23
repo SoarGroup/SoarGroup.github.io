@@ -97,7 +97,7 @@ Source finished.
 
 A list of excised productions is available using the `-v` flag:
 
-```
+```bash
 agent> source demos/mac/mac.soar -v
 #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 Total: 18 productions sourced. 18 productions excised.

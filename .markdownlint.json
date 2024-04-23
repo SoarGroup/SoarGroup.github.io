@@ -8,6 +8,9 @@
         "ol_multi": 2,
         "ol_single": 2
     },
+    "MD024": {
+        "siblings_only": true
+    },
     "MD013": {
         "tables": false,
         "code_blocks": false

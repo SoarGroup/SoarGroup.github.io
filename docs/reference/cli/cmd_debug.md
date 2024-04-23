@@ -1,6 +1,7 @@
 # debug
 
-Contains commands that provide access to Soar's internals. Most users will not need to access these commands.
+Contains commands that provide access to Soar's internals. Most users will not
+need to access these commands.
 
 ## Synopsis
 
