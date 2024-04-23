@@ -11,3 +11,6 @@ tab_width = 4
 # Trailing whitespace is meaningful in markdown;
 # see https://daringfireball.net/projects/markdown/syntax#block
 trim_trailing_whitespace = false
+
+[*.yml]
+indent_size = 2
