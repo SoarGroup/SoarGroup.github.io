@@ -4,3 +4,4 @@
 *[Tcl]: Tool Command Language
 *[DARPA]: Defense Advanced Research Projects Agency
 *[SML]: Soar Markup Language
+*[GDS]: Goal Dependency Set

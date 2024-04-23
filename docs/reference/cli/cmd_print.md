@@ -59,15 +59,16 @@ print [--gds --stack]
 
 `print --gds`
 
-The Goal Dependency Set (GDS) is described in a subsection of the `The Soar
-Architecture` chapter of the manual. This command is a debugging command for
-examining the GDS for each goal in the stack. First it steps through all the
-working memory elements in the rete, looking for any that are included in _any_
-goal dependency set, and prints each one. Then it also lists each goal in the
-stack and prints the wmes in the goal dependency set for that particular goal.
-This command is useful when trying to determine why subgoals are disappearing
-unexpectedly: often something has changed in the goal dependency set, causing a
-subgoal to be regenerated prior to producing a result.
+The Goal Dependency Set (GDS) is described in a subsection of the
+[The Soar Architecture](./../../soar_manual/02_TheSoarArchitecture.md#removal-of-substates-the-goal-dependency-set)
+chapter of the manual. This command is a debugging command for examining the GDS
+for each goal in the stack. First it steps through all the working memory
+elements in the rete, looking for any that are included in _any_ goal dependency
+set, and prints each one. Then it also lists each goal in the stack and prints
+the wmes in the goal dependency set for that particular goal.  This command is
+useful when trying to determine why subgoals are disappearing unexpectedly:
+often something has changed in the goal dependency set, causing a subgoal to be
+regenerated prior to producing a result.
 
 `print --gds` is horribly inefficient and should not generally be used except
 when something is going wrong and you need to examine the Goal Dependency Set.
@@ -139,12 +140,14 @@ print s1 --depth 2 --tree
 
 ## Default Aliases
 
+```bash
 p print
 pc print --chunks
 ps print --stack
 wmes print --depth 0 --internal
 varprint print --varprint --depth 100
 gds_print print --gds
+```
 
 ## See Also
 
