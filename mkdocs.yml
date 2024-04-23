@@ -1,7 +1,7 @@
 site_name: Soar website
 repo_url: http://github.com/SoarGroup/SoarGroup.github.io
 repo_name: SoarGroup/SoarGroup.github.io
-copyright: SoarGroup &copy;
+copyright: Copyright &copy; SoarGroup 2024
 edit_uri: edit/main/docs/
 
 theme:
