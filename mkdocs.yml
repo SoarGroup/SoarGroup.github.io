@@ -1,6 +1,6 @@
-site_name: Soar documentation
-repo_url: http://github.com/SoarGroup/Documentation
-repo_name: SoarGroup/Documentation
+site_name: Soar website
+repo_url: http://github.com/SoarGroup/SoarGroup.github.io
+repo_name: SoarGroup/SoarGroup.github.io
 copyright: SoarGroup &copy;
 edit_uri: edit/main/docs/
 
