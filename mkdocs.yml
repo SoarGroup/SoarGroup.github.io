@@ -6,6 +6,7 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
+  custom_dir: overrides
   locale: en
   features:
     - content.code.copy
@@ -34,7 +35,6 @@ theme:
         icon: material/toggle-switch
         name: Switch to light mode
       logo: Images/soar.png
-      custom_dir: overrides
 
 extra_javascript:
   - javascripts/mathjax.js
