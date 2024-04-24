@@ -1,6 +1,6 @@
 site_name: Soar Home
-repo_url: http://github.com/SoarGroup/SoarGroup.github.io
-repo_name: SoarGroup/SoarGroup.github.io
+repo_url: https://github.com/SoarGroup/SoarGroup.github.io
+repo_name: https://github.com/SoarGroup/Soar
 copyright: Copyright &copy; SoarGroup 2024
 edit_uri: edit/main/docs/
 
@@ -37,7 +37,7 @@ theme:
       logo: Images/soar.png
 
 extra_javascript:
-  - javascripts/mathjax.js
+  - javascript/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
@@ -62,9 +62,15 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 
+# watch these directories *in addition to* the ones mkdocs watches by default
 watch:
   - includes
   - overrides
+
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/SoarGroup/SoarGroup.github.io
 
 nav:
   - Home:
