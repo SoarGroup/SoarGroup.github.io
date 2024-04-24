@@ -1,71 +1,17 @@
-# What is Soar?
+# Soar Homepage
 
-Soar is a general cognitive architecture for developing systems that exhibit
-intelligent behavior. Researchers all over the world, both from the fields of
-artificial intelligence and cognitive science, are using Soar for a variety of
-tasks. It has been in use since 1983, evolving through many different versions
-to where it is now Soar, Version 9.
+Soar is a general cognitive architecture for developing systems that exhibit intelligent behavior. For more in-depth information, see our [about](soar/About.md) page, or J.E. Laird's 2012 book, [*The Soar Cognitive Architecture*](http://www.eecs.umich.edu/~soar/sitemaker/misc/7688_jkt_au.pdf), available from [Amazon](http://www.amazon.com/Soar-Cognitive-Architecture-John-Laird/dp/0262122960/ref=sr_1_sc_1?ie=UTF8&qid=1332172759&sr=8-1-spell) and [MIT Press](https://web.archive.org/web/20240405085728/https://mitpress.mit.edu/books/soar-cognitive-architecture).
 
-We intend ultimately to enable the Soar architecture to:
+To get started, [download Soar](https://github.com/SoarGroup/Soar/releases/tag/releases/9.6.2) and follow the [quick start guide](./soar/QuickStart).
 
-- work on the full range of tasks expected of an intelligent agent, from highly
-  routine to extremely difficult, open-ended problems
-- represent and use appropriate forms of knowledge, such as procedural,
-  semantic, episodic, and iconic
-- employ the full range of problem solving methods
-- interact with the outside world, and
-- learn about all aspects of the tasks and its performance on them.
+## News and Announcements
 
-In other words, our intention is for Soar to support all the capabilities
-required of a general intelligent agent.
-
-The ultimate in intelligence would be complete rationality which would imply the
-ability to use all available knowledge for every task that the system
-encounters. Unfortunately, the complexity of retrieving relevant knowledge puts
-this goal out of reach as the body of knowledge increases, the tasks are made
-more diverse, and the requirements in system response time more stringent. The
-best that can be obtained currently is an approximation of complete rationality.
-The design of Soar can be seen as an investigation of one such approximation.
-Below is the primary principle which is the basis of Soar's design and which
-guides its attempt to approximate rational behavior.
-
-All decisions are made through the combination of relevant knowledge at
-run-time. In Soar, every decision is based on the current interpretation of
-sensory data, the contents of working memory created by prior problem solving,
-and any relevant knowledge retrieved from long-term memory. Decisions are never
-precompiled into uninterruptible sequences. For many years, a secondary
-principle has been that the number of distinct architectural mechanisms should
-be minimized. Through Soar 8, there has been a single framework for all tasks
-and subtasks (problem spaces), a single representation of permanent knowledge
-(productions), a single representation of temporary knowledge (objects with
-attributes and values), a single mechanism for generating goals (automatic
-subgoaling), and a single learning mechanism (chunking). We have revisited this
-assumption as we attempt to ensure that all available knowledge can be captured
-at runtime without disrupting task performance. This is leading to multiple
-learning mechanisms (chunking, reinforcement learning, episodic learning, and
-semantic learning), and multiple representations of long-term knowledge
-(productions for procedural knowledge, semantic memory, and episodic memory).
-
-Two additional principles that guide the design of Soar are functionality and
-performance. Functionality involves ensuring that Soar has all of the primitive
-capabilities necessary to realize the complete suite of cognitive capabilities
-used by humans, including, but not limited to reactive decision making,
-situational awareness, deliberate reasoning and comprehension, planning, and all
-forms of learning. Performance involves ensuring that there are computationally
-efficient algorithms for performing the primitive operations in Soar, from
-retrieving knowledge from long-term memories, to making decisions, to acquiring
-and storing new knowledge.
-
-For further background on Soar, we recommend *Introduction to Soar* at
-<https://arxiv.org/abs/2205.03854> and *The Soar Cognitive Architecture* Laird,
-J.  E.(2012), The Soar Papers: *Readings on Integrated Intelligence*,
-Rosenbloom, Laird, and Newell (1993), and *Unified Theories of Cognition*,
-Newell (1990). Also available are *Soar: A Functional Approach to General
-Intelligence* and *Soar: A comparison with Rule-Based Systems*. There is also a
-full [list of publications available](./soar/Publications.md). Entries on
-the Soar Knowledge Base and the older 
-[Soar FAQ](http://acs.ist.psu.edu) also provide answers to many common
-questions about Soar.
-
-We would like to extend a special thank you to DARPA, ONR and AFOSR for their
-continued support of Soar and projects related to Soar.
+* [**Soar 9.6.2 available for download**](https://github.com/SoarGroup/Soar/releases/tag/releases/9.6.2): This release of Soar contains ergonomic improvements to the debugger and Soar CLI, lots of new VisualSoar features, and plenty of bug fixes and stability improvements.
+* **43rd Soar Workshop 2023** The University of Michigan Soar group will host the 43rd Soar Workshop from June 14th-15th 2023. There will be a beginner Soar tutorial on June 12th-13th and an advanced tutorial on June 15th-16th.
+* **No VISCA 2023**
+* [**A Demonstration of Compositional, Hierarchical Interactive Task Learning**](https://cse.engin.umich.edu/stories/aaai-best-demonstration-award-for-developing-an-ai-agent-that-learns-tasks-from-natural-language-instructions) Mininger and Laird win Best Demonstratation for the 2022 AAAI Conference.
+* [**VISCA-2021**](https://visca.engin.umich.edu/) The University of Michigan Soar group hosted VISCA-2021, the Virtual International Symposium on Cognitive Architecture, on June 7-11, 2021. VISCA included leaders from across the breadth of cognitive architecture, including research on modeling human behavior, neural-cognitive architectures, functional capabilities of cognitive architectures, components of cognitive architectures, and their applications. Follow the link to learn more.
+* [**Rosie is on GitHub**](https://soargroup.github.io/rosie/) To learn more about the Soar group's interactive task learning (ITL) research, please visit the recently updated Rosie site.
+* [**Laird and Rosenbloom awarded Herbert A. Simon Prize**](https://news.engin.umich.edu/2019/01/recognizing-a-lifetime-of-achievement-in-cognitive-systems/) Congratulations to Professor John Laird and Professor Paul Rosenbloom for being awarded the 2018 Herbert A. Simon Prize for Advances in Cognitive Systems! This lifetime achievement award recognizes their 30 years of research on cognitive architectures, especially their Soar project, their applications to knowledge-based systems and models of human cognition, and their contributions to theories of representation, reasoning, problem solving, and learning.
+* [**Soar dances at the Smithsonian**](https://web.archive.org/web/20240405085728/https://drive.google.com/file/d/0B7Q1JqWywb_ndDBILVUwd084N00/view) LuminAI is a dome-based art installation at the National Museum of American History in which participants can engage in collaborative movement improvisation with each other and with virtual Soar-based dance partners, developed at the ADAM Lab. (event)
+* [**Soar goes underwater**](https://web.archive.org/web/20240405085728/https://www.youtube.com/watch?v=0uvAieZqwEQ) WPSU, Penn State's PBS affiliate, produced a news piece featuring IVER; an autonomous underwater vehicle piloted by Soar agents that is being developed at ARL.

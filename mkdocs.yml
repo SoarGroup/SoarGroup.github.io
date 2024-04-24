@@ -1,4 +1,4 @@
-site_name: Soar website
+site_name: Soar Home
 repo_url: http://github.com/SoarGroup/SoarGroup.github.io
 repo_name: SoarGroup/SoarGroup.github.io
 copyright: Copyright &copy; SoarGroup 2024
@@ -69,6 +69,8 @@ watch:
 nav:
   - Soar:
       - index.md
+      - Quick Start: soar/QuickStart.md
+      - About: soar/About.md
       - Research:
           - Publications: soar/Publications.md
           - Research Groups: soar/ResearchGroups.md
@@ -109,6 +111,8 @@ nav:
       - Memory Leak Debugging with Visual Studio: how_to/MemoryLeakDebuggingWithVisualStudio.md
       - SML Output Link Guide: how_to/SMLOutputLinkGuide.md
       - Soar Technical FAQ: how_to/SoarTechnicalFAQ.md
+  - Support:
+      - support/index.md
   - Reference:
       - reference/index.md
       - Command Line Options for Debugging and CLI: reference/CommandLineOptionsForDebuggerAndCLI.md

@@ -6,6 +6,8 @@ This repository contains the source for the (new as of 2024) homepage for the So
 
 The website is not yet fully migrated from the old site, and is still under construction.
 
+The site is built using the [MkDocs](https://www.mkdocs.org/), a static site generator that uses Markdown files to generate a website. The theme is [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
+
 ## Setup/Running
 
     python -m venv
