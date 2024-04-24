@@ -1,11 +1,12 @@
 ---
-source: https://soar.eecs.umich.edu/articles/articles/technical-documentation/198-basic-kernel-terminology
 date: 2014-10-07
 authors:
    - soar
 tags:
    - kernel programming
 ---
+
+<!-- old URL: https://soar.eecs.umich.edu/articles/articles/technical-documentation/198-basic-kernel-terminology -->
 
 # Basic Kernel Terminology
 
