@@ -67,15 +67,15 @@ watch:
   - overrides
 
 nav:
-  - Soar:
+  - Home:
       - index.md
-      - Quick Start: soar/QuickStart.md
-      - About: soar/About.md
+      - Quick Start: home/QuickStart.md
+      - About: home/About.md
       - Research:
-          - Publications: soar/Publications.md
-          - Research Groups: soar/ResearchGroups.md
-          - Academic Institutions: soar/OtherAcademicInstitutions.md
-          - Commercial Soar Organizations: soar/CommercialSoarOrganizations.md
+          - Publications: home/Publications.md
+          - Research Groups: home/ResearchGroups.md
+          - Academic Institutions: home/OtherAcademicInstitutions.md
+          - Commercial Soar Organizations: home/CommercialSoarOrganizations.md
   - Soar Manual:
       - soar_manual/index.md
       - Introduction: soar_manual/01_Introduction.md
@@ -153,10 +153,10 @@ nav:
           - watch: reference/cli/cmd_watch.md
           - wm: reference/cli/cmd_wm.md
           - wma: reference/cli/cmd_wma.md
-  - Tag Index: soar/tags.md
+  - Tag Index: home/tags.md
 
 plugins:
   - search
   - img2figv2
   - tags:
-      tags_file: soar/tags.md
+      tags_file: home/tags.md

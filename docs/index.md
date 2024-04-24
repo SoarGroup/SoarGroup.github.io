@@ -1,8 +1,8 @@
 # Soar Homepage
 
-Soar is a general cognitive architecture for developing systems that exhibit intelligent behavior. For more in-depth information, see our [about](soar/About.md) page, or J.E. Laird's 2012 book, [*The Soar Cognitive Architecture*](http://www.eecs.umich.edu/~soar/sitemaker/misc/7688_jkt_au.pdf), available from [Amazon](http://www.amazon.com/Soar-Cognitive-Architecture-John-Laird/dp/0262122960/ref=sr_1_sc_1?ie=UTF8&qid=1332172759&sr=8-1-spell) and [MIT Press](https://web.archive.org/web/20240405085728/https://mitpress.mit.edu/books/soar-cognitive-architecture).
+Soar is a general cognitive architecture for developing systems that exhibit intelligent behavior. For more in-depth information, see our [about](home/About.md) page, or J.E. Laird's 2012 book, [*The Soar Cognitive Architecture*](http://www.eecs.umich.edu/~soar/sitemaker/misc/7688_jkt_au.pdf), available from [Amazon](http://www.amazon.com/Soar-Cognitive-Architecture-John-Laird/dp/0262122960/ref=sr_1_sc_1?ie=UTF8&qid=1332172759&sr=8-1-spell) and [MIT Press](https://web.archive.org/web/20240405085728/https://mitpress.mit.edu/books/soar-cognitive-architecture).
 
-To get started, [download Soar](https://github.com/SoarGroup/Soar/releases/tag/releases/9.6.2) and follow the [quick start guide](./soar/QuickStart).
+To get started, [download Soar](https://github.com/SoarGroup/Soar/releases/tag/releases/9.6.2) and follow the [quick start guide](home/QuickStart.md).
 
 ## News and Announcements
 
