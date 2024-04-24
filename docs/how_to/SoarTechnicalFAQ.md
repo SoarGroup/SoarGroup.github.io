@@ -1,11 +1,12 @@
 ---
-source: https://soar.eecs.umich.edu/articles/articles/faqs-and-guides/75-soar-technical-faq
 date: 2014-08-14
 authors:
     - soar
 tags:
     - sml
 ---
+
+<!-- old URL: https://soar.eecs.umich.edu/articles/articles/faqs-and-guides/75-soar-technical-faq -->
 
 # Soar Technical FAQ
 

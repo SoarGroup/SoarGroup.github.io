@@ -6,10 +6,11 @@ authors:
     - Andrew Nuxoll
     - John Laird
 version: 0.6
-source: https://soar.eecs.umich.edu/articles/articles/faqs-and-guides/77-soar-design-dogma
 tags:
     - agent debugging
 ---
+
+<!-- old URL: https://soar.eecs.umich.edu/articles/articles/faqs-and-guides/77-soar-design-dogma -->
 
 # Soar Design Dogma
 

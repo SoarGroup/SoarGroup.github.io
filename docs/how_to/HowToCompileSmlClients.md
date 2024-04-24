@@ -1,11 +1,12 @@
 ---
-source: https://soar.eecs.umich.edu/articles/articles/soar-markup-language-sml/79-how-to-compile-sml-clients
 date: 2014-08-15
 authors:
   - soar
 tags:
   - compile
 ---
+
+<!-- old URL: https://soar.eecs.umich.edu/articles/articles/soar-markup-language-sml/79-how-to-compile-sml-clients -->
 
 # How to compile SML Clients
 

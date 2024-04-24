@@ -1,11 +1,12 @@
 ---
-source: https://soar.eecs.umich.edu/articles/articles/documentation/224-command-line-options-for-the-java-debugger-and-cli
 date: 2016-09-30
 tags:
     - debugger
 authors:
     - soar
 ---
+
+<!-- old URL: https://soar.eecs.umich.edu/articles/articles/documentation/224-command-line-options-for-the-java-debugger-and-cli -->
 
 # Command-Line Options for the Java Debugger and CLI
 

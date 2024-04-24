@@ -2,11 +2,12 @@
 date: 2020-08-19 
 authors: 
     - jboggs
-source: https://soar.eecs.umich.edu/forum/help/sml/287-build-soar-with-ros
 tags:
     - ROS
     - compile
 ---
+
+<!-- old URL: https://soar.eecs.umich.edu/forum/help/sml/287-build-soar-with-ros -->
 
 # Build Soar with ROS
 

@@ -1,8 +1,9 @@
 ---
-source: https://soar.eecs.umich.edu/Soar-RelatedResearch
 tags:
     - research
 ---
+
+<!-- old URL: https://soar.eecs.umich.edu/Soar-RelatedResearch -->
 
 # Publications
 

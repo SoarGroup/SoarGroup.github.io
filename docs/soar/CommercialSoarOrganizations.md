@@ -1,8 +1,9 @@
 ---
-source: https://soar.eecs.umich.edu/CommercialOrganizationsUsingSoar
 tags:
     - organizations
 ---
+
+<!-- old URL: https://soar.eecs.umich.edu/CommercialOrganizationsUsingSoar -->
 
 # Commercial Organizations Using Soar
 

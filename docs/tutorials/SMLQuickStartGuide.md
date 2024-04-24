@@ -1,11 +1,12 @@
 ---
-source: https://soar.eecs.umich.edu/articles/articles/soar-markup-language-sml/78-sml-quick-start-guide
 date: 2014-08-15
 authors:
   - soar
 tags:
  - sml
 ---
+
+<!-- old URL: https://soar.eecs.umich.edu/articles/articles/soar-markup-language-sml/78-sml-quick-start-guide -->
 
 # SML Quick Start Guide
 

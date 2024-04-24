@@ -1,5 +1,4 @@
 ---
-source: https://soar.eecs.umich.edu/articles/articles/soar-markup-language-sml/202-sml-output-link-guide
 date: 2014-10-07
 authors:
   - soar
@@ -8,6 +7,8 @@ tags:
   - event
   - sml
 ---
+
+<!-- old URL: https://soar.eecs.umich.edu/articles/articles/soar-markup-language-sml/202-sml-output-link-guide -->
 
 # SML Output Link Guide
 

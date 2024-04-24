@@ -1,8 +1,9 @@
 ---
-source: https://soar.eecs.umich.edu/groups
 tags:
   - research
 ---
+
+<!-- old URL: https://soar.eecs.umich.edu/groups -->
 
 # Soar Research Groups
 

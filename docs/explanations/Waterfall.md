@@ -1,5 +1,4 @@
 ---
-source: https://soar.eecs.umich.edu/articles/articles/technical-documentation/207-waterfall
 date: 2014-10-07
 authors:
     - soar
@@ -7,6 +6,8 @@ tags:
     - kernel programming
     - substate
 ---
+
+<!-- old URL: https://soar.eecs.umich.edu/articles/articles/technical-documentation/207-waterfall -->
 
 # Waterfall
 

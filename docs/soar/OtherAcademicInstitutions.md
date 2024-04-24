@@ -1,8 +1,9 @@
 ---
-source: https://soar.eecs.umich.edu/OtherAcademicGroups
 tags:
     - institutions
 ---
+
+<!-- old URL: https://soar.eecs.umich.edu/OtherAcademicGroups -->
 
 # Other Academic Research Groups Using Soar
 
