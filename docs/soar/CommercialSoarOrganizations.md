@@ -3,6 +3,7 @@ tags:
     - organizations
 ---
 
+<!-- markdown-link-check-disable-next-line -->
 <!-- old URL: https://soar.eecs.umich.edu/CommercialOrganizationsUsingSoar -->
 
 # Commercial Organizations Using Soar

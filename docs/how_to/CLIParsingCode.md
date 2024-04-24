@@ -6,6 +6,7 @@ tags:
     - kernel programming
 ---
 
+<!-- markdown-link-check-disable-next-line -->
 <!-- old URL: https://soar.eecs.umich.edu/articles/articles/technical-documentation/199-command-line-interface-parsing-code -->
 
 # Command Line Interface Parsing Code

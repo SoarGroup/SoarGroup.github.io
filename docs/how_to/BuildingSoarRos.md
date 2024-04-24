@@ -7,6 +7,7 @@ tags:
     - compile
 ---
 
+<!-- markdown-link-check-disable-next-line -->
 <!-- old URL: https://soar.eecs.umich.edu/forum/help/sml/287-build-soar-with-ros -->
 
 # Build Soar with ROS

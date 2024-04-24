@@ -6,6 +6,7 @@ tags:
     - sml
 ---
 
+<!-- markdown-link-check-disable-next-line -->
 <!-- old URL: https://soar.eecs.umich.edu/articles/articles/faqs-and-guides/75-soar-technical-faq -->
 
 # Soar Technical FAQ

@@ -8,6 +8,7 @@ tags:
   - architecture
 ---
 
+<!-- markdown-link-check-disable-next-line -->
 <!-- old URL: https://soar.eecs.umich.edu/articles/articles/soar-markup-language-sml/203-threads-in-sml -->
 
 # Threads in SML

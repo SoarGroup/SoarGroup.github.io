@@ -6,6 +6,7 @@ tags:
   - eaters
 ---
 
+<!-- markdown-link-check-disable-next-line -->
 <!-- old URL: https://soar.eecs.umich.edu/articles/articles/technical-documentation/201-memory-leak-debugging-with-visual-studio -->
 
 # Tank Eaters Configuration File

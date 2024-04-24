@@ -6,6 +6,7 @@ tags:
     - kernel programming
 ---
 
+<!-- markdown-link-check-disable-next-line -->
 <!-- old URL: https://soar.eecs.umich.edu/articles/articles/technical-documentation/200-i-o-and-reward-links -->
 
 # I/O and Reward Links

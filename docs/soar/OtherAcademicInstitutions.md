@@ -3,6 +3,7 @@ tags:
     - institutions
 ---
 
+<!-- markdown-link-check-disable-next-line -->
 <!-- old URL: https://soar.eecs.umich.edu/OtherAcademicGroups -->
 
 # Other Academic Research Groups Using Soar

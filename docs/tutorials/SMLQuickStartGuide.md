@@ -6,6 +6,7 @@ tags:
  - sml
 ---
 
+<!-- markdown-link-check-disable-next-line -->
 <!-- old URL: https://soar.eecs.umich.edu/articles/articles/soar-markup-language-sml/78-sml-quick-start-guide -->
 
 # SML Quick Start Guide

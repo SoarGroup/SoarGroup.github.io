@@ -10,6 +10,7 @@ tags:
     - agent debugging
 ---
 
+<!-- markdown-link-check-disable-next-line -->
 <!-- old URL: https://soar.eecs.umich.edu/articles/articles/faqs-and-guides/77-soar-design-dogma -->
 
 # Soar Design Dogma
