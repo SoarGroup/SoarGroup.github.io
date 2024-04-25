@@ -1,6 +1,6 @@
-site_name: Soar website
-repo_url: http://github.com/SoarGroup/SoarGroup.github.io
-repo_name: SoarGroup/SoarGroup.github.io
+site_name: Soar Home
+repo_url: https://github.com/SoarGroup/SoarGroup.github.io
+repo_name: https://github.com/SoarGroup/Soar
 copyright: Copyright &copy; SoarGroup 2024
 edit_uri: edit/main/docs/
 
@@ -39,7 +39,7 @@ theme:
         name: Switch to light mode
 
 extra_javascript:
-  - javascripts/mathjax.js
+  - javascript/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
@@ -64,18 +64,26 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 
+# watch these directories *in addition to* the ones mkdocs watches by default
 watch:
   - includes
   - overrides
 
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/SoarGroup/SoarGroup.github.io
+
 nav:
-  - Soar:
+  - Home:
       - index.md
+      - Quick Start: home/QuickStart.md
+      - About: home/About.md
       - Research:
-          - Publications: soar/Publications.md
-          - Research Groups: soar/ResearchGroups.md
-          - Academic Institutions: soar/OtherAcademicInstitutions.md
-          - Commercial Soar Organizations: soar/CommercialSoarOrganizations.md
+          - Publications: home/Publications.md
+          - Research Groups: home/ResearchGroups.md
+          - Academic Institutions: home/OtherAcademicInstitutions.md
+          - Commercial Soar Organizations: home/CommercialSoarOrganizations.md
   - Soar Manual:
       - soar_manual/index.md
       - Introduction: soar_manual/01_Introduction.md
@@ -112,6 +120,8 @@ nav:
       - Memory Leak Debugging with Visual Studio: how_to/MemoryLeakDebuggingWithVisualStudio.md
       - SML Output Link Guide: how_to/SMLOutputLinkGuide.md
       - Soar Technical FAQ: how_to/SoarTechnicalFAQ.md
+  - Support:
+      - support/index.md
   - Reference:
       - reference/index.md
       - Command Line Options for Debugging and CLI: reference/CommandLineOptionsForDebuggerAndCLI.md
@@ -143,10 +153,11 @@ nav:
           - trace: reference/cli/cmd_trace.md
           - visualize: reference/cli/cmd_visualize.md
           - wm: reference/cli/cmd_wm.md
-  - Tag Index: soar/tags.md
+          - wma: reference/cli/cmd_wma.md
+  - Tag Index: home/tags.md
 
 plugins:
   - search
   - img2figv2
   - tags:
-      tags_file: soar/tags.md
+      tags_file: home/tags.md
