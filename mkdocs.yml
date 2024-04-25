@@ -166,5 +166,6 @@ nav:
 plugins:
   - search
   - img2figv2
+  - macros
   - tags:
       tags_file: home/tags.md
