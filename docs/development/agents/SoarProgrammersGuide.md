@@ -1,3 +1,8 @@
+---
+tags:
+  - agent development
+---
+
 # Soar Programmer's Guide
 
 This is similar to the [design dogma](./DesignDogma.md), but written by Bob

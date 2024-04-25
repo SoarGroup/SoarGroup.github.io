@@ -3,11 +3,16 @@ date: 2014-08-14
 authors:
     - soar
 tags:
+    - Java
+    - C++
+    - agent development
     - sml
+    - kernel programming
 ---
 
 <!-- markdown-link-check-disable-next-line -->
-<!-- old URL: https://soar.eecs.umich.edu/articles/articles/faqs-and-guides/75-soar-technical-faq -->
+<!-- old URL: https://soar.eecs.umich.edu/articles/articles/faqs-and-guides/
+75-soar-technical-faq -->
 
 # Soar Technical FAQ
 
@@ -38,19 +43,22 @@ Use Sun JDK 6+. Other versions and vendors may work but we do not support them.
 
 Command line options:
 
-- remote => use a remote connection (with default ip and port values)
-- ip xxx => use this IP value (implies remote connection)
-- port ppp => use this port (implies remote connection)
+*   remote => use a remote connection (with default ip and port values)
+*   ip xxx => use this IP value (implies remote connection)
+*   port ppp => use this port (implies remote connection)
     Without any remote options we start a local kernel
-- agent => on a remote connection select this agent as initial agent
-- agent => on a local connection use this as the name of the initial agent
-- source "" => load this file of productions on launch (only valid for local kernel)
-- listen port => use this port to listen for remote connections (only valid for a local kernel)
-- maximize => start with maximized window
-- width => start with this window width
-- height => start with this window height
-- x -y => start with this window position (Providing width/height/x/y => not a maximized window)
+*   agent => on a remote connection select this agent as initial agent
+*   agent => on a local connection use this as the name of the initial agent
+*   source "" => load this file of productions on launch (only valid for local kernel)
+*   listen port => use this port to listen for remote connections (only valid
+for a local kernel)
+*   maximize => start with maximized window
+*   width => start with this window width
+*   height => start with this window height
+*   x -y => start with this window position (Providing width/height/x/y => not a
+maximized window)
 
+<!-- markdownlint-disable MD013 -->
 ### If I run the debugger for a while, it starts to slow down, stutter, and then crashes, or runs out of memory
 
 The problem here is that the trace window in the debugger is using more and more
@@ -67,19 +75,20 @@ java -Xmx512m -jar SoarJavaDebugger.jar
 This will allocate 512 megs of memory for Java's heap (the default is 64 megs),
 and should allow you to run the debugger significantly longer.
 
+<!-- markdownlint-disable MD013 -->
 ### How do I use the debugger with the graphical demos like JavaTOH and JavaMissionaries? (or any other Soar application)?
 
-1. Start the application
-1. Start the debugger (in Linux the debugger must be started after the
+1.  Start the application
+1.  Start the debugger (in Linux the debugger must be started after the
    application--order doesn't matter in Windows)
-1. In the debugger, on the top menuBar, pull down the "Kernel" selection and
+1.  In the debugger, on the top menuBar, pull down the "Kernel" selection and
    choose "Connect to Remote Soar..."
-1. In the popup window "Would you like to shutdown the local kernel now" enter
+1.  In the popup window "Would you like to shutdown the local kernel now" enter
    "OK"
-1. In the next popup window, if the application is on your local machine, press
+1.  In the next popup window, if the application is on your local machine, press
    "OK" to use the default settings. If your application is running on another
    machine, enter the IP addr and press "OK"
-1. If the connection succeeds, then you can use the debugger and the application
+1.  If the connection succeeds, then you can use the debugger and the application
    interchangeably to control the agent. If the connection fails, then the
    application either is not properly configured for SML, or no agent currently
    exists in the application.
@@ -88,12 +97,12 @@ and should allow you to run the debugger significantly longer.
 
 There are several ways to do this:
 
-- You can paste a production into the trace window.
-- You can use the "edit_production" window in the lower-right corner. If you
+*   You can paste a production into the trace window.
+*   You can use the "edit_production" window in the lower-right corner. If you
     supply the name of an existing production, it will fill in the window with that
     production. You can then edit it and load the new version using the "Load
     Production" button.
-- If your production is in Visual Soar, you can do "Soar Runtime" -> "Connect"
+*   If your production is in Visual Soar, you can do "Soar Runtime" -> "Connect"
     to connect to the debugger. Then, open the file with your production and do
     "Runtime" -> "Send Production" or "Send File" to load your production(s) into
     Soar.
@@ -274,7 +283,7 @@ is a good model to follow. If you're working on a command line application
 without a GUI, then the _TestCommandLine_ application is a good reference as it
 demonstrates how to support interruption in a single-threaded application.
 
-A detailed explanation about threads in Soar is provided [here](../explanations/ThreadsInSML.md).
+A detailed explanation about threads in Soar is provided [here](../development/soar/ThreadsInSML.md).
 
 ## How do I properly manage memory in my SML application?
 
@@ -303,6 +312,7 @@ don’t crash. Specifically, listen for the `BEFORE_AGENT_DESTOYED` and
 `BEFORE_SHUTDOWN` events so you can clean things up as needed in your
 application.
 
+<!-- markdownlint-disable MD013 -->
 ## What are the differences in the SML interface between C++ and Java (and other languages)?
 
 For the most part, the exact same classes and methods are available in all
@@ -360,21 +370,25 @@ of those projects.
 
 See the next question.
 
+<!-- markdownlint-disable MD013 -->
 ## SML WMElement/Identifier/StringElement/IntElement/FloatElement pointers become invalid without my knowledge
 
 First, usage of `WMElement` in this answer refers to any of
 `WMElement`/`Identifier`/`StringElement`/`IntElement`/`FloatElement` (all of
 which are or extend `WMElement`).
 
-A few things to remember about WMElement pointers returned by SML methods such as CreateIdentifier:
+A few things to remember about WMElement pointers returned by SML methods such as
+CreateIdentifier:
 
-- `WMElement` objects returned by pointers are owned by SML (don't delete them),
-- Pointers to `WMElement` objects may be destroyed without calling `DestroyWME`,
-- Pointers to `WMElement` objects may be destroyed by SML triggered by the agent as it runs.
-- A general rule: you need to keep track of whether or not a `WMElement` is valid before you use it. It will stay valid if
-- You do not call `DestroyWME` on it or on a WME that causes it to get disconnected,
-- You do not return control back to Soar letting it run.
-- If you call `DestroyWME`, you need to be sure that you don't hang on to any
+*   `WMElement` objects returned by pointers are owned by SML (don't delete them),
+*   Pointers to `WMElement` objects may be destroyed without calling `DestroyWME`,
+*   Pointers to `WMElement` objects may be destroyed by SML triggered by the
+agent as it runs.
+*   A general rule: you need to keep track of whether or not a `WMElement` is
+valid before you use it. It will stay valid if
+*   You do not call `DestroyWME` on it or on a WME that causes it to get disconnected,
+*   You do not return control back to Soar letting it run.
+*   If you call `DestroyWME`, you need to be sure that you don't hang on to any
     WMElement objects that the WME you destroyed was keeping valid. Most of the time
     your working memory structure is a tree so you only need to keep track of the
     children of any Identifier you destroy.

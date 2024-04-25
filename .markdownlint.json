@@ -14,5 +14,8 @@
     "MD013": {
         "tables": false,
         "code_blocks": false
+    },
+    "MD026": {
+        "punctuation": ".,;:。："
     }
 }

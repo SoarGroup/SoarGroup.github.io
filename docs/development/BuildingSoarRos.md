@@ -5,20 +5,22 @@ authors:
 tags:
     - ROS
     - compile
+    - how-to
 ---
 
 <!-- markdown-link-check-disable-next-line -->
-<!-- old URL: https://soar.eecs.umich.edu/forum/help/sml/287-build-soar-with-ros -->
+<!-- old URL: https://soar.eecs.umich.edu/forum/help/sml/
+287-build-soar-with-ros -->
 
 # Build Soar with ROS
 
-## Requirements:
+## Requirements
 
-- Ubuntu 18.04.4 LTS Bionic **THIS IS NOT OPTIONAL. NO OTHER LINUX DISTRO WORKS**
-- Relatively recent GPU **YOUR COMPUTER MUST HAVE A DISPLAY**
-- ROS Melodic **ONLY MELODIC WILL WORK**
-- Gazebo 9 **MUST BE 9**
-- Point Cloud Library version 1.8.1 **Must be 1.8.1**
+-   Ubuntu 18.04.4 LTS Bionic **THIS IS NOT OPTIONAL. NO OTHER LINUX DISTRO WORKS**
+-   Relatively recent GPU **YOUR COMPUTER MUST HAVE A DISPLAY**
+-   ROS Melodic **ONLY MELODIC WILL WORK**
+-   Gazebo 9 **MUST BE 9**
+-   Point Cloud Library version 1.8.1 **Must be 1.8.1**
 
 ROS Installation (from <http://wiki.ros.org/melodic/Installation/Ubuntu>):
 
@@ -31,9 +33,10 @@ echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-Point Cloud Library should also be installed. Run sudo apt install libpcl-dev to make sure.
+Point Cloud Library should also be installed. Run sudo apt install libpcl-dev to
+make sure.
 
-## Download and Build Soar 
+## Download and Build Soar
 
 ```Bash
 git clone https://github.com/SoarGroup/Soar.git -b svs_overhaul
@@ -51,6 +54,7 @@ which python3
 ```
 
 Copy the file path returned
+
 ```Bash
 python2 scons/scons.py all --use-ros --python=<insert/path/copied/above>
 ```

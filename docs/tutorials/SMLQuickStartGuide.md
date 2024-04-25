@@ -916,8 +916,8 @@ public void updateButtons(boolean running)
 
 To learn more about ClientSML and SML in general, the best documentation is the
 header files for the methods in ClientSML. In particular, `sml_ClientKernel.h`,
-`sml_ClientAgent.h` and `sml_ClientIdentifier.h` contain a lot of useful methods and
-explanations.
+`sml_ClientAgent.h` and `sml_ClientIdentifier.h` contain a lot of useful
+methods and explanations.
 
 Beyond that check the Soar XML Interface Spec and any other documentation in its
 vicinity.

@@ -7,7 +7,8 @@ tags:
 ---
 
 <!-- markdown-link-check-disable-next-line -->
-<!-- old URL: https://soar.eecs.umich.edu/articles/articles/technical-documentation/198-basic-kernel-terminology -->
+<!-- old URL: https://soar.eecs.umich.edu/articles/articles/
+technical-documentation/198-basic-kernel-terminology -->
 
 # Basic Kernel Terminology
 
@@ -20,9 +21,9 @@ starting point for understanding the kernel.
 In a nutshell: The Soar Kernel is a very object-oriented, structured set of
 code. If you don't understand the basic Soar execution cycle and its phases, the
 source code won't help you. You should start by reading the introductory
-material in the [Soar Tutorials](../tutorials/soar_tutorial/index.md)
+material in the [Soar Tutorials](../../tutorials/soar_tutorial/index.md)
 that are bundled with the releases (in the Documents directory). Then read the
-first four chapters of the [Soar Manual](../soar_manual/index.md),
+first four chapters of the [Soar Manual](../../soar_manual/index.md),
 "Introduction" thru "Learning" Basic code execution
 
 ## Data Structures
@@ -49,52 +50,52 @@ order and are commented appropriately.
 
 Structures that you should familiarize yourself with are symbols (a typedef'd
 union!!), wmes, productions, instantiations, preferences, and (eventually)
-memory pools. 
+memory pools.
 
-- symbol_struct is in symtab.h, everything in soar boils down to
-    some kind of symbol. See Development/ Symbol for details. 
-- wme_struct is in wmem.h, defines the working memory elements of an agent 
-- production_struct is in production.h, these are the productions as loaded into
+*   symbol_struct is in symtab.h, everything in soar boils down to
+    some kind of symbol. See Development/ Symbol for details.
+*   wme_struct is in wmem.h, defines the working memory elements of an agent
+*   production_struct is in production.h, these are the productions as loaded into
     Soar and stored in the rete. instantiations are in instantiation.h, these store
     the bindings of productions as they are matched in the rete. Instantiations
     whose conditions all
-- match are fired during specific phases - meaning their actions are executed:
+*   match are fired during specific phases - meaning their actions are executed:
     preferences are asserted to create wmes, and/or RHS actions are executed.
-- preference_struct is defined in gdatastructs.h store a pointer to the
+*   preference_struct is defined in gdatastructs.h store a pointer to the
     instantiation that created them, and when the instantiation no longer matches,
-    the preference is retracted. 
-    
+    the preference is retracted.
+
 ## I want to add a new link!
 
 Existing links include input/output and reward links. Instructions on how to
-make your own are [HowTo: IO and reward links](../how_to/IOAndRewardLinks.md).
+make your own are [HowTo: IO and reward links](./IOAndRewardLinks.md).
 
 ## Things to add
 
-A lot of topics are in the [Soar FAQ](../how_to/SoarTechnicalFAQ.md)
+A lot of topics are in the [Soar FAQ](../SoarTechnicalFAQ.md)
 
-- Basic structure of how critical code works (e.g. decision procedure is a big
+*   Basic structure of how critical code works (e.g. decision procedure is a big
     switch statement, how printing/XML generation works)
-- Locations of critical code (e.g. decision procedure, preference procedure, scheduler)
-- Union basics (most people don't know what unions are)
-    - see Kernigan and Ritchie
-    - Unions are a data structure that can have multiple data-dependent ways of
+*   Locations of critical code (e.g. decision procedure, preference procedure, scheduler)
+*   Union basics (most people don't know what unions are)
+    *   see Kernigan and Ritchie
+    *   Unions are a data structure that can have multiple data-dependent ways of
         storing and accessing information, much like (but better than) overloading
         methods in C++.
-- Explain how sysparams work (e.g. how they are set/used, how to add a new one)
-- sysparams are just an array of agent parameters that store settings for
+*   Explain how sysparams work (e.g. how they are set/used, how to add a new one)
+*   sysparams are just an array of agent parameters that store settings for
     runtime switches. Most of the sysparams are either True/False, or can take on
     some enum value. Setting a sysparam is easy, cf. init_soar.c for
     initializing and setting values. Search the code for "set_sysparams" to see
     examples.
-- To add a sysparam, see gsysparams.h (although that file MUST be renamed or
+*   To add a sysparam, see gsysparams.h (although that file MUST be renamed or
     folded into another header when gSKI removed). The code depends on looping over
     HIGHEST_SYSPARAM, so make sure it's always equal to the last one in the set of
     definitions.
-- When is it a sysparam, and when is it part of the agent struct? Depends what
+*   When is it a sysparam, and when is it part of the agent struct? Depends what
     you are using it for, and whether it needs to be exposed for the user interface.
     If its a user-controlled setting, it should definitely be a sysparam.
-- What is a slot
+*   What is a slot
 
 From John:
 
@@ -105,20 +106,20 @@ From John:
 > selection of values for non-operator attributes. In general they are an out of
 > date terminology."
 
-- Basics of how wme changes are done in parallel (i.e. explain do_buffered_wm_and_ownership_changes)
-- Difference between wme and input_wme (and any other wmes there might be)
-- Where/how to add new links (e.g. ep-mem link, RL link, etc)
-- Explain memory pool basics
+*   Basics of how wme changes are done in parallel (i.e. explain do_buffered_wm_and_ownership_changes)
+*   Difference between wme and input_wme (and any other wmes there might be)
+*   Where/how to add new links (e.g. ep-mem link, RL link, etc)
+*   Explain memory pool basics
 
-- Basics of bit manipulations that are used (unless this is rete-only, in which
+*   Basics of bit manipulations that are used (unless this is rete-only, in which
     case don't bother)
-    - I think the rete is the only place bit manipulations occur. Bit
+    *   I think the rete is the only place bit manipulations occur. Bit
         manipulations are extremely fast. If you can guarantee your raw data
         structure, you can shift registers instead of calling complex instructions
         to go very fast. Compilers hide this from you, but don't always know when
         they can optimize.
-- Explain transitive closure and tc_num
-- What all the Soar kernel STL-like data structures are (e.g. lists, hash
+*   Explain transitive closure and tc_num
+*   What all the Soar kernel STL-like data structures are (e.g. lists, hash
 tables, growable strings, others?) and how to use them.
 Ref counting (link to Tracking down memory leaks)
 

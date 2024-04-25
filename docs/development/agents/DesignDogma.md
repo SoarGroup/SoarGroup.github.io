@@ -8,10 +8,12 @@ authors:
 version: 0.6
 tags:
     - agent debugging
+    - agent development
 ---
 
 <!-- markdown-link-check-disable-next-line -->
-<!-- old URL: https://soar.eecs.umich.edu/articles/articles/faqs-and-guides/77-soar-design-dogma -->
+<!-- old URL: https://soar.eecs.umich.edu/articles/articles/faqs-and-guides/
+77-soar-design-dogma -->
 
 # Soar Design Dogma
 
@@ -46,16 +48,16 @@ similar conditions. When counting actions, you should only count those that
 actually add or remove a WME in working memory. Exception: Initialization rules
 can often have a very large number of actions and this is ok.
 
-**Example**
+### Example
 
 The rule shown at left (below) was taken from TankSoar. It has a total
 of six conditions. This is not necessarily too big. However, if you study this
 production (and you are familiar with TankSoar), you'll see that it is really
 testing three high level conditions:
 
-- Am I in the state `tankSoar`?
-- Am I low on health (less than 300)?
-- Am I in danger?
+-   Am I in the state `tankSoar`?
+-   Am I low on health (less than 300)?
+-   Am I in danger?
 
 Adding an elaboration to detect "in-danger" not only makes the rule easier to
 read but also provides a potentially useful WME for use by other productions.
@@ -100,7 +102,7 @@ sp {propose*recharge*health
 }
 ```
 
-**Justification**
+### Justification
 
 Smaller productions are easier to re-use and easier to understand
 when you return to them later. Smaller rules also lead to more general chunks.
@@ -117,7 +119,7 @@ When proposing an operator, don't compute information that won't be needed until
 application. Exception: It's ok to attach matched values that were already
 required for the conditions of the proposal rule.
 
-**Example**
+### Example
 
 Your TankSoar tank needs to turn on its radar whenever it turns. You've
 cleverly decided to set the range of the radar based upon the tank's distance
@@ -125,7 +127,7 @@ from the wall it is facing in order to save energy. Rather than calculate this
 range in the proposal rule, **use a separate elaboration to add the range data
 once the operator has been selected**.
 
-**Justification**
+### Justification
 
 Clearly this practice reduces rule size and provides a small
 savings in execution time. It also prevents operators from being rejected and
@@ -137,14 +139,14 @@ Operator proposal rules should fire whenever an operator is legitimate, not just
 when it is appropriate. Exception: If limiting the agent's options will
 significantly improve its performance you may consider violating this guideline.
 
-**Example**
+### Example
 
 You decide to modify your Eater so that it never moves back to the
 square it just came from. Rather than only proposing moves to new squares,
 propose moves to all adjacent squares and use selection operators to assign a
 less or least preference to the undesired direction.
 
-**Justification**
+### Justification
 
 You never know when your worst option is also your best. Deciding
 what to do is the job of operator preference rules. You should not short-circuit
@@ -157,13 +159,13 @@ The name of the operator should indicate specifically what actions you are
 taking. In particular, avoid "multi-use" operators that perform similar actions
 for significantly different reasons depending upon what augmentations they have.
 
-**Example**
+### Example
 
 Your agent needs to be able to navigate to a waypoint or a given `x, y, z`
 position. The move-to-waypoint operators could be implemented as a special case
 of the move-to-xyz operator. However, this is probably poor practice.
 
-**Justification**
+### Justification
 
 When an operator is vaguely named or has multiple behaviors your
 Soar program will be difficult to debug because you aren't certain what the
@@ -178,7 +180,7 @@ If you find yourself adding operators that put o-supported data on the top state
 for the sole purpose of causing another rule to fire and not be retracted when
 the original data changes you're probably doing something wrong.
 
-**Example**
+### Example
 
 In a real time system, you want the agent to turn toward an object.
 First, you write your proposal operator to match the heading (angle off) to the
@@ -191,7 +193,7 @@ A better solution: Create an I-supported augmentation that records that the
 object is to the agent's right, left or directly in front. Have your agent turn
 in the specified direction until the object is in front of the agent.
 
-**Justification**
+### Justification
 
 Having operators depend on transient, yet o-supported top state
 augmentations can cause problems if the operator that removes that augmentation
@@ -202,7 +204,7 @@ is interrupted.
 Whenever you remove a WME in the actions of a rule, test that WME exists in the
 conditions of a rule.
 
-**Example**
+### Example
 
 ```Soar
 sp {apply*remove-foo
@@ -225,7 +227,7 @@ sp {apply*remove-foo
 }
 ```
 
-**Justification**
+### Justification
 
 The purpose of a rule is to minimize implicit assumptions.
 
@@ -236,13 +238,13 @@ should always include an attribute of that superstate in its conditions. The
 best way to do this is to reference the state(s) that will be modified by name
 if possible. (See the next section.)
 
-**Example**
+### Example
 
 You create a generic rule that adds a "last-action" WME to the top
 state (i.e., the last action taken by the agent). To create this generic rule
 you only match on actions on the output-link.
 
-**Justification**
+### Justification
 
 O-support means "permanent" only in the context of the state(s)
 that were tested to create it. Once those state(s) cease to exist, the
@@ -258,7 +260,7 @@ leave the current state.
 
 If possible, refer to a state or states by name in the LHS of operator proposal rules.
 
-**Example**
+### Example
 
 ```Soar
 sp {my-rule
@@ -266,7 +268,7 @@ sp {my-rule
 # etc...
 ```
 
-**Justification**
+### Justification
 
 By being specific about the context of a rule, you prevent it from firing when
 least expected! This also often prevents more subtle problems like vanishing
@@ -277,7 +279,7 @@ o-supported WMEs (see
 
 When possible, avoid rules that test multiple states.
 
-**Example**
+### Example
 
 ```Soar
 sp {my-rule
@@ -286,7 +288,7 @@ sp {my-rule
 # etc...
 ```
 
-**Justification**
+### Justification
 
 This creates multiple matches on the RETE and may, as a result,
 create performance bottlenecks.
@@ -296,11 +298,11 @@ create performance bottlenecks.
 Write your Soar code using VisualSoar. If so, maintain and use your VisualSoar
 data map!
 
-**Example**
+### Example
 
 N/A
 
-**Justification**
+### Justification
 
 Much like comments on code, VisualSoar's enforced structure and
 data map is exceptionally helpful for people who are examining code they have
@@ -316,12 +318,13 @@ Only write rules that perform standard problem space functions: state
 elaboration, operator proposal, operator comparison, operator elaboration, and
 operator application. Do not write rules that:
 
-- Test a selected operator in a rule that creates a preference for another operator.
-- Test a for a currently proposed operator in the condition of another operator proposal rule.
-- Test a proposed operator in the conditions of a rule that modify a state (outside of
-    the operator).
+-   Test a selected operator in a rule that creates a preference for another operator.
+-   Test a for a currently proposed operator in the condition of another operator
+proposal rule.
+-   Test a proposed operator in the conditions of a rule that modify a state
+(outside of the operator).
 
-**Example**
+### Example
 
 ```Soar
 sp {xxyyzz
@@ -334,7 +337,7 @@ sp {xxyyzz
 }
 ```
 
-**Justification**
+### Justification
 
 By violating the intent of the Soar language you will likely
 achieve undesirable results. There is almost certainly a better way of doing
@@ -346,7 +349,7 @@ Don't mix different problem space functions in the same rule except operator
 proposal and selection. It is ok to propose an operator and create a unary
 preference at the same time.
 
-**Example**
+### Example
 
 ```Soar
 sp {xxyyzz
@@ -360,7 +363,7 @@ sp {xxyyzz
 }
 ```
 
-**Justification**
+### Justification
 
 By violating the intent of the Soar language you will likely
 achieve undesirable results. There is almost certainly a better way of doing

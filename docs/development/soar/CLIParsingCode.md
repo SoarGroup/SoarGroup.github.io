@@ -7,7 +7,8 @@ tags:
 ---
 
 <!-- markdown-link-check-disable-next-line -->
-<!-- old URL: https://soar.eecs.umich.edu/articles/articles/technical-documentation/199-command-line-interface-parsing-code -->
+<!-- old URL: https://soar.eecs.umich.edu/articles/articles/technical-documentation/
+199-command-line-interface-parsing-code -->
 
 # Command Line Interface Parsing Code
 
@@ -56,7 +57,7 @@ should happen here, the functions called as a result of parsing should be able
 to be called directly elsewhere for the same effect without parsing. Example of
 a command that takes no arguments:
 
-```
+```tcl
 dirs
 ```
 
@@ -67,7 +68,7 @@ inspected and used directly.
 
 Example of command that has arguments:
 
-```
+```tcl
 max-elaborations 15
 Non-option argument: 15
 ```
@@ -77,17 +78,17 @@ Parser instance, sometimes in addition to other, non-option arguments.
 
 More common commands (with options):
 
-- echo-commands -y
-- Option (short): y
-- learn --off
-- Option (long): off
-- echo -n Hello world!
-- Option (short): n
-- Arguments: Hello, world!
-- watch --chunks -L print
-- Option (long): chunks
-- Option (short) with argument: L, print
-- Options always have both long and short forms, and a required argument,
+-   echo-commands -y
+-   Option (short): y
+-   learn --off
+-   Option (long): off
+-   echo -n Hello world!
+-   Option (short): n
+-   Arguments: Hello, world!
+-   watch --chunks -L print
+-   Option (long): chunks
+-   Option (short) with argument: L, print
+-   Options always have both long and short forms, and a required argument,
   optional argument, or no argument setting expected. These are all defined in the
   top of the Parse function before the option handling code is called.
 
@@ -175,16 +176,14 @@ included in words without triggering special processing. The following table
 lists the backslash sequences that are handled specially, along with the
 value that replaces each sequence.
 
-```
-\a Audible alert (bell) (0x7).
-\b Backspace (0x8).
-\f Form feed (0xc).
-\n Newline (0xa).
-\r Carriage-return (0xd).
-\t Tab (0x9).
-\v Vertical tab (0xb).
-\<newline>whiteSpace
-```
+-   `\a` Audible alert (bell) (0x7).
+-   `\b` Backspace (0x8).
+-   `\f` Form feed (0xc).
+-   `\n` Newline (0xa).
+-   `\r` Carriage-return (0xd).
+-   `\t` Tab (0x9).
+-   `\v` Vertical tab (0xb).
+-   `\n`whiteSpace
 
 A single space character replaces the backslash, newline, and all spaces
 and tabs after the newline. This backslash sequence is unique in that
@@ -222,16 +221,12 @@ arguments. Options
 Options start with dashes. One dash followed by one or more letters is
 interpreted as one or more short options.
 
-```
--f: Option f
--for: Options f o r
-```
+-   `-f`: Option f
+-   `-for`: Options f o r
 
 Two dashes are followed by one long option
 
-```
---foo: Option foo
-```
+-   `--foo`: Option foo
 
 All options have a short form and a long form.
 
@@ -241,7 +236,7 @@ Options can have arguments associated with them. The argument, if it accepts
 one, can be required or optional. This is specified when the option is defined
 in its parse function:
 
-```
+```c++
 // Short option, long option, one of none, optional, required
 {'f', "fullwmes", OPTARG_NONE},
 {'b', "backtracing", OPTARG_OPTIONAL},
@@ -251,9 +246,7 @@ in its parse function:
 Options with arguments generally accept whatever comes after them as its
 argument. Optional arguments are trickier, refer to cli_Options.h for details.
 
-```
---level 4: level takes a required argument, 4 is consumed as its argument.
-```
+-   `--level 4`: level takes a required argument, 4 is consumed as its argument.
 
 Options can occur anywhere in the command line, except after special option -
 which forces an end to option parsing. Options and any of their arguments are
@@ -320,7 +313,8 @@ if (opt.GetNonOptionArguments())
 int i = argv.size() - opt.GetNonOptionArguments(); // index to argument
 ```
 
-Non-options are often tested for existance, count, there's a utility function for that:
+Non-options are often tested for existance, count, there's a utility function
+for that:
 
 ```c++
 // returns true if there is one or no non-option argument

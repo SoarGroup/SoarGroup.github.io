@@ -8,7 +8,8 @@ tags:
 ---
 
 <!-- markdown-link-check-disable-next-line -->
-<!-- old URL: https://soar.eecs.umich.edu/articles/articles/technical-documentation/207-waterfall -->
+<!-- old URL: https://soar.eecs.umich.edu/articles/articles/technical-documentation/
+207-waterfall -->
 
 # Waterfall
 
@@ -84,16 +85,16 @@ below?
 **determine_highest_active_production_level_in_stack_apply**: implements
 waterfall for apply phase (DETERMINE_LEVEL_PHASE)
 
-- calls itself recursively
-- called in do_one_top_level_phase (APPLY_PHASE, twice)
-- if the next active goal
+-   calls itself recursively
+-   called in do_one_top_level_phase (APPLY_PHASE, twice)
+-   if the next active goal
     is lower in the stack than the previous one, but the stack is no longer
     consistent up to the previous goal, then proceed to output
 
 determine_highest_active_production_level_in_stack_propose: implements
 waterfall for propose phase
 
-- called in do_one_top_level_phase (PROPOSE_PHASE, twice)
+-   called in do_one_top_level_phase (PROPOSE_PHASE, twice)
 
 get_next_assertion (rete.cpp): gets next production/token/wme associated with
 the current goal (as determined by above) do_working_memory_phase: "commits" the
@@ -103,19 +104,19 @@ changes at the end of a phase
 
 In do_one_top_level_phase, currently do this:
 
-1. determine highest active goal
-1. fire rules at that goal
-1. commit changes
-1. proceed to next phase
+1.  determine highest active goal
+1.  fire rules at that goal
+1.  commit changes
+1.  proceed to next phase
 
 Could change it to do this:
 
-1. determine highest active goal
-1. fire rules at that goal, tracking the highest goal with a change
-1. determine highest active goal below highest changed goal
-1. goto 2 until past bottom goal
-1. commit changes
-1. proceed to next phase
+1.  determine highest active goal
+1.  fire rules at that goal, tracking the highest goal with a change
+1.  determine highest active goal below highest changed goal
+1.  goto 2 until past bottom goal
+1.  commit changes
+1.  proceed to next phase
 
 ## Test Case
 
@@ -167,70 +168,73 @@ work.
 
 ### Notes
 
-- preference phase: the inner loop that processes assertions and retractions at
+-   preference phase: the inner loop that processes assertions and retractions at
     the active level and possibly below with new waterfall model
-- matches: assertion/retraction, matches **AND** unmatches coming from the rete
-- active_level: the highest level at which matches are waiting to be processed
-- previous_active_level: the active_level at the start of the previous outer
+-   matches: assertion/retraction, matches **AND** unmatches coming from the rete
+-   active_level: the highest level at which matches are waiting to be processed
+-   previous_active_level: the active_level at the start of the previous outer
     preference loop
-- change_level: lowest level affected by matches fired during previous iteration
+-   change_level: lowest level affected by matches fired during previous iteration
     of inner preference loop, always equal to or higher than active_level, matches
     firing in next iteration cannot change this level or higher.
-- next_change_level: lowest level affected by matches fired during this
+-   next_change_level: lowest level affected by matches fired during this
     iteration of inner preference loop, becomes change_level for next iteration
-- high_match_change_level: highest level affected by a match's changes, compares
+-   high_match_change_level: highest level affected by a match's changes, compares
     to change_level
-- low_match_change_level: lowest level affected by a match's changes, sets
+-   low_match_change_level: lowest level affected by a match's changes, sets
     next_change_level
 
 ## Algorithm
 
 This describes one outer preference loop.
 
-1. Reset '''active_level'''=0, '''next_change_level'''=0.
-1. Set '''active_level'''.
-1. Set '''previous_active_level''' = '''active_level'''
-1. Inner preference loop start:
+1.  Reset '''active_level'''=0, '''next_change_level'''=0.
+1.  Set '''active_level'''.
+1.  Set '''previous_active_level''' = '''active_level'''
+1.  Inner preference loop start:
 
-    1. If '''active_level''' is invalid, break out of loop.
-    1. Set '''change_level''' = '''next_change_level'''.
-    1. For each match at the '''active_level''':
+    1.  If '''active_level''' is invalid, break out of loop.
+    1.  Set '''change_level''' = '''next_change_level'''.
+    1.  For each match at the '''active_level''':
 
-        1. Determine '''high_match_change_level''' and '''low_match_change_level''' (see execute_action).
-        1. If the '''high_match_change_level''' < '''change_level''':
+        1.  Determine '''high_match_change_level''' and '''low_match_change_level'''
+        (see execute_action).
+        1.  If the '''high_match_change_level''' < '''change_level''':
 
-            1. Fire the match (and be sure match is removed from match lists).
-            1. Set '''next_change_level''' = min('''next_change_level''', '''low_match_change_level''')
+            1.  Fire the match (and be sure match is removed from match lists).
+            1.  Set '''next_change_level''' = min('''next_change_level''', '''low_match_change_level''')
 
-        1. Else if '''high_match_change_level''' >= '''change_level''':
+        1.  Else if '''high_match_change_level''' >= '''change_level''':
 
-            1. Do not fire the match (and be sure match is retained in match lists).
+            1.  Do not fire the match (and be sure match is retained in match lists).
 
-    1. Set '''active_level''' to next lowest level that has activity (matches) below the current '''active_level'''.
-    1. Go to inner preference loop start.
+    1.  Set '''active_level''' to next lowest level that has activity (matches)
+    below the current '''active_level'''.
+    1.  Go to inner preference loop start.
 
-1. Set '''active_level''' = '''previous_active_level'''
-1. Commit changes (do_working_memory_phase)
+1.  Set '''active_level''' = '''previous_active_level'''
+1.  Commit changes (do_working_memory_phase)
 
 ## Implementation Notes
 
-- done in initialize_consistency_calculations_for_new_decision
-- done in determine_highest_active_production_level_in_stack \_apply/propose
-- local variable in doApplyPhase, not yet implemented for propose
-- current handling of this (in the apply phase) is to set current_phase to
+-   done in initialize_consistency_calculations_for_new_decision
+-   done in determine_highest_active_production_level_in_stack \_apply/propose
+-   local variable in doApplyPhase, not yet implemented for propose
+-   current handling of this (in the apply phase) is to set current_phase to
     Phase.OUTPUT. May need to actually check this though because we probably won't
     be changing current_phase in 4.4.
 
 find out what level a match will change
 possibly out of date
 
-1. Call create_instantiation on the assertion
-1. Determine the highest level of any action (as reported by execute_action) (see solution above)
-1. If any action's level is higher than the safe active level
-    1. Don't create the instantiation (see below)
-    1. Put the assertion back on the assertions list where we got it from (the
+1.  Call create_instantiation on the assertion
+1.  Determine the highest level of any action (as reported by execute_action)
+(see solution above)
+1.  If any action's level is higher than the safe active level
+    1.  Don't create the instantiation (see below)
+    1.  Put the assertion back on the assertions list where we got it from (the
        pointers should still be in the right places)
-1. For each retraction at this goal, do something similar to above
+1.  For each retraction at this goal, do something similar to above
 
 ## Notes on only firing the assertion
 

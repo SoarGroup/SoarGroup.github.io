@@ -3,11 +3,13 @@ date: 2014-10-07
 authors:
     - soar
 tags:
+    - io
     - kernel programming
 ---
 
 <!-- markdown-link-check-disable-next-line -->
-<!-- old URL: https://soar.eecs.umich.edu/articles/articles/technical-documentation/200-i-o-and-reward-links -->
+<!-- old URL: https://soar.eecs.umich.edu/articles/articles/technical-documentation/
+200-i-o-and-reward-links -->
 
 # I/O and Reward Links
 
@@ -24,14 +26,14 @@ differences for reward-link are because it is on every state).
 
 When adding a new link, there are several things you need to deal with:
 
-- adding the link on agent creation
-- removing the link on agent destruction
-- recreating the link during an init-soar
+-   adding the link on agent creation
+-   removing the link on agent destruction
+-   recreating the link during an init-soar
 
 Depending on what the link is for, you may also need to deal with:
 
-- reading things off of the link
-- putting things on the link
+-   reading things off of the link
+-   putting things on the link
 
 ## Adding the link on agent creation
 
@@ -46,7 +48,7 @@ This includes link names (the attribute of the link wme). Let's suppose I want
 the following link structure (I'm using concrete identifiers for clarity; the
 actual identifiers that get created may be different):
 
-```
+```Soar
 S1 [COLOR=#666600]^[/COLOR]emotion E1 E1 [COLOR=#666600]^[/COLOR]appraisal[COLOR=#666600]-[/COLOR]link A1 [COLOR=#666600]^[/COLOR]feeling[COLOR=#666600]-[/COLOR]link F1
 ```
 
@@ -55,7 +57,7 @@ I need to create and save symbols for "emotion", "appraisal-link" and
 agent structure (agent.h) and find the section labeled "Predefined Symbols". At
 the end of this section, add a Symbol pointer for each new symbol:
 
-```
+```Soar
 [COLOR=#660066]Symbol[/COLOR] [COLOR=#666600]*[/COLOR] emotion_symbol[COLOR=#666600];[/COLOR]
 [COLOR=#660066]Symbol[/COLOR] [COLOR=#666600]*[/COLOR] appraisal_link_symbol[COLOR=#666600];[/COLOR]
 [COLOR=#660066]Symbol[/COLOR] [COLOR=#666600]*[/COLOR] feeling_link_symbol[COLOR=#666600];[/COLOR]
@@ -66,7 +68,7 @@ corresponding to the identifier values of the WMEs and the wme structures
 themselves (generally speaking, you only need to save the WMEs that you plan on
 directly manipulating in other code):
 
-```
+```c++
 Symbol            * emotion_header;
 wme               * emotion_header_link;
 
@@ -74,7 +76,8 @@ Symbol            * emotion_header_appraisal;
 Symbol            * emotion_header_feeling;
 ```
 
-Now go to the `create_predefined_symbols` function (in symtab.cpp) and create your symbols at the end:
+Now go to the `create_predefined_symbols` function (in symtab.cpp) and create
+your symbols at the end:
 
 ```c++
 thisAgent->emotion_symbol = make_sym_constant (thisAgent, "emotion");
@@ -183,7 +186,8 @@ if ( frame_slot )
 {
 ```
 
-Each slot has an id, attr, and list of WMEs. In this case, we are looking for the "frame" slot. We will skip any other slots we see:
+Each slot has an id, attr, and list of WMEs. In this case, we are looking for the
+"frame" slot. We will skip any other slots we see:
 
 Code:
 

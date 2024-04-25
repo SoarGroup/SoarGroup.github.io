@@ -7,7 +7,8 @@ tags:
 ---
 
 <!-- markdown-link-check-disable-next-line -->
-<!-- old URL: https://soar.eecs.umich.edu/articles/articles/technical-documentation/201-memory-leak-debugging-with-visual-studio -->
+<!-- old URL: https://soar.eecs.umich.edu/articles/articles/technical-documentation/
+201-memory-leak-debugging-with-visual-studio -->
 
 # Memory Leak Debugging with Visual Studio
 
@@ -52,7 +53,7 @@ This is enough to get your test program to report any leaks. The program (and
 any code you're testing) needs to be compiled in Debug mode for this to work. A
 leak report will look something like this:
 
-```
+```plaintext
 Detected memory leaks!
 Dumping objects ->
 {19907} normal block at 0x00B24688, 11 bytes long.
@@ -155,8 +156,7 @@ DLLs used by that .exe will also be reported.
 If the above conditions are not met and you want to check for leaks in a DLL,
 you need to add some special code to the DLL:
 
-```
-
+```c++
 // Check for memory leaks
 #if defined(_DEBUG) && defined(_WIN32)
 #define _CRTDBG_MAP_ALLOC

@@ -9,7 +9,8 @@ tags:
 ---
 
 <!-- markdown-link-check-disable-next-line -->
-<!-- old URL: https://soar.eecs.umich.edu/articles/articles/soar-markup-language-sml/203-threads-in-sml -->
+<!-- old URL: https://soar.eecs.umich.edu/articles/articles/soar-markup-language-sml/
+203-threads-in-sml -->
 
 # Threads in SML
 
@@ -54,8 +55,8 @@ This gives us a picture of the overall set of threads:
 
 As we're about to dive into the complexity of the threading in SML, one obvious
 question is: why not just have a single thread and make everyone's life easier?
-Well, the answer is that that would make the SML/ kernel developer's life easier, but
-at the cost of making the client/application developer's life harder. Let me
+Well, the answer is that that would make the SML/ kernel developer's life easier,
+but at the cost of making the client/application developer's life harder. Let me
 explain why that is more fully.
 
 ## Why Have a Kernel Thread?
@@ -86,8 +87,8 @@ So the result is that we recommend running the kernel in its own thread in most
 cases. That separate thread checks for new commands coming in from either the
 socket or the local client. In this model, commands are always run in the
 kernel's thread. That means that, if the local client calls `run`, what actually
-happens is that the `run` command is placed on a message queue and the kernel thread then
-pulls the command from that queue and executes it. That's important to
+happens is that the `run` command is placed on a message queue and the kernel
+thread then pulls the command from that queue and executes it. That's important to
 understand if you're trying to debug a problem at the kernel level, since the
 client's function call just adds a message to a queue and you usually need to
 break the execution at the point that the kernel's thread has picked up the
@@ -116,14 +117,14 @@ actual usage).
 So given that event calls are synchronous and the kernel blocks waiting for
 them to complete, how do we ensure that clients are responsive?
 
-- In the case where the kernel and the client are running in the **same thread**
+-   In the case where the kernel and the client are running in the **same thread**
   there is really no problem. The event call is just a function callback and the
   callback executes in the kernel's thread.
 
-- When the kernel and client are running in **separate processes** connected
+-   When the kernel and client are running in **separate processes** connected
   by a socket, the client needs to check for new messages arriving on the socket.
 
-      - As with the kernel thread, this could be done by requiring the client to
+    -   As with the kernel thread, this could be done by requiring the client to
       periodically poll for new events coming in on the socket (and again this
       mode is supported by having clients call
       `Kernel::CheckForIncomingEvents()`). But this periodic polling can be
@@ -131,11 +132,11 @@ them to complete, how do we ensure that clients are responsive?
       the client as it needs to be as fast as possible responding to incoming
       events or the entire system's performance will degrade.
 
-      - This is where the *EventThread* comes in. Its job is to check the socket for
-      new events and make the appropriate callback to the client code. This keeps the
-      client responsive and most people will never stop to wonder how a callback
-      inside one process is being triggered by a kernel running in another process
-      without their doing anything.
+    -   This is where the _EventThread_ comes in. Its job is to check the socket
+    for new events and make the appropriate callback to the client code. This keeps
+    the client responsive and most people will never stop to wonder how a callback
+    inside one process is being triggered by a kernel running in another process
+    without their doing anything.
 
 There is however a wrinkle in this behavior. When a run call is made by a
 client (on what we're calling the RunThread) that call blocks. While it is
@@ -212,8 +213,8 @@ First, it allows the EventThread and the RunThread in the client to live in
 harmony. A run call will wait for the current event to be processed before it
 starts and once the run has begun, this lock forces the EventThread to wait for
 the run to complete. As a result, **all events during a run (started by that
-client) come back on the RunThread** and **all events outside of a run come back on
-the EventThread**.
+client) come back on the RunThread** and **all events outside of a run come back
+on the EventThread**.
 
 Second, the presence of a lock on the client makes interruption a bit tricky.
 If a client issues a stop command from a different thread than the RunThread, it

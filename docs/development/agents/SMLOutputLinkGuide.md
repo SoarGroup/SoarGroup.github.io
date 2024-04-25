@@ -6,10 +6,12 @@ tags:
   - io
   - event
   - sml
+  - agent development
 ---
 
 <!-- markdown-link-check-disable-next-line -->
-<!-- old URL: https://soar.eecs.umich.edu/articles/articles/soar-markup-language-sml/202-sml-output-link-guide -->
+<!-- old URL: https://soar.eecs.umich.edu/articles/articles/
+soar-markup-language-sml/202-sml-output-link-guide -->
 
 # SML Output Link Guide
 
@@ -35,22 +37,18 @@ Destroyed pointers are freed by SML and will cause a segmentation fault if used.
 
 Recommended: Register for the Update event `smlEVENT_AFTER_ALL_OUTPUT_PHASES`.
 
-Run Events (agent-specific):
+Run Events (agent-specific; register using `Agent::RegisterForRunEvent`):
 
-```
-# Register using Agent::RegisterForRunEvent
-smlEVENT_AFTER_OUTPUT_PHASE   # All three of these are essentially equivalent
-smlEVENT_AFTER_DECISION_PHASE
-smlEVENT_AFTER_DECISION_CYCLE
-```
+-   smlEVENT_AFTER_OUTPUT_PHASE   # All three of these are essentially equivalent
+-   smlEVENT_AFTER_DECISION_PHASE
+-   smlEVENT_AFTER_DECISION_CYCLE
 
-Update Events:
+Update Events (register using `Kernel::RegisterForUpdateEvent`):
 
-```
-# Register using Kernel::RegisterForUpdateEvent
-smlEVENT_AFTER_ALL_OUTPUT_PHASES    # Fires after all agents' output phases are done
-smlEVENT_AFTER_ALL_GENERATED_OUTPUT # Fires as above but only after all agents also have output or reached max-nil-output-cycles
-```
+-   smlEVENT_AFTER_ALL_OUTPUT_PHASES    # Fires after all agents' output phases
+are done
+-   smlEVENT_AFTER_ALL_GENERATED_OUTPUT # Fires as above but only after all agents
+also have output or reached max-nil-output-cycles
 
 ## Reading the Output Link
 
@@ -59,19 +57,19 @@ each with pros and cons. Choose whichever method seems easiest to you.
 
 Examine In Detail
 
-- Use `GetOutputLink`, `GetNumberChildren`, `GetChild`, and other similar
+-   Use `GetOutputLink`, `GetNumberChildren`, `GetChild`, and other similar
   methods to examine working memory in its raw state.
-- Can't use `IsJustAdded` and `AreChildrenModified` - these require
+-   Can't use `IsJustAdded` and `AreChildrenModified` - these require
   `SetTrackOutputLinkChanges` true
 
 Advantages:
 
-- Most flexible.
-- Can disable change tracking `Agent::SetTrackOutputLinkChanges(false)`
+-   Most flexible.
+-   Can disable change tracking `Agent::SetTrackOutputLinkChanges(false)`
 
 Disadvantages:
 
-- Most verbose.
+-   Most verbose.
 
 ## Command Interface
 
@@ -85,14 +83,14 @@ a top-level command (identifier).
 
 Advantages:
 
-- Easiest.
+-   Easiest.
 
 Disadvantages:
 
-- Do not save identifiers and return control back to Soar - they could be deleted.
-- Not good for commands that span multiple decision cycles, retained so that
+-   Do not save identifiers and return control back to Soar - they could be deleted.
+-   Not good for commands that span multiple decision cycles, retained so that
   `^status` complete can be added.
-- Must follow "command" format: top level identifier.
+-   Must follow "command" format: top level identifier.
 
 ```Soar
 # "Command" format
@@ -114,14 +112,14 @@ All WMEs count as an output link change.
 
 Advantages:
 
-- Full access to output link.
-- Output link removals can be detected using `IsOutputLinkChangeAdd() == false`
-- Great for commands that can span multiple decision cycles because of removal
+-   Full access to output link.
+-   Output link removals can be detected using `IsOutputLinkChangeAdd() == false`
+-   Great for commands that can span multiple decision cycles because of removal
   notification.
 
 Disadvantages:
 
-- Need to parse changes to figure out what's attached to what.
+-   Need to parse changes to figure out what's attached to what.
 
 ```Soar
 # This structure:
@@ -143,18 +141,18 @@ Here you specify specific attributes that fire events when added.
 
 Advantages:
 
-- Other update events do not need to be registered (such as smlEVENT_AFTER_ALL_OUTPUT_PHASES)
-- Event handling model, can be very clear.
+-   Other update events do not need to be registered (such as smlEVENT_AFTER_ALL_OUTPUT_PHASES)
+-   Event handling model, can be very clear.
 
 Disadvantages:
 
-- Full command set needs to be known before hand (only get events when
+-   Full command set needs to be known before hand (only get events when
   identifiers with registered attributes are added to the output link).
-- Do not save identifiers and return control back to Soar--they could be
+-   Do not save identifiers and return control back to Soar--they could be
   deleted.
-- Not good for commands that span multiple decision cycles, retained so that
+-   Not good for commands that span multiple decision cycles, retained so that
   `^status` complete can be added.
-- Must follow "command" format: top level identifier. See Command Interface
+-   Must follow "command" format: top level identifier. See Command Interface
   above.
 
 ## IO Without Event Handlers
@@ -162,7 +160,7 @@ Disadvantages:
 **Not recommended.** Reading the output link without event registration is
 possible. Generalized steps for this are:
 
-1. Set the stop phase to before-input.
-1. Call `RunTillOutput` or Run (one step only - multiple steps will lose tracked
+1.  Set the stop phase to before-input.
+1.  Call `RunTillOutput` or Run (one step only - multiple steps will lose tracked
    changes).
-1. Read the output link.
+1.  Read the output link.

@@ -7,7 +7,8 @@ tags:
 ---
 
 <!-- markdown-link-check-disable-next-line -->
-<!-- old URL: https://soar.eecs.umich.edu/articles/articles/technical-documentation/206-timers -->
+<!-- old URL: https://soar.eecs.umich.edu/articles/articles/technical-documentation/
+206-timers -->
 
 # Timers
 
@@ -17,10 +18,10 @@ This document describes how Soar's internal timers work.
 
 Core/SoarKernel/src/kernel.h contains a few relevant preprocessor symbols:
 
-- `NO_TIMING_STUFF`: Defining this symbol removes most timer code from the kernel.
+-   `NO_TIMING_STUFF`: Defining this symbol removes most timer code from the kernel.
     The stats command output will be much shorter as well, as it will not include
     timing statistics.
-- `DETAILED_TIMING_STATS`: Only valid when `NO_TIMING_STUFF`
+-   `DETAILED_TIMING_STATS`: Only valid when `NO_TIMING_STUFF`
     is not defined. Defining this turns on more timers for more detailed stats for
     things like chunking and GDS. Compiling out timer code can result in much
     faster runs. Timers are compiled-in by default, but not detailed timing stats.

@@ -89,6 +89,21 @@ nav:
           - Commercial Soar Organizations: home/CommercialSoarOrganizations.md
   - Downloads:
       - downloads/index.md
+  - Tutorials:
+      - tutorials/index.md
+      - Java Soar Debugger Intro: tutorials/IntroSoarDebugger.md
+      - SML Quick Start Guide: tutorials/SMLQuickStartGuide.md
+      - Official Soar Tutorials:
+          - tutorials/soar_tutorial/index.md
+          - Part I Simple Soar Programs: tutorials/soar_tutorial/01.md
+          - Part II Simple External Interaction: tutorials/soar_tutorial/02.md
+          - Part III Subgoals: tutorials/soar_tutorial/03.md
+          - Part IV More Simple Problem Solving: tutorials/soar_tutorial/04.md
+          - Part V Planning and Learning: tutorials/soar_tutorial/05.md
+          - Part VI Reinforcement Learning: tutorials/soar_tutorial/06.md
+          - Part VII Semantic Memory: tutorials/soar_tutorial/07.md
+          - Part VIII Episodic Memory: tutorials/soar_tutorial/08.md
+          - Tank and Eaters Configuration: tutorials/soar_tutorial/TankEatersConfigFile.md
   - Soar Manual:
       - soar_manual/index.md
       - Introduction: soar_manual/01_Introduction.md
@@ -101,38 +116,23 @@ nav:
       - Spatial Visual System: soar_manual/08_SpatialVisualSystem.md
       - Soar User Interface: soar_manual/09_SoarUserInterface.md
       - Blocksworld: soar_manual/blocksworld.md
-  - Explanations:
-      - explanations/index.md
-      - Basic Kernel Terminology: explanations/BasicKernelTerminology.md
-      - Design Dogma: explanations/DesignDogma.md
-      - Soar Programmer's Guide: explanations/SoarProgrammersGuide.md
-      - Threads in SML: explanations/ThreadsInSML.md
-      - Timers: explanations/Timers.md
-      - Waterfall: explanations/Waterfall.md
-  - Tutorials:
-      - tutorials/index.md
-      - Java Soar Debugger Intro: tutorials/IntroSoarDebugger.md
-      - Soar Markup Language: tutorials/SMLQuickStartGuide.md
-      - Official Soar Tutorials:
-          - tutorials/soar_tutorial/index.md
-          - Part I Simple Soar Programs: tutorials/soar_tutorial/01.md
-          - Part II Simple External Interaction: tutorials/soar_tutorial/02.md
-          - Part III Subgoals: tutorials/soar_tutorial/03.md
-          - Part IV More Simple Problem Solving: tutorials/soar_tutorial/04.md
-          - Part V Planning and Learning: tutorials/soar_tutorial/05.md
-          - Part VI Reinforcement Learning: tutorials/soar_tutorial/06.md
-          - Part VII Semantic Memory: tutorials/soar_tutorial/07.md
-          - Part VIII Episodic Memory: tutorials/soar_tutorial/08.md
-          - Tank and Eaters Configuration: tutorials/soar_tutorial/TankEatersConfigFile.md
-  - HowTo Guides:
-      - how_to/index.md
-      - Building Soar and ROS1: how_to/BuildingSoarRos.md
-      - CLI Parsing Code: how_to/CLIParsingCode.md
-      - How to compile SML Clients: how_to/HowToCompileSmlClients.md
-      - IO and Reward Links: how_to/IOAndRewardLinks.md
-      - Memory Leak Debugging with Visual Studio: how_to/MemoryLeakDebuggingWithVisualStudio.md
-      - SML Output Link Guide: how_to/SMLOutputLinkGuide.md
-      - Soar Technical FAQ: how_to/SoarTechnicalFAQ.md
+  - Development:
+      - development/index.md
+      - Technical FAQ: development/SoarTechnicalFAQ.md
+      - Building Soar and ROS1: development/BuildingSoarRos.md
+      - Soar Agents:
+        - Design Dogma: development/agents/DesignDogma.md
+        - Soar Programmer's Guide: development/agents/SoarProgrammersGuide.md
+        - SML Output Link Guide: development/agents/SMLOutputLinkGuide.md
+        - How to compile SML Clients: development/agents/HowToCompileSmlClients.md
+      - Soar Kernel:
+        - Basic Kernel Terminology: development/soar/BasicKernelTerminology.md
+        - CLI Parsing Code: development/soar/CLIParsingCode.md
+        - IO and Reward Links: development/soar/IOAndRewardLinks.md
+        - Memory Leak Debugging with Visual Studio: development/soar/MemoryLeakDebuggingWithVisualStudio.md
+        - Threads in SML: development/soar/ThreadsInSML.md
+        - Timers: development/soar/Timers.md
+        - Waterfall: development/soar/Waterfall.md
   - Support:
       - support/index.md
   - Reference:
