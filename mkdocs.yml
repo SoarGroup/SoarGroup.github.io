@@ -1,6 +1,6 @@
 site_name: Soar Home
 repo_url: https://github.com/SoarGroup/SoarGroup.github.io
-repo_name: https://github.com/SoarGroup/Soar
+repo_name: Website Source
 copyright: Copyright &copy; SoarGroup 2024
 edit_uri: edit/main/docs/
 
@@ -72,7 +72,7 @@ watch:
 extra:
   social:
     - icon: fontawesome/brands/github-alt
-      link: https://github.com/SoarGroup/SoarGroup.github.io
+      link: https://github.com/SoarGroup/Soar
 
 nav:
   - Home:
