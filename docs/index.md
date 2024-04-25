@@ -2,11 +2,11 @@
 
 Soar is a general cognitive architecture for developing systems that exhibit intelligent behavior. For more in-depth information, see our [about](home/About.md) page, or J.E. Laird's 2012 book, [*The Soar Cognitive Architecture*](http://www.eecs.umich.edu/~soar/sitemaker/misc/7688_jkt_au.pdf), available from [Amazon](http://www.amazon.com/Soar-Cognitive-Architecture-John-Laird/dp/0262122960/ref=sr_1_sc_1?ie=UTF8&qid=1332172759&sr=8-1-spell) and [MIT Press](https://web.archive.org/web/20240405085728/https://mitpress.mit.edu/books/soar-cognitive-architecture).
 
-To get started, [download Soar](https://github.com/SoarGroup/Soar/releases/tag/releases/9.6.2) and follow the [quick start guide](home/QuickStart.md).
+To get started, [download Soar](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/Soar-Release-{{soar_version}}.zip) and follow the [quick start guide](home/QuickStart.md).
 
 ## News and Announcements
 
-* [**Soar 9.6.2 available for download**](https://github.com/SoarGroup/Soar/releases/tag/releases/9.6.2): This release of Soar contains ergonomic improvements to the debugger and Soar CLI, lots of new VisualSoar features, and plenty of bug fixes and stability improvements.
+* [**Soar 9.6.2 available for download**](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/Soar-Release-{{soar_version}}.zip): This release of Soar contains ergonomic improvements to the debugger and Soar CLI, lots of new VisualSoar features, and plenty of bug fixes and stability improvements.
 * **43rd Soar Workshop 2023** The University of Michigan Soar group will host the 43rd Soar Workshop from June 14th-15th 2023. There will be a beginner Soar tutorial on June 12th-13th and an advanced tutorial on June 15th-16th.
 * **No VISCA 2023**
 * [**A Demonstration of Compositional, Hierarchical Interactive Task Learning**](https://cse.engin.umich.edu/stories/aaai-best-demonstration-award-for-developing-an-ai-agent-that-learns-tasks-from-natural-language-instructions) Mininger and Laird win Best Demonstratation for the 2022 AAAI Conference.

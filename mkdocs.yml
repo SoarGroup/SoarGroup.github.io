@@ -74,7 +74,9 @@ extra:
     - icon: fontawesome/brands/github-alt
       link: https://github.com/SoarGroup/Soar
   manual_wip_warning: "# 🚧 Under Construction 🚧\n The HTML version of the manual is currently under construction. If you find it difficult to read, there is a PDF version available [here](https://github.com/SoarGroup/Soar/releases/download/releases%2F9.6.2/SoarManual.pdf)."
-
+  # MAINTAINER NOTE: when you update this, don't forget to also
+  # update the release notes on the downloads page
+  soar_version: 9.6.2
 nav:
   - Home:
       - index.md
@@ -85,6 +87,8 @@ nav:
           - Research Groups: home/ResearchGroups.md
           - Academic Institutions: home/OtherAcademicInstitutions.md
           - Commercial Soar Organizations: home/CommercialSoarOrganizations.md
+  - Downloads:
+      - downloads/index.md
   - Soar Manual:
       - soar_manual/index.md
       - Introduction: soar_manual/01_Introduction.md
@@ -167,6 +171,8 @@ nav:
 plugins:
   - search
   - img2figv2
-  - macros
+  - macros:
+      on_error_fail: true
+      on_undefined: strict
   - tags:
       tags_file: home/tags.md
