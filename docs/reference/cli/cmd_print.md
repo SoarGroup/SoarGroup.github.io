@@ -85,7 +85,7 @@ which case the wmes themselves are printed.
 ```
 
 The activation value is only printed if activation is turned on. See
-[wma](./cmd_wm.md#wm-activation).
+[wm](./cmd_wm.md#wm-activation).
 
 The pattern is surrounded by parentheses. The `identifier`, `attribute`, and
 `value` must be valid Soar symbols or the wildcard symbol `*` which matches all

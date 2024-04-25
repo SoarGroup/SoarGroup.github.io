@@ -153,7 +153,6 @@ nav:
           - trace: reference/cli/cmd_trace.md
           - visualize: reference/cli/cmd_visualize.md
           - wm: reference/cli/cmd_wm.md
-          - wma: reference/cli/cmd_wma.md
   - Tag Index: home/tags.md
 
 plugins:
