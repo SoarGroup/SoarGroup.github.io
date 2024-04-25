@@ -1,3 +1,5 @@
+{{manual_wip_warning}}
+
 # Procedural Knowledge Learning
 
 ## Chunking

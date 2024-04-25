@@ -1,3 +1,5 @@
+{{manual_wip_warning}}
+
 # Episodic Memory
 
 Episodic memory is a record of an agent’s stream of experience. The episodic

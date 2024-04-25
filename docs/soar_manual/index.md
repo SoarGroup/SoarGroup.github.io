@@ -1,3 +1,5 @@
+{{manual_wip_warning}}
+
 # The Soar User’s Manual
 
 John E. Laird, Clare Bates Congdon,

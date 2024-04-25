@@ -1,3 +1,5 @@
+{{manual_wip_warning}}
+
 # The Syntax of Soar Programs
 
 This chapter describes in detail the syntax of elements in working memory, preference mem-

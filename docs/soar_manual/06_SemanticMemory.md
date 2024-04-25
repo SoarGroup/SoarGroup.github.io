@@ -1,3 +1,5 @@
+{{manual_wip_warning}}
+
 # Semantic Memory
 
 Soar’s semantic memory is a repository for long-term declarative knowledge, supplement-
