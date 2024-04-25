@@ -24,8 +24,7 @@ jobs:
         separator: ","
 
     - uses: DavidAnson/markdownlint-cli2-action@v14
-      # just this once so we can get the tutorial deployed
-      continue-on-error: true
+      continue-on-error: false
       if: steps.changed-files.outputs.any_changed == 'true'
       with:
         globs: ${{ steps.changed-files.outputs.all_changed_files }}
