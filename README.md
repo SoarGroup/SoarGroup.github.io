@@ -2,11 +2,14 @@
 
 ## ⚠️⚠️⚠️ WORK IN PROGRESS ⚠️⚠️⚠️
 
-This repository contains the source for the (new as of 2024) homepage for the Soar cognitive architecture, including source for the PDF's distributed with Soar.
+This repository contains the source for the (new as of 2024) homepage for the
+Soar cognitive architecture, including source for the PDF's distributed with Soar.
 
 The website is not yet fully migrated from the old site, and is still under construction.
 
-The site is built using the [MkDocs](https://www.mkdocs.org/), a static site generator that uses Markdown files to generate a website. The theme is [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
+The site is built using the [MkDocs](https://www.mkdocs.org/), a static site
+generator that uses Markdown files to generate a website. The theme is
+[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
 
 ## Setup/Running
 
@@ -17,4 +20,12 @@ The site is built using the [MkDocs](https://www.mkdocs.org/), a static site gen
 
 ## Deployment
 
-The site is deployed to GitHub Pages automatically as long as the build workflows don't fail.
+The site is deployed to GitHub Pages automatically as long as the build workflows
+don't fail.
+
+## Updates for New Soar Versions
+
+*   Update the `soar_version` variable in `mkdocs.yml`.
+*   Add announcement with link to `docs/index.md`.
+*   Run the link-checker (manually triggered GH action workflow) to ensure all
+    new release artifact links are valid.
