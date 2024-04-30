@@ -12,6 +12,19 @@ and follow the [quick start guide](home/QuickStart.md).
 
 ## News and Announcements
 
+*   **44th Soar Workshop 2024** This year’s Soar workshop will be held on May 30,
+2024, at the University of Michigan’s Beyster Building on North Campus in Ann
+Arbor, MI. It will be a hybrid workshop, and remote presentations will be possible.
+As in the past, it will be free.
+
+    Please consider participating! If you are interested in the workshop, please
+complete the registration form.
+
+    Registration closes on 10 May. We look forward to seeing you at the 2024 Soar
+    Workshop!
+
+    [Register here](https://forms.gle/M1JRwpVZPgy5hQc3A)
+
 *   [**Soar 9.6.2 available for download**](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/Soar-Release-{{soar_version}}.zip):
 This release of Soar contains ergonomic improvements to the debugger and Soar CLI,
 lots of new VisualSoar features, and plenty of bug fixes and stability improvements.
