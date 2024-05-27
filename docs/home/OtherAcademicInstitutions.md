@@ -59,6 +59,7 @@ Computer Poker Research Group.
 University of Southern California
 and the Institute for Creative Technologies
 
+<!-- markdown-link-check-disable-next-line -->
 [Bar Ilan University](http://www.cs.biu.ac.il/~galk/), Israel is home to the
 [MAVERICK group](https://u.cs.biu.ac.il/~kaminkg/maverick/), which conducts
 research in social intelligence, multi-agent and multi-robot systems, and plan
