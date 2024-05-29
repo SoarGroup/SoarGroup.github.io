@@ -12,7 +12,7 @@ and follow the [quick start guide](home/QuickStart.md).
 
 ## News and Announcements
 
-*   **44th Soar Workshop 2024** This year’s Soar workshop will be held on May 30,
+*   **44th Soar Workshop 2024** This year’s Soar workshop will be held on May 29,
 2024, at the University of Michigan’s Beyster Building on North Campus in Ann
 Arbor, MI. It will be a hybrid workshop, and remote presentations will be possible.
 As in the past, it will be free.
