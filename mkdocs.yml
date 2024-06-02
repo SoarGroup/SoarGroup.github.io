@@ -46,6 +46,8 @@ extra_javascript:
 markdown_extensions:
   - extra
   - tables
+  - toc:
+      permalink: true
   - mdx_math
   - fenced_code
   - pymdownx.highlight:
