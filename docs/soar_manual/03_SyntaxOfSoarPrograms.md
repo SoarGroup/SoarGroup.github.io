@@ -1,20 +1,24 @@
+<!-- markdownlint-disable MD041 -->
 {{manual_wip_warning}}
 
 # The Syntax of Soar Programs
 
-This chapter describes in detail the syntax of elements in working memory, preference mem-
-ory, and production memory, and how impasses and I/O are represented in working memory
-and in productions. Working memory elements and preferences are created as Soar runs,
-while productions are created by the user or through chunking. The bulk of this chapter
-explains the syntax for writing productions.
+This chapter describes in detail the syntax of elements in working memory,
+preference mem- ory, and production memory, and how impasses and I/O are
+represented in working memory and in productions. Working memory elements and
+preferences are created as Soar runs, while productions are created by the user
+or through chunking. The bulk of this chapter explains the syntax for writing
+productions.
 
-The first section of this chapter describes the structure of working memory elements in Soar;
-the second section describes the structure of preferences; and the third section describes
-the structure of productions. The fourth section describes the structure of impasses. An
-overview of how input and output appear in working memory is presented in the fifth section.
-Further discussion of Soar I/O can be found on the Soar website.
+The first section of this chapter describes the structure of working memory
+elements in Soar; the second section describes the structure of preferences; and
+the third section describes the structure of productions. The fourth section
+describes the structure of impasses. An overview of how input and output appear
+in working memory is presented in the fifth section. Further discussion of Soar
+I/O can be found on the Soar website.
 
-This chapter assumes that you understand the operating principles of Soar, as presented in
+This chapter assumes that you understand the operating principles of Soar, as
+presented in
 [the Soar architecture](./02_TheSoarArchitecture.md#the-soar-architecture).
 
 ## Working Memory
@@ -24,9 +28,9 @@ Working memory contains working memory elements (WME’s). As described in
 created by the actions of productions, the evaluation of preferences, the Soar
 architecture, and via the input/output system.
 
-A WME is a tuple consisting of three symbols: an _identifier_, an _attribute_, and a _value_, where
-the entire WME is enclosed in parentheses and the attribute is preceded by an up-arrow (`^`).
-A template for a working memory element is:
+A WME is a tuple consisting of three symbols: an _identifier_, an _attribute_,
+and a _value_, where the entire WME is enclosed in parentheses and the attribute
+is preceded by an up-arrow (`^`). A template for a working memory element is:
 
 ```Soar
 (identifier ^attribute value)
@@ -41,45 +45,48 @@ that identifier symbol in its first position.
 
 ### Symbols
 
-Soar distinguishes between two types of working memory symbols: _identifiers_ and _constants_.
+Soar distinguishes between two types of working memory symbols: _identifiers_
+and _constants_.
 
-- **Identifiers**: An identifier is a unique symbol, created at runtime when a
-  new object is added to working memory. The names of identifiers are created by
-  Soar, and consist of a single uppercase letter followed by a string of digits,
-  such as `G37` or `O22`.
+-   **Identifiers**: An identifier is a unique symbol, created at runtime when a
+    new object is added to working memory. The names of identifiers are created
+    by Soar, and consist of a single uppercase letter followed by a string of
+    digits, such as `G37` or `O22`.
 
 (The Soar user interface will also allow users to specify identifiers using
 lowercase letters in a case-insensitive manner, for example, when using the
-[`print` command](../reference/cli/cmd_print.md). But internally, they are actually
-uppercase letters.)
+[`print` command](../reference/cli/cmd_print.md). But internally, they are
+actually uppercase letters.)
 
-- **Constants**: There are three types of constants: integers, floating-point, and symbolic constants: 
-    - Integer constants (numbers). The range of values depends on the machine
-  and implementation you’re using, but it is at least [-2 billion...+2
-  billion]. 
-    - Floating-point constants (numbers). The range depends on the machine and
-  implementation you’re using. 
-    - Symbolic constants. These are symbols with arbitrary names. A constant can use
-  any combination of letters, digits, or `$%&*+-/:<=>?_`. Other characters (such as blank
-  spaces) can be included by surrounding the complete constant name with vertical
-  bars: `|This is a constant|`. (The vertical bars aren’t part of the name; they’re
-  just notation.) A vertical bar can be included by prefacing it with a backslash inside
-  surrounding vertical bars: `|Odd-symbol\|name|`
+-   **Constants**: There are three types of constants: integers, floating-point,
+    and symbolic constants: - Integer constants (numbers). The range of values
+    depends on the machine and implementation you’re using, but it is at least
+    [-2 billion...+2 billion].
+    -   Floating-point constants (numbers). The range depends on the machine and
+        implementation you’re using.
+    -   Symbolic constants. These are symbols with arbitrary names. A constant
+        can use any combination of letters, digits, or `$%&*+-/:<=>?_`. Other
+        characters (such as blank spaces) can be included by surrounding the
+        complete constant name with vertical bars: `|This is a constant|`. (The
+        vertical bars aren’t part of the name; they’re just notation.) A
+        vertical bar can be included by prefacing it with a backslash inside
+        surrounding vertical bars: `|Odd-symbol\|name|`
 
-Identifiers should not be confused with constants, although they may "look the same";
-identifiers are generated (by the Soar architecture) at runtime and will not necessarily be
-the same for repeated runs of the same program. Constants are specified in the Soar program
-and will be the same for repeated runs.
+Identifiers should not be confused with constants, although they may "look the
+same"; identifiers are generated (by the Soar architecture) at runtime and will
+not necessarily be the same for repeated runs of the same program. Constants are
+specified in the Soar program and will be the same for repeated runs.
 
-Even when a constant "looks like" an identifier, it will not act like an identifier in terms of
-matching. A constant is printed surrounded by vertical bars whenever there is a possibility of
-confusing it with an identifier: `|G37|` is a constant while `G37` is an identifier. To avoid possible
-confusion, you should not use letter-number combinations as constants or for production
-names.
+Even when a constant "looks like" an identifier, it will not act like an
+identifier in terms of matching. A constant is printed surrounded by vertical
+bars whenever there is a possibility of confusing it with an identifier: `|G37|`
+is a constant while `G37` is an identifier. To avoid possible confusion, you
+should not use letter-number combinations as constants or for production names.
 
 ### Objects
 
-Recall from Section [Working Memory: The current situation](./02_TheSoarArchitecture.md#working-memory-the-current-situation)
+Recall from Section
+[Working Memory: The current situation](./02_TheSoarArchitecture.md#working-memory-the-current-situation)
 that all WME’s that share an identifier are collectively called an object in
 working memory. The individual working memory elements that make up an object
 are often called augmentations, because they augment the object. A template for
@@ -95,15 +102,15 @@ provided [online](https://web.eecs.umich.edu/~soar/blocksworld.soar), after one
 elaboration cycle, you can look at the top-level state object by using the print
 command:
 
-```Soar
+```Bash
 soar> print s1
 (S1 ^io I1 ^ontop O2 ^ontop O3 ^ontop O1 ^problem-space blocks
     ^superstate nil ^thing B3 ^thing T1 ^thing B1 ^thing B2
     ^type state)
 ```
 
-The attributes of an object are printed in alphabetical order to make it easier to find a
-specific attribute.
+The attributes of an object are printed in alphabetical order to make it easier
+to find a specific attribute.
 
 Working memory is a set, so that at any time, there are never duplicate versions
 of working memory elements. However, it is possible for several working memory
@@ -129,7 +136,7 @@ the production and not by the identifier-attribute-value triples.
 
 To look at the timetags of WMEs, the `print --internal` command can be used:
 
-```
+```Bash
 soar> print --internal S1
 (3: S1 ^io I1)
 (10: S1 ^ontop O2)
@@ -144,23 +151,25 @@ soar> print --internal S1
 (1: S1 ^type state)
 ```
 
-This shows all the individual augmentations ofS1, each is preceded by an integer _timetag_.
+This shows all the individual augmentations ofS1, each is preceded by an integer
+_timetag_.
 
 ### Acceptable preferences in working memory
 
-The `acceptable` preferences for operators appear in working memory as identifier-attribute-
-value-preference quadruples. No other preferences appear in working memory. A template
-for an `acceptable` preference in working memory is:
+The `acceptable` preferences for operators appear in working memory as
+identifier-attribute- value-preference quadruples. No other preferences appear
+in working memory. A template for an `acceptable` preference in working memory
+is:
 
 ```Soar
 (identifier ^operator value +)
 ```
 
-For example, if you run Soar with the example blocks-world program linked above, after the
-first operator has been selected, you can again look at the top-level state using the `print
---internal` command:
+For example, if you run Soar with the example blocks-world program linked above,
+after the first operator has been selected, you can again look at the top-level
+state using the `print --internal` command:
 
-```
+```Bash
 soar> print --internal s1
 (3: S1 ^io I1)
 (9: S1 ^ontop O3)
@@ -182,10 +191,10 @@ soar> print --internal s1
 (1: S1 ^type state)
 ```
 
-The state S1 has six augmentations of `acceptable` preferences for different operators (O4
-throughO9). These have plus signs following the value to denote that they are acceptable
-preferences. The state has exactly one operator,O7. This state corresponds to the illustration
-of working memory in Figure 2.4.
+The state S1 has six augmentations of `acceptable` preferences for different
+operators (O4 throughO9). These have plus signs following the value to denote
+that they are acceptable preferences. The state has exactly one operator,O7.
+This state corresponds to the illustration of working memory in Figure 2.4.
 
 ### Working Memory as a Graph
 
@@ -204,7 +213,7 @@ identifier `X44` has been linked to the object with identifier `O43`, using the
 attribute as the link, rather than the value. The objects in working memory
 illustrated by this figure are:
 
-```
+```Soar
 (O43 ^isa apple ^color red ^inside O53 ^size small ^X44 200)
 (O87 ^isa ball ^color red ^inside O53 ^size big)
 (O53 ^isa box ^size large ^color orange ^contains O43 O87)
@@ -213,9 +222,10 @@ illustrated by this figure are:
 
 In this example, object `O43` and object `O87` are both linked to object `O53`
 through `(O53 ^contains O43)` and `(O53 ^contains O87)`, respectively (the
-contains attribute is a multi-valued attribute). Likewise, object `O53` is linked
-to object `O43` through `(O43 ^inside O53)` and linked to object `O87` through
-`(O87 ^inside O53)`. Object `X44` is linked to object `O43` through `(O43 ^X44 200)`.
+contains attribute is a multi-valued attribute). Likewise, object `O53` is
+linked to object `O43` through `(O43 ^inside O53)` and linked to object `O87`
+through `(O87 ^inside O53)`. Object `X44` is linked to object `O43` through
+`(O43 ^X44 200)`.
 
 Links are transitive so that `O53`is linked to `X44`(because `O53` is linked
 to`O43` and `O43` is linked to `X44`). However, since links are not symmetric,
@@ -228,17 +238,18 @@ accessible to the agent, but that is used by the architecture. **Working Memory
 Activation** (WMA) is sub-symbolic metadata associated with a given element and
 represents its usage. A WME has been used if it has been matched in a rule that
 fired. WMA is not recorded or maintained when disabled, which is the default.
-See [wm command](../reference/cli/cmd_wm.md) for working memory settings and options for
-enabling WMA.
+See [wm command](../reference/cli/cmd_wm.md) for working memory settings and
+options for enabling WMA.
 
 Simply enabling WMA has no impact on any agent’s behavior outside of a small
 additional computational cost. However, working memory activation is used for
 other features. Primarily, it is necessary for allowing the forgetting of memory
-elements from working memory. When working memory forgetting is turned on,
-those working memory elements with activation below a given threshold are
-removed from working memory. This allows agents to maintain a bounded working
-memory size without explicit memory size management. It also has a role in
-determining spreading activation values, discussed in section [activation](./06_SemanticMemory.md#activation).
+elements from working memory. When working memory forgetting is turned on, those
+working memory elements with activation below a given threshold are removed from
+working memory. This allows agents to maintain a bounded working memory size
+without explicit memory size management. It also has a role in determining
+spreading activation values, discussed in section
+[activation](./06_SemanticMemory.md#activation).
 
 ## Preference Memory
 
@@ -250,14 +261,14 @@ identifier-attribute-value-preference-value quintuples
 
 For example,
 
-```
+```Soar
 (S1 ^operator O3 +)
 ```
 
 is a preference that asserts that operator O3 is an `acceptable` operator for
 state S1, while
 
-```
+```Soar
 (S1 ^operator O3 > O4)
 ```
 
@@ -265,7 +276,8 @@ is a preference that asserts that operator O3 is a better choice for the
 operator of state S1 than operator O4.
 
 The semantics of preferences and how they are processed were described in
-Section [Preference Memory: Selection Knowledge](./02_TheSoarArchitecture.md#preference-memory-selection-knowledge),
+Section
+[Preference Memory: Selection Knowledge](./02_TheSoarArchitecture.md#preference-memory-selection-knowledge),
 which also described each of the eleven different types of preferences. Multiple
 production instantiations may create identical preferences. Unlike working
 memory, preference memory is not a set: Duplicate preferences are allowed in
@@ -273,10 +285,11 @@ preference memory.
 
 ## Production Memory
 
-Production memory contains productions, which can be entered in by a user (typed in while
-Soar is running or loaded from a file) or generated by chunking while Soar is running.
-Productions (both user-defined productions and chunks) may be examined using the `print`
-command, described in the [print command](../reference/cli/cmd_print.md).
+Production memory contains productions, which can be entered in by a user (typed
+in while Soar is running or loaded from a file) or generated by chunking while
+Soar is running. Productions (both user-defined productions and chunks) may be
+examined using the `print` command, described in the
+[print command](../reference/cli/cmd_print.md).
 
 ```Soar
 sp {blocks-world*propose*move-block
@@ -303,10 +316,10 @@ documentation string and a type.
 Syntactically, each production consists of the symbol `sp`, followed by: an
 opening curly brace, `{`; the production’s name; the documentation string
 (optional); the production type (optional); comments (optional); the
-production’s conditions; the symbol`-->`(literally: `dash-dash-greater than`); the
-production’s actions; and a closing curly brace,`}`. Each element of a production
-is separated by white space. Indentation and line feeds are used by convention,
-but are not necessary.
+production’s conditions; the symbol`-->`(literally: `dash-dash-greater than`);
+the production’s actions; and a closing curly brace,`}`. Each element of a
+production is separated by white space. Indentation and line feeds are used by
+convention, but are not necessary.
 
 An example production, named `blocks-world*propose*move-block`, is shown in the
 following code block. This production proposes operators named move-block that
@@ -325,22 +338,22 @@ sp {production-name
    }
 ```
 
-#### Conventions for indenting productions
+### Conventions for indenting productions
 
 Productions in this manual are formatted using conventions designed to improve
-their readability. These conventions are not part of the required syntax.
-First, the name of the production immediately follows the first curly bracket
-after the `sp`. All conditions are aligned with the first letter after the first
-curly brace, and attributes of an object are all aligned The arrow is indented
-to align with the conditions and actions and the closing curly brace follows the
+their readability. These conventions are not part of the required syntax. First,
+the name of the production immediately follows the first curly bracket after the
+`sp`. All conditions are aligned with the first letter after the first curly
+brace, and attributes of an object are all aligned The arrow is indented to
+align with the conditions and actions and the closing curly brace follows the
 last action.
 
 ### Production Names
 
 The name of the production is an almost arbitrary constant. (See Section
-[Symbols](./03_SyntaxOfSoarPrograms.md#symbols) for a description of constants.) By
-convention, the name describes the role of the production, but functionally, the
-name is just a label primarily for the use of the programmer.
+[Symbols](./03_SyntaxOfSoarPrograms.md#symbols) for a description of constants.)
+By convention, the name describes the role of the production, but functionally,
+the name is just a label primarily for the use of the programmer.
 
 A production name should never be a single letter followed by numbers, which is
 the format of identifiers.
@@ -348,10 +361,10 @@ the format of identifiers.
 The convention for naming productions is to separate important elements with
 asterisks; the important elements that tend to appear in the name are:
 
-1. The name of the task or goal (e.g.,blocks-world).
-2. The name of the architectural function (e.g.,propose).
-3. The name of the operator (or other object) at issue. (e.g.,move-block)
-4. Any other relevant details.
+1.  The name of the task or goal (e.g.,blocks-world).
+2.  The name of the architectural function (e.g.,propose).
+3.  The name of the operator (or other object) at issue. (e.g.,move-block)
+4.  Any other relevant details.
 
 This name convention enables one to have a good idea of the function of a
 production just by examining its name. This can help, for example, when you are
@@ -377,24 +390,26 @@ chunk (`:chunk`), or may specify that a production should be given o-support
 (`:o-support`) or i-support (`:i-support`). Users are discouraged from using
 these types.
 
-Another flag (`:template`) can be used to specify that a production should be used
-to generate new reinforcement learning rules. See Section [Rule Templates](./05_ReinforcementLearning.md#rule-templates) for
-details. There is one additional flag (`:interrupt`) which can be placed at this
-location in a production. However this flag does not specify a production type,
-but is a signal that the production should be marked for special debugging
-capabilities. For more information, see [`sp` command](../reference/cli/cmd_sp.md).
+Another flag (`:template`) can be used to specify that a production should be
+used to generate new reinforcement learning rules. See Section
+[Rule Templates](./05_ReinforcementLearning.md#rule-templates) for details.
+There is one additional flag (`:interrupt`) which can be placed at this location
+in a production. However this flag does not specify a production type, but is a
+signal that the production should be marked for special debugging capabilities.
+For more information, see [`sp` command](../reference/cli/cmd_sp.md).
 
 ### Comments (optional)
 
 Productions may contain comments, which are not stored in Soar when the
 production is loaded, and are therefore not printed out by the print command. A
-comment is begun with a pound sign character `#` and ends at the end of the line.
-Thus, everything following the `#` is not considered part of the production, and
-comments that run across multiple lines must each begin with a `#`.
+comment is begun with a pound sign character `#` and ends at the end of the
+line. Thus, everything following the `#` is not considered part of the
+production, and comments that run across multiple lines must each begin with a
+`#`.
 
 For example:
 
-```
+```Soar
 sp {blocks-world*propose*move-block
    (state <s> ^problem-space blocks
       ^thing <thing1> {<> <thing1> <thing2>}
@@ -410,8 +425,8 @@ sp {blocks-world*propose*move-block
       ^destination <thing2>)}
 ```
 
-When commenting out conditions or actions, be sure that all parentheses remain balanced
-outside the comment.
+When commenting out conditions or actions, be sure that all parentheses remain
+balanced outside the comment.
 
 #### External comments
 
@@ -419,7 +434,7 @@ Comments may also appear in a file with Soar productions, outside the curly
 braces of the sp command. Comments must either start a new line with a `#` or
 start with `;#`. In both cases, the comment runs to the end of the line.
 
-```
+```Soar
 # imagine that this is part of a "Soar program" that contains
 # Soar productions as well as some other code.
 
@@ -449,7 +464,7 @@ values. The condition is terminated with a close parenthesis. A single condition
 might test properties of a single working memory element, or properties of
 multiple working memory elements that constitute an object.
 
-```
+```Soar
 (identifier-test ^attribute1-test value1-test
    ^attribute2-test value2-test
    ^attribute3-test value3-test
@@ -473,14 +488,15 @@ and not test any specific value by just including the attribute and no value.
 Another exception to the above template is operator preferences, which have the
 following structure where a plus sign follows the value test.
 
-```
+```Soar
 (state-identifier-test ^operator value1-test +
    ...)
 ```
 
-In the remainder of this section, we describe the different tests that can be used for identifiers,
-attributes, and values. The simplest of these is a constant, where the constant specified in
-the attribute or value must match the same constant in a working memory element.
+In the remainder of this section, we describe the different tests that can be
+used for identifiers, attributes, and values. The simplest of these is a
+constant, where the constant specified in the attribute or value must match the
+same constant in a working memory element.
 
 #### Variables in productions
 
@@ -562,8 +578,8 @@ sp {propose-operator*to-show-example-predicate
    (<o> ^name drive-car ^car <c>) }
 ```
 
-In this production, there must be a "color" attribute for the working memory object that
-matches `<c>`, and the value of that attribute must not be "rust".
+In this production, there must be a "color" attribute for the working memory
+object that matches `<c>`, and the value of that attribute must not be "rust".
 
 ```Soar
 sp {example*lti*predicates
@@ -601,8 +617,8 @@ The following table provides examples of legal and illegal disjunctions:
 
 ###### Example Production
 
-For example, the third condition of the following production contains a disjunction that
-restricts the color of the table to red or blue:
+For example, the third condition of the following production contains a
+disjunction that restricts the color of the table to red or blue:
 
 ```Soar
 sp {blocks*example-production-conditions
@@ -620,23 +636,23 @@ productions fulfill this role.
 
 ##### Conjunctions of values
 
-A test for an identifier, attribute, or value in a condition may include a conjunction of tests,
-all of which must hold for there to be a match.
+A test for an identifier, attribute, or value in a condition may include a
+conjunction of tests, all of which must hold for there to be a match.
 
-Syntactically, conjuncts are contained within curly braces (i.e., `{ and }`). The following table
-shows some examples of legal and illegal conjunctive tests:
+Syntactically, conjuncts are contained within curly braces (i.e., `{ and }`).
+The following table shows some examples of legal and illegal conjunctive tests:
 
 | Legal conjunctions                   | Illegal conjunctions  |
 | ------------------------------------ | --------------------- |
 | { `<= <a> >= <b>` }                  | { `<x> < <a> + <b>` } |
-| { `<x> > <y>` }                      | { `> > <b> `}         |
+| { `<x> > <y>` }                      | { `> > <b>`}          |
 | { `<> <x> <y>`}                      | { `<a> <b>` }         |
-| { `<y> <> <x>`}                      |
-| { `<< A B C >> <x>` }                |
-| { `<=> <x> > <y> << 1 2 3 4 >> <z>`} |
+| { `<y> <> <x>`}                      |                       |
+| { `<< A B C >> <x>` }                |                       |
+| { `<=> <x> > <y> << 1 2 3 4 >> <z>`} |                       |
 
-Because those examples are a bit difficult to interpret, let’s go over the legal examples one
-by one to understand what each is doing.
+Because those examples are a bit difficult to interpret, let’s go over the legal
+examples one by one to understand what each is doing.
 
 In the first example, the value must be less than or equal to the value bound to
 variable `<a>` and greater than or equal to the value bound to variable `<b>`.
@@ -658,7 +674,8 @@ the same type as the value bound to variable `<x>`. Second, the value must be
 greater than the value bound to variable `<y>`. Third, the value must be equal
 to 1 , 2 , 3 , or 4. Finally, the value should be bound to variable `<z>`.
 
-In Figure 3.2, a conjunctive test is used for the thing attribute in the first condition.
+In Figure 3.2, a conjunctive test is used for the thing attribute in the first
+condition.
 
 Note that it is illegal syntax for a condition to test the equality of two
 variables, as demonstrated in the last illegal conjunction above. Any such test
@@ -690,10 +707,10 @@ having it precede a specific attribute:
 (<p1> ^name john -^type father ^spouse <p2>)
 ```
 
-In that example, the condition would match if there is a working memory element that
-matches `(<p1> ^name john)` and another that matches `(<p1> ^spouse <p2>)`, but is no
-working memory element that matches `(<p1> ^type father)` (when `p1` is bound to the
-same identifier).
+In that example, the condition would match if there is a working memory element
+that matches `(<p1> ^name john)` and another that matches `(<p1> ^spouse <p2>)`,
+but is no working memory element that matches `(<p1> ^type father)` (when `p1`
+is bound to the same identifier).
 
 On the other hand, the condition:
 
@@ -716,7 +733,8 @@ sp {default*evaluate-object
    (<so> ^default-state-copy yes) }
 ```
 
-For negated conditions in combination with attribute-path notation consult the section
+For negated conditions in combination with attribute-path notation consult the
+section
 [negated multi-valued attributes and attribute-path notation](#negated-multi-valued-attributes-and-attribute-path-notation).
 
 ##### Notes
@@ -736,8 +754,9 @@ sp {example*infinite-loop
    (<s> ^road |route-66|) }
 ```
 
-Also note that syntactically it is invalid for the first condition of a rule to be a negated
-condition. For example, the following production would fail to load:
+Also note that syntactically it is invalid for the first condition of a rule to
+be a negated condition. For example, the following production would fail to
+load:
 
 ```Soar
 sp {example*invalid-negated-first-condition
@@ -769,15 +788,15 @@ When using negated conjunctions of conditions, the production has nested curly
 braces. One set of curly braces delimits the production, while the other set
 delimits the conditions to be conjunctively negated.
 
-If only the last condition, `(<bo> ^type table)` were negated, the production would
-match only if the state _had_ an ontop relation, and the ontop relation had a
-bottom-object, but the bottom object wasn’t a table. Using the negated
+If only the last condition, `(<bo> ^type table)` were negated, the production
+would match only if the state _had_ an ontop relation, and the ontop relation
+had a bottom-object, but the bottom object wasn’t a table. Using the negated
 conjunction, the production will also match when the state has no ontop
 augmentation or when it has an ontop augmentation that doesn’t have a
 bottom-object augmentation.
 
-The semantics of negated conjunctions can be thought of in terms of mathematical logic,
-where the negation of $(A \wedge B \wedge C)$:
+The semantics of negated conjunctions can be thought of in terms of mathematical
+logic, where the negation of $(A \wedge B \wedge C)$:
 
 $$\neg (A \wedge B \wedge C)$$
 
@@ -797,13 +816,13 @@ tests are together.
 
 For example, the condition:
 
-```
+```Soar
 (<p1> ^type father ^child sally ^child sue)
 ```
 
 could also be written as:
 
-```
+```Soar
 (<p1> ^type father ^child sally sue)
 ```
 
@@ -814,14 +833,14 @@ bindings are not unique unless explicitly forced to be so. For example, to test
 that an object has two values for attribute child, the variables in the
 following condition can match to the same value.
 
-```
+```Soar
 (<p1> ^type father ^child <c1> <c2>)
 ```
 
 To do tests for multi-valued attributes with variables correctly, conjunctive
 tests must be used, as in:
 
-```
+```Soar
 (<p1> ^type father ^child <c1> {<> <c1> <c2>})
 ```
 
@@ -833,13 +852,13 @@ different value than `<c1>` binds to.
 A negation can also precede an attribute with multiple values. In this case it
 tests for the absence of the conjunction of the values. For example
 
-```
+```Soar
 (<p1> ^name john -^child oprah uma)
 ```
 
 is the same as
 
-```
+```Soar
 (<p1> ^name john)
 -{(<p1> ^child oprah)
 (<p1> ^child uma)}
@@ -942,8 +961,9 @@ sp {blocks*example-production-conditions
 ... }
 ```
 
-which tests that the object with its identifier bound to <t> must have either an attribute `type` whose value is `table` or an attribute `name` whose value
-is `table`.
+which tests that the object with its identifier bound to `<t>` must have either an
+attribute `type` whose value is `table` or an attribute `name` whose value is
+`table`.
 
 ##### Conjunctive tests for attributes
 
@@ -960,21 +980,21 @@ sp {blocks*example-production-conditions
 ```
 
 which tests that the object with its identifier bound to `<t>` must have an
-attribute whose value is `table`, and the name of this attribute is not `name`, and
-the name of this attribute (whatever it is) is bound to the variable `<ta>`.
+attribute whose value is `table`, and the name of this attribute is not `name`,
+and the name of this attribute (whatever it is) is bound to the variable `<ta>`.
 
 When attribute predicates or attribute disjunctions are used with multi-valued
 attributes, the production is rewritten internally to use a conjunctive test for
 the attribute; the conjunctive test includes a variable used to bind to the
 attribute name. Thus,
 
-```
+```Soar
 (<p1> ^type father ^ <> name sue sally)
 ```
 
 is interpreted to mean:
 
-```
+```Soar
 (<p1> ^type father
    ^{<> name <a*1>} sue
    ^<a*1> sally)
@@ -1022,8 +1042,8 @@ Attribute-path notation yields shorter productions that are easier to write,
 less prone to errors, and easier to understand.
 
 When attribute-path notation is used, Soar internally expands the conditions
-into the multiple Soar objects, creating its own variables as needed.
-Therefore, when you print a production (using the
+into the multiple Soar objects, creating its own variables as needed. Therefore,
+when you print a production (using the
 [`print` command](../reference/cli/cmd_print.md)), the production will not be
 represented using attribute-path notation.
 
@@ -1088,11 +1108,11 @@ sp {blocks-world*propose*move-block*dont-do-this
 ```
 
 This is not advisable because it corresponds to a different set of conditions
-than those in the original production (the `top-block` and `bottom-block` need not
-correspond to the same `ontop` relation). To check this, we could print the
+than those in the original production (the `top-block` and `bottom-block` need
+not correspond to the same `ontop` relation). To check this, we could print the
 original production at the Soar prompt:
 
-```
+```Bash
 soar> print blocks-world*propose*move-block*dont-do-this
 sp {blocks-world*propose*move-block*dont-do-this
    (state <s> ^problem-space blocks ^thing <thing2>
@@ -1143,8 +1163,9 @@ sp {blocks*negated-conjunction-example
 ```
 
 This example does not refer to two different blocks with different names. It
-tests that there is not a non top relation with a `bottom-block` that is named `A`
-and named `table`. Thus, this production probably should have been written as:
+tests that there is not a non top relation with a `bottom-block` that is named
+`A` and named `table`. Thus, this production probably should have been written
+as:
 
 ```Soar
 sp {blocks*negated-conjunction-example
@@ -1172,12 +1193,13 @@ sp {blocks*negated-conjunction-example
 
 ##### Notes on attribute-path notation
 
-- Attributes specified in attribute-path notation may not start with a digit. For
-  example, if you type `^foo.3.bar`, Soar thinks the `.3` is a floating-point number.
-  (Attributes that don’t appear in path notation can begin with a number.)
-- Attribute-path notation may be used to any depth.
-- Attribute-path notation may be combined with structured values, described in Section
-  [Structured Value Notation](#structured-value-notation).
+-   Attributes specified in attribute-path notation may not start with a digit.
+    For example, if you type `^foo.3.bar`, Soar thinks the `.3` is a
+    floating-point number. (Attributes that don’t appear in path notation can
+    begin with a number.)
+-   Attribute-path notation may be used to any depth.
+-   Attribute-path notation may be combined with structured values, described in
+    Section [Structured Value Notation](#structured-value-notation).
 
 #### Structured-value notation
 
@@ -1231,8 +1253,8 @@ sp {blocks-world*propose*move-block
       ^destination <thing2>) }
 ```
 
-Structured values may be nested to any depth. Thus, it is possible to write our example
-production using a single condition with multiple structured values:
+Structured values may be nested to any depth. Thus, it is possible to write our
+example production using a single condition with multiple structured values:
 
 ```Soar
 sp {blocks-world*propose*move-block
@@ -1254,21 +1276,22 @@ sp {blocks-world*propose*move-block
 
 #### Notes on structured-value notation
 
-- Attribute-path notation and structured-value notation are orthogonal and can
-  be combined in any way. A structured value can contain an attribute path, or a
-  structure can be given as the value for an attribute path.
-- Structured-value notation can be combined with negations and with multi-attributes.
-- Structured-value notation can not be used in the actions of productions.
+-   Attribute-path notation and structured-value notation are orthogonal and can
+    be combined in any way. A structured value can contain an attribute path, or
+    a structure can be given as the value for an attribute path.
+-   Structured-value notation can be combined with negations and with
+    multi-attributes.
+-   Structured-value notation can not be used in the actions of productions.
 
 ### The action side of productions (or RHS)
 
 The action side of a production, also called the right-hand side (or RHS) of the
 production, consists of individual actions that can:
 
-- Add new elements to working memory.
-- Remove elements from working memory.
-- Create preferences.
-- Perform other actions
+-   Add new elements to working memory.
+-   Remove elements from working memory.
+-   Create preferences.
+-   Perform other actions
 
 When the conditions of a production match working memory, the production is said
 to be instantiated, and the production will fire during the next elaboration
@@ -1307,29 +1330,30 @@ The action above is expanded to be:
 (<s> ^thing <t2>) }
 ```
 
-This will add four elements to working memory with the variables replaced with whatever
-values they were bound to on the condition side.
+This will add four elements to working memory with the variables replaced with
+whatever values they were bound to on the condition side.
 
 Since Soar is case sensitive, different combinations of upper- and lowercase
-letters represent _different_ constants. For example, `"red"`, `"Red"`, and `"RED"` are
-all distinct symbols in Soar. In many cases, it is prudent to choose one of
-uppercase or lowercase and write all constants in that case to avoid confusion
-(and bugs).
+letters represent _different_ constants. For example, `"red"`, `"Red"`, and
+`"RED"` are all distinct symbols in Soar. In many cases, it is prudent to choose
+one of uppercase or lowercase and write all constants in that case to avoid
+confusion (and bugs).
 
-The constants that are used for attributes and values have a few restrictions on them:
+The constants that are used for attributes and values have a few restrictions on
+them:
 
-1. There are a number of architecturally created augmentations for state and
-   impasse objects; see Section [Impass in Working Memory and in Productions](#impasses-in-working-memory-and-in-productions) for a listing of
-   these special augmentations. User-defined productions can not create or remove
-   augmentations of states that use these attribute names.
-2. Attribute names should not begin with a number if these attributes will be used in
-   attribute-path notation.
+1.  There are a number of architecturally created augmentations for state and
+    impasse objects; see Section
+    [Impass in Working Memory and in Productions](#impasses-in-working-memory-and-in-productions)
+    for a listing of these special augmentations. User-defined productions can
+    not create or remove augmentations of states that use these attribute names.
+2.  Attribute names should not begin with a number if these attributes will be
+    used in attribute-path notation.
 
 #### Removing Working Memory Elements
 
-A element is explicitly removed from working memory by following the value with a dash:
-
-`-` , also called a reject.
+A element is explicitly removed from working memory by following the value with
+a dash: `-` , also called a reject.
 
 ```Soar
 -->
@@ -1365,7 +1389,8 @@ production for the selection of operators:
 | (id ^operator value = value2) | binary indifferent  |
 | (id ^operator value = number) | numeric indifferent |
 
-The identifier and value will always be variables, such as `(<s1> ^operator <o1> > <o2>)`.
+The identifier and value will always be variables, such as
+`(<s1> ^operator <o1> > <o2>)`.
 
 The preference notation appears similar to the predicate tests that appear on
 the left-hand side of productions, but has very different meaning. Predicates
@@ -1389,20 +1414,22 @@ rules that will give only i-support to their actions.
 There are a few shorthand notations allowed for the creation of operator
 preferences on the right-hand side of productions.
 
-Acceptable preferences do not need to be specified with a+symbol.`(<s> ^operator <op1>)`
-is assumed to mean `(<s> ^operator <op1> +)`.
+Acceptable preferences do not need to be specified with
+a+symbol.`(<s> ^operator <op1>)` is assumed to mean `(<s> ^operator <op1> +)`.
 
 Note however that the+is only implicit if no other preferences are specified for
 that operator. Specifying a preference that is not the `acceptable` preference
 does not also imply an acceptable preference. For example,
-`(<s> ^operator <op1> > )` by itself cannot lead to `<op1>` being selected, since it does not have an `acceptable` preference.
+`(<s> ^operator <op1> > )` by itself cannot lead to `<op1>` being selected,
+since it does not have an `acceptable` preference.
 
 Ambiguity can easily arise when using a preference that can be either binary or
 unary: `> < =`. The default assumption is that if a value follows the
 preference, then the preference is binary. It will be unary if a carat
 (up-arrow), a closing parenthesis, another preference, or a comma follows it.
 
-Below are four examples of legal, although unrealistic, actions that have the same effect.
+Below are four examples of legal, although unrealistic, actions that have the
+same effect.
 
 ```Soar
 (<s> ^operator <o1> <o2> + <o2> < <o1> <o3> =, <o4>)
@@ -1415,7 +1442,7 @@ Below are four examples of legal, although unrealistic, actions that have the sa
 
 Any one of those actions could be expanded to the following list of preferences:
 
-```
+```Soar
 (<s> ^operator <o1> +)
 (<s> ^operator <o2> +)
 (<s> ^operator <o2> < <o1>)
@@ -1423,7 +1450,8 @@ Any one of those actions could be expanded to the following list of preferences:
 (<s> ^operator <o4> +)
 ```
 
-Note that structured-value notation may not be used in the actions of productions.
+Note that structured-value notation may not be used in the actions of
+productions.
 
 Commas are only allowed in rule syntax for this sort of use, in the RHS. They
 can be used to separate actions, and if used when no disambiguation is needed
@@ -1431,14 +1459,14 @@ will have no effect other than syntactic sugar.
 
 As another example, `(<s> ^operator <o1> <o2> > <o3>)` would be interpreted as
 
-```
+```Soar
 (<s> ^operator <o1> +
 ^operator <o2> > <o3>)
 ```
 
 But `(<s> ^operator <o1> <o2> >, <o3>)` would be interpreted as
 
-```
+```Soar
 (<s> ^operator <o1> +
    ^operator <o2> >
    ^operator <o3> +)
@@ -1478,9 +1506,10 @@ sp {
    (interrupt) }
 ```
 
-Soar execution may also be stopped immediately before a production fires, using the
-`:interrupt` directive. This functionality is called a matchtime interrupt and is very
-useful for debugging. See ['sp' command](../reference/cli/cmd_sp.md) for more information.
+Soar execution may also be stopped immediately before a production fires, using
+the `:interrupt` directive. This functionality is called a matchtime interrupt
+and is very useful for debugging. See ['sp' command](../reference/cli/cmd_sp.md)
+for more information.
 
 ```Soar
 sp {production*name
@@ -1490,8 +1519,8 @@ sp {production*name
    ...}
 ```
 
-**wait** — Executing this function causes the current Soar thread to sleep for the given
-integer number of milliseconds.
+**wait** — Executing this function causes the current Soar thread to sleep for
+the given integer number of milliseconds.
 
 ```Soar
 sp {
@@ -1510,7 +1539,8 @@ Soar Markup Language (SML). To learn about SML, read the "SML Quick Start Guide"
 which should be located in the "Documentation" folder of your Soar install.
 
 **write** — This function writes its arguments to the standard output. It does
-not automatically insert blanks, line feeds, or carriage returns. For example, if `<o>` is bound to 4, then
+not automatically insert blanks, line feeds, or carriage returns. For example,
+if `<o>` is bound to 4, then
 
 ```Soar
 sp {
@@ -1521,7 +1551,7 @@ sp {
 
 prints
 
-```
+```bash
 444 x4 4
 ```
 
@@ -1555,15 +1585,16 @@ The expressions described in this section can be nested to any depth. For all of
 the functions in this section, missing or non-numeric arguments result in an
 error.
 
-**+, -, \*, /** — These symbols provide prefix notation mathematical functions. These
-symbols work similarly to C functions. They will take either integer or real-number
-arguments. The first three functions return an integer when all arguments are integers
-and otherwise return a real number, and the last two functions always return a real
-number. These functions can each take any number of arguments, and will return
-the result of sequentially operating on each argument. The `-` symbol is also a unary
-function which, given a single argument, returns the product of the argument and -1.
-The `/` symbol is also a unary function which, given a single argument, returns the
-reciprocal of the argument `(1/x)`.
+**+, -, \*, /** — These symbols provide prefix notation mathematical functions.
+These symbols work similarly to C functions. They will take either integer or
+real-number arguments. The first three functions return an integer when all
+arguments are integers and otherwise return a real number, and the last two
+functions always return a real number. These functions can each take any number
+of arguments, and will return the result of sequentially operating on each
+argument. The `-` symbol is also a unary function which, given a single
+argument, returns the product of the argument and -1. The `/` symbol is also a
+unary function which, given a single argument, returns the reciprocal of the
+argument `(1/x)`.
 
 ```Soar
 sp {
@@ -1575,10 +1606,11 @@ sp {
       ^negative-x (- <x>))}
 ```
 
-**div, mod** — These symbols provide prefix notation binary mathematical functions (they
-each take two arguments). These symbols work similarly to C functions: They will
-take only integer arguments (using reals results in an error) and return an integer: div
-takes two integers and returns their integer quotient; mod returns their remainder.
+**div, mod** — These symbols provide prefix notation binary mathematical
+functions (they each take two arguments). These symbols work similarly to C
+functions: They will take only integer arguments (using reals results in an
+error) and return an integer: div takes two integers and returns their integer
+quotient; mod returns their remainder.
 
 ```Soar
 sp {
@@ -1588,8 +1620,9 @@ sp {
    ^remainder (mod <x> <y>)) }
 ```
 
-**abs, atan2, sqrt, sin, cos** — These provide prefix notation unary mathematical
-functions (they each take one argument). These symbols work similarly to C functions:
+**abs, atan2, sqrt, sin, cos** — These provide prefix notation unary
+mathematical functions (they each take one argument). These symbols work
+similarly to C functions:
 
 They will take either integer or real-number arguments. The first function
 (`abs`) returns an integer when its argument is an integer and otherwise returns
@@ -1605,10 +1638,11 @@ sp {
       ^sqrt (sqrt <x>)) }
 ```
 
-**min, max** — These symbols provide n-ary mathematical functions (they each take a list
-of symbols as arguments). These symbols work similarly to C functions. They take
-either integer or real-number arguments, and return a real-number value if any of their
-arguments are real-numbers. Otherwise they return integers.
+**min, max** — These symbols provide n-ary mathematical functions (they each
+take a list of symbols as arguments). These symbols work similarly to C
+functions. They take either integer or real-number arguments, and return a
+real-number value if any of their arguments are real-numbers. Otherwise they
+return integers.
 
 ```Soar
 sp {
@@ -1632,12 +1666,12 @@ sp {
    (write (+ 2 (int sqrt(6))) ) }
 ```
 
-**float** — Converts a single symbol to a floating point constant. This function expects
-either an integer constant, symbolic constant, or floating point constant. The symbolic
-constant must be a string which can be interpreted as a single floating point number.
-This function essentially operates as a type casting function.
-For example, if you wanted to print out an integer expression as a floating-point num-
-ber, you could do the following:
+**float** — Converts a single symbol to a floating point constant. This function
+expects either an integer constant, symbolic constant, or floating point
+constant. The symbolic constant must be a string which can be interpreted as a
+single floating point number. This function essentially operates as a type
+casting function. For example, if you wanted to print out an integer expression
+as a floating-point num- ber, you could do the following:
 
 ```Soar
 sp {
@@ -1646,10 +1680,11 @@ sp {
    (write (float (+ 2 3))) }
 ```
 
-**ifeq** — Conditionally return a symbol. This function takes four arguments. It returns
-the third argument if the first two are equal and the fourth argument otherwise. Note
-that symbols of different types will always be considered unequal. For example, 1.0
-and 1 will be unequal because the first is a float and the second is an integer.
+**ifeq** — Conditionally return a symbol. This function takes four arguments. It
+returns the third argument if the first two are equal and the fourth argument
+otherwise. Note that symbols of different types will always be considered
+unequal. For example, 1.0 and 1 will be unequal because the first is a float and
+the second is an integer.
 
 ```Soar
 sp {example-rule
@@ -1665,11 +1700,11 @@ A new symbol (an identifier) is generated on the right-hand side of a production
 whenever a previously unbound variable is used. This section describes other
 ways of generating and manipulating symbols on the right-hand side.
 
-**capitalize-symbol** — Given a symbol, this function returns a new symbol with the
-first character capitalized. This function is provided primarily for text output, for
-example, to allow the first word in a sentence to be capitalized.
+**capitalize-symbol** — Given a symbol, this function returns a new symbol with
+the first character capitalized. This function is provided primarily for text
+output, for example, to allow the first word in a sentence to be capitalized.
 
-```
+```Soar
 (capitalize-symbol foo)
 ```
 
@@ -1688,13 +1723,13 @@ sp {
 
 After this rule fires, working memory would look like:
 
-```
+```Soar
 (S1 ^heading 48).
 ```
 
 **compute-range** — This function takes four real-valued arguments of the form
-$(x_1, y_1, x_2, y_2)$, and returns the distance from $(x_1, y_1)$ to $(x_2, y_2)$,
-rounded to the nearest integer.
+$(x_1, y_1, x_2, y_2)$, and returns the distance from $(x_1, y_1)$ to
+$(x_2, y_2)$, rounded to the nearest integer.
 
 For example:
 
@@ -1707,13 +1742,12 @@ sp {
 
 After this rule fires, working memory would look like:
 
-```
+```Soar
 (S1 ^distance 42).
 ```
 
-**concat** — Given an arbitrary number of symbols, this function concatenates them to-
-gether into a single constant symbol.
-For example:
+**concat** — Given an arbitrary number of symbols, this function concatenates
+them to- gether into a single constant symbol. For example:
 
 ```Soar
 sp {example
@@ -1724,11 +1758,11 @@ sp {example
 
 After this rule fires, the WME `(S1 ^name foobar6)` will be added.
 
-**deep-copy** — This function returns a copy of the given symbol along with linked copies
-of all descendant symbols. In other terms, a full copy is made of the working mem-
-ory subgraph that can be reached when starting from the given symbol. All copied
-identifiers are created as new IDs, and all copied values remain the same.
-For example:
+**deep-copy** — This function returns a copy of the given symbol along with
+linked copies of all descendant symbols. In other terms, a full copy is made of
+the working mem- ory subgraph that can be reached when starting from the given
+symbol. All copied identifiers are created as new IDs, and all copied values
+remain the same. For example:
 
 ```Soar
 sp {
@@ -1739,11 +1773,9 @@ sp {
    (<s> ^tree-copy (deep-copy <t>)) }
 ```
 
-```
 After this rule fires, the following structure would exist:
-```
 
-```
+```Soar
 (S1 ^tree T1 ^tree-copy D1)
    (T1 ^branch1 foo ^branch2 B1)
       (B1 ^branch3 T1)
@@ -1751,9 +1783,8 @@ After this rule fires, the following structure would exist:
    (B2 ^branch3 D1)
 ```
 
-**dc** — This function takes no arguments, and returns the integer number of the current
-decision cycle.
-For example:
+**dc** — This function takes no arguments, and returns the integer number of the
+current decision cycle. For example:
 
 ```Soar
 sp {example
@@ -1762,9 +1793,8 @@ sp {example
    (<s> ^dc-count (dc) }
 ```
 
-**@ (get)** — This function returns the LTI number of the given ID. If the given ID is not
-linked to an LTI, it does nothing.
-For example:
+**@ (get)** — This function returns the LTI number of the given ID. If the given
+ID is not linked to an LTI, it does nothing. For example:
 
 ```Soar
 sp {example
@@ -1773,12 +1803,11 @@ sp {example
    (<s> ^lti-num (@ <l1>) }
 ```
 
-```
-After this rule fires, the(S1 ^lti-num)WME will have an integer value such as 42.
-```
+After this rule fires, the `(S1 ^lti-num)` WME will have an integer value such
+as 42.
 
-**link-stm-to-ltm** — This function takes two arguments. It links the first given symbol
-to the LTI indicated by the second integer value.
+**link-stm-to-ltm** — This function takes two arguments. It links the first
+given symbol to the LTI indicated by the second integer value.
 
 For example:
 
@@ -1791,12 +1820,12 @@ sp {example
 
 After this rule fires, the WME `(S1 ^stm <l1>)` will be linked to `@42`.
 
-**make-constant-symbol** — This function returns a new constant symbol guaranteed
-to be different from all symbols currently present in the system. With no arguments, it
-returns a symbol whose name starts with `"constant"`. With one or more arguments,
-it takes those argument symbols, concatenates them, and uses that as the prefix for
-the new symbol. (It may also append a number to the resulting symbol, if a symbol
-with that prefix as its name already exists.)
+**make-constant-symbol** — This function returns a new constant symbol
+guaranteed to be different from all symbols currently present in the system.
+With no arguments, it returns a symbol whose name starts with `"constant"`. With
+one or more arguments, it takes those argument symbols, concatenates them, and
+uses that as the prefix for the new symbol. (It may also append a number to the
+resulting symbol, if a symbol with that prefix as its name already exists.)
 
 ```Soar
 sp {
@@ -1805,9 +1834,10 @@ sp {
    (<s> ^new-symbol (make-constant-symbol)) }
 ```
 
-When this production fires, it will create an augmentation in working memory such as:
+When this production fires, it will create an augmentation in working memory
+such as:
 
-```
+```Soar
 (S1 ^new-symbol constant5)
 ```
 
@@ -1822,15 +1852,16 @@ sp {
 
 will create an augmentation in working memory such as:
 
-```
+```Soar
 (S1 ^new-symbol |S14|)
 ```
 
-when it fires. The vertical bars denote that the symbol is a constant, rather than an
-identifier; in this example, the number 4 has been appended to the symbol S1.
-This can be particularly useful when used in conjunction with the `timestamp` function;
-by using `timestamp` as an argument to `make-constant-symbol`, you can get a new
-symbol that is guaranteed to be unique. For example:
+when it fires. The vertical bars denote that the symbol is a constant, rather
+than an identifier; in this example, the number 4 has been appended to the
+symbol S1. This can be particularly useful when used in conjunction with the
+`timestamp` function; by using `timestamp` as an argument to
+`make-constant-symbol`, you can get a new symbol that is guaranteed to be
+unique. For example:
 
 ```Soar
 sp {
@@ -1839,16 +1870,17 @@ sp {
    (<s> ^new-symbol (make-constant-symbol (timestamp))) }
 ```
 
-When this production fires, it will create an augmentation in working memory such as:
+When this production fires, it will create an augmentation in working memory
+such as:
 
-```
+```Soar
 (S1 ^new-symbol 8/1/96-15:22:49)
 ```
 
 **rand-float** — This function takes an optional positive real-valued argument.
-If no argument (or a negative argument) is given, it returns a random real-valued
-number in the range $[0. 0 , 1 .0]$. Otherwise, given a value n, it returns a
-number in the range $[0. 0 ,n]$.
+If no argument (or a negative argument) is given, it returns a random
+real-valued number in the range $[0. 0 , 1 .0]$. Otherwise, given a value n, it
+returns a number in the range $[0. 0 ,n]$.
 
 For example:
 
@@ -1859,13 +1891,12 @@ sp {
    (<s> ^fate (rand-float 1000)) }
 ```
 
-After this rule fires, working memory might look like:
-`(S1 ^fate 275.481802)`.
+After this rule fires, working memory might look like: `(S1 ^fate 275.481802)`.
 
 **rand-int** — This function takes an optional positive integer argument. If no
-argument (or a negative argument) is given, it returns a random integer number in the
-range $[-2^{31} , 2^{31}]$. Otherwise, given a value n, it returns a number in
-the range $[0,n]$. For example:
+argument (or a negative argument) is given, it returns a random integer number
+in the range $[-2^{31} , 2^{31}]$. Otherwise, given a value n, it returns a
+number in the range $[0,n]$. For example:
 
 ```Soar
 sp {
@@ -1892,9 +1923,9 @@ sp {
 After this rule fires, working memory might look like:
 `(S1 ^pi 3.14159 ^pie 3.1)`.
 
-**round-off-heading** — This function is the same as round-off, but additionally shifts
-the returned value by multiples of 360 such that $-360 \le value \le 360$.
-For example:
+**round-off-heading** — This function is the same as round-off, but additionally
+shifts the returned value by multiples of 360 such that
+$-360 \le value \le 360$. For example:
 
 ```Soar
 sp {
@@ -1906,9 +1937,9 @@ sp {
 After this rule fires, working memory might look like:
 `(S1 ^heading 526.432 ^true-heading 166.5)`.
 
-**size** — This function returns an integer symbol whose value is the count of WME aug-
-mentations on a given ID argument. Providing a non-ID argument results in an error.
-For example:
+**size** — This function returns an integer symbol whose value is the count of
+WME aug- mentations on a given ID argument. Providing a non-ID argument results
+in an error. For example:
 
 ```Soar
 sp {
@@ -1918,13 +1949,12 @@ sp {
    (<s> ^augs (size <n>)) }
 ```
 
-After this rule fires, the value of `S1 ^augs` would be 3.
-Note that some architecturally-maintained IDs such as `(<s> ^epmem)` and `(<s> ^io)`
-are not counted by the `size` function.
+After this rule fires, the value of `S1 ^augs` would be 3. Note that some
+architecturally-maintained IDs such as `(<s> ^epmem)` and `(<s> ^io)` are not
+counted by the `size` function.
 
-**strlen** — This function returns an integer symbol whose value is the size of the given
-string symbol.
-For example:
+**strlen** — This function returns an integer symbol whose value is the size of
+the given string symbol. For example:
 
 ```Soar
 sp {
@@ -1934,9 +1964,8 @@ sp {
    (<s> ^message-len (strlen <m>)) }
 ```
 
-**timestamp** — This function returns a symbol whose print name is a representation of
-the current date and time.
-For example:
+**timestamp** — This function returns a symbol whose print name is a
+representation of the current date and time. For example:
 
 ```Soar
 sp {
@@ -1945,17 +1974,16 @@ sp {
    (write (timestamp)) }
 ```
 
-When this production fires, it will print out a representation of the current date and
-time, such as:
+When this production fires, it will print out a representation of the current
+date and time, such as:
 
-```
+```Bash
 soar> run 1 e
 2018-09-26 14:36:39.375
 ```
 
-**trim** — This function takes a single string symbol argument and returns the same string
-with leading and trailing whitespace removed.
-For example:
+**trim** — This function takes a single string symbol argument and returns the
+same string with leading and trailing whitespace removed. For example:
 
 ```Soar
 sp {
@@ -1966,12 +1994,12 @@ sp {
 
 ##### User-defined functions and interface commands as RHS actions
 
-Any function with a certain signature may be registered with the Kernel (e.g. using SML)
-and called as an RHS function. RHS functions receive a single string argument and return
-a single string which is assigned to a symbol in Soar.
+Any function with a certain signature may be registered with the Kernel (e.g.
+using SML) and called as an RHS function. RHS functions receive a single string
+argument and return a single string which is assigned to a symbol in Soar.
 
-RHS functions are most complex in C/C++ due to the requirements of memory management.
-An RHS function must adhere to the signature of `RHSEventHandler`:
+RHS functions are most complex in C/C++ due to the requirements of memory
+management. An RHS function must adhere to the signature of `RHSEventHandler`:
 
 ```C++
 char const _(smlRhsEventId id, void_ pUserData, Agent* pAgent,
@@ -1980,9 +2008,9 @@ int *buffSize, char *buff)
 ```
 
 The function must fill `*buff` with the string to be returned and then return
-`*buff`, but only if `*buffSize` indicates there is enough room to hold the string.
-If `*buffSize` is not large enough, the function must return `NULL` and set
-`*buffSize` to the required size. Soar will then allocate a buffer of the
+`*buff`, but only if `*buffSize` indicates there is enough room to hold the
+string. If `*buffSize` is not large enough, the function must return `NULL` and
+set `*buffSize` to the required size. Soar will then allocate a buffer of the
 required size and call the function again. If calling the function twice would
 have an undesirable effect, the following code can be used to cache the result
 in between calls by Soar:
@@ -2010,19 +2038,19 @@ strcpy( buf, resultString.c_str() );
 return buf;
 ```
 
-RHS function interfaces in other languages are much simpler. For example, in Java the
-signature is:
+RHS function interfaces in other languages are much simpler. For example, in
+Java the signature is:
 
 ```Java
 String rhsFunctionHandler(int eventID, Object data, String agentName,
-String functionName, String argument)
-}
+   String functionName, String argument)
 ```
 
 Any arguments passed to the function on the RHS of a production are concatenated
 (without spaces) and passed to the function in the pArgument argument.
 
-Such a function can be registered with the kernel via the client interface by calling:
+Such a function can be registered with the kernel via the client interface by
+calling:
 
 ```C++
 Kernel::AddRhsFunction(char const* pRhsFunctionName, RhsEventHandler handler, void* pUserData);
@@ -2032,11 +2060,11 @@ Kernel::AddRhsFunction(char const* pRhsFunctionName, RhsEventHandler handler, vo
 Kernel.AddRhsFunction(String functionName, RhsFunctionInterface handlerObject, Object callbackData);
 ```
 
-The `exec` and `cmd` functions are used to call user-defined functions and interface
-commands on the RHS of a production.
+The `exec` and `cmd` functions are used to call user-defined functions and
+interface commands on the RHS of a production.
 
-**exec** — Used to call user-defined registered functions. Any arguments are concatenated
-without spaces. For example, if `<o>` is bound to `x`, then
+**exec** — Used to call user-defined registered functions. Any arguments are
+concatenated without spaces. For example, if `<o>` is bound to `x`, then
 
 ```Soar
 sp {
@@ -2045,10 +2073,10 @@ sp {
    (exec MakeANote <o> 1) }
 ```
 
-will call the user-defined `MakeANote` function with the argument "x1".
-The return value of the function, if any, may be placed in working memory or passed
-to another RHS function. For example, the log of a number `<x>` could be printed this
-way:
+will call the user-defined `MakeANote` function with the argument "x1". The
+return value of the function, if any, may be placed in working memory or passed
+to another RHS function. For example, the log of a number `<x>` could be printed
+this way:
 
 ```Soar
 sp {
@@ -2059,8 +2087,8 @@ sp {
 
 where "log" is a registered user-defined function.
 
-**cmd** — Used to call built-in Soar commands. Spaces are inserted between concatenated
-arguments. For example, the production
+**cmd** — Used to call built-in Soar commands. Spaces are inserted between
+concatenated arguments. For example, the production
 
 ```Soar
 sp {
@@ -2082,15 +2110,15 @@ may be turned off in specific problem spaces, preventing otherwise buggy
 behavior.
 
 The `dont-learn` and `force-learn` RHS actions are to be used with specific
-settings for the [`chunk` command](../reference/cli/cmd_chunk.md). Using the `chunk`
-command, learning may be set to one of `always`, `never`, `flagged`, or `unflagged`;
-chunking must be set to `flagged` for the `force-learn` RHS action to have any effect
-and chunking must be set to `unflagged` for the `dont-learn` RHS action to have any
-effect.
+settings for the [`chunk` command](../reference/cli/cmd_chunk.md). Using the
+`chunk` command, learning may be set to one of `always`, `never`, `flagged`, or
+`unflagged`; chunking must be set to `flagged` for the `force-learn` RHS action
+to have any effect and chunking must be set to `unflagged` for the `dont-learn`
+RHS action to have any effect.
 
-**dont-learn** — When chunking is set to `unflagged`, by default chunks can be formed
-in all states; the `dont-learn` RHS action will cause chunking to be turned off for the
-specified state.
+**dont-learn** — When chunking is set to `unflagged`, by default chunks can be
+formed in all states; the `dont-learn` RHS action will cause chunking to be
+turned off for the specified state.
 
 ```Soar
 sp {turn-learning-off
@@ -2102,9 +2130,9 @@ sp {turn-learning-off
 The `dont-learn` RHS action applies when `chunk` is set to `unflagged`, and has
 no effect when other settings for `chunk` are used.
 
-**force-learn** — When learning is set to `flagged`, by default chunks are not formed in
-any state; the `force-learn` RHS action will cause chunking to be turned on for the
-specified state.
+**force-learn** — When learning is set to `flagged`, by default chunks are not
+formed in any state; the `force-learn` RHS action will cause chunking to be
+turned on for the specified state.
 
 ```Soar
 sp {turn-learning-on
@@ -2113,8 +2141,8 @@ sp {turn-learning-on
    (force-learn <s>) }
 ```
 
-The `force-learn` RHS action applies when `chunk` is set to flagged, and has no effect
-when other settings for `chunk` are used.
+The `force-learn` RHS action applies when `chunk` is set to flagged, and has no
+effect when other settings for `chunk` are used.
 
 ### Grammars for production syntax
 
@@ -2139,9 +2167,10 @@ A grammar for Soar productions is:
 <flags>            ::= ":" (o-support | i-support | chunk | default)
 ```
 
-Grammar for Condition Side: Below is a grammar for the condition sides of productions:
+Grammar for Condition Side: Below is a grammar for the condition sides of
+productions:
 
-```
+```Bash
 <condition-side>   ::= <state-imp-cond> <cond>*
 <state-imp-cond>   ::= "(" (state | impasse) [<id_test>]
 <attr_value_tests>+ ")"
@@ -2168,11 +2197,11 @@ Grammar for Condition Side: Below is a grammar for the condition sides of produc
 
 Notes on the Condition Side
 
-- In an `<idtest>`, only a `<variable>` may be used in a `<singletest>`.
+-   In an `<idtest>`, only a `<variable>` may be used in a `<singletest>`.
 
 Grammar for Action Side: Below is a grammar for the action sides of productions:
 
-```
+```Bash
 <rhs>                      ::= <rhs_action>*
 <rhs_action>               ::= "(" <variable> <attr_value_make>+ ")"
 | <func_call>
@@ -2197,8 +2226,8 @@ When the preferences in preference memory cannot be resolved unambiguously, Soar
 reaches an impasse, as described in Section
 [the Soar architecture](./02_TheSoarArchitecture.md#impasses-and-substates):
 
-- When Soar is unable to select a new operator (in the decision cycle), it is said
-  to reach an operator impasse.
+-   When Soar is unable to select a new operator (in the decision cycle), it is
+    said to reach an operator impasse.
 
 All impasses lead to the creation of a new substate in working memory, and
 appear as objects within that substate. These objects can be tested by
@@ -2213,54 +2242,58 @@ Below is a short description of the four types of impasses. (This was described
 in more detail in Section
 [impasses and substates](./02_TheSoarArchitecture.md#impasses-and-substates))
 
-1. _tie_: when there is a collection of equally eligible operators competing for the value of
-   a particular attribute;
-2. _conflict_: when two or more objects are better than each other, and they are not
-   dominated by a third operator;
-3. _constraint-failure_: when there are conflicting necessity preferences;
-4. _no-change_: when the proposal phase runs to quiescence without suggesting a new
-   operator.
+1.  _tie_: when there is a collection of equally eligible operators competing for
+    the value of a particular attribute;
+2.  _conflict_: when two or more objects are better than each other, and they are
+    not dominated by a third operator;
+3.  _constraint-failure_: when there are conflicting necessity preferences;
+4.  _no-change_: when the proposal phase runs to quiescence without suggesting a
+    new operator.
 
 The list below gives the seven augmentations that the architecture creates on
 the substate generated when an impasse is reached, and the values that each
 augmentation can contain:
 
-- `^type state`
-- `^impasse` Contains the impasse type: `tie`, `conflict`, `constraint-failure`, or `no-change`.
+-   `^type state`
+-   `^impasse` Contains the impasse type: `tie`, `conflict`,
+    `constraint-failure`, or `no-change`.
 
-- `^choices` Either `multiple` (for tie and conflict impasses), `constraint-failure`
-  (for constraint-failure impasses), or `none` (for constraint-failure or
-  no-change impasses).
+-   `^choices` Either `multiple` (for tie and conflict impasses),
+    `constraint-failure` (for constraint-failure impasses), or `none` (for
+    constraint-failure or no-change impasses).
 
-- `^superstate` Contains the identifier of the state in which the impasse arose.
+-   `^superstate` Contains the identifier of the state in which the impasse
+    arose.
 
-- `^attribute` For multi-choice and constraint-failure impasses, this contains
-  `operator`. For no-change impasses, this contains the attribute of the last decision
-  with a value (`state` or `operator`).
+-   `^attribute` For multi-choice and constraint-failure impasses, this contains
+    `operator`. For no-change impasses, this contains the attribute of the last
+    decision with a value (`state` or `operator`).
 
-- `^item` For multi-choice and constraint-failure impasses, this contains all
-  values involved in the tie, conflict, or constraint-failure. If the set of items
-  that tie or conflict changes during the impasse, the architecture removes or
-  adds the appropriate item augmentations without terminating the existing
-  impasse.
+-   `^item` For multi-choice and constraint-failure impasses, this contains all
+    values involved in the tie, conflict, or constraint-failure. If the set of
+    items that tie or conflict changes during the impasse, the architecture
+    removes or adds the appropriate item augmentations without terminating the
+    existing impasse.
 
-- `^item-count` For multi-choice and constraint-failure impasses, this contains
-  the number of values listed under the item augmentation above.
+-   `^item-count` For multi-choice and constraint-failure impasses, this
+    contains the number of values listed under the item augmentation above.
 
-- `^non-numeric` For tie impasses, this contains all operators that do not have
-  numeric indifferent preferences associated with them. If the set of items that
-  tie changes during the impasse, the architecture removes or adds the appropriate
-  non-numeric augmentations without terminating the existing impasse.
+-   `^non-numeric` For tie impasses, this contains all operators that do not
+    have numeric indifferent preferences associated with them. If the set of
+    items that tie changes during the impasse, the architecture removes or adds
+    the appropriate non-numeric augmentations without terminating the existing
+    impasse.
 
-- `^non-numeric-count` For tie impasses, this contains the number of operators
-  listed under the non-numeric augmentation above.
+-   `^non-numeric-count` For tie impasses, this contains the number of operators
+    listed under the non-numeric augmentation above.
 
-- `^quiescence` States are the only objects with `quiescence t`, which is an
-  explicit statement that quiescence (exhaustion of the elaboration cycle) was
-  reached in the superstate. If problem solving in the subgoal is contingent on
-  quiescence having been reached, the substate should test this flag. The
-  side-effect is that no chunk will be built if it depended on that test. See
-  [Problem Solving that does not test Superstate](./04_ProceduralKnowledgeLearning.md#problem-solving-that-doesnt-test-the-superstate) for details. This attribute can be ignored when learning is turned off.
+-   `^quiescence` States are the only objects with `quiescence t`, which is an
+    explicit statement that quiescence (exhaustion of the elaboration cycle) was
+    reached in the superstate. If problem solving in the subgoal is contingent
+    on quiescence having been reached, the substate should test this flag. The
+    side-effect is that no chunk will be built if it depended on that test. See
+    [Problem Solving that does not test Superstate](./04_ProceduralKnowledgeLearning.md#problem-solving-that-doesnt-test-the-superstate)
+    for details. This attribute can be ignored when learning is turned off.
 
 Knowing the names of these architecturally defined attributes and their possible
 values will help you to write productions that test for the presence of specific
@@ -2273,15 +2306,16 @@ to respond to impasses.
 
 #### Examples
 
-The following is an example of a substate that is created for a tie among three operators:
+The following is an example of a substate that is created for a tie among three
+operators:
 
 ```Soar
 (S12 ^type state ^impasse tie ^choices multiple ^attribute operator
    ^superstate S3 ^item O9 O10 O11 ^quiescence t)
 ```
 
-The following is an example of a substate that is created for a no-change impasse to apply
-an operator:
+The following is an example of a substate that is created for a no-change
+impasse to apply an operator:
 
 ```Soar
 (S12 ^type state ^impasse no-change ^choices none ^attribute operator
@@ -2313,14 +2347,14 @@ sp {default*top-goal*halt*operator*failure
 ## Soar I/O: Input and Output in Soar
 
 Many Soar users will want their programs to interact with a real or simulated
-environment. For example, Soar programs could control a robot, receiving
-sensory inputs and sending command outputs. Soar programs might also interact
-with simulated environments, such as a flight simulator. The mechanisms by which
-Soar receives inputs and sends outputs to an external process is called _Soar I/O_.
+environment. For example, Soar programs could control a robot, receiving sensory
+inputs and sending command outputs. Soar programs might also interact with
+simulated environments, such as a flight simulator. The mechanisms by which Soar
+receives inputs and sends outputs to an external process is called _Soar I/O_.
 
 This section describes how input and output are represented in working memory
 and in productions. Interfacing with a Soar agent through input and output can
-be done using the* Soar Markup Language* (SML). The details of designing an
+be done using the SML. The details of designing an
 external process that uses SML to create the input and respond to output from
 Soar are beyond the scope of this manual, but they are described
 [online](https://soar.eecs.umich.edu/articles/articles/soar-markup-language-sml)
@@ -2332,9 +2366,9 @@ who would simply like to understand how I/O works in Soar.
 
 When Soar interacts with an external environment, it must make use of mechanisms
 that allow it to receive input from that environment and to effect changes in
-that environment. An external environment may be the real world or a
-simulation; input is usually viewed as Soar’s perception and output is viewed as
-Soar’s motor abilities.
+that environment. An external environment may be the real world or a simulation;
+input is usually viewed as Soar’s perception and output is viewed as Soar’s
+motor abilities.
 
 Soar I/O is accomplished via input _functions_ and _output functions_. Input
 functions are called at the start of every execution cycle, and add elements
@@ -2362,11 +2396,11 @@ values of working memory elements that appear on Soar’s output link structure.
 All input and output is represented in working memory as substructure of the io
 attribute of the top-level state. By default, the architecture creates an
 `input-link` attribute of the io object and an `output-link` attribute of the io
-object. The values of the `input-link` and `output-link` attributes are identifiers
-whose augmentations are the complete set of input and output working memory
-elements, respectively. Some Soar systems may benefit from having multiple input
-and output links, or that use names which are more descriptive of the input or
-output function, such as `vision-input-link`, `text-input-link`, or
+object. The values of the `input-link` and `output-link` attributes are
+identifiers whose augmentations are the complete set of input and output working
+memory elements, respectively. Some Soar systems may benefit from having
+multiple input and output links, or that use names which are more descriptive of
+the input or output function, such as `vision-input-link`, `text-input-link`, or
 `motor-output-link`. In addition to providing the default io substructure, the
 architecture allows users to create multiple input and output links via
 productions and I/O functions. Any identifiers for io substructure created by
@@ -2433,16 +2467,16 @@ system, which would later be reported on the input-link.
 
 Input and output are viewed from Soar’s perspective. An _input function_ adds or
 deletes augmentations of the `input-link` providing Soar with information about
-some occurrence external to Soar. An _output function_ responds to substructure of
-the `output-link` produced by production firings, and causes some occurrence
+some occurrence external to Soar. An _output function_ responds to substructure
+of the `output-link` produced by production firings, and causes some occurrence
 external to Soar. Input and output occur through the io attribute of the
 top-level state exclusively.
 
 Structures placed on the input-link by an input function remain there until
 removed by an input function. During this time, the structure continues to
 provide support for any production that has matched against it. The structure
-does _not_ cause the production to rematch and fire again on each cycle as long as
-it remains in working memory; to get the production to refire, the structure
+does _not_ cause the production to rematch and fire again on each cycle as long
+as it remains in working memory; to get the production to refire, the structure
 must be removed and added again.
 
 ### Input and output in production memory
@@ -2474,9 +2508,9 @@ blocks. The variables used for the blocks on the RHS of the production are
 deliberately different from the variable name used for the block on the
 input-link in the LHS of the production. If the variable were the same, the
 production would create a link into the structure of the input-link, rather than
-copy the information. The attributes `x-location` and `y-location` are assumed to be
-values and not identifiers, so the same variable names may be used to do the
-copying.
+copy the information. The attributes `x-location` and `y-location` are assumed
+to be values and not identifiers, so the same variable names may be used to do
+the copying.
 
 A production that creates WMEs on the output-link for the blocks task might look
 like this:
