@@ -2356,9 +2356,9 @@ This section describes how input and output are represented in working memory
 and in productions. Interfacing with a Soar agent through input and output can
 be done using the SML. The details of designing an
 external process that uses SML to create the input and respond to output from
-Soar are beyond the scope of this manual, but they are described
-[online](https://soar.eecs.umich.edu/articles/articles/soar-markup-language-sml)
-on the Soar website. This section is provided for the sake of Soar users who
+Soar are beyond the scope of this manual, but they are described in the
+[SML quick start guide](../tutorials/SMLQuickStartGuide.md).
+This section is provided for the sake of Soar users who
 will be making use of a program that has already been implemented, or for those
 who would simply like to understand how I/O works in Soar.
 
