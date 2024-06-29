@@ -11,6 +11,9 @@ The site is built using the [MkDocs](https://www.mkdocs.org/), a static site
 generator that uses Markdown files to generate a website. The theme is
 [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
 
+Large files that are not displayed but rather downloaded not be stored here;
+instead, put them in the [website downloads repository](https://github.com/SoarGroup/website-downloads).
+
 ## Setup/Running
 
 ```shell
