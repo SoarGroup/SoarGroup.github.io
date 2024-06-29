@@ -17,5 +17,8 @@
     },
     "MD026": {
         "punctuation": ".,;:。："
+    },
+    "MD025": {
+        "front_matter_title": ""
     }
 }

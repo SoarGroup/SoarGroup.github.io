@@ -13,10 +13,12 @@ generator that uses Markdown files to generate a website. The theme is
 
 ## Setup/Running
 
-    python -m venv
-    source venv/bin/activate (or venv\Scripts\Activate on Windows)
-    pip install -r requirements.txt
-    mkdocs serve
+```shell
+python -m venv
+source venv/bin/activate (or venv\Scripts\Activate on Windows)
+pip install -r requirements.txt
+mkdocs serve # add -s to abort on any warnings
+```
 
 ## Deployment
 

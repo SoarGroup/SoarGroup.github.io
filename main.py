@@ -1,3 +1,7 @@
+# This file is used by Mkdocs-Macros to define macros that can be used in the
+# markdown files. The macros are defined in the `define_env` function and can
+# be used in the markdown files by using the `{{macro_name}}` syntax.
+
 def define_env(env):
     "Defines macros for Mkdocs-Macros"
 
