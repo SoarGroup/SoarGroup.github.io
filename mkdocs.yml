@@ -91,6 +91,19 @@ nav:
           - Commercial Soar Organizations: home/CommercialSoarOrganizations.md
   - Downloads:
       - downloads/index.md
+      - Soar:
+        - downloads/soar/index.md
+        - Latest: downloads/soar/latest.md
+        - Archive: downloads/soar/archive.md
+        - JSoar: downloads/soar/jsoar.md
+      - Agents:
+        - downloads/agents/index.md
+      - Domains:
+        - downloads/domains/index.md
+      - Agent Development Tools:
+        - downloads/agent_development_tools/index.md
+      - Examples and Unsupported:
+        - downloads/examples_and_unsupported/index.md
   - Tutorials:
       - tutorials/index.md
       - Java Soar Debugger Intro: tutorials/IntroSoarDebugger.md
