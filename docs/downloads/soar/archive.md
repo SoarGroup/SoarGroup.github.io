@@ -1,5 +1,9 @@
 # Archive of Previous Soar Releases
 
+🚧 This page is under construction! None of the download links work.
+View the repo [here](https://github.com/SoarGroup/website-downloads/tree/main/Archives)
+if you need these files. 🚧
+
 ## Soar 9
 
 Releases of Soar 9.6.1 and later are available from the releases page on the
