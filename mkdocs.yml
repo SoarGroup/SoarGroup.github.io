@@ -99,6 +99,10 @@ nav:
       - Agents:
         - downloads/agents/index.md
         - 15-Puzzle: downloads/agents/15-puzzle.md
+        - 8-Puzzle: downloads/agents/8-puzzle.md
+        - Algebra Solver: downloads/agents/algebra_solver.md
+        - Arithmetic: downloads/agents/arithmetic.md
+        - Arithmetic (with Semantic Memory): downloads/agents/arithmetic_(with_semantic_memory).md
       - Domains:
         - downloads/domains/index.md
         - Dice: downloads/domains/dice.md

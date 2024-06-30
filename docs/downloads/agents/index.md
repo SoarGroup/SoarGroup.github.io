@@ -14,3 +14,7 @@ include all of the type of information we include on each download page) to
 [John Laird](mailto:laird@umich.edu) with the subject "Soar Agent Submission".
 
 *   [15-Puzzle Agent](./15-puzzle.md)
+*   [8-Puzzle](./8-puzzle.md)
+*   [Algebra Solver](./algebra_solver.md)
+*   [Arithmetic](./arithmetic.md)
+*   [Arithmetic (with Semantic Memory)](./arithmetic_(with_semantic_memory).md)

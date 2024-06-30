@@ -26,7 +26,15 @@ TODO: description
 
 ## Environment Properties
 
-*   TODO
+*   TODO (not for agents)
+
+## External Environment
+
+None TODO (agents only)
+
+## Soar Capabilities
+
+TODO
 
 ## Download Links
 
@@ -34,7 +42,11 @@ TODO: description
 
 ## Associated Agents
 
-TODO (not for agents)
+None TODO (not for agents)
+
+## Default Rules
+
+None TODO (agents only)
 
 ## Documentation
 
@@ -42,15 +54,18 @@ TODO
 
 ## Associated Publications
 
+None
 *   TODO
 
 ## Developers
 
-*   TODO
+John Laird TODO
 
 ## Soar Versions
 
-*   TODO
+TODO
+*   Soar 8
+*   Soar 9
 
 ## Language
 
@@ -58,7 +73,7 @@ TODO (not for agents)
 
 ## Project Type
 
-TODO (agents only)
+VisualSoar TODO (agents only)
 """
 )
 
@@ -99,10 +114,11 @@ def main(parent: str, title: str):
     line_to_insert = f"{' ' * num_leading_spaces}- {title}: downloads/{parent}/{new_file_name}\n"
     line_inserted = False
     for i in range(index_line + 1, len(lines)):
-        if len(lines[i]) - len(lines[i].lstrip()) <= num_leading_spaces:
-            lines.insert(i + 1, line_to_insert)
+        if len(lines[i]) - len(lines[i].lstrip()) < num_leading_spaces:
+            lines.insert(i, line_to_insert)
             line_inserted = True
             break
+    # if we didn't insert the line, then we must have reached the end of the file. Insert there.
     if not line_inserted:
         lines.append(line_to_insert)
 
