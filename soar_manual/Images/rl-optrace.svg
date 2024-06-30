@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Creator: fig2dev Version 3.2.8b -->
+
+<!-- CreationDate: 2023-08-30 18:55:54 -->
+
+<!-- Magnification: 1 -->
+
+<svg
+   width="236pt"
+   height="106pt"
+   viewBox="60 60 3927 1755"
+   version="1.1"
+   id="svg21"
+   sodipodi:docname="rl-optrace.svg"
+   inkscape:version="1.3 (1:1.3+202307231459+0e150ed6c4)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs21" />
+  <sodipodi:namedview
+     id="namedview21"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="pt"
+     inkscape:zoom="8.1514831"
+     inkscape:cx="157.33333"
+     inkscape:cy="70.661988"
+     inkscape:window-width="3440"
+     inkscape:window-height="1376"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg21" />
+  <g
+     fill="none"
+     id="g21">
+    <!-- Line -->
+    <polyline
+       points=" 1425,375 1425,525"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline1" />
+    <!-- Line -->
+    <polyline
+       points=" 2025,375 2025,525"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline2" />
+    <!-- Line -->
+    <polyline
+       points=" 2625,375 2625,525"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline3" />
+    <!-- Line -->
+    <polyline
+       points=" 1425,1425 1425,1575"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline4" />
+    <!-- Line -->
+    <polyline
+       points=" 2025,1425 2025,1575"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline5" />
+    <!-- Line -->
+    <polyline
+       points=" 2625,1425 2625,1575"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline6" />
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="1350"
+       y="720"
+       fill="#000000"
+       font-family="Times"
+       font-style="italic"
+       font-weight="normal"
+       font-size="144"
+       text-anchor="start"
+       id="text6">r</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="1425"
+       y="795"
+       fill="#000000"
+       font-family="Times"
+       font-style="italic"
+       font-weight="normal"
+       font-size="120"
+       text-anchor="start"
+       id="text7">2</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="1950"
+       y="720"
+       fill="#000000"
+       font-family="Times"
+       font-style="italic"
+       font-weight="normal"
+       font-size="144"
+       text-anchor="start"
+       id="text8">r</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="2025"
+       y="795"
+       fill="#000000"
+       font-family="Times"
+       font-style="italic"
+       font-weight="normal"
+       font-size="120"
+       text-anchor="start"
+       id="text9">3</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="2550"
+       y="720"
+       fill="#000000"
+       font-family="Times"
+       font-style="italic"
+       font-weight="normal"
+       font-size="144"
+       text-anchor="start"
+       id="text10">r</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="2625"
+       y="795"
+       fill="#000000"
+       font-family="Times"
+       font-style="italic"
+       font-weight="normal"
+       font-size="120"
+       text-anchor="start"
+       id="text11">4</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="675"
+       y="225"
+       fill="#000000"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="bold"
+       font-size="144"
+       text-anchor="start"
+       id="text12">O1</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="1275"
+       y="225"
+       fill="#000000"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="bold"
+       font-size="144"
+       text-anchor="start"
+       id="text13">O1</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="1875"
+       y="225"
+       fill="#000000"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="bold"
+       font-size="144"
+       text-anchor="start"
+       id="text14">O1</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="2475"
+       y="225"
+       fill="#000000"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="bold"
+       font-size="144"
+       text-anchor="start"
+       id="text15">O1</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="3075"
+       y="225"
+       fill="#000000"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="bold"
+       font-size="144"
+       text-anchor="start"
+       id="text16">O5</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="1275"
+       y="1800"
+       fill="#000000"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="bold"
+       font-size="144"
+       text-anchor="start"
+       id="text17">O2</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="1875"
+       y="1800"
+       fill="#000000"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="bold"
+       font-size="144"
+       text-anchor="start"
+       id="text18">O3</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="2475"
+       y="1800"
+       fill="#000000"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="bold"
+       font-size="144"
+       text-anchor="start"
+       id="text19">O4</text>
+    <!-- Line -->
+    <defs
+       id="defs19">
+      <clipPath
+         id="cp0">
+        <path
+           clip-rule="evenodd"
+           d="M 60,60 H 3987 V 1815 H 60 z   M 3195,511 3255,511 3232,368 3218,368z"
+           id="path19" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 825,375 825,1425 3225,1425 3225,375"
+       clip-path="url(#cp0)"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline19" />
+    <!-- Forward arrow to point 3225,375 -->
+    <polygon
+       points=" 3255,511 3225,391 3195,511 3255,511"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       fill="#000000"
+       id="polygon19" />
+    <!-- Line -->
+    <defs
+       id="defs20">
+      <clipPath
+         id="cp1">
+        <path
+           clip-rule="evenodd"
+           d="M 60,60 H 3987 V 1815 H 60 z   M 3839,345 3839,405 3982,382 3982,368z"
+           id="path20" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 375,375 3975,375"
+       clip-path="url(#cp1)"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline20" />
+    <!-- Forward arrow to point 3975,375 -->
+    <polygon
+       points=" 3839,405 3959,375 3839,345 3839,405"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       fill="#000000"
+       id="polygon20" />
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="75"
+       y="450"
+       fill="#000000"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="bold"
+       font-size="144"
+       text-anchor="start"
+       id="text20">S1</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="75"
+       y="1500"
+       fill="#000000"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="bold"
+       font-size="144"
+       text-anchor="start"
+       id="text21">S2</text>
+  </g>
+</svg>

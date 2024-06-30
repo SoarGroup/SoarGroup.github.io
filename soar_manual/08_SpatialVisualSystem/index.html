@@ -1,0 +1,4152 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../07_EpisodicMemory/">
+      
+      
+        <link rel="next" href="../09_SoarUserInterface/">
+      
+      
+      <link rel="icon" href="../../Images/soar.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
+    
+    
+      
+        <title>Spatial Visual System - Soar Home</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#under-construction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Soar Home" class="md-header__button md-logo" aria-label="Soar Home" data-md-component="logo">
+      
+  <img src="../../Images/soar.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Soar Home
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Spatial Visual System
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SoarGroup/SoarGroup.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Website Source
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../downloads/" class="md-tabs__link">
+          
+  
+    
+  
+  Downloads
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tutorials/" class="md-tabs__link">
+          
+  
+    
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Soar Manual
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../development/" class="md-tabs__link">
+          
+  
+    
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../support/" class="md-tabs__link">
+          
+  
+    
+  
+  Support
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../reference/" class="md-tabs__link">
+          
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../home/tags/" class="md-tabs__link">
+        
+  
+    
+  
+  Tag Index
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Soar Home" class="md-nav__button md-logo" aria-label="Soar Home" data-md-component="logo">
+      
+  <img src="../../Images/soar.png" alt="logo">
+
+    </a>
+    Soar Home
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SoarGroup/SoarGroup.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Website Source
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../home/QuickStart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../home/About/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Research
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            Research
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../home/Publications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Publications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../home/ResearchGroups/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Research Groups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../home/OtherAcademicInstitutions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Academic Institutions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../home/CommercialSoarOrganizations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Commercial Soar Organizations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../downloads/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Downloads
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Downloads
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../downloads/soar/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Soar
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Soar
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../downloads/soar/latest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Latest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../downloads/soar/archive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Archive
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../downloads/soar/jsoar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JSoar
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../downloads/agents/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Agents
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Agents
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../downloads/agents/15-puzzle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15-Puzzle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../downloads/agents/8-puzzle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8-Puzzle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../downloads/agents/algebra_solver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Algebra Solver
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../downloads/agents/arithmetic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arithmetic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../downloads/agents/arithmetic_%28with_semantic_memory%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arithmetic (with Semantic Memory)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../downloads/domains/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Domains
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Domains
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../downloads/domains/dice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../downloads/agent_development_tools/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Agent Development Tools
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Agent Development Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../downloads/agent_development_tools/episodic_memory_size_tool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Episodic Memory Size Tool
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../downloads/examples_and_unsupported/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Examples and Unsupported
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Examples and Unsupported
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../downloads/examples_and_unsupported/cpp_command_line_filter_example/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ Command Line Filter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../tutorials/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/IntroSoarDebugger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java Soar Debugger Intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/SMLQuickStartGuide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SML Quick Start Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../tutorials/soar_tutorial/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Official Soar Tutorials
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Official Soar Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/soar_tutorial/01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part I Simple Soar Programs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/soar_tutorial/02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part II Simple External Interaction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/soar_tutorial/03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part III Subgoals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/soar_tutorial/04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part IV More Simple Problem Solving
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/soar_tutorial/05/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part V Planning and Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/soar_tutorial/06/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part VI Reinforcement Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/soar_tutorial/07/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part VII Semantic Memory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/soar_tutorial/08/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part VIII Episodic Memory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/soar_tutorial/TankEatersConfigFile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tank and Eaters Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Soar Manual
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Soar Manual
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_Introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_TheSoarArchitecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Soar Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_SyntaxOfSoarPrograms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syntax of Soar Programs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_ProceduralKnowledgeLearning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Procedural Knowledge Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_ReinforcementLearning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reinforcement Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_SemanticMemory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Semantic Memory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_EpisodicMemory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Episodic Memory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Spatial Visual System
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_SoarUserInterface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Soar User Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blocksworld/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blocksworld
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../development/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Development
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/SoarTechnicalFAQ/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Technical FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/BuildingSoarRos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building Soar and ROS1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Soar Agents
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Soar Agents
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/agents/DesignDogma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Design Dogma
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/agents/SoarProgrammersGuide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Soar Programmer's Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/agents/SMLOutputLinkGuide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SML Output Link Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/agents/HowToCompileSmlClients/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to compile SML Clients
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Soar Kernel
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Soar Kernel
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/soar/BasicKernelTerminology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Kernel Terminology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/soar/CLIParsingCode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CLI Parsing Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/soar/IOAndRewardLinks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IO and Reward Links
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/soar/MemoryLeakDebuggingWithVisualStudio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Memory Leak Debugging with Visual Studio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/soar/ThreadsInSML/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Threads in SML
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/soar/Timers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Timers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/soar/Waterfall/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Waterfall
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../support/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Support
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Support
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../reference/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/CommandLineOptionsForDebuggerAndCLI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Command Line Options for Debugging and CLI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../reference/cli/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Command Line Interface
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            Command Line Interface
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_alias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    alias
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_chunk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    chunk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_debug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    debug
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_decide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    decide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_echo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    echo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_epmem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    epmem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_explain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    explain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_file_system/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    file_system
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_gp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    gp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_help/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    help
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_load/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    load
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_output/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    output
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_preferences/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    preference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_print/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    print
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    production
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_rl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    rl
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_run/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    run
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_save/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    save
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_smem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    smem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_soar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    soar
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_sp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_stats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    stats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_svs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    svs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_trace/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    trace
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_visualize/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    visualize
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cli/cmd_wm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    wm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../home/tags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tag Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/SoarGroup/SoarGroup.github.io/edit/main/docs/soar_manual/08_SpatialVisualSystem.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/SoarGroup/SoarGroup.github.io/raw/main/docs/soar_manual/08_SpatialVisualSystem.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+<h1 id="under-construction">🚧 Under Construction 🚧<a class="headerlink" href="#under-construction" title="Permanent link">&para;</a></h1>
+<p>The HTML version of the manual is currently under construction. If you find it difficult to read, there is a PDF version available <a href="https://github.com/SoarGroup/Soar/releases/download/releases%2F9.6.2/SoarManual.pdf">here</a>.</p>
+<h1 id="spatial-visual-system">Spatial Visual System<a class="headerlink" href="#spatial-visual-system" title="Permanent link">&para;</a></h1>
+<p>The Spatial Visual System (SVS) allows Soar to effectively represent and reason
+about continuous, three dimensional environments. SVS maintains an internal
+representation of the environment as a collection of discrete objects with
+simple geometric shapes, called the scene graph. The Soar agent can query for
+spatial relationships between the objects in the scene graph through a working
+memory interface similar to that of episodic and semantic memory.  Figure 8.1
+illustrates the typical use case for SVS by contrasting it with an agent that
+does not utilize it. The agent that does not use SVS (a. in the figure) relies
+on the environment to provide a symbolic representation of the continuous state.
+On the other hand, the agent that uses SVS (b) accepts a continuous
+representation of the environment state directly, and then performs queries on
+the scene graph to extract a symbolic representation internally. This allows the
+agent to build more flexible symbolic representations without requiring
+modifications to the environment code. Furthermore, it allows the agent to
+manipulate internal copies of the scene graph and then extract spatial
+relationships from the modified states, which is useful for look-ahead search
+and action modeling. This type of imagery operation naturally captures and
+propagates the relationships implicit in spatial environments, and doesn’t
+suffer from the frame problem that relational representations have.</p>
+<figure class="figure-image">  <img src="../Images/svs-setup.svg" alt="(a) Typical environment setup without using SVS. (b) Same environment using SVS." >  <figcaption>(a) Typical environment setup without using SVS. (b) Same environment using SVS.</figcaption></figure>
+
+<h2 id="the-scene-graph">The scene graph<a class="headerlink" href="#the-scene-graph" title="Permanent link">&para;</a></h2>
+<p>The primary data structure of SVS is the scene graph. The scene graph is a tree
+in which the nodes represent objects in the scene and the edges represent
+"part-of" relationships between objects. An example scene graph consisting of a
+car and a pole is shown in Figure 8.2. The scene graph’s leaves are <strong>geometry
+nodes</strong> and its interior nodes are <strong>group nodes</strong>. Geometry nodes represent atomic
+objects that have intrinsic shape, such as the wheels and chassis in the
+example. Currently, the shapes supported by SVS are points, lines, convex
+polyhedrons, and spheres. Group nodes represent objects that are the aggregates
+of their child nodes, such as the car object in the example. The shape of a
+group node is the union of the shapes of its children. Structuring complex
+objects in this way allows Soar to reason about them naturally at different
+levels of abstraction. The agent can query SVS for relationships between the car
+as a whole with other objects (e.g. does it intersect the pole?), or the
+relationships between its parts (e.g. are the wheels pointing left or right with
+respect to the chassis?). The scene graph always contains at least a root node:
+the <strong>world node</strong>.</p>
+<p>Each node other than the world node has a transform with respect to its parent.
+A transform consists of three components:</p>
+<ul>
+<li>position(x,y,z) Specifies the x, y, and z offsets of the node’s origin with
+  respect to its parent’s origin.</li>
+<li>rotation(x,y,z) Specifies the rotation of the node relative to its origin in
+  Euler angles.  This means that the node is rotated the specified number of
+  radians along each axis in the order x-y-z. For more information,
+  see <a href="http://en.wikipedia.org/wiki/Euler_angles">http://en.wikipedia.org/wiki/Euler_angles</a>.</li>
+<li>scaling(x,y,z) Specifies the factors by which the node is scaled along each axis.</li>
+</ul>
+<p>The component transforms are applied in the order scaling, then rotation, then
+position.  Each node’s transform is applied with respect to its parent’s
+coordinate system, so the transforms accumulate down the tree. A node’s
+transform with respect to the world node, or its world transform, is the
+aggregate of all its ancestor transforms. For example, if the car has a position
+transform of (1, 0 ,0) and a wheel on the car has a position transform of (0, 1
+,0), then the world position transform of the wheel is (1, 1 ,0).</p>
+<p>SVS represents the scene graph structure in working memory under the^spatial-scene
+link. The working memory representation of the car and pole scene graph is</p>
+<figure class="figure-image">  <img src="../Images/scene_graph.svg" alt="(a) A 3D scene. (b) The scene graph representation." >  <figcaption>(a) A 3D scene. (b) The scene graph representation.</figcaption></figure>
+
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>(S1 ^svs S3)
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  (S3 ^command C3 ^spatial-scene S4)
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    (S4 ^child C10 ^child C4 ^id world)
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>      (C10 ^id pole)
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>      (C4 ^child C9 ^child C8 ^child C7 ^child C6 ^child C5 ^id car)
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        (C9 ^id chassis)
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        (C8 ^id wheel3)
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        (C7 ^id wheel2)
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        (C6 ^id wheel1)
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        (C5 ^id wheel0)
+</span></code></pre></div>
+<p>Each state in working memory has its own scene graph. When a new state is
+created, it will receive an independent copy of its parent’s scene graph. This
+is useful for performing look-ahead search, as it allows the agent to
+destructively modify the scene graph in a search state using mental imagery
+operations.</p>
+<h3 id="svs_viewer">svs_viewer<a class="headerlink" href="#svs_viewer" title="Permanent link">&para;</a></h3>
+<p>A viewer has been provided to show the scene graph visually. Run the
+program svs viewer -s PORTfrom the soar/out folder to launch the viewer listening
+on the given port. Once the viewer is running, from within soar use the
+command svs connect viewer PORTto connect to the viewer and begin drawing the
+scene graph. Any changes to the scene graph will be reflected in the viewer. The
+viewer by default draws the top state scene graph, to draw that on a substate
+first stop drawing the top state with svs S1.scene.draw off and then svs
+S7.scene.draw on.</p>
+<h2 id="scene-graph-edit-language">Scene Graph Edit Language<a class="headerlink" href="#scene-graph-edit-language" title="Permanent link">&para;</a></h2>
+<p>The <strong>Scene Graph Edit Language</strong> (SGEL) is a simple, plain text, line oriented
+language that is used by SVS to modify the contents of the scene graph.
+Typically, the scene graph is used to represent the state of the external
+environment, and the programmer sends SGEL commands reflecting changes in the
+environment to SVS via the <code>Agent::SendSVSInput</code> function in the <abbr title="Soar Markup Language">SML</abbr> API. These
+commands are buffered by the agent and processed at the beginning of each input
+phase. Therefore, it is common to send scene changes through
+SendSVS Input before the input phase. If you send SGEL commands at the end of the
+input phase, the results won’t be processed until the following decision cycle.</p>
+<p>Each SGEL command begins with a single word command type and ends with a newline.
+The four command types are</p>
+<ul>
+<li>
+<p><strong>add ID PARENT_ID [GEOMETRY] [TRANSFORM]</strong>
+  Add a node to the scene graph with the givenID, as a child ofPARENTID, and with
+  typeTYPE(usually object).TheGEOMETRYandTRANSFORMarguments are optional and
+  described below.</p>
+</li>
+<li>
+<p><strong>change ID [GEOMETRY] [TRANSFORM]</strong> 
+  Change the transform and/or geometry of the node with the givenID.</p>
+</li>
+<li>
+<p><strong>delete ID</strong>
+  Delete the node with the givenID.</p>
+</li>
+<li>
+<p><strong>tag [add|change|delete] ID TAG_NAME TAG_VALUE</strong>
+  Adds, changes, or deletes a tag from an object. A tag consists of a TAG_NAME and
+  TAG_VALUE pair and is added to the node with the given ID. Both TAG_NAMEand
+  TAG_VALUE must be strings. Tags can differentiate nodes (e.g. as a type field) and
+  can be used in conjunction with the tag select filter to choose a subset of the nodes.</p>
+</li>
+</ul>
+<p>The <code>TRANSFORM</code> argument has the <code>form[p X Y Z] [r X Y Z] [s X Y Z]</code>, corresponding to
+the position, rotation, and scaling components of the transform, respectively.
+All the components are optional; any combination of them can be excluded, and
+the included components can appear in any order.</p>
+<p>The <code>GEOMETRY</code> argument has two forms:</p>
+<ul>
+<li>
+<p><strong>b RADIUS</strong>
+  Make the node a geometry node with sphere shape with radius RADIUS.</p>
+</li>
+<li>
+<p><strong>v X1 Y1 Z1 X2 Y2 Z2</strong>
+  Make the node a geometry node with a convex polyhedron shape with the specified
+  vertices. Any number of vertices can be listed.</p>
+</li>
+</ul>
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
+<p>Creating a sphere called ball4 with radius 5 at location (4, 4, 0).
+add ball4 world b 5 p 4 4 0</p>
+<p>Creating a triangle in the xy plane, then rotate it vertically, double its size,
+and move it to (1, 1, 1).</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>add tri9 world v -1 -1 0 1 -1 0 0 0.5 0 p 1 1 1 r 1.507 0 0 s 2 2 2
+</span></code></pre></div>
+<p>Creating a snowman shape of 3 spheres stacked on each other and located at (2, 2, 0).</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>add snowman world p 2 2 0
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>add bottomball snowman b 3 p 0 0 3
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>add middleball snowman b 2 p 0 0 8
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>add topball snowman b 1 p 0 0 11
+</span></code></pre></div>
+<p>Set the rotation transform on box11 to 180 degrees around the z axis.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>change box11 r 0 0 3.14159
+</span></code></pre></div>
+<p>Changing the color tag on box7 to green.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>tag change box7 color green
+</span></code></pre></div>
+<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
+<p>The Soar agent initiates commands in SVS via the <strong>^command</strong> link, similar to semantic
+and episodic memory. These commands allow the agent to modify the scene graph and
+extract filters. Commands are processed during the output phase and the results are added
+to working memory during the input phase. SVS supports the following commands:</p>
+<ul>
+<li><code>add_node</code> Creates a new node and adds it to the scene graph</li>
+<li><code>copy_node</code> Creates a copy of an existing node</li>
+<li><code>delete_node</code> Removes a node from the scene graph and deletes it</li>
+<li><code>set_transform</code> Changes the position, rotation, and/or scale of a node</li>
+<li><code>set_tag</code> Adds or changes a tag on a node</li>
+<li><code>delete_tag</code> Deletes a tag from a node</li>
+<li><code>extract</code> Compute the truth value of spatial relationships in the current scene graph.</li>
+<li><code>extract_once</code> Same as extract, except it is only computed once and doesn’t update when the scene changes.</li>
+</ul>
+<h3 id="add_node">add_node<a class="headerlink" href="#add_node" title="Permanent link">&para;</a></h3>
+<p>This commands adds a new node to the scene graph.</p>
+<ul>
+<li><code>^id [string]</code> The id of the node to create</li>
+<li><code>^parent [string]</code> The id of the node to attach the new node to (default is world)</li>
+<li><code>^geometry &lt;&lt; group point ball box &gt;&gt;</code> The geometry the node should have</li>
+<li><code>^position.{ ^x ^y ^z }</code> Position of the node (optional)</li>
+<li><code>^rotation.{ ^x ^y ^z }</code> Rotation of the node (optional)</li>
+<li><code>^scale.{ ^x ^y ^z }</code> Scale of the node (optional)</li>
+</ul>
+<p>The following example creates a node called box 5 and adds it to the world. The
+node has a box shape of side length 0.1 and is placed at position (1, 1, 0).</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>(S1 ^svs S3)
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  (S3 ^command C3 ^spatial-scene S4)
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    (C3 ^add_node A1)
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>      (A1 ^id box5 ^parent world ^geometry box ^position P1 ^scale S6)
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>        (P1 ^x 1.0 ^y 1.0 ^z 0.0)
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>        (S6 ^x 0.1 ^y 0.1 ^z 0.1)
+</span></code></pre></div>
+<h3 id="copy_node">copy_node<a class="headerlink" href="#copy_node" title="Permanent link">&para;</a></h3>
+<p>This command creates a copy of an existing node and adds it to the scene graph.
+This copy is not recursive, it only copies the node itself, not its children.
+The position, rotation, and scale transforms are also copied from the source node
+but they can be changed if desired.</p>
+<ul>
+<li><strong>^id [string]</strong> The id of the node to create</li>
+<li><strong>^source [string]</strong> The id of the node to copy</li>
+<li><strong>^parent [string]</strong> The id of the node to attach the new node to (default is world)</li>
+<li><strong>^position.{^x ^y ^z}</strong> Position of the node (optional)</li>
+<li><strong>^rotation.{^x ^y ^z}</strong> Rotation of the node (optional)</li>
+<li><strong>^scale.{^x ^y ^z}</strong> Scale of the node (optional)</li>
+</ul>
+<p>The following example copies a node called box5 as new node box6 and moves it to
+position (2, 0, 2).</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>(S1 ^svs S3)
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  (S3 ^command C3 ^spatial-scene S4)
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    (C3 ^copy_node A1)
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>      (A1 ^id box6 ^source box5 ^position P1)
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        (P1 ^x 2.0 ^y 0.0 ^z 2.0)
+</span></code></pre></div>
+<h3 id="delete_node">delete_node<a class="headerlink" href="#delete_node" title="Permanent link">&para;</a></h3>
+<p>This command deletes a node from the scene graph. Any children will also
+be deleted.</p>
+<ul>
+<li><strong>`^id [string]</strong> The id of the node to delete</li>
+</ul>
+<p>The following example deletes a node called</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>(S1 ^svs S3)
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  (S3 ^command C3 ^spatial-scene S4)
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    (C3 ^delete_node D1)
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>      (D1 ^id box5)
+</span></code></pre></div>
+<h3 id="set_transform">set_transform<a class="headerlink" href="#set_transform" title="Permanent link">&para;</a></h3>
+<p>This command allows you to change the position, rotation, and/ or scale
+of an existing node. You can specify any combination of the three
+transforms.</p>
+<ul>
+<li><strong><code>^id [string]</code></strong> The id of the node to change</li>
+<li><strong><code>^postion</code></strong> Position of the node (optional)</li>
+<li><strong><code>^position.{^x ^y ^z}</code></strong> Rotation of the node (optional)</li>
+<li><strong><code>^scale{^x ^y ^z}</code></strong> Scale of the node (optional)</li>
+</ul>
+<p>The following example moves and rotates a node called <code>box5</code>.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>(S1 ^svs S3)
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  (S3 ^command C3 ^spatial-scene S4)
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    (C3 ^set_transform S6)
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>      (S6 ^id box5 ^position P1 ^rotation R1)
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        (P1 ^x 2.0 ^y 2.0 ^z 0.0)
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>        (R1 ^x 0.0 ^y 0.0 ^z 1.57)
+</span></code></pre></div>
+<h3 id="set_tag">set_tag<a class="headerlink" href="#set_tag" title="Permanent link">&para;</a></h3>
+<p>This command allows you to add or change a tag on a node. If a tag with
+the same id already exists, the existing value will be replaced with the
+new value.</p>
+<ul>
+<li><strong><code>^id [string]</code></strong> The id of the node to set the tag on</li>
+<li><strong><code>^tag_name [string]</code></strong> The name of the tag to add</li>
+<li><strong><code>^tag_value [string]</code></strong> The value of the tag to add</li>
+</ul>
+<p>The following example adds a shape tag to the node <code>box5</code>.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>(S1 ^svs S3)
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  (S3 ^command C3 ^spatial-scene S4)
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    (C3 ^set_tag S6)
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>      (S6 ^id box5 ^tag_name shape ^tag_value cube)
+</span></code></pre></div>
+<h3 id="delete_tag">delete_tag<a class="headerlink" href="#delete_tag" title="Permanent link">&para;</a></h3>
+<p>This command allows you to delete a tag from a node.</p>
+<ul>
+<li><strong>^id [string]</strong> The id of the node to set the tag on</li>
+<li><strong>^tag_name [string]</strong> The name of the tag to add</li>
+<li><strong>^tag_value [string]</strong> The value of the tag to add</li>
+</ul>
+<p>The following example deletes the shape tag from the node .</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>(S1 ^svs S3)
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  (S3 ^command C3 ^spatial-scene S4)
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    (C3 ^delete_tag D1)
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>      (D1 ^name box5 ^tag_name shape)
+</span></code></pre></div>
+<h3 id="extract-and-extract_once">extract and extract_once<a class="headerlink" href="#extract-and-extract_once" title="Permanent link">&para;</a></h3>
+<p>This command is commonly used to compute spatial relationships in the scene
+graph. More generally, it puts the <strong>result</strong> of a filter pipeline (described in
+section <a href="#filters">svs-filters</a> in working memory. Its syntax is the same as
+filter pipeline syntax. During the input phase, SVS will evaluate the filter and
+put a <code>^result</code> attribute on the command’s identifier.  Under the <code>^result</code>
+attribute is a multi-valued <code>^record</code> attribute. Each record corresponds to an
+output value from the head of the filter pipeline, along with the parameters
+that produced the value. With the regular <code>extract</code> command, these records will be updated
+as the scene graph changes. With the <code>extract_once</code> command, the records will be created once
+and will not change. Note that you should not change the structure of a filter
+once it is created (SVS only processes a command once). Instead to extract
+something different you must create a new command. The following is an example
+of an extract command which tests whether the car and pole objects are
+intersecting.  The <code>^status</code> and <code>^result</code> WMEs are added by SVS when the command is finished.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>(S1 ^svs S3)
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>  (S3 ^command C3 ^spatial-scene S4)
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    (C3 ^extract E2)
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>      (E2 ^a A1 ^b B1 ^result R7 ^status success ^type intersect)
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>        (A1 ^id car ^status success ^type node)
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>        (B1 ^id pole ^status success ^type node)
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>        (R7 ^record R17)
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>          (R17 ^params P1 ^value false)
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>            (P1 ^a car ^b pole)
+</span></code></pre></div>
+<h2 id="filters">Filters<a class="headerlink" href="#filters" title="Permanent link">&para;</a></h2>
+<p><strong>Filters</strong> are the basic unit of computation in SVS. They transform the
+continuous information in the scene graph into symbolic information that
+can be used by the rest of Soar. Each filter accepts a number of labeled
+parameters as input, and produces a single output. Filters can be
+arranged into pipelines in which the outputs of some filters are fed
+into the inputs of other filters. The Soar agent creates filter
+pipelines by building an analogous structure in working memory as an
+argument to an "extract" command. For example, the following structure
+defines a set of filters that reports whether the car intersects the
+pole:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>(S1 ^svs S3)
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>  (S3 ^command C3 ^spatial-scene S4)
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    (C3 ^extract E2)
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>      (E2 ^a A1 ^b B1 ^type intersect)
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>        (A1 ^id car ^type node)
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>        (B1 ^id pole ^type node)
+</span></code></pre></div></p>
+<p>The <code>^type</code> attribute specifies the type of filter to instantiate, and the other
+attributes specify parameters. This command will create three filters: an
+<code>intersect</code> filter and two node filters. A <strong>node</strong> filter takes an <code>id</code>
+parameter and returns the scene graph node with that ID as its result. Here, the
+outputs of the <code>car</code> and <code>pole</code> node filters are fed into the <code>^a</code> and <code>^b</code>
+parameters of the filter. SVS will update each filter’s output once every
+decision cycle, at the end of the input phase. The output of the intersect
+filter is a boolean value indicating whether the two objects are intersecting.
+This is placed into working memory as the result of the extract command:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>(S1 ^svs S3)
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>  (S3 ^command C3 ^spatial-scene S4)
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    (C3 ^extract E2)
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>      (E2 ^a A1 ^b B1 ^result R7 ^status success ^type intersect)
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>        (A1 ^id car ^status success ^type node)
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>        (B1 ^id pole ^status success ^type node)
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>        (R7 ^record R17)
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>          (R17 ^params P1 ^value false)
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>            (P1 ^a car ^b pole)
+</span></code></pre></div>
+<p>Notice that a <code>^status</code> success is placed on each identifier corresponding to a
+filter. A result WME is placed on the extract command with a single record with
+value <strong>false</strong>.</p>
+<h3 id="result-lists">Result lists<a class="headerlink" href="#result-lists" title="Permanent link">&para;</a></h3>
+<p>Spatial queries often involve a large number of objects. For example,
+the agent may want to compute whether an object intersects any others in
+the scene graph. It would be inconvenient to build the extract command
+to process this query if the agent had to specify each object involved
+explicitly. Too many WMEs would be required, which would slow down the
+production matcher as well as SVS because it must spend more time
+interpreting the command structure. To handle these cases, all filter
+parameters and results can be lists of values. For example, the query
+for whether one object intersects all others can be expressed as</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>(S1 ^svs S3)
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>  (S3 ^command C3)
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    (C3 ^extract E2)
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>      (E2 ^a A1 ^b B1 ^result R7 ^status success ^type intersect)
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>        (A1 ^id car ^status success ^type node)
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>        (B1 ^status success ^type all_nodes)
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>        (R7 ^record R9 ^record R8)
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>          (R9 ^params P2 ^value false)
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>            (P2 ^a car ^b pole)
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>          (R8 ^params P1 ^value true)
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>            (P1 ^a car ^b car)
+</span></code></pre></div>
+<p>The all_nodes filter outputs a list of all nodes in the scene graph, and the
+intersect filter outputs a list of boolean values indicating whether the car
+intersects each node, represented by the multi-valued attribute <strong>record</strong>. Notice
+that each record contains both the result of the query as well as the
+parameters that produced that result. Not only is this approach more
+convenient than creating a separate command for each pair of nodes, but
+it also allows the intersect filter to answer the query more efficiently using
+special algorithms that can quickly rule out non-intersecting objects.</p>
+<h3 id="filter-list">Filter List<a class="headerlink" href="#filter-list" title="Permanent link">&para;</a></h3>
+<p>The following is a list of all filters that are included in SVS. You can also
+get this list by using the cli command <code>svs filters</code> and get information about a
+specific filter using the command <code>svs filters.FILTER_NAME</code>. Many filters have a
+<code>_select</code> version. The select version returns a subset of the input nodes which
+pass a test.  For example, the intersect filter returns boolean values for each
+input (a, b) pair, while the intersect_select filter returns the nodes in set b
+which intersect the input node a. This is useful for passing the results of one
+filter into another (e.g.  take the nodes that intersect node a and find the
+largest of them).</p>
+<ul>
+<li><strong>Node</strong>: Given an <code>^id</code>, outputs the node with that id.</li>
+<li><strong>all_nodes</strong>: Outputs all the nodes in the scene</li>
+<li><strong>combine_nodes</strong>: Given multiple node inputs as <code>^a</code>, concatenates them into a single output set.</li>
+<li><strong>remove_nodes</strong>: Removes node <code>^a</code> from the input set and outputs the rest.</li>
+<li><strong>node_position</strong>: Outputs the position of each node in input <code>^a</code>.</li>
+<li><strong>node_rotation</strong>: Outputs the rotation of each node in input <code>^a</code>.</li>
+<li><strong>node_scale</strong>: Outputs the scale of each node in input <code>^a</code>.</li>
+<li><strong>node_bbox</strong>: Outputs the bounding box of each node in input <code>^a</code>.</li>
+<li><strong>distance and distance_select</strong>: 
+  Outputs the distance between input nodes <code>^a</code> and <code>^b</code> Distance can be specified
+  by <code>^distance_type &lt;&lt; centroid hull &gt;&gt;</code>, where is the euclidean distance between the centers, and the hull is the
+  minimum distance between the node surfaces. <code>distance_select</code> chooses nodes in set b in
+  which the distance to node a falls within the range <code>^min</code>and <code>^max</code>.</li>
+<li><strong>closest and farthest</strong>
+  Outputs the node in set <code>^b</code> closest to or farthest from <code>^a</code> (also uses <code>distance_type</code>).</li>
+<li><strong>axis_distance and axis_distance_select</strong>
+  Outputs the distance from input node <code>^a</code> to <code>^b</code> along a particular axis
+  (<code>^axis &lt;&lt; x y z &gt;&gt;</code>). This
+  distance is based on bounding boxes. A value of 0 indicates the nodes
+  overlap on the given axis, otherwise the result is a signed value
+  indicating whether node b is greater or less than node a on the given
+  axis. The <code>axis_distance_select</code> filter also uses <code>^min</code> and <code>^max</code> to select nodes in set b.</li>
+<li><strong>volume and volume_select</strong>
+  Outputs the bounding box volume of each node in set <code>^a</code>. For volume_select,
+  it outputs a subset of the nodes whose volumes fall within the range <code>^min</code>
+  and <code>^max</code>.</li>
+<li><strong>largest and smallest</strong>
+  Outputs the node in set <code>^a</code>} with the largest or smallest volume.</li>
+<li><strong>larger and larger_select</strong>
+  Outputs whether input node <code>^a</code> is larger than each input node <code>^b</code>, or selects all nodes in b for which a is larger.</li>
+<li><strong>smaller and smaller_select</strong>
+  Outputs whether input node <code>^a</code> is smaller than each input node <code>^b</code>, or
+  selects all nodes in b for which a is smaller.</li>
+<li><strong>contain and contain_select</strong>
+  Outputs whether the bounding box of each input node <code>^a</code> contains the bounding
+  box of each input node <code>^b</code>, or selects those nodes in b which are contained
+  by node a.</li>
+<li><strong>intersect and intersect_select</strong>
+  Outputs whether each input node <code>^a</code> intersects each input node <code>^b</code>, or
+  selects those nodes in b which intersect node a. Intersection is specified by
+  <code>^intersect_type &lt;&lt; hull box &gt;&gt;</code>; either the convex hull of the node or
+  the axis-aligned bounding box.</li>
+<li><strong>tag_select</strong>
+  Outputs all the nodes in input set <code>^a</code> which have the tag specified by
+  <code>^tag_name</code> and <code>^tag_value</code>.</li>
+</ul>
+<h3 id="examples_1">Examples<a class="headerlink" href="#examples_1" title="Permanent link">&para;</a></h3>
+<p>Select all the objects with a volume between 1 and 2.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>(S1 ^svs S3)
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>  (S3 ^command C3)
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    (C3 ^extract E1)
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>      (E1 ^type volume_select ^a A1 ^min 1 ^max 2)
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>        (A1 ^type all_nodes)
+</span></code></pre></div>
+<p>Find the distance between the centroid of ball3 and all other objects.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>(S1 ^svs S3)
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>(S3 ^command C3)
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>    (C3 ^extract E1)
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>      (E1 ^type distance ^a A1 ^b B1 ^distance_type centroid)
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>        (A1 ^type node ^id ball3)
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>        (B1 ^type all_nodes)
+</span></code></pre></div>
+<p>Test where ball2 intersects any red objects.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>(S1 ^svs S3)
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>  (S3 ^command C3)
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    (C3 ^extract E1)
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>      (E1 ^type intersect ^a A1 ^b B1 ^intersect_type hull)
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>        (A1 ^type node ^id ball2)
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>        (B1 ^type tag_select ^a A2 ^tag_name color ^tag_value red)
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>          (A2 ^type all_nodes)
+</span></code></pre></div>
+<p>Find all the objects on the table. This is done by selecting nodes where
+the distance between them and the table along the z axis is a small
+positive number.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>(S1 ^svs S3)
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>  (S3 ^command C3)
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>    (C3 ^extract E1)
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>      (E1 ^type axis_distance_select ^a A1 ^b B1 ^axis z ^min .0001 ^max .1)
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>        (A1 ^type node ^id table)
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>        (B1 ^type all_nodes)
+</span></code></pre></div>
+<p>Find the smallest object that intersects the table (excluding itself).</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>(S1 ^svs S3)
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>  (S3 ^command C3)
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    (C3 ^extract E1)
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>      (E1 ^type smallest ^a A1)
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>        (A1 ^type intersect_select ^a A2 ^b B2 ^intersect_type hull)
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>          (A2 ^type node ^id table)
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>          (B1 ^type remove_node ^id table ^a A3)
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>            (A3 ^type all_nodes)
+</span></code></pre></div>
+<h2 id="writing-new-filters">Writing new filters<a class="headerlink" href="#writing-new-filters" title="Permanent link">&para;</a></h2>
+<p>SVS contains a small set of generally useful filters, but many users
+will need additional specialized filters for their application. Writing
+new filters for SVS is conceptually simple.</p>
+<ol>
+<li>Write a C++ class that inherits from the appropriate filter
+    subclass.</li>
+<li>Register the new class in a global table of all filters ().</li>
+<li>Recompile the kernel.</li>
+</ol>
+<h3 id="filter-subclasses">Filter subclasses<a class="headerlink" href="#filter-subclasses" title="Permanent link">&para;</a></h3>
+<p>The fact that filter inputs and outputs are lists rather than single
+values introduces some complexity to how filters are implemented.
+Depending on the functionality of the filter, the multiple inputs into
+multiple parameters must be combined in different ways, and sets of
+inputs will map in different ways onto the output values. Furthermore,
+the outputs of filters are cached so that the filter does not repeat
+computations on sets of inputs that do not change. To shield the user
+from this complexity, a set of generally useful filter paradigms were
+implemented as subclasses of the basic <code>filter</code> class. When writing custom
+filters, try to inherit from one of these classes instead of from <code>filter</code>
+directly.</p>
+<h4 id="map-filter">Map filter<a class="headerlink" href="#map-filter" title="Permanent link">&para;</a></h4>
+<p>This is the most straightforward and useful class of filters. A filter
+of this class takes the Cartesian product of all input values in all
+parameters, and performs the same computation on each combination,
+generating one output. In other words, this class implements a
+one-to-one mapping from input combinations to output values.</p>
+<p>To write a new filter of this class, inherit from the <code>map_filter</code> class, and
+define the <code>compute</code> function. Below is an example template:</p>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">new_map_filter</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">map_filter</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">// templated with output type</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="p">{</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">  </span><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">    </span><span class="n">new_map_filter</span><span class="p">(</span><span class="n">Symbol</span><span class="w"> </span><span class="o">*</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">soar_interface</span><span class="w"> </span><span class="o">*</span><span class="n">si</span><span class="p">,</span><span class="w"> </span><span class="n">filter_input</span><span class="w"> </span><span class="o">*</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">scene</span><span class="w"> </span><span class="o">*</span><span class="n">scn</span><span class="p">)</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">map_filter</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">si</span><span class="p">,</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w">   </span><span class="c1">// call superclass constructor</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span><span class="p">{}</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">    </span><span class="cm">/* Compute</span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="cm">        Do the proper computation based on the input filter_params</span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="cm">        and set the out parameter to the result</span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="cm">        Return true if successful, false if an error occured */</span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">compute</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">filter_params</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span><span class="p">){</span>
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="w">      </span><span class="n">sgnode</span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">get_filter_param</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)){</span>
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="w">        </span><span class="n">set_status</span><span class="p">(</span><span class="s">&quot;Need input node a&quot;</span><span class="p">);</span>
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a><span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="c1">// Your computation here</span>
+</span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-20-20"><a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a><span class="p">};</span>
+</span></code></pre></div>
+<h4 id="select-filter">Select filter<a class="headerlink" href="#select-filter" title="Permanent link">&para;</a></h4>
+<p>This is very similar to a map filter, except for each input combination
+from the Cartesian product the output is optional. This is useful for
+selecting and returning a subset of the outputs.</p>
+<p>To write a new filter of this class, inherit from the <code>select_filter</code> class, and define
+the <code>compute</code> function. Below is an example template:</p>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">new_select_filter</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">select_filter</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">// templated with output type</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="p">{</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">    </span><span class="n">new_select_filter</span><span class="p">(</span><span class="n">Symbol</span><span class="w"> </span><span class="o">*</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">soar_interface</span><span class="w"> </span><span class="o">*</span><span class="n">si</span><span class="p">,</span><span class="w"> </span><span class="n">filter_input</span><span class="w"> </span><span class="o">*</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">scene</span><span class="w"> </span><span class="o">*</span><span class="n">scn</span><span class="p">)</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">select_filter</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">si</span><span class="p">,</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w">   </span><span class="c1">// call superclass constructor</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">    </span><span class="p">{}</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="w">    </span><span class="cm">/* Compute</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="cm">        Do the proper computation based on the input filter_params</span>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="cm">        and set the out parameter to the result (if desired)</span>
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="cm">        Also set the select bit to true if you want to the result to be output.</span>
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="cm">        Return true if successful, false if an error occurred */</span>
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">compute</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">filter_params</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="o">&amp;</span><span class="w"> </span><span class="n">select</span><span class="p">){</span>
+</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="w">      </span><span class="n">sgnode</span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+</span><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">get_filter_param</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)){</span>
+</span><span id="__span-21-16"><a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a><span class="w">        </span><span class="n">set_status</span><span class="p">(</span><span class="s">&quot;Need input node a&quot;</span><span class="p">);</span>
+</span><span id="__span-21-17"><a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-21-18"><a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-21-19"><a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a><span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="c1">// Your computation here</span>
+</span><span id="__span-21-20"><a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a><span class="w">      </span><span class="n">select</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="c1">// test for when to output the result of the computation</span>
+</span><span id="__span-21-21"><a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-21-22"><a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a><span class="p">};</span>
+</span></code></pre></div>
+<h4 id="rank-filter">Rank filter<a class="headerlink" href="#rank-filter" title="Permanent link">&para;</a></h4>
+<p>A filter where a ranking is computed for each combination from the Cartesian
+product of the input and only the combination which results in the highest (or
+lowest) value is output. The default behavior is to select the highest, to
+select the lowest you can call <code>set_select_highest(false)</code> on the filter.</p>
+<p>To write a new filter of this class, inherit from the <code>rank_filter</code> class, and define
+the <code>rank</code> function. Below is an example template:</p>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">new_rank_filter</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">rank_filter</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="p">{</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">  </span><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">    </span><span class="n">new_rank_filter</span><span class="p">(</span><span class="n">Symbol</span><span class="w"> </span><span class="o">*</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">soar_interface</span><span class="w"> </span><span class="o">*</span><span class="n">si</span><span class="p">,</span><span class="w"> </span><span class="n">filter_input</span><span class="w"> </span><span class="o">*</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">scene</span><span class="w"> </span><span class="o">*</span><span class="n">scn</span><span class="p">)</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">rank_filter</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">si</span><span class="p">,</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w">   </span><span class="c1">// call superclass constructor</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">    </span><span class="p">{}</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">    </span><span class="cm">/* Compute</span>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="cm">        Do the proper computation based on the input filter_params</span>
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="cm">        And set r to the ranking result.</span>
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="cm">        Return true if successful, false if an error occured */</span>
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">compute</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">filter_params</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">){</span>
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="w">      </span><span class="n">sgnode</span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">get_filter_param</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)){</span>
+</span><span id="__span-22-15"><a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="w">        </span><span class="n">set_status</span><span class="p">(</span><span class="s">&quot;Need input node a&quot;</span><span class="p">);</span>
+</span><span id="__span-22-16"><a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-22-17"><a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-22-18"><a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a><span class="w">      </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="c1">// Ranking computation</span>
+</span><span id="__span-22-19"><a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-22-20"><a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="generic-node-filters">Generic Node Filters<a class="headerlink" href="#generic-node-filters" title="Permanent link">&para;</a></h3>
+<p>There are also a set of generic filters specialized for computations
+involving nodes. With these you only need to specify a predicate
+function involving nodes. (Also see filters/base_node_filters.h ).</p>
+<p>There are three types of these filters:</p>
+<h4 id="node-test-filters">Node Test Filters<a class="headerlink" href="#node-test-filters" title="Permanent link">&para;</a></h4>
+<p>These filters involve a binary test between two nodes (e.g. intersection
+or larger). You must specify a test function of the following form:</p>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kt">bool</span><span class="w"> </span><span class="n">node_test</span><span class="p">(</span><span class="n">sgnode</span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">sgnode</span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">filter_params</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">)</span>
+</span></code></pre></div>
+<p>For an example of how the following base filters are used, see filters/intersect.cpp.</p>
+<ul>
+<li>node_test_filter<br />
+  For each input pair (a, b) this outputs the boolean result of .</li>
+<li>node_test_select_filter<br />
+  For each input pair (a, b) this outputs node b if .<br />
+  (Can choose to select b if the test is false by calling ).</li>
+</ul>
+<h4 id="node-comparison-filters">Node Comparison Filters<a class="headerlink" href="#node-comparison-filters" title="Permanent link">&para;</a></h4>
+<p>These filters involve a numerical comparison between two nodes (e.g.
+distance). You must specify a comparison function of the following form:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>double node_comparison(sgnode* a, sgnode* b, const filter_params* p)
+</span></code></pre></div>
+<p>For an example of how the following base filters are used, see filters/distance.cpp.</p>
+<ul>
+<li>node_comparison_filter<br />
+  For each input pair (a, b), outputs the numerical result of <code>node_comparison(a, b)</code>.</li>
+<li>node_comparison_select_filter<br />
+  For each input pair (a, b), outputs node b if <code>min &lt;= node_comparison(a, b) &lt;=
+  max</code>. Min and max can be set through calling <code>set_min(double)</code> and
+  <code>set_max(double)</code>, or as specified by the user through the filter_params.</li>
+<li>node_comparison_rank_filter<br />
+  This outputs the input pair (a, b) for which <code>node_comparison(a, b)</code> produces the highest value.
+  To instead have the lowest value output call <code>set_select_highest(true)</code>.</li>
+</ul>
+<h4 id="node-evaluation-filters">Node Evaluation Filters<a class="headerlink" href="#node-evaluation-filters" title="Permanent link">&para;</a></h4>
+<p>These filters involve a numerical evaluation of a single node (e.g.
+volume). You must specify an evaluation function of the following form:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>double node_evaluation(sgnode* a, const filter_params* p)
+</span></code></pre></div>
+<p>For an example of how the following base filters are used, see filters/volume.cpp.</p>
+<ul>
+<li>node_evaluation_filter<br />
+  For each input node a, this outputs the numerical result of .</li>
+<li>node_evaluation_select_filter<br />
+  or each input node a, this outputs the node if . Min and max can be set
+  through calling and , or as specified by the user through the
+  filter_params.</li>
+<li>node_evaluation_rank_filter<br />
+  This outputs the input node a for which produces the highest value. To
+  instead have the lowest value output call .</li>
+</ul>
+<h2 id="command-line-interface">Command line interface<a class="headerlink" href="#command-line-interface" title="Permanent link">&para;</a></h2>
+<p>The user can query and modify the runtime behavior of SVS using the <code>svs</code>
+command. The syntax of this command differs from other Soar commands due to the
+complexity and object-oriented nature of the SVS implementation.  The basic idea
+is to allow the user to access each object in the SVS implementation (not to be
+confused with objects in the scene graph) at runtime. Therefore, the command has
+the form <code>svs PATH [ARGUMENTS]</code>, where <code>PATH</code> uniquely identifies an object or
+the method of an object. <code>ARGUMENTS</code> is a space separated list of strings that
+each object or function interprets in its own way. For example, <code>svs
+S1.scene.world.car</code> identifies the car object in the scene graph of the top
+state.  As another example, <code>svs connect_viewer 5999</code> calls the method to
+connect to the SVS visualizer with 5999 being the TCP port to connect on. Every
+path has two special arguments.</p>
+<ul>
+<li><code>svs PATH dir</code> prints all the children of the object at <code>PATH</code>.</li>
+<li><code>svs PATH help</code> prints text about how to use the object, if available.</li>
+</ul>
+<p>See <a href="#spatial-visual-system">SVS</a> for more details.</p>
+<!-- markdownlint-disable-file MD041-->
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../07_EpisodicMemory/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Episodic Memory">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Episodic Memory
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../09_SoarUserInterface/" class="md-footer__link md-footer__link--next" aria-label="Next: Soar User Interface">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Soar User Interface
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <!--
+  Copyright (c) 2016-2024 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Slightly modified from Material's original to have a thank-you note for Moritz -->
+
+<div class="md-copyright">
+    
+      <div class="md-copyright__highlight">
+        Copyright &copy; SoarGroup 2024
+      </div>
+    
+    
+      Made with
+      <a
+        href="https://squidfunk.github.io/mkdocs-material/"
+        target="_blank" rel="noopener"
+      >
+        Material for MkDocs
+      </a>.
+      
+      Special thanks to <a href="https://www.tha.de/Elektrotechnik/Moritz-Schmidt-M.-Eng..html" target="_blank" rel="noopener">Moritz Schmidt</a> for his work on the website!
+  </div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/SoarGroup/Soar" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.action.view", "content.action.edit", "content.tooltips", "navigation.tabs", "navigation.footer", "navigation.top", "navigation.indexes", "navigation.expand", "header.autohide"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      
+        <script src="../../javascript/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
