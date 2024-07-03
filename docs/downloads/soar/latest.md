@@ -6,7 +6,8 @@ title: Soar
 
 The current version of Soar is {{ soar_version }}.
 
-*   [Soar Release](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/Soar-Release-{{soar_version}}.zip)
+*   [Soar Release](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/SoarSuite_{{soar_version}}-Multiplatform.zip
+)
 (see [quick start guide](../../home/QuickStart.md) for setup instructions)
 *   [Soar Manual PDF](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/SoarManual.pdf)
 *   [VisualSoar Manual PDF](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/VisualSoar_UsersManual.pdf)
@@ -14,96 +15,63 @@ The current version of Soar is {{ soar_version }}.
 If you would like to build Soar from the current source code, you'll need to
 acquire the source from our git repository [on GitHub](https://github.com/SoarGroup/Soar).
 
-## Soar 9.6.2 Release Notes
+## Soar 9.6.3 Release Notes
 
-March 20, 2023
+July, 2024
 
-This release of Soar includes mostly quality of life improvements, but also many
-bug fixes and code improvements.
+This release of Soar includes lots of VisualSoar goodies.
 
-### Breaking Changes
+## Breaking Changes
 
-*   Revert AddRhsFunction and RegisterForClientMessageEvent changes from 9.6.1
-    *   9.6.1 introduced breaking changes to these two functions for C/C++ clients.
-    We revert the change here (which breaks compatibility with 9.6.1, but restores
-    it with 9.6.0).
+*   New chunking setting, automatically-create-singletons, on by default
+*   In our work we've found that we usually want all attributes to be singletons
+by default unless explicitly specified otherwise. This setting attempts creating
+singletons for every string attribute. We expect this to be a saner default for
+all users, and think it unlikely to have a negative effect on existing projects.
+If you have a project that relies on non-singleton attributes, you can disable
+this setting by setting `chunking automatically-create-singletons off`.
 
-### New Features
+*   Linux users: Soar was compiled on the recent Ubuntu 24.04, so you may need
+to update your system or libstdc++ to run the included binaries (or else build
+from source yourself).
 
-*   Lots of goodies for VisualSoar (thanks to amnuxoll)
-    *   New user's manual (1.03)
-    *   Support creating custom templates! See the manual for details.
-    *   Parser now supports productions with multiple types
-    *   Persist preferences for font size and divider location
-    *   "Find all productions" search option
-    *   New bottom status bar
-    *   New template for compare operator
+## New Features
 
-*   More ergonomic RHS and client message handler registration
-    *   We add new overloads for AddRhsFunction and RegisterForClientMessageEvent
-    utilizing std::function to simplify usage in C++ clients. Clients using class
-    methods for handlers will no longer need to pass the class instance separately
-    as (void*)userData, and can instead simply pass in the result of std::bind.
+*   Visual-Soar improvements (thanks to amnuxoll)
+    *   A datamap can import the datamap of another project
+    *   Projects can be opened read-only
+    *   Less change noise, i.e. more friendly towards version control
+    *   Automatically opens the last project on startup; new "Open Recent" menu option
+    *   Parser now supports LTI predicates
+    *   Lots more smaller improvements
 
-*   Improved production validity tests and warnings
-    *   Soar now properly detects ungrounded (LHS not connected to a state)
-    productions, refuses to source them, and tells the user how to fix them.
-    *   Some warnings related to bad production structure were previously hidden
-    behind tracing flags for chunking, and are now exposed by default.
-    *   See <https://github.com/SoarGroup/Soar/issues/377>
+*   You can pip-install Soar! (thanks to Jonathan de Jong)
+    *   `pip install soar-sml[compat]` is a drop-in replacement for manually
+    installing Soar somewhere and adding its path to your PYTHONPATH environment
+    variable.
+    *   Note that this does not come with the debugger or other Java applications.
+*   New svs commands `--disable-in-substates` and `--enable-in-substates`. By
+default SVS copies the entire scene graph into each substate. This can be
+disabled with `--disable-in-substates` to save memory and improve performance.
+This can be re-enabled with `--enable-in-substates` if you need to access the
+scene graph in substates.
+*   Python bindings are now compatible with all Python versions 3.2 and up,
+rather than only with the minor version that was used to build Soar. This is
+thanks to the work of Jonathan de Jong.
 
-*   More output filtering options in the debugger
-    We rename "hide all" to "show only errors and top-level", then add a true
-    "hide all" filter to complement that. We also separate messages from RHS
-    writes, and add additional filter options for error and top-level. This covers
-    all 14 output types, while still providing convenient checkboxes for common settings.
+## New Website
 
-*   Ergonomic improvements to the debugger
-    *   Previous versions of the debugger were very difficult to read on Mac in
-    dark mode due to displaying black text on a dark background. The text now
-    correctly shows as white.
-    *   Scrolling behavior has been improved and stabilized. When the cursor is at
-    the end of the main window, newly-printed text triggers a scroll. Otherwise,
-    the window stays put where the user's cursor is.
-    *   Shortcuts for copy/paste have been changed from ctrl to cmd on Mac
-    *   New shortcuts have been added zooming in and out (increasing/decreasing
-    the text size)
+Thanks to Moritz Schmidt, we have a new website! The URL remains the same:
+<https://soar.eecs.umich.edu>. New features include:
 
-*   Documentation in generated Python SML bindings
-    Doxygen comments from SML are now added as docstrings to the generated Python
-    bindings using SWIG's autodoc feature (thanks to Moritz Schmidt).
+*   HTML versions of the manual and the tutorial
+*   Snappy full-text search based on lunr.js
+*   Much improved editing/deployment workflow based on GitHub pages. We also get
+the full power of GitHub actions, and use it to automatically check for dead
+links, for example.
 
-### Other Changes
+Note that some pages and download links still need to be ported. The manual and
+tutorial still need to be fully inspected for correctness, and the images in
+particular still need work.
 
-*   Bug fixes
-    *   `smem --init` now connects to the DB so that a following `smem --clear`
-    will not error out.
-    *   `smem -x ...` when the DB is not yet loaded now fails gracefully instead
-    of segfaulting
-    *   Improved stability of Python SML bindings
-    *   SoarCLI now properly exits on EOF. This means that it can be gracefully
-    exited with
-        Ctrl-D, it no longer hangs when reading from a pipe, and it can be
-        controlled with the `expect` Unix utility.
-
-*   VisualSoar bug fixes (thanks to amnuxoll):
-    *   Several issues with undo manager
-    *   Highlighted text replace bug
-    *   More Robust Handling of 'file already exists' error
-
-*   Infrastructure improvements
-    *   `load library` demo has been folded into automated tests
-    *   CI now runs Python and Tcl SML tests
-    *   Added support files for developing Soar with VSCode
-    *   Python version is now pinned in CI. This release, the compiled Python
-    SML bindings are compatible with Python 3.12.X. The generated Python code is
-    compatible with older versions of Python, but the compiled bindings are not,
-    so users with different version needs will need to compile their own bindings.
-    *   Setup logic is now encapsulated in setup.bat and setup.sh, which is easier
-    and less error-prone for other tools dependent on Soar to re-use.
-
-*   Cruft and cleanup
-    *   stopped exporting a large number of internal SML classes to SWIG clients
-    *   documented portability requirements for building SWIG clients
-    *   eliminated potentially dangerous pointer size warnings from CSharp SML bindings
-    *   removed broken IDE project files from the repository
+## Other Changes

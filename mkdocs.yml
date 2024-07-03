@@ -78,7 +78,7 @@ extra:
   manual_wip_warning: "# 🚧 Under Construction 🚧\n The HTML version of the manual is currently under construction. If you find it difficult to read, there is a PDF version available [here](https://github.com/SoarGroup/Soar/releases/download/releases%2F9.6.2/SoarManual.pdf)."
   # MAINTAINER NOTE: when you update this, don't forget to also
   # update the release notes on the downloads page
-  soar_version: 9.6.2
+  soar_version: 9.6.3
 nav:
   - Home:
       - index.md
