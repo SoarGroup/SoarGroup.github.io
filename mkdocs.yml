@@ -156,6 +156,9 @@ nav:
         - Threads in SML: development/soar/ThreadsInSML.md
         - Timers: development/soar/Timers.md
         - Waterfall: development/soar/Waterfall.md
+  - Workshops:
+    - workshops/index.md
+    - workshops/44.md
   - Support:
       - support/index.md
   - Reference:
