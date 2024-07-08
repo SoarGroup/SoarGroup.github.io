@@ -159,6 +159,10 @@ nav:
   - Workshops:
     - workshops/index.md
     - workshops/44.md
+    - workshops/41.md
+    - workshops/39.md
+    - workshops/38.md
+    - workshops/37.md
   - Support:
       - support/index.md
   - Reference:
@@ -196,9 +200,11 @@ nav:
 
 plugins:
   - search
-  - img2figv2
   - macros:
       on_error_fail: true
       on_undefined: strict
   - tags:
       tags_file: home/tags.md
+
+hooks:
+  - hooks.py

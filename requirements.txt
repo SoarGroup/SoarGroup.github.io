@@ -1,4 +1,3 @@
-mkdocs-img2figv2-plugin==0.0.2
 mkdocs-material==9.*
 mkdocs-material-extensions==1.*
 python-markdown-math==0.8
