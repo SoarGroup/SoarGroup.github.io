@@ -6,3 +6,4 @@
 *   [38th Soar Workshop (2018)](38.md)
 *   [37th Soar Workshop (2017)](37.md)
 *   [36th Soar Workshop (2016)](36.md)
+*   [35th Soar Workshop (2015)](35.md)
