@@ -13,3 +13,4 @@
 *   [31st Soar Workshop (2011)](31.md)
 *   [30th Soar Workshop (2010)](30.md)
 *   [29th Soar Workshop (2009)](29.md)
+*   [28th Soar Workshop (2008)](28.md)
