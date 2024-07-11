@@ -9,3 +9,4 @@
 *   [35th Soar Workshop (2015)](35.md)
 *   [34th Soar Workshop (2014)](34.md)
 *   [33rd Soar Workshop (2013)](33.md)
+*   [32rd Soar Workshop (2012)](32.md)
