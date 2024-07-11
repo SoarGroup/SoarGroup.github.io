@@ -6,6 +6,8 @@ Ann Arbor, Michigan
 
 [Original announcement page](26_announcement.html)
 
+![Participant group photo](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/workshops/26/group_photo.gif)
+
 ## Schedule
 
 ### Wednesday, May 24, 2006
@@ -88,5 +90,3 @@ Ann Arbor, Michigan
 |            | 15       | Yongjia Wang | Integrating Clustering and Semantic Memory in Soar | [slides](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/workshops/26/proceedings/wang2.pdf)               |
 |            | 30       | Thad Polk    | Biologically-Inspired Control in Problem Solving | [slides](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/workshops/26/proceedings/PolkSoar2006.pdf)         |
 |            | 15       | Discussion   |                                                  |                                               |
-
-![Participant group photo](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/workshops/26/group_photo.gif)
