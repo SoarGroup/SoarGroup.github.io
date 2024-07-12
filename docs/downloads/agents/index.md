@@ -18,3 +18,5 @@ include all of the type of information we include on each download page) to
 *   [Algebra Solver](./algebra_solver.md)
 *   [Arithmetic](./arithmetic.md)
 *   [Arithmetic (with Semantic Memory)](./arithmetic_(with_semantic_memory).md)
+*   [Blocks-World (Hierarchical Look-Ahead)](./blocks-world_(hierarchical_look-ahead).md)
+*   [Blocks-World (Hierarchical)](./blocks-world_(hierarchical).md)

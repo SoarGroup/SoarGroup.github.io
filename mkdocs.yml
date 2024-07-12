@@ -103,6 +103,8 @@ nav:
         - Algebra Solver: downloads/agents/algebra_solver.md
         - Arithmetic: downloads/agents/arithmetic.md
         - Arithmetic (with Semantic Memory): downloads/agents/arithmetic_(with_semantic_memory).md
+        - Blocks-World (Hierarchical Look-Ahead): downloads/agents/blocks-world_(hierarchical_look-ahead).md
+        - Blocks-World (Hierarchical): downloads/agents/blocks-world_(hierarchical).md
       - Domains:
         - downloads/domains/index.md
         - Dice: downloads/domains/dice.md
