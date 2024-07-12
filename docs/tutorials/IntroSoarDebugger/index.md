@@ -7,6 +7,10 @@ tags:
 
 # Introduction to the Soar Debugger
 
+The Soar Java Debugger is distributed with Soar, and can be launched by
+double-clicking either `SoarJavaDebugger.bat` or `SoarJavaDebugger.sh` in the
+root directory of Soar.
+
 ## Overview
 
 With Soar 8.6 we made a new method for interfacing into Soar based around SML
@@ -52,8 +56,8 @@ you can use this simple mechanism to watch a particular part of working memory (
 printing the input link) while you step forward.
 
 The default layout that you started with uses a tree view for the main trace window.
-To see this in action press the "watch 5" button and then type `run 20` again at the
-command prompt.
+To see this in action press the "watch 5" button and then type `run 20` again at
+the command prompt.
 
 This should result in a display like this:
 
@@ -302,20 +306,20 @@ debugger you wished you had. If you find yourself wanting to do this, please dro
 us a line (<soar-sml-list@umich.edu>) before you start coding and we'll help you
 along and hopefully share in the results.
 
+<!-- TODO: what Soar kernel bug? Has that been fixed? Do we have a memory leak? -->
+
 If you run Soar from within the debugger for long periods of time (i.e. tens of
 thousands of decision cycles), you may notice that memory usage grows over time.
 In fact, eventually, Soar will start running very slowly and then not at all. This
 is because the Java virtual machine is running out of heap memory. The increasing
 memory usage is actually because of a very old Soar kernel bug. As a workaround,
 you can tell Java to allow more memory to be used by using the `--Xmx` command line
-switch for Java. For example, to tell Java to use up to 256 megabytes for the heap,
-you would do this:
+switch for Java. For example, to tell Java to use up to 256 megabytes for the
+heap, you would would add a `--Xmx256m` parameter. This parameter should be added
+after the `java` command in the `SoarJavaDebugger.sh` or after the `javaw` command
+in the `SoarJavaDebugger.bat` file shipped with Soar.
 
-    java.exe --Xmx256m --jar SoarJavaDebugger.jar
-
-On Windows you can use javaw.exe if you prefer. This and other `--X` options are
-non-standard and may not exist on non-Sun JVMs. Also, note that the default value
-is only `64m` (64 megabytes).
+This and other `--X` options are non-standard and may not exist on non-Sun JVMs.
 
 ## Design Principles
 
