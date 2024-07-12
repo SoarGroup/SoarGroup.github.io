@@ -395,5 +395,5 @@ we have optimized the path for generating trace output).
 
 ## Related
 
--   [Command line options](../reference/CommandLineOptionsForDebuggerAndCLI.md)
--   [Tutorial 1](../tutorials/soar_tutorial/01.md)
+-   [Command line options](../../reference/CommandLineOptionsForDebuggerAndCLI.md)
+-   [Tutorial 1](../soar_tutorial/01.md)

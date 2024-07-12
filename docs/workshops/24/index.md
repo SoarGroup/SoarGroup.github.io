@@ -44,7 +44,7 @@ Ann Arbor, MI
 | 3:15-5:00   | 105      | Applications      |                                                     |                                                                                                            |
 |             | 15       | Randy Jones       | Knowledge-intensive Soar agents in Defense M&S      | [slides](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/workshops/24/proceedings/PAPERS/JonesR/soar-2004-kiagents-jones-1.ppt)                                           |
 |             | 60       | Smith, Jones, van Lent | Panel: Soar for Real Applications                | [slides](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/workshops/24/proceedings/PAPERS/JonesR/soar-2004-panel-jones-2.ppt)                                             |
-|             | 30       | Laird & Rosbe     | Discussion of Soar Consortium (Principles) (Procedures) | [Principles](proceedings/PAPERS/LairdJ/ConsortiumPrinciplesDefinitions.doc), [Procedures](proceedings/PAPERS/LairdJ/Consortium Procedures.doc) |
+|             | 30       | Laird & Rosbe     | Discussion of Soar Consortium (Principles) (Procedures) | [Principles](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/workshops/24/proceedings/PAPERS/LairdJ/ConsortiumPrinciplesDefinitions.doc), [Procedures](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/workshops/24/proceedings/PAPERS/LairdJ/Consortium Procedures.doc) |
 
 ### Thursday, June 10th
 
