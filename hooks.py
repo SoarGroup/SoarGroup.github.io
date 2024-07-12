@@ -17,8 +17,13 @@ def on_page_markdown(markdown, **kwargs):
 def modify_match(match):
     caption, image_link, attr_list = match.groups()
 
-    # If the image link is not an absolute URL, make it relative to the containing folder
-    if not (image_link.startswith('http://') or image_link.startswith('https://')):
+    is_absolute = image_link.startswith('http://') or image_link.startswith('https://')
+    is_explicit_relative = image_link.startswith('./') or image_link.startswith('../')
+
+    # If the image link is underspecified, make it relative to the containing folder
+    # TODO: this is really confusing because an index.md in a folder will require
+    # different paths; re-do links and get rid of this.
+    if not (is_absolute or is_explicit_relative):
         image_link = ('..' / Path(image_link)).as_posix()
     if attr_list:
         attr_list = attr_list.replace('{', '').replace('}', '')

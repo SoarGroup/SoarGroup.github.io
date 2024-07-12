@@ -38,7 +38,7 @@ TODO
 
 ## Download Links
 
-*   [TODO: name](TODO: link)
+*   [TODO](https://github.com/SoarGroup/website-downloads/raw/main/$parent/TODO)
 
 ## Associated Agents
 
@@ -99,7 +99,7 @@ def main(parent: str, title: str):
     if new_file_path.exists():
         print(f"File {new_file_path} already exists")
         return
-    new_file_contents = DOWNLOAD_TEMPLATE.substitute(title=title)
+    new_file_contents = DOWNLOAD_TEMPLATE.substitute(title=title, parent=parent)
 
     with open(MKDOCS_YML, "r") as f:
         lines = f.readlines()

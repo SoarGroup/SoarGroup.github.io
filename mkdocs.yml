@@ -114,10 +114,9 @@ nav:
       - Examples and Unsupported:
         - downloads/examples_and_unsupported/index.md
         - C++ Command Line Filter: downloads/examples_and_unsupported/cpp_command_line_filter_example.md
+        - Towers of Hanoi: downloads/examples_and_unsupported/towers_of_hanoi.md
   - Tutorials:
       - tutorials/index.md
-      - Java Soar Debugger Intro: tutorials/IntroSoarDebugger.md
-      - SML Quick Start Guide: tutorials/SMLQuickStartGuide.md
       - Official Soar Tutorials:
           - tutorials/soar_tutorial/index.md
           - Part I Simple Soar Programs: tutorials/soar_tutorial/01.md
@@ -129,6 +128,8 @@ nav:
           - Part VII Semantic Memory: tutorials/soar_tutorial/07.md
           - Part VIII Episodic Memory: tutorials/soar_tutorial/08.md
           - Tank and Eaters Configuration: tutorials/soar_tutorial/TankEatersConfigFile.md
+      - Java Soar Debugger Intro: tutorials/IntroSoarDebugger/index.md
+      - SML Quick Start Guide: tutorials/SMLQuickStartGuide.md
   - Soar Manual:
       - soar_manual/index.md
       - Introduction: soar_manual/01_Introduction.md
