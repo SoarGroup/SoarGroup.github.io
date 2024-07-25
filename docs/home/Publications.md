@@ -96,7 +96,7 @@ Andrea Stocco, Catherine Sibert, Zoe Steine-Hanson, Natalie Koh, John E.
 Laird, Christian J. Lebiere, Paul Rosenbloom (2021). [Analysis of the
 human connectome data supports the notion of a “Common Model of
 Cognition” for human and human-like intelligence across
-domains,](http://soar.eecs.umich.edu/pubs/stocco2021connectome.pdf)
+domains,](https://github.com/SoarGroup/website-downloads/blob/main/pubs/stocco2021connectome.pdf)
 *NeuroImage 235*(118035), 1-15.
 
 Mininger, A. (2021). [Expanding Task Diversity in Explanation-Based
@@ -118,7 +118,7 @@ forgetting,](https://www.cognitivesciencesociety.org/cogsci20/papers/0795/0795.p
 Mohan, S., Klenk, M., Shreve, M., Evans, K., Ang, A., and Maxwell, J.
 (2020). [Characterizing an Analogical Concept Memory for Newellian
 Cognitive
-Architectures,](http://soar.eecs.umich.edu/pubs/mohan2020characterizing.pdf)
+Architectures,](https://github.com/SoarGroup/website-downloads/blob/main/pubs/mohan2020characterizing.pdf)
 *Advances in Cognitive Systems.*
 
 Lindes, P. (2020). [Intelligence and
@@ -133,7 +133,7 @@ doi:10.2478/jagi-2020-0003.*
 
 Ramaraj, P., Klenk, M. and Mohan, S. (2020). [Understanding Intentions
 in Human Teaching to Design Interactive Task Learning
-Robots,](http://soar.eecs.umich.edu/pubs/RSS_AI_ACR_2020-final.pdf) *RSS
+Robots,](https://github.com/SoarGroup/website-downloads/blob/main/pubs/RSS_AI_ACR_2020-final.pdf) *RSS
 2020 Workshop: AI & Its Alternatives in Assistive & Collaborative
 Robotics: Decoding Intent.*
 
@@ -144,14 +144,14 @@ Increments.,](https://vconf_materials.s3.amazonaws.com/boothmaterials/PLCogSci20
 
 Stearns, B., & Laird, J. E. (2020). [Toward Unifying Cognitive
 Architecture and Neural Task Set
-Theories,](http://soar.eecs.umich.edu/pubs/towardunifying_0522.pdf) *In
+Theories,](https://github.com/SoarGroup/website-downloads/blob/main/pubs/towardunifying_0522.pdf) *In
 Proceedings of The 42nd Annual Conference of the Cognitive Science
 Society (CogSci-20)*
 
 Gudwin, R., Rohmer, E., Paraense, A., Froes, E., Gibaut, W., Oliveira,
 I., Rocha, S., Raizer, K., & Feljan, A. V. (2020). [The TROCA Project:
 An autonomous transportation robot controlled by a cognitive
-architecture,](http://soar.eecs.umich.edu/pubs/gudwin2020troca.pdf)
+architecture,](https://github.com/SoarGroup/website-downloads/blob/main/pubs/gudwin2020troca.pdf)
 *Cognitive Systems Research, vol. 59, pp. 179-197.*
 
 ## 2019
@@ -163,31 +163,31 @@ Symposium.*
 
 Kirk, J. R., & Laird, J. E. (2019). [Learning hierarchical symbolic
 representations to support interactive task learning and knowledge
-transfer,](http://soar.eecs.umich.edu/pubs/Kirk_Laird_%20IJCAI_2019.pdf)
+transfer,](https://github.com/SoarGroup/website-downloads/blob/main/pubs/Kirk_Laird_%20IJCAI_2019.pdf)
 *Proceedings of the 28th International Joint Conference on Artificial
 Intelligence (pp. 6095-6102). AAAI Press.*
 
 Aaron Mininger and John E. Laird (2019). [Using Domain Knowledge to
 Correct Anchoring Errors in a Cognitive
-Architecture,](http://soar.eecs.umich.edu/pubs/mininger_acs19.pdf)
+Architecture,](https://github.com/SoarGroup/website-downloads/blob/main/pubs/mininger_acs19.pdf)
 *Advances in Cognitive Systems.*
 
 Preeti Ramaraj, Saurav Sahay, Shachi H. Kumar, Walter S. Lasecki and
 John E. Laird. (2019). [Towards using transparency mechanisms to build
 better mental
-models](http://soar.eecs.umich.edu/pubs/TowardsUsingTransparencyMechanismsToBuildBetterMentalModels.pdf)
+models](https://github.com/SoarGroup/website-downloads/blob/main/pubs/TowardsUsingTransparencyMechanismsToBuildBetterMentalModels.pdf)
 *, Advances in Cognitive Systems 7th Goal Reasoning Workshop. Boston,
 MA.*
 
 Peter Lindes (2019). [Predictions of a Model of Language Comprehension
 Compared to Brain
-Data](http://soar.eecs.umich.edu/pubs/PL%20ICCM-2019%20Poster%20-%20final.pdf)
+Data](https://github.com/SoarGroup/website-downloads/blob/main/pubs/PL%20ICCM-2019%20Poster%20-%20final.pdf)
 *, Poster at the 17th International Conference on Cognitive Modeling.*
-[Abstract.](http://soar.eecs.umich.edu/pubs/ICCM2019_paper_45.pdf)
+[Abstract.](https://github.com/SoarGroup/website-downloads/blob/main/pubs/ICCM2019_paper_45.pdf)
 
 Aaron Mininger and John E. Laird (2019). [Using Domain Knowledge to
 Correct Anchoring Errors in a Cognitive
-Architecture](http://soar.eecs.umich.edu/pubs/Mininger_Laird_ACS19.pdf)
+Architecture](https://github.com/SoarGroup/website-downloads/blob/main/pubs/Mininger_Laird_ACS19.pdf)
 *, Proceedings of the Seventh Annual Conference on Advances in Cognitive
 Systems (pp. 1–17). Boston, MA.*
 
@@ -200,7 +200,7 @@ editor. Cambridge, MA: MIT Press.*
 
 Stocco, A., Laird, J. E., Lebiere, C., Rosenbloom, P. S. (2018).
 [Empirical Evidence from Neuroimaging Data for a Standard Model of the
-Mind](http://soar.eecs.umich.edu/pubs/stocco2018empirical.pdf) *,
+Mind](https://github.com/SoarGroup/website-downloads/blob/main/pubs/stocco2018empirical.pdf) *,
 Proceedings of the 2018 Cognitive Science Conference, Madison, WI.*
 
 Peter Lindes (2018). [The Common Model of Cognition and humanlike
@@ -211,36 +211,36 @@ Biologically Inspired Cognitive Architectures.*
 
 Preeti Ramaraj and John E. Laird (2018). [Establishing Common Ground for
 Learning
-Robots](http://soar.eecs.umich.edu/pubs/ramaraj_rss_mhrc2018.pdf) *, RSS
+Robots](https://github.com/SoarGroup/website-downloads/blob/main/pubs/ramaraj_rss_mhrc2018.pdf) *, RSS
 2018: Workshop on Models and Representations for Natural Human-Robot
 Communication. Pittsburgh, PA.*
 
 Bryan Stearns and John E. Laird (2018). [Modeling Instruction Fetch in
-Procedural Learning](http://soar.eecs.umich.edu/pubs/stearns_iccm18.pdf)
+Procedural Learning](https://github.com/SoarGroup/website-downloads/blob/main/pubs/stearns_iccm18.pdf)
 *, Proceedings of the 16th International Conference on Cognitive
 Modelling (ICCM). Madison, WI.*
 
 Jule Schatz, Steven J. Jones, and John E. Laird (2018). [An Architecture
 Approach to Modeling the Remote Associates
-Test](http://soar.eecs.umich.edu/pubs/schatz_iccm18.pdf) *, Proceedings
+Test](https://github.com/SoarGroup/website-downloads/blob/main/pubs/schatz_iccm18.pdf) *, Proceedings
 of the 16th International Conference on Cognitive Modelling (ICCM).
 Madison, WI.*
 
 Mininger, A. & Laird J.E. (2018). [Interactively Learning a Blend of
 Goal-Based and Procedural
-Tasks](http://soar.eecs.umich.edu/pubs/mininger_aaai18.pdf) *, National
+Tasks](https://github.com/SoarGroup/website-downloads/blob/main/pubs/mininger_aaai18.pdf) *, National
 Conference on Artificial Intelligence, AAAI-2018.*
 
 Laird, J. E., & Mohan, S. (2018). [Learning Fast and Slow: Levels of
 Learning in General Autonomous Intelligent
-Agents](http://soar.eecs.umich.edu/pubs/Laird_Mohan_FastAndSlow_AAAI18.pdf)
+Agents](https://github.com/SoarGroup/website-downloads/blob/main/pubs/Laird_Mohan_FastAndSlow_AAAI18.pdf)
 *, National Conference on Artificial Intelligence, AAAI-2018. Senior
 Track, Winner of Blue Sky Award.*
 
 Gudwin, R., Paraense, A., de Paula, S. M., Froes, E., Gibaut, W.,
 Castro, E., Figueiredo, V., & Raizer, K. (2018). [An urban traffic
 controller using the MECA cognitive
-architecture,](http://soar.eecs.umich.edu/pubs/gudwin2018meca.pdf)
+architecture,](https://github.com/SoarGroup/website-downloads/blob/main/pubs/gudwin2018meca.pdf)
 *Biologically Inspired Cognitive Architectures.*
 
 ## 2017
@@ -248,12 +248,12 @@ architecture,](http://soar.eecs.umich.edu/pubs/gudwin2018meca.pdf)
 Laird, J. E., Lebiere, C. & Rosenbloom, P. S. (2017). [A Standard Model
 for the Mind: Toward a Common Computational Framework across Artificial
 Intelligence, Cognitive Science, Neuroscience, and
-Robotics](http://soar.eecs.umich.edu/pubs/Laird_etal_StandardModel_AImag_2018.pdf)
+Robotics](https://github.com/SoarGroup/website-downloads/blob/main/pubs/Laird_etal_StandardModel_AImag_2018.pdf)
 *, AI Magazine 38(4).*
 
 Lauren Naylor and John E. Laird (2017). [Opportunities and Challenges
 for Incorporating Runtime Ethical Constraints into a Learning
-Agent](http://soar.eecs.umich.edu/pubs/Naylor_Ethical_Constraints.pdf)
+Agent](https://github.com/SoarGroup/website-downloads/blob/main/pubs/Naylor_Ethical_Constraints.pdf)
 *. Ann Arbor, Michigan.*
 
 Ying Zhao, Emily Mooren, and Nate Derbinsky (2017). \\ [Reinforcement
@@ -316,7 +316,7 @@ ROS.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/JKROS-12-55.pdf)
 
 DiFilippo, N. M. (2016). [Framework for the automated disassembly of
 electronic waste using the Soar cognitive
-architecture](http://soar.eecs.umich.edu/pubs/DiFilippo_DisassemblyOfElectronicWaste_Thesis_2016.pdf)
+architecture](https://github.com/SoarGroup/website-downloads/blob/main/pubs/DiFilippo_DisassemblyOfElectronicWaste_Thesis_2016.pdf)
 *, University of Rhode Island.*
 
 J Pérez, E Cerezo, FJ Serón (2016). [E-VOX: A Socially Enhanced Semantic
@@ -345,7 +345,7 @@ Proceedings of the 14th International Conference on Cognitive Modeling
 
 Kirk, J., Mininger, A., and Laird, J. E. (2016). [A demonstration of
 interactive task
-learning](http://soar.eecs.umich.edu/pubs/kirk_ijcai16.pdf) *, In
+learning](https://github.com/SoarGroup/website-downloads/blob/main/pubs/kirk_ijcai16.pdf) *, In
 Proceedings of the Twenty-Fifth International Joint Conference on
 Artificial Intelligence.*
 
@@ -429,7 +429,7 @@ Connection Science, Special Issue on AI and Cognition.*
 
 Joseph Z. Xu (2013). [Learning Integrated Relational and Continuous
 Action Models for Continuous
-Domains](http://soar.eecs.umich.edu/pubs/xu_thesis_2013.pdf)*.
+Domains](https://github.com/SoarGroup/website-downloads/blob/main/pubs/xu_thesis_2013.pdf)*.
 Ph.D. Thesis, University of Michigan, 2013.*
 
 Mohan, S., Mininger, A., Laird, J. E. (2013). [Towards an Indexical
@@ -676,7 +676,7 @@ Francisco, CA.
 Lathrop, S., Wintermute, S., Laird, J. E. (2011). *[Exploring the
 Functional Advantages of Spatial and Visual Cognition From an
 Architectural
-Perspective.](http://soar.eecs.umich.edu/pubs/Lathrop_Wintermute_Laird_2011-ExploringSVS.pdf)*
+Perspective.](https://github.com/SoarGroup/website-downloads/blob/main/pubs/Lathrop_Wintermute_Laird_2011-ExploringSVS.pdf)*
 Topics in Cognitive Science 3, 796–818.
 
 ## 2010
