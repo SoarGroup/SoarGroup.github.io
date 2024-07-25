@@ -65,7 +65,7 @@ two traces simultaneously: the working memory trace and a corresponding trace of
 the hand-written rules that matched in the substate. This new network of rule
 matches is called the explanation trace:
 
-![A close-up of a trace showing differences between a working memory trace (left) and an explanation trace (right). The working memory trace only contains the literal values of the WMEs that matched. The explanation trace, on the other hand, contains variables and various constraints on the values those variables can hold.](./Images/chunking-wm-vs-exp-trace.png)
+![A close-up of a trace showing differences between a working memory trace (left) and an explanation trace (right). The working memory trace only contains the literal values of the WMEs that matched. The explanation trace, on the other hand, contains variables and various constraints on the values those variables can hold.](Images/chunking-wm-vs-exp-trace.png)
 
 Note that this trace is generated dynamically as rules match. Whenever a rule
 matches during agent execution, Soar creates an internal record of the rule that

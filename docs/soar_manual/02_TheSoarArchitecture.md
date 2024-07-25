@@ -21,7 +21,7 @@ As Soar runs, it is continually trying to apply the current operator and select 
 operator (a state can have only one operator at a time), until the goal has been achieved.
 The selection and application of operators is illustrated in Figure 2.1.
 
-![Soar is continually trying to select and apply operators.](./Images/select-apply.svg)
+![Soar is continually trying to select and apply operators.](Images/select-apply.svg)
 
 Soar has separate memories (and different representations) for descriptions of its current
 situation and its long-term procedural knowledge. In Soar, the current situation, including
@@ -118,7 +118,7 @@ The Soar code for this task is available online at
 [here](blocksworld.md#blocksworld-soar-rules).  You do not need to look at the
 code at this point.
 
-![The initial state and goal of the "blocks-world" task.](./Images/blocks.svg)
+![The initial state and goal of the "blocks-world" task.](Images/blocks.svg)
 
 The operators in this task move a single block from its current location to a new location;
 each operator is represented with the following information:
@@ -161,10 +161,10 @@ configuration of blocks to that structure instead of having the goal embedded
 within the rule’s programming.
 
 <!-- Figure 2.3 -->
-![An abstract illustration of the initial state of the blocks world as working memory objects. At this stage of problem solving, no operators have been proposed or selected.](./Images/ab-wmem.svg)
+![An abstract illustration of the initial state of the blocks world as working memory objects. At this stage of problem solving, no operators have been proposed or selected.](Images/ab-wmem.svg)
 
 <!-- Figure 2.4 -->
-![An abstract illustration of working memory in the blocks world after the first operator has been selected.](./Images/ab-wmem2.svg)
+![An abstract illustration of working memory in the blocks world after the first operator has been selected.](Images/ab-wmem2.svg)
 
 ### Proposing candidate operators
 
@@ -187,7 +187,7 @@ that operator A is the "best" thing to do at this particular time. Preferences
 are discussed in detail in [how preferences are evaluated to decide an operator](#how-preferences-are-evaluated-to-decide-an-operator).
 
 
-![The six operators proposed for the initial state of the blocks world each move one block to a new location.](./Images/blocks-proposal.svg)
+![The six operators proposed for the initial state of the blocks world each move one block to a new location.](Images/blocks-proposal.svg)
 
 ### Selecting a single operator: Decision
 
@@ -278,7 +278,7 @@ Soar programs are implicitly organized in terms of problem spaces because the co
 for proposing operators will restrict an operator to be considered only when it is relevant.
 The complete problem space for the blocks world is shown in Figure 2.6. Typically, when
 
-![The problem space in the blocks-world includes all operators that move blocks from one location to another and all possible configurations of the three blocks.](./Images/blocks-ps.svg)
+![The problem space in the blocks-world includes all operators that move blocks from one location to another and all possible configurations of the three blocks.](Images/blocks-ps.svg)
 
 Soar solves a problem in this problem space, it does not explicitly generate all of the states,
 examine them, and then create a path. Instead, Soar isin a specific state at a given time
@@ -415,7 +415,7 @@ Soar represents long-term procedural knowledge as **productions** that are store
 conditions and a set of actions. If the conditions of a production match working
 memory, the production *fires*, and the actions are performed.
 
-![An abstract view of production memory. The productions are not related to one another.](./Images/ab-prodmem.svg)
+![An abstract view of production memory. The productions are not related to one another.](Images/ab-prodmem.svg)
 
 ### The structure of a production
 
@@ -664,7 +664,7 @@ The procedure has several potential exit points. Some occur when the procedure h
 a particular type of impasse. The others occur when the number of candidates has been
 reduced to one (necessarily the winner) or zero (a no-change impasse).
 
-![An illustration of the preference resolution process. There are eight steps; only five of these provide exits from the resolution process.](./Images/newprefsem.svg)
+![An illustration of the preference resolution process. There are eight steps; only five of these provide exits from the resolution process.](Images/newprefsem.svg)
 
 Each step in Figure 2.8 is described below:
 
@@ -777,7 +777,7 @@ made. After each elaboration cycle, if the working memory changes just made chan
 set of matching productions, another cycle ensues. This repeats until the set of matching
 rules remains unchanged, a situation called **quiescence**.
 
-![A detailed illustration of Soar’s decision cycle.](./Images/decisioncycle.svg)
+![A detailed illustration of Soar’s decision cycle.](Images/decisioncycle.svg)
 
 After quiescence is reached in the *Proposal* phase, the *Decision* phase ensues, which is the
 architectural selection of a single operator, if possible. Once an operator is selected, the
@@ -935,7 +935,7 @@ Soar to have a stack of subgoals, represented as states: Each state has a single
 subgoals are considered to be added to the bottom of the stack; the first state is therefore
 called the *top-level state.*<sup>[3](#footnote3)</sup> See Figure 2.11 for a simplified illustrations of a subgoal stack.
 
-![A simplified illustration of a subgoal stack.](./Images/stack1.svg)
+![A simplified illustration of a subgoal stack.](Images/stack1.svg)
 
 Soar continually attempts to retrieve knowledge relevant to all goals in the subgoal stack,
 although problem-solving activity will tend to focus on the most recently created state.
@@ -1360,9 +1360,9 @@ The dependency set includes only dependencies for o-supported features. For exam
 Figure 2.13, at time $t_0$ , because only i-supported features have been created in the subgoal,
 the dependency set is empty.
 
-![Simplified Representation of the context dependencies (above the line), local o-supported WMEs (below the line), and the generation of a result. Prior to GDS, this situation led to non-contemporaneous constraints in the chunk that generates 3.](./Images/simple-ncc.svg)
+![Simplified Representation of the context dependencies (above the line), local o-supported WMEs (below the line), and the generation of a result. Prior to GDS, this situation led to non-contemporaneous constraints in the chunk that generates 3.](Images/simple-ncc.svg)
 
-![The Dependency Set in Soar.](./Images/gomor-o-support.svg)
+![The Dependency Set in Soar.](Images/gomor-o-support.svg)
 
 Three types of features can be tested in the creation of an o-supported feature. Each requires
 a slightly different type of update to the dependency set.

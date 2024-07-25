@@ -24,7 +24,7 @@ and action modeling. This type of imagery operation naturally captures and
 propagates the relationships implicit in spatial environments, and doesn’t
 suffer from the frame problem that relational representations have.
 
-![(a) Typical environment setup without using SVS. (b) Same environment using SVS.](./Images/svs-setup.svg)
+![(a) Typical environment setup without using SVS. (b) Same environment using SVS.](Images/svs-setup.svg)
 
 ## The scene graph
 
@@ -67,7 +67,7 @@ transform of (1, 0 ,0) and a wheel on the car has a position transform of (0, 1
 SVS represents the scene graph structure in working memory under the^spatial-scene
 link. The working memory representation of the car and pole scene graph is
 
-![(a) A 3D scene. (b) The scene graph representation.](./Images/scene_graph.svg)
+![(a) A 3D scene. (b) The scene graph representation.](Images/scene_graph.svg)
 
 ```Soar
 (S1 ^svs S3)

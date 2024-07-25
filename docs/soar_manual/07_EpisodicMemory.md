@@ -409,7 +409,7 @@ reduce the intensity of the spikes at the cost of increasing disk I/O and
 average/total time for episode storage. Thus, the settings of page size for
 long, complicated runs establishes the
 
-![Example episodic memory cache setting data.](./Images/epmem-cache.png)
+![Example episodic memory cache setting data.](Images/epmem-cache.png)
 
 desired balance of reactivity (i.e. max computation) and average speed. To
 ground this discussion, the Figure 7.1 depicts maximum and average episodic
