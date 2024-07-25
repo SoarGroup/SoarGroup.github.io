@@ -224,6 +224,7 @@ If given, an option can take one of two forms -- an integer or a production name
 | :--------------------- | :--------------------------------------------------------------------------------------------- |
 | `n`                    | List the top `n` productions. If `n` is 0, only the productions which haven't fired are listed |
 | `production_name`     | Print how many times a specific production has fired                                           |
+| `-a, --all`            | Print how many times all productions have fired (the default)                                  |
 | `-f, --fired`          | Prints only rules that have fired                                                              |
 | `-c, --chunks`         | Print how many times chunks (learned rules) fired                                              |
 | `-j, --justifications` | Print how many times justifications fired                                                      |
