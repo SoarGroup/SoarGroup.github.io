@@ -118,7 +118,7 @@ The Soar code for this task is available online at
 [here](blocksworld.md#blocksworld-soar-rules).  You do not need to look at the
 code at this point.
 
-![The initial state and goal of the "blocks-world" task.](Images/blocks.svg)
+![The initial state and goal of the &quot;blocks-world&quot; task.](Images/blocks.svg)
 
 The operators in this task move a single block from its current location to a new location;
 each operator is represented with the following information:
