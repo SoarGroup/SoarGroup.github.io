@@ -42,114 +42,212 @@ This example is something of a "hello world" example of how to use the major
 elements of the SML API. Once you understand this example, you'll be pretty much
 ready to dive in.
 
-```C++
-// Generally only need this one header file
-#include "sml_Client.h"
+=== "C++"
 
-using namespace sml ;
-using namespace std ;
+    ```C++
+    // Generally only need this one header file
+    #include "sml_Client.h"
 
-void main() {
+    using namespace sml ;
+    using namespace std ;
 
-// Create an instance of the Soar kernel in our process
-Kernel* pKernel = Kernel::CreateKernelInNewThread() ;
+    void main() {
 
-// Check that nothing went wrong.  We will always get back a kernel object
-// even if something went wrong and we have to abort.
-if (pKernel->HadError())
-{
-cout << pKernel->GetLastErrorDescription() << endl ;
-        return ;
-}
+    // Create an instance of the Soar kernel in our process
+    Kernel* pKernel = Kernel::CreateKernelInNewThread() ;
 
-// Create a Soar agent named "test"
-// NOTE: We don't delete the agent pointer.  It's owned by the kernel
-sml::Agent* pAgent = pKernel->CreateAgent("test") ;
+    // Check that nothing went wrong.  We will always get back a kernel object
+    // even if something went wrong and we have to abort.
+    if (pKernel->HadError())
+    {
+    cout << pKernel->GetLastErrorDescription() << endl ;
+            return ;
+    }
 
-// Check that nothing went wrong
-// NOTE: No agent gets created if there's a problem, so we have to check for
-// errors through the kernel object.
-if (pKernel->HadError())
-{
-cout << pKernel->GetLastErrorDescription() << endl ;
-        return ;
-}
+    // Create a Soar agent named "test"
+    // NOTE: We don't delete the agent pointer.  It's owned by the kernel
+    sml::Agent* pAgent = pKernel->CreateAgent("test") ;
 
-// Load some productions
-pAgent->LoadProductions("testsml.soar") ;
+    // Check that nothing went wrong
+    // NOTE: No agent gets created if there's a problem, so we have to check for
+    // errors through the kernel object.
+    if (pKernel->HadError())
+    {
+    cout << pKernel->GetLastErrorDescription() << endl ;
+            return ;
+    }
 
-if (pAgent->HadError())
-{
-        cout << pAgent->GetLastErrorDescription() << endl ;
-        return ;
-}
-Identifier* pInputLink = pAgent->GetInputLink() ;
+    // Load some productions
+    pAgent->LoadProductions("testsml.soar") ;
 
-// Create (I3 ^plane P1) (P1 ^type Boeing747 ^speed 200 ^direction 50.5) on
-// the input link.  (We don't own any of the returned objects).
-Identifier* pID          = pAgent->CreateIdWME(pInputLink, "plane") ;
-StringElement* pWME1 = pAgent->CreateStringWME(pID, "type", "Boeing747") ;
-IntElement* pWME2    = pAgent->CreateIntWME(pID, "speed", 200) ;
-FloatElement* pWME3  = pAgent->CreateFloatWME(pID, "direction", 50.5) ;
+    if (pAgent->HadError())
+    {
+            cout << pAgent->GetLastErrorDescription() << endl ;
+            return ;
+    }
+    Identifier* pInputLink = pAgent->GetInputLink() ;
 
-// Send the changes to working memory to Soar
-// With 8.6.2 this call is optional as changes are sent automatically.
-pAgent->Commit() ;
+    // Create (I3 ^plane P1) (P1 ^type Boeing747 ^speed 200 ^direction 50.5) on
+    // the input link.  (We don't own any of the returned objects).
+    Identifier* pID          = pAgent->CreateIdWME(pInputLink, "plane") ;
+    StringElement* pWME1 = pAgent->CreateStringWME(pID, "type", "Boeing747") ;
+    IntElement* pWME2    = pAgent->CreateIntWME(pID, "speed", 200) ;
+    FloatElement* pWME3  = pAgent->CreateFloatWME(pID, "direction", 50.5) ;
 
-// Run Soar for 2 decisions
-pAgent->RunSelf(2) ;
+    // Send the changes to working memory to Soar
+    // With 8.6.2 this call is optional as changes are sent automatically.
+    pAgent->Commit() ;
 
-// Change (P1 ^speed) to 300 and send that change to Soar
-pAgent->Update(pWME2, 300) ;
-pAgent->Commit() ;
-// Run Soar until it generates output or 15 decision cycles have passed
-// (More normal case is to just run for a decision rather than until output).
-pAgent->RunSelfTilOutput() ;
+    // Run Soar for 2 decisions
+    pAgent->RunSelf(2) ;
 
-// Go through all the commands we've received (if any) since we last ran Soar.
-int numberCommands = pAgent->GetNumberCommands() ;
-for (int i = 0 ; i < numberCommands ; i++)
-{
-        Identifier* pCommand = pAgent->GetCommand(i) ;
+    // Change (P1 ^speed) to 300 and send that change to Soar
+    pAgent->Update(pWME2, 300) ;
+    pAgent->Commit() ;
+    // Run Soar until it generates output or 15 decision cycles have passed
+    // (More normal case is to just run for a decision rather than until output).
+    pAgent->RunSelfTilOutput() ;
 
-        std::string name  = pCommand->GetCommandName() ;
-std::string speed = pCommand->GetParameterValue("speed") ;
+    // Go through all the commands we've received (if any) since we last ran Soar.
+    int numberCommands = pAgent->GetNumberCommands() ;
+    for (int i = 0 ; i < numberCommands ; i++)
+    {
+            Identifier* pCommand = pAgent->GetCommand(i) ;
 
-        // Update environment here to reflect agent's command
+            std::string name  = pCommand->GetCommandName() ;
+            std::string speed = pCommand->GetParameterValue("speed") ;
 
-        // Then mark the command as completed
-        pCommand->AddStatusComplete() ;
+            // Update environment here to reflect agent's command
 
-// Or could do the same manually like this:
-        // pAgent->CreateStringWME(pCommand, "status", "complete") ;
-}
+            // Then mark the command as completed
+            pCommand->AddStatusComplete() ;
 
-// See if anyone (e.g. a debugger) has sent commands to Soar
-// Without calling this method periodically, remote connections will be ignored if
-// we choose the "CreateKernelInCurrentThread" method.
-pKernel->CheckForIncomingCommands() ;
+    // Or could do the same manually like this:
+            // pAgent->CreateStringWME(pCommand, "status", "complete") ;
+    }
 
-// Create an example Soar command line
-std::string cmd = "excise --all" ;
+    // See if anyone (e.g. a debugger) has sent commands to Soar
+    // Without calling this method periodically, remote connections will be ignored if
+    // we choose the "CreateKernelInCurrentThread" method.
+    pKernel->CheckForIncomingCommands() ;
 
-// Execute the command
-char const* pResult = pKernel->ExecuteCommandLine(cmd.c_str(),pAgent->GetAgentName()) ;
+    // Create an example Soar command line
+    std::string cmd = "excise --all" ;
 
-// Shutdown and clean up
-pKernel->Shutdown() ;   // Deletes all agents (unless using a remote connection)
-delete pKernel ;                // Deletes the kernel itself
+    // Execute the command
+    char const* pResult = pKernel->ExecuteCommandLine(cmd.c_str(),pAgent->GetAgentName()) ;
 
-} // end main
-```
+    // Shutdown and clean up
+    pKernel->Shutdown() ;   // Deletes all agents (unless using a remote connection)
+    delete pKernel ;                // Deletes the kernel itself
+
+    } // end main
+    ```
+=== "Python"
+
+    ```python
+    from sml import Kernel
+
+    def main():
+        # Create an instance of the Soar kernel in our process
+        pKernel = Kernel.CreateKernelInNewThread()
+
+        # Check that nothing went wrong. We will always get back a kernel object
+        # even if something went wrong and we have to abort.
+        if pKernel.HadError():
+            print(pKernel.GetLastErrorDescription())
+            return
+
+        # Create a Soar agent named "test"
+        # NOTE: We don't delete the agent pointer. It's owned by the kernel
+        pAgent = pKernel.CreateAgent("test")
+
+        # Check that nothing went wrong
+        # NOTE: No agent gets created if there's a problem, so we have to check for
+        # errors through the kernel object.
+        if pKernel.HadError():
+            print(pKernel.GetLastErrorDescription())
+            return
+
+        # Load some productions
+        pAgent.LoadProductions("testsml.soar")
+
+        if pAgent.HadError():
+            print(pAgent.GetLastErrorDescription())
+            return
+
+        pInputLink = pAgent.GetInputLink()
+
+        # Create (I3 ^plane P1) (P1 ^type Boeing747 ^speed 200 ^direction 50.5) on
+        # the input link. (We don't own any of the returned objects).
+        pID = pAgent.CreateIdWME(pInputLink, "plane")
+        pWME1 = pAgent.CreateStringWME(pID, "type", "Boeing747")
+        pWME2 = pAgent.CreateIntWME(pID, "speed", 200)
+        pWME3 = pAgent.CreateFloatWME(pID, "direction", 50.5)
+
+        # Send the changes to working memory to Soar
+        # With 8.6.2 this call is optional as changes are sent automatically.
+        pAgent.Commit()
+
+        # Run Soar for 2 decisions
+        pAgent.RunSelf(2)
+
+        # Change (P1 ^speed) to 300 and send that change to Soar
+        pAgent.Update(pWME2, 300)
+        pAgent.Commit()
+        # Run Soar until it generates output or 15 decision cycles have passed
+        # (More normal case is to just run for a decision rather than until output).
+        pAgent.RunSelfTilOutput()
+
+        # Go through all the commands we've received (if any) since we last ran Soar.
+        numberCommands = pAgent.GetNumberCommands()
+        for i in range(numberCommands):
+            pCommand = pAgent.GetCommand(i)
+
+            name = pCommand.GetCommandName()
+            speed = pCommand.GetParameterValue("speed")
+
+            # Update environment here to reflect agent's command
+
+            # Then mark the command as completed
+            pCommand.AddStatusComplete()
+
+        # See if anyone (e.g., a debugger) has sent commands to Soar
+        # Without calling this method periodically, remote connections will be ignored if
+        # we choose the "CreateKernelInCurrentThread" method.
+        pKernel.CheckForIncomingCommands()
+
+        # Create an example Soar command line
+        cmd = "excise --all"
+
+        # Execute the command
+        pResult = pKernel.ExecuteCommandLine(cmd, pAgent.GetAgentName())
+
+        # Shutdown and clean up
+        pKernel.Shutdown()  # Deletes all agents (unless using a remote connection)
+        del pKernel  # Deletes the kernel itself
+
+    if __name__ == "__main__":
+        main()
+    ```
 
 ## Simple example explained
 
 ### Creating the kernel
 
-```C++
-// Create an instance of the Soar kernel in our process
-Kernel* pKernel = Kernel::CreateKernelInNewThread() ;
-```
+=== "C++"
+
+    ```C++
+    // Create an instance of the Soar kernel in our process
+    Kernel* pKernel = Kernel::CreateKernelInNewThread() ;
+    ```
+
+=== "Python"
+
+    ```python
+    # Create an instance of the Soar kernel in our process
+    kernel = Kernel.CreateKernelInNewThread()
+    ```
 
 The client can either create a local Soar kernel or a remote connection to an
 existing Soar kernel (where commands are sent over a socket to a separate
@@ -174,12 +272,20 @@ CurrentThread model later only requires changing this one line of code.
 
 ### Creating input link WME's
 
-```C++
-// Create (I3 ^plane P1) (P1 ^type Boeing747 ^speed 200 ^direction 50.5) on
-// the input link.  (We don't own any of the returned objects).
-Identifier* pID          = pAgent->CreateIdWME(pInputLink, "plane") ;
-StringElement* pWME1 = pAgent->CreateStringWME(pID, "type", "Boeing747") ;
-```
+=== "C++"
+
+    ```C++
+    // Create (I3 ^plane P1) (P1 ^type Boeing747 ^speed 200 ^direction 50.5) on
+    // the input link.  (We don't own any of the returned objects).
+    Identifier* pID          = pAgent->CreateIdWME(pInputLink, "plane") ;
+    StringElement* pWME1 = pAgent->CreateStringWME(pID, "type", "Boeing747") ;
+    ```
+=== "Python"
+
+    ```python
+    pID = pAgent.CreateIdWME(pInputLink, "plane")
+    pWME1 = pAgent.CreateStringWME(pID, "type", "Boeing747")
+    ```
 
 The client can build up an arbitrarily complex graph of working memory elements
 (WMEs) attached to the input-link. Each WME consists of a triplet: `(identifier ^attribute value)`.
@@ -198,10 +304,17 @@ value as an existing identifier. (E.g. given `pOrig = (P7 ^object O3)` then
 
 ### Committing changes
 
-```C++
-// Send the changes to working memory to Soar
-pAgent->Commit() ;
-```
+=== "C++"
+
+    ```C++
+    // Send the changes to working memory to Soar
+    pAgent->Commit() ;
+    ```
+=== "Python"
+
+    ```python
+    pAgent.Commit()
+    ```
 
 The client must explicitly request that changes to working memory be sent over
 to Soar. This explicit command allows the communication layer to be more
@@ -213,13 +326,24 @@ SetAutoCommit(false) and write the manual commit calls.
 
 ### Running Soar
 
-```C++
-// Run Soar until it generates output or 15 decision cycles have passed
-pAgent->RunSelfTilOutput() ;
+=== "C++"
 
-// Run Soar for 2 decisions
-pAgent->RunSelf(2) ;
-```
+    ```C++
+    // Run Soar until it generates output or 15 decision cycles have passed
+    pAgent->RunSelfTilOutput() ;
+
+    // Run Soar for 2 decisions
+    pAgent->RunSelf(2) ;
+    ```
+=== "Python"
+
+    ```python
+    # Run Soar until it generates output or 15 decision cycles have passed
+    pAgent.RunSelfTilOutput()
+
+    # Run Soar for 2 decisions
+    pAgent.RunSelf(2)
+    ```
 
 In most real environments, Soar should be run with
 `pKernel->RunAllAgentsForever()` and then use a call to `pKernel->StopAllAgents()`
@@ -230,25 +354,31 @@ There's more discussion of this in Section 2 of this document.
 
 ### Retrieving Output
 
-```C++
-// Go through all the commands we've received (if any) since we last ran Soar.
-int numberCommands = pAgent->GetNumberCommands() ;
-for (int i = 0 ; i < numberCommands ; i++)
-{
-        Identifier* pCommand = pAgent->GetCommand(i) ;
+=== "C++"
 
-        std::string name  = pCommand->GetCommandName() ;
-std::string speed = pCommand->GetParameterValue("speed") ;
+    ```C++
+    // Go through all the commands we've received (if any) since we last ran Soar.
+    int numberCommands = pAgent->GetNumberCommands() ;
+    for (int i = 0 ; i < numberCommands ; i++)
+    {
+            Identifier* pCommand = pAgent->GetCommand(i) ;
 
-        // Update environment here to reflect agent's command
+            std::string name  = pCommand->GetCommandName() ;
+    std::string speed = pCommand->GetParameterValue("speed") ;
 
-        // Then mark the command as completed
-        pCommand->AddStatusComplete() ;
+            // Update environment here to reflect agent's command
 
-// Or could do the same manually like this:
-        // pAgent->CreateStringWME(pCommand, "status", "complete") ;
-}
-```
+            // Then mark the command as completed
+            pCommand->AddStatusComplete() ;
+
+    // Or could do the same manually like this:
+            // pAgent->CreateStringWME(pCommand, "status", "complete") ;
+    }
+    ```
+=== "Python"
+
+    ```python
+    ```
 
 There is direct support provided for an output model where "commands" are
 represented as distinction identifier's on the output-link. For example, if the
@@ -288,6 +418,8 @@ model shown above.
 
 ### The Command Line
 
+=== "C++"
+
 ```C++
 // Create an example Soar command line
 std::string cmd = "excise --all" ;
@@ -295,7 +427,10 @@ std::string cmd = "excise --all" ;
 // Execute the command
 char const* pResult = pKernel->ExecuteCommandLine(cmd.c_str(),pAgent->GetAgentName()) ;
 ```
+=== "Python"
 
+    ```python
+    ```
 To this point the discussion has been purely about environments and supporting
 I/O. However, the `ExecuteCommandLine` methods allow a client to send any command
 to Soar that can be typed at the Soar command prompt. Using this method,
@@ -313,6 +448,8 @@ which will be called periodically during the course of the run. To do this you
 need to define a handler function which will be called during the run. Here's a
 simple example:
 
+=== "C++"
+
 ```C++
 void MyPrintEventHandler(smlPrintEventId id, void* pUserData, Agent* pAgent, char const* pMessage)
 {
@@ -322,23 +459,36 @@ void MyPrintEventHandler(smlPrintEventId id, void* pUserData, Agent* pAgent, cha
         (*pTrace) += pMessage ;
 }
 ```
+=== "Python"
 
+    ```python
+    ```
 The method includes a piece of "userData" which is defined by you when you
 register for the event. In this case we would have:
+
+=== "C++"
 
 ```C++
 std::string trace ;
 int callbackp = pAgent->RegisterForPrintEvent(smlEVENT_PRINT, MyPrintEventHandler, &trace) ;
 ```
+=== "Python"
 
+    ```python
+    ```
 Note how the string "trace" is passed into the registration function. This
 object is then passed back to the handler, which uses it to build up a complete
 trace. After this handler has been registered calling:
 
+=== "C++"
+
 ```C++
 result = pAgent->Run(4) ;
 ```
+=== "Python"
 
+    ```python
+    ```
 would run Soar for 4 decisions and the trace output would be collected in the
 string "trace".
 
@@ -357,6 +507,8 @@ they're checked at runtime not at compile time):
 
 C++ event handlers (if you're not sure how to convert these types into functions
 look at the example of the print handler in the previous section):
+
+=== "C++"
 
 ```C++
 // Handler for Run events.
@@ -579,6 +731,10 @@ if (!load || agent.HadError()) {
         + agent.GetLastErrorDescription());
 }
 ```
+=== "Python"
+
+    ```python
+    ```
 
 #### Input
 
@@ -589,6 +745,10 @@ agent.Create<type>WME (e.g. agent.CreateIntWME)
 agent.Update()
 agent.DestroyWME
 ```
+=== "Python"
+
+    ```python
+    ```
 
 Working memory elements are linked together to form a tree (actually a graph)
 with the input link as the root of the tree. To get the input link identifier
@@ -674,6 +834,10 @@ private void updateWorld()
         }
 }
 ```
+=== "Python"
+
+    ```python
+    ```
 
 The method `GetCommandName` and `GetParameterValue` extract the appropriate
 attributes and values from the output link and return them to the environment.
@@ -728,6 +892,10 @@ void updateWorld()
     send-new-input() ;
 }
 ```
+=== "Python"
+
+    ```python
+    ```
 
 Then the code samples below show how to connect up the system so that
 updateWorld() is only called once all agents have completed the output phase
@@ -760,6 +928,10 @@ public void stop()
     m_StopNow = true ;
 }
 ```
+=== "Python"
+
+    ```python
+    ```
 
 ### Event-based method for updating the world
 
@@ -786,6 +958,10 @@ public void updateEventHandler(int eventID, Object data, Kernel kernel, int runF
         }
 }
 ```
+=== "Python"
+
+    ```python
+    ```
 
 The Run code is pretty simple. The only issues to be aware of are:
 
@@ -805,6 +981,10 @@ while (!stopped)
     update-world() ;
 }
 ```
+=== "Python"
+
+    ```python
+    ```
 
 There are two basic reasons. First, there are no guarantees that `run(1)` will run
 for a decision. If we include breakpoints on productions or phase transitions
@@ -830,7 +1010,7 @@ values in this enum:
 
 ### Run Flags
 
-```Java
+```C++
 typedef enum
 {
     sml_NONE                =  0,           // No special flags set
@@ -911,6 +1091,10 @@ public void updateButtons(boolean running)
         stepButton.setEnabled(!running && !done) ;
 }
 ```
+=== "Python"
+
+    ```python
+    ```
 
 ### Further details
 

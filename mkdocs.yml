@@ -22,6 +22,8 @@ theme:
     - navigation.indexes
     - navigation.expand
     - header.autohide
+    # https://squidfunk.github.io/mkdocs-material/reference/content-tabs/#linked-content-tabs
+    - content.tabs.link
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
@@ -65,6 +67,8 @@ markdown_extensions:
   - md_in_html
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.tabbed:
+      alternate_style: true
 
 # watch these directories *in addition to* the ones mkdocs watches by default
 watch:
