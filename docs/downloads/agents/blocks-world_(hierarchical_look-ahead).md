@@ -8,7 +8,7 @@ Tags:
 
 # Blocks-World (Hierarchical Look-Ahead)
 
-This project augments the [Blocks-World Hierarchical Agent](./blocks-world_(hierarchical))
+This project augments the [Blocks-World Hierarchical Agent](./blocks-world_(hierarchical).md)
 with look-ahead state evaluation. The description of the original agent applies
 to this one. The main difference is that look-ahead is performed in the middle of
 the three problem spaces that it uses.
