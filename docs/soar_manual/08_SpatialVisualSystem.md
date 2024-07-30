@@ -92,13 +92,14 @@ operations.
 ### svs_viewer
 
 A viewer has been provided to show the scene graph visually. Run the
-program svs viewer -s PORTfrom the soar/out folder to launch the viewer listening
+program `svs_viewer -s <PORT>` from the soar/out folder to launch the viewer listening
 on the given port. Once the viewer is running, from within soar use the
-command svs connect viewer PORTto connect to the viewer and begin drawing the
+command `svs connect viewer <PORT>` to connect to the viewer and begin drawing the
 scene graph. Any changes to the scene graph will be reflected in the viewer. The
-viewer by default draws the top state scene graph, to draw that on a substate
-first stop drawing the top state with svs S1.scene.draw off and then svs
-S7.scene.draw on.
+viewer by default draws the top state scene graph; to draw the scene graph of a 
+substate, first stop drawing the top state with `svs S1.scene.draw off` and then 
+draw the desired substate with `svs <STATE ID>.scene.draw on`, where `<STATE ID>`
+is `S7`, etc.
 
 ## Scene Graph Edit Language
 
