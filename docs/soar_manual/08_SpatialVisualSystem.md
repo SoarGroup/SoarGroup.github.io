@@ -149,17 +149,20 @@ The `GEOMETRY` argument has two forms:
 
 ### Examples
 
-Creating a sphere called ball4 with radius 5 at location (4, 4, 0).
-add ball4 world b 5 p 4 4 0
+Create a sphere `ball4` with radius 5 at location (4, 4, 0):
 
-Creating a triangle in the xy plane, then rotate it vertically, double its size,
-and move it to (1, 1, 1).
+```
+add ball4 world b 5 p 4 4 0
+```
+
+Create a triangle `tri9` in the xy plane, then rotate it vertically, double its size,
+and move it to (1, 1, 1):
 
 ```
 add tri9 world v -1 -1 0 1 -1 0 0 0.5 0 p 1 1 1 r 1.507 0 0 s 2 2 2
 ```
 
-Creating a snowman shape of 3 spheres stacked on each other and located at (2, 2, 0).
+Create a `snowman` shape with 3 spheres stacked on each other and located at (2, 2, 0):
 
 ```
 add snowman world p 2 2 0
@@ -168,13 +171,13 @@ add middleball snowman b 2 p 0 0 8
 add topball snowman b 1 p 0 0 11
 ```
 
-Set the rotation transform on box11 to 180 degrees around the z axis.
+Set the rotation transform on `box11` to 180 degrees around the z axis:
 
 ```
 change box11 r 0 0 3.14159
 ```
 
-Changing the color tag on box7 to green.
+Change the color tag on `box7` to green:
 
 ```
 tag change box7 color green
