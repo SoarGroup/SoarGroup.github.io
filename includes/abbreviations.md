@@ -10,3 +10,4 @@
 *[RHS]: Right-Hand Side
 *[WME]: Working Memory Element
 *[WMEs]: Working Memory Elements
+*[SMem]: Semantic Memory
