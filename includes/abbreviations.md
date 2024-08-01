@@ -11,3 +11,4 @@
 *[WME]: Working Memory Element
 *[WMEs]: Working Memory Elements
 *[SMem]: Semantic Memory
+*[EpMem]: Episodic Memory
