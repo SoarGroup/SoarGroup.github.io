@@ -282,8 +282,8 @@ An example walkthrough of a Sarsa update with $\alpha = 0.3$ and $\gamma = 0.9$
     a_t) \right] = 0.3 \times [ 1.0 + 0.9 \times 0.5 - 1.3 ] = 0.045
     $$
 
-    Since `rl-1` and `rl-2` both contributed to the $Q$-value of `O1`, $\delta_t$ is
-    evenly divided amongst them, resulting in updated values of
+    Since `rl-1` and `rl-2` both contributed to the $Q$-value of `O1`,
+    $\delta_t$ is evenly divided amongst them, resulting in updated values of
 
     ```Soar
     rl-1: (<s> ^operator <o> = 2.3225)
