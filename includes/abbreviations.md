@@ -12,3 +12,5 @@
 *[WMEs]: Working Memory Elements
 *[SMem]: Semantic Memory
 *[EpMem]: Episodic Memory
+*[ECR]: Expected Current Reward
+*[EFR]: Expected Future Reward
