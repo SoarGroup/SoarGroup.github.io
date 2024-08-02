@@ -333,8 +333,6 @@ is disabled, the RL rules preceding a gap are updated using $Q(s_{t+1},a_{t+1})
 = 0$. The rl setting of the [`watch`](../reference/cli/cmd_trace.md) command is
 useful in identifying gaps.
 
-![Example Soar substate operator trace.](Images/rl-optrace.svg)
-
 ### RL and Substates
 
 When an agent has multiple states in its state stack, the RL mechanism will
@@ -346,7 +344,9 @@ for Sand the $Q$-values of subsequent RL operators selected in `S`.
 The only exception to this independence is when a selected RL operator forces an
 operator- no-change impasse. When this occurs, the number of decision cycles the
 RL operator at the superstate remains selected is dependent upon the processing
-in the impasse state. Consider the operator trace in Figure 5.1.
+in the impasse state. Consider the operator trace in the following figure:
+
+![Example Soar substate operator trace.](Images/rl-optrace.svg)
 
 -   At decision cycle 1, RL operator `O1` is selected in `S1` and causes an
     operator-no-change impass for three decision cycles.
