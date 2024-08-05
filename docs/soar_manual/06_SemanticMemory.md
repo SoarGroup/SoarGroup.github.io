@@ -66,7 +66,7 @@ printing that STI would appear as `L7 (@29)`.
 
 When presented in a figure, long-term identifiers will be indicated by a
 double-circle. For instance, the following figure depicts the long-term
-identifier `@68`, with four augmentations, representing the addition fact of
+identifier `@1`, with four augmentations, representing the addition fact of
 $6 + 7 = 13$ (or, rather, 3, carry 1, in context of multi-column arithmetic).
 
 ![Example long-term identifier with four augmentations.](Images/smem-concept.svg)
