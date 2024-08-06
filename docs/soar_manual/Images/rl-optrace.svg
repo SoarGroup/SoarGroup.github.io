@@ -25,7 +25,7 @@
          <!-- check user's site setting (slate is dark mode) -->
          [data-md-color-scheme="slate"] {
             .line {stroke: white}
-               .text { fill: white; }}
+            .text { fill: white; }}
       </style>
    </defs>
    <sodipodi:namedview
@@ -277,7 +277,6 @@
          points=" 3255,511 3225,391 3195,511 3255,511"
          stroke-width="8px"
          stroke-miterlimit="8"
-         class="text"
          id="polygon19" />
       <!-- Line -->
       <defs
