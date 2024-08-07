@@ -299,7 +299,7 @@ An example walkthrough of a Sarsa update with $\alpha = 0.3$ and $\gamma = 0.9$
 
 The previous description had assumed that RL operators were selected in both
 decision cycles $t$ and $t+1$. If the operator selected in $t+1$ is not an RL operator,
-then $Q(s_{t+1},a_{t+1})$ would not be defined, and an update for the RL operator
+then $Q(s_{t+1}, a_{t+1})$ would not be defined, and an update for the RL operator
 selected at time $t$ will be undefined. We will call a sequence of one or more
 decision cycles in which RL operators are not selected between two decision
 cycles in which RL operators are selected a gap. Conceptually, it is desirable
@@ -332,7 +332,7 @@ RL operator.
 
 Gap propagation can be disabled by setting the **temporal-extension** parameter
 of the [`rl` command](../reference/cli/cmd_rl.md) to off. When gap propagation
-is disabled, the RL rules preceding a gap are updated using $Q(s_{t+1},a_{t+1})
+is disabled, the RL rules preceding a gap are updated using $Q(s_{t+1}, a_{t+1})
 = 0$. The rl setting of the [`watch`](../reference/cli/cmd_trace.md) command is
 useful in identifying gaps.
 
