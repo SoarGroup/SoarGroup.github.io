@@ -211,7 +211,7 @@ nav:
   - Reference:
       - reference/index.md
       - Command Line Options for Debugging and CLI: reference/CommandLineOptionsForDebuggerAndCLI.md
-      - Visual Soar Keyboard and Mouse Controls: reference/VisualSoarKeyboardAndMouseControls.md
+      - VisualSoar Keyboard and Mouse Controls: reference/VisualSoarKeyboardAndMouseControls.md
       - Command Line Interface:
           - reference/cli/index.md
           - alias: reference/cli/cmd_alias.md

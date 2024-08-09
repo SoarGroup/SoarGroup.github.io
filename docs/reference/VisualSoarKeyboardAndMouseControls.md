@@ -1,4 +1,4 @@
-# Visual Keyboard and Mouse Controls
+# VisualSoar Keyboard and Mouse Controls
 
 ## Key Bindings
 
