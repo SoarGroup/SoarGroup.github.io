@@ -4,61 +4,61 @@
 
 ### Project Level Actions
 
-*   Ctrl-n | Open a new VisualSoar project
-*   Ctrl-o | Open an existing VisualSoar project
-*   Ctrl-f | Open a text file
-*   Alt-x | Close VisualSoar
-*   Ctrl-t | Tile windows
-*   Ctrl-T | Re-Tile windows
+*   <kbd>Ctrl</kbd>+<kbd>N</kbd> Open a new VisualSoar project
+*   <kbd>Ctrl</kbd>+<kbd>O</kbd> Open an existing VisualSoar project
+*   <kbd>Ctrl</kbd>+<kbd>F</kbd> Open a text file
+*   <kbd>Alt</kbd>+<kbd>X</kbd> Save all open documents and close VisualSoar
+*   <kbd>Ctrl</kbd>+<kbd>T</kbd> Tile windows
+*   <kbd>Ctrl</kbd>+<kbd>T</kbd> Re-Tile windows
 
 ### File Level Actions
 
-*   Ctrl-s | Save current file in the current window
-*   Ctrl-d | Redraw color syntax in the current window
-*   Ctrl-j | Rejustify text in the current window
-*   F7 | Check all productions against the datamap
-*   Ctrl-F4 | Close the current window
-*   Ctrl-F9 | Minimize the current window
+*   <kbd>Ctrl</kbd>+<kbd>S</kbd> Save current file in the current window
+*   <kbd>Ctrl</kbd>+<kbd>D</kbd> Redraw color syntax in the current window
+*   <kbd>Ctrl</kbd>+<kbd>J</kbd> Rejustify text in the current window
+*   <kbd>F7</kbd> Check all productions against the datamap
+*   <kbd>Ctrl</kbd>+<kbd>F4</kbd> Close the current window
+*   <kbd>Ctrl</kbd>+<kbd>F9</kbd> Minimize the current window
 
 ### Editing
 
 The VisualSoar rule editor uses all the default editing keystrokes
 for area selection, clipboard operations and basic editing:
 
-* CTRL-c | Copy the selected text to the clipboard
-* CTRL-x | Cut the selected text to the clipboard
-* CTRL-v | Paste the clipboard text at the current cursor location
-* CTRL-z | Undo the last editing operation
-* CTRL-shift-z | Redo the last editing operation
-* CTRL-a | Select all text in the current window
+* <kbd>CTRL</kbd>+<kbd>C</kbd> Copy the selected text to the clipboard
+* <kbd>Ctrl</kbd>+<kbd>X</kbd> Cut the selected text to the clipboard
+* <kbd>Ctrl</kbd>+<kbd>V</kbd> Paste the clipboard text at the current cursor location
+* <kbd>Ctrl</kbd>+<kbd>Z</kbd> Undo the last editing operation
+* <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> Redo the last editing operation
+* <kbd>Ctrl</kbd>+<kbd>A</kbd> Select all text in the current window
 
 The following two editing command have been added:
 
-*   Ctrl-Enter | Soar Complete
-*   Tab | Justify the current line
-*   Ctrl-/ | Comment out selected lines
+*   <kbd>Ctrl</kbd>+<kbd>Enter</kbd> Soar Complete
+*   <kbd>Tab</kbd> Justify the current line
+*   <kbd>Ctrl</kbd>+<kbd>/</kbd> Comment out selected lines
 
 ### Search and Replace
 
-*   Ctrl-f | Find text in the current file
-*   Ctrl-g | Repeat last find
-*   Ctrl-r | Find and replace text in the current file
-*   Ctrl-h | Repeat last find and replace command
+*   <kbd>Ctrl</kbd>+<kbd>F</kbd> Find text in the current file
+*   <kbd>Ctrl</kbd>+<kbd>G</kbd> Repeat last find
+*   <kbd>Ctrl</kbd>+<kbd>R</kbd> Find and replace text in the current file
+*   <kbd>Ctrl</kbd>+<kbd>H</kbd> Repeat last find and replace command
 
 ### Datamap Editing
 
 The datamap window supports clipboard operations (i.e., cut, copy
 and paste) as well as these keystrokes:
 
-*   Backspace | Delete currently selected attribute
-*   Delete | Delete currently selected attribute
-*   Enter | Expand the current tree node
+*   <kbd>Backspace</kbd> Delete currently selected attribute
+*   <kbd>Delete</kbd> Delete currently selected attribute
+*   <kbd>Enter</kbd> Expand the current tree node
 
 ### Operator Window Editing
 
-*   Backspace | Delete currently selected node
-*   Delete | Delete currently selected node
-*   Enter | Expand the current tree node
+*   <kbd>Backspace</kbd> Delete currently selected node
+*   <kbd>Delete</kbd> Delete currently selected node
+*   <kbd>Enter</kbd> Expand the current tree node
 
 ## Mouse Controls
 
@@ -70,10 +70,10 @@ button.
 
 ### Datamap
 
-*   Double Click | Expand the current tree node
-*   Drag & Drop | Move a subtree to a new location
-*   Ctrl + D&D | Copy a subtree to a new location
-*   Ctrl + Shift + D&D | Link a subtree to a new location
+*   Double Click: Expand the current tree node
+*   Drag & Drop : Move a subtree to a new location
+*   <kbd>Ctrl</kbd>+D&D: Copy a subtree to a new location
+*   <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+D&D: Link a subtree to a new location
 
 !!! info "What is "Drag and Drop"?"
     It's a common method for manipulating objects under a graphical user
