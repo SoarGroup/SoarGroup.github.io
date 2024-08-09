@@ -19,10 +19,17 @@ specific productions or working memory elements are sent back and forth).
 
 We refer to these environments and debuggers as "clients".
 
+Users of SML do not need to know the details of the XML dialect, but should
+instead familiarize themselves with the SML API, which hides the details of
+the underlying XML messaging system.
+
+<!--
+TODO: track down "Soar XML Interface Specification" somewhere
 The details and motivation behind the development of the SML language are
 described in the "Soar XML Interface Specification" which goes into a lot more
 depth on the details of the XML dialect. However, for users this guide may be
 largely sufficient.
+-->
 
 We provide a series of classes that together hide the details of the XML
 messaging system while allowing the client full control over Soar. This guide
