@@ -23,11 +23,20 @@
 ### Editing
 
 The VisualSoar rule editor uses all the default editing keystrokes
-for area selection, clipboard operations and basic editing. The
-following two editing command have been added:
+for area selection, clipboard operations and basic editing:
+
+* CTRL-c | Copy the selected text to the clipboard
+* CTRL-x | Cut the selected text to the clipboard
+* CTRL-v | Paste the clipboard text at the current cursor location
+* CTRL-z | Undo the last editing operation
+* CTRL-shift-z | Redo the last editing operation
+* CTRL-a | Select all text in the current window
+
+The following two editing command have been added:
 
 *   Ctrl-Enter | Soar Complete
 *   Tab | Justify the current line
+*   Ctrl-/ | Comment out selected lines
 
 ### Search and Replace
 
