@@ -1,7 +1,7 @@
 <!-- markdownlint-disable MD041 -->
 {{manual_wip_warning}}
 
-# Reinforcement Learning
+## Reinforcement Learning
 
 Soar has a reinforcement learning (RL) mechanism that tunes operator selection
 knowledge based on a given reward function. This chapter describes the RL
@@ -13,7 +13,7 @@ Andrew G. Barto. The detailed behavior of the RL mechanism is determined by
 numerous parameters that can be controlled and configured via the
 [`rl` command](../reference/cli/cmd_rl.md).
 
-## RL Rules
+### RL Rules
 
 ???+ info
     In this context, the term "state" refers to the state of the task or
@@ -124,7 +124,7 @@ rule $i$ does not match $(s, a)$, and $\phi_i (s, a) = 1$ if it does. This
 interpretation allows RL rules to simulate a number of popular function
 approximation schemes used in RL such as tile coding and sparse coding.
 
-## Reward Representation
+### Reward Representation
 
 RL updates are driven by reward signals. In Soar, these reward signals are given
 to the RL mechanism through a working memory link called the **reward-link**.
@@ -213,7 +213,7 @@ track of previously seen WMEs. This means that reward WMEs that exist for
 multiple decision cycles will be collected multiple times if not removed or
 retracted.
 
-## Updating RL Rule Values
+### Updating RL Rule Values
 
 Soar’s RL mechanism is integrated naturally with the decision cycle and performs
 online updates of RL rules. Whenever an RL operator is selected, the values of
@@ -295,7 +295,7 @@ An example walkthrough of a Sarsa update with $\alpha = 0.3$ and $\gamma = 0.9$
 
 5.  **rl-3** will be updated when the next RL operator is selected.
 
-### Gaps in Rule Coverage
+#### Gaps in Rule Coverage
 
 The previous description had assumed that RL operators were selected in both
 decision cycles $t$ and $t+1$. If the operator selected in $t+1$ is not an RL operator,
@@ -336,7 +336,7 @@ is disabled, the RL rules preceding a gap are updated using $Q(s_{t+1}, a_{t+1})
 = 0$. The rl setting of the [`watch`](../reference/cli/cmd_trace.md) command is
 useful in identifying gaps.
 
-### RL and Substates
+#### RL and Substates
 
 When an agent has multiple states in its state stack, the RL mechanism will
 treat each substate independently. As mentioned previously, each state has its
@@ -423,7 +423,7 @@ present at the time of retraction, and the EFR is unchanged.
 Soar’s automatic subgoaling and RL mechanisms can be combined to naturally implement
 hierarchical reinforcement learning algorithms such as `MAXQ` and options.
 
-### Eligibility Traces
+#### Eligibility Traces
 
 The RL mechanism supports eligibility traces, which can improve the speed of
 learning by updating RL rules across multiple sequential steps.
@@ -435,7 +435,7 @@ are enabled, the particular algorithm used is dependent upon the learning
 policy. For Sarsa, the eligibility trace implementation is $Sarsa(\lambda)$. For
 Q-Learning, the eligibility trace implementation is $Watkin's Q(\lambda)$.
 
-#### Exploration
+##### Exploration
 
 The [`decide indifferent-selection` command](../reference/cli/cmd_decide.md#decide-indifferent-selection)
 determines how operators are selected based on their
@@ -447,7 +447,7 @@ In an effort to maintain backwards compatibility, the default exploration
 policy is `softmax`. As a result, one should change to `epsilon-greedy` or
 `boltzmann` when the reinforcement learning mechanism is enabled.
 
-### GQ(λ)
+#### GQ(λ)
 <!-- Math mode not supported in headings and TOCs, therefore changed to
 unicode character. -->
 
@@ -463,13 +463,13 @@ algorithms, we recommend setting the `rl` **step-size-parameter** to something
 small, such as 0.01 in order to ensure that the secondary set of weights used
 by $GQ(\lambda)$ change slowly enough for efficient convergence.
 
-## Automatic Generation of RL Rules
+### Automatic Generation of RL Rules
 
 The number of RL rules required for an agent to accurately approximate operator
 $Q$-values is usually unfeasibly large to write by hand, even for small domains.
 Therefore, several methods exist to automate this.
 
-### The gp Command
+#### The gp Command
 
 The [`gp` command](../reference/cli/cmd_gp.md) can be used to generate
 productions based on simple patterns. This is useful if the states and
@@ -492,7 +492,7 @@ gp {gen*rl*rules
    }
 ```
 
-### Rule Templates
+#### Rule Templates
 
 Rule templates allow Soar to dynamically generate new RL rules based on a
 predefined pattern as the agent encounters novel states. This is useful when
@@ -564,7 +564,7 @@ of identifying unique template match instances can become quite expensive in
 long agent runs. Therefore, it is recommended to generate all necessary RL rules
 using the gp command or via custom scripting when possible.
 
-### Chunking
+#### Chunking
 
 Since RL rules are regular productions, they can be learned by chunking just
 like any other production. This method is more general than using the

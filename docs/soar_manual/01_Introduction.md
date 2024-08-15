@@ -1,6 +1,6 @@
 {{manual_wip_warning}}
 
-# Introduction
+## Introduction
 
 Soar has been developed to be an architecture for constructing general intelligent systems.
 It has been in use since 1983, and has evolved through many different versions. This manual
@@ -33,7 +33,7 @@ intelligent agent. Below are the major principles that are the cornerstones of S
    into uninterruptible sequences.
 
 
-## Using this Manual
+### Using this Manual
 
 We expect that novice Soar users will read the manual in the order it is presented. Not
 all users will makes use of the mechanisms described in chapters 4-8, but it is important to
@@ -75,12 +75,12 @@ this agent can be downloaded at
 <https://web.eecs.umich.edu/~soar/blocksworld.soar> or found
 [here](blocksworld.md).
 
-### Additional Back Matter
+#### Additional Back Matter
 
 After these chapters is an index; the last pages of this manual contain a
 summary and index of the user-interface functions for quick reference.
 
-### Not Described in This Manual
+#### Not Described in This Manual
 
 Some of the more advanced features of Soar are not described in this manual,
 such as how to interface with a simulator, or how to create Soar applications
@@ -90,7 +90,7 @@ has additional help documents and resources.
 For novice Soar users, try [*The Soar 9 Tutorial*](../tutorials/soar_tutorial/index.md),
 which guides the reader through several example tasks and exercises.
 
-## Contacting the Soar Group
+### Contacting the Soar Group
 
 The primary website for Soar is:
 
@@ -118,7 +118,7 @@ Also, please do not hesitate to file bugs on our issue tracker:
 
 To avoid redundant entries, please search for duplicate issues first.
 
-## For Those Without Internet Access
+### For Those Without Internet Access
 
 Mailing Address:
 
@@ -131,7 +131,7 @@ Ann Arbor, MI 48109-2121
 USA
 ```
 
-## Different Platforms and Operating Systems
+### Different Platforms and Operating Systems
 
 Soar runs on a wide variety of platforms, including Linux, Unix (although not heavily tested),
 Mac OS X, and Windows 10, 7, possibly 8 and Vista, XP, 2000 and NT). We currently test

@@ -9,13 +9,13 @@ tags:
 <!-- markdown-link-check-disable-next-line -->
 <!-- old URL: https://soar.eecs.umich.edu/articles/articles/technical-documentation/201-memory-leak-debugging-with-visual-studio -->
 
-# Tank Eaters Configuration File
+## Tank Eaters Configuration File
 
 Soar2D is a general framework that includes both Eaters and TankSoar. This
 document describes how to modify these environments using the configuration
 settings files.
 
-## Configuration Files
+### Configuration Files
 
 Soar2D configuration files are stored in the Soar2D folder. When running the
 soar2d jar, you may specify the configuration file to use on the command line,
@@ -37,7 +37,7 @@ Configuration entries are of the format:
 Use the pound sign for comments. Start them anywhere on a line.
 
 ```
-# Comments go here
+## Comments go here
 Configuration keys are simple identifiers. Stick to alphanumeric characters and underscores.
 ```
 
@@ -146,7 +146,7 @@ Defaults can be enforced in code:
 config.getInt("some.value.not.in.config.file", 4); // returns 4
 ```
 
-## Clients
+### Clients
 
 Clients are encoded in a clients block using their names for their sub block.
 Additionally, their names must be enumerated in an `active_clients` array. For
@@ -180,7 +180,7 @@ Note that there is a default, hidden client named "java-debugger". Don't use thi
 | clients.''name''.timeout | int          |        | 0       | Seconds to wait for client to report in                                                     |
 | clients.''name''.after   | boolean      |        | true    | true: spawn after all agents are created, false: spawn before all agents are created        |
 
-## eaters
+### eaters
 
 | Path                    | Type   | Values            | Default | Comment                           |
 | ----------------------- | ------ | ----------------- | ------- | --------------------------------- |
@@ -190,7 +190,7 @@ Note that there is a default, hidden client named "java-debugger". Don't use thi
 | eaters.low_probability  | double | probability       | 0.25    | Used during random map generation |
 | eaters.high_probability | double | probability       | 0.75    | Used during random map generation |
 
-## general
+### general
 
 | Path                     | Type    | Values                                | Default               | Comment                                                                                                                |
 | ------------------------ | ------- | ------------------------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
@@ -204,7 +204,7 @@ Note that there is a default, hidden client named "java-debugger". Don't use thi
 | general.seed             | int     |                                       | null (random default) | Seed Java and SML                                                                                                      |
 | general.force_human      | boolean |                                       | false                 | Force human input, overrides agent input. Great for debugging input link.                                              |
 
-## soar
+### soar
 
 | Path                  | Type    | Values          | Default        | Comment                               |
 | --------------------- | ------- | --------------- | -------------- | ------------------------------------- |
@@ -214,7 +214,7 @@ Note that there is a default, hidden client named "java-debugger". Don't use thi
 | soar.spawn_debuggers  | boolean |                 | true           | Spawn debuggers on agent creation     |
 | soar.soar_print       | boolean |                 | false          | Log print events to file              |
 
-## players
+### players
 
 Players are encoded in a players block using arbitrary identifiers for their sub
 blocks. Active player IDs must be enumerated in an `active_players` array. For
@@ -258,11 +258,11 @@ runtime use those.
 | players.''id''.missiles          | int          |                                                 | game default | Starting missiles (tanksoar)                  |
 | players.''id''.shutdown_commands | string array | valid Soar commands                             | null         | Commands to run before destroying agent       |
 
-## room
+### room
 
 There are currently no configuration options for the Room environment.
 
-## taxi
+### taxi
 
 | Path                       | Type    | Values | Default | Comment                              |
 | -------------------------- | ------- | ------ | ------- | ------------------------------------ |
@@ -271,7 +271,7 @@ There are currently no configuration options for the Room environment.
 | taxi.fuel_starting_maximum | int     |        | 12      | Fuel starts between this and minimum |
 | taxi.fuel_maximum          | int     |        | 14      | Fuel goes to here when refueled      |
 
-## tanksoar
+### tanksoar
 
 | Path                                 | Type | Values | Default | Comment                                                                               |
 | ------------------------------------ | ---- | ------ | ------- | ------------------------------------------------------------------------------------- |
@@ -289,7 +289,7 @@ There are currently no configuration options for the Room environment.
 | tanksoar.max_sound_distance          |      |        | 7       | Maximum distance for the sound sensor                                                 |
 | tanksoar.missile_reset_threshold     |      |        | 100     | Max amount of updates that can pass without a missile firing before resetting the map |
 
-## terminals
+### terminals
 
 | Path                          | Type    | Values | Default | Comment                                               |
 | ----------------------------- | ------- | ------ | ------- | ----------------------------------------------------- |
@@ -303,16 +303,16 @@ There are currently no configuration options for the Room environment.
 | terminals.passenger_delivered | boolean |        | false   | Passenger successfully delivered (taxi)               |
 | terminals.passenger_pick_up   | boolean |        | false   | Passenger removed from map (taxi)                     |
 
-## Logging
+### Logging
 
 <http://logging.apache.org/log4j/1.2/index.html>
 
-## Map Files
+### Map Files
 
 Maps are now stored in the config/maps/game folder where game is the game type,
 such as eaters.
 
-## Map file
+### Map file
 
 - `objects_file (string)`
     - This file defines objects in the world, see Object File below. The path is
@@ -336,7 +336,7 @@ such as eaters.
         The strings maps to object ids. Separate multiple objects with dashes. Use a
         single dash for an empty cell.
 
-## Objects File
+### Objects File
 
 Objects are under an objects sub-block, and then an id block where the name of
 the block is their id used in the human-readable map file. Objects need a name
@@ -344,34 +344,34 @@ property, which is how they are referred to in the code and logs. The rest of
 the properties are mostly domain specific.
 
 ```
-# <ignored> means that the value is ignored, key presence is used for "true"
-# objects {
-#    +<id> {
-#       name = <name>;
-#       *<p1> = <value>;                     # user property
-#       *<p1> = [<value1>, <value2>];        # user property
-#       ?apply.points = <int>;               # number of points to apply
-#       ?apply.energy = <int>;               # amount of energy to apply
-#       ?apply.energy.shields = <boolean>;   # condition for energy apply
-#       ?apply.health = <int>;               # amount of health to apply
-#       ?apply.health.shields-down = <boolean>; # condition for health apply
-#       ?apply.missiles = <int>;             # number of missiles to apply
-#       ?apply.remove = <boolean>;           # remove on apply
-#       ?box-id = <int>;                     # this box's id number (set after load)
-#       ?apply.reward-info = <boolean>;      # contains reward information
-#       ?apply.reward-info.positive-id = <int>; # correct box id (set after load)
-#       ?apply.reward = <boolean>;           # is reward box
-#       ?apply.reward.correct = <boolean>;   # is the correct box (set randomly after load)
-#       ?apply.reward.positive = <int>;      # reward if correct
-#       ?apply.reward.negative = <int>;      # "reward" if incorrect, different from wrong box
-#       ?apply.reset = <boolean>;            # reset sim on apply
-#       ?apply.properties {                  # these get moved to top level on applyProperties call
-#          ?<p1> = <value>;                  # user apply property
-#          ?<p1> = [<value1>, <value2>];     # user apply property
-#       }
-#       ?update.decay = <int>;               # decay apply.points by this amount on update
-#       ?update.fly-missile = <int>;         # increment update.fly-missile phase on update
-#       ?update.linger = <int>;              # decrement update.linger on update, remove at 0
-#    }
+## <ignored> means that the value is ignored, key presence is used for "true"
+## objects {
+##    +<id> {
+##       name = <name>;
+##       *<p1> = <value>;                     # user property
+##       *<p1> = [<value1>, <value2>];        # user property
+##       ?apply.points = <int>;               # number of points to apply
+##       ?apply.energy = <int>;               # amount of energy to apply
+##       ?apply.energy.shields = <boolean>;   # condition for energy apply
+##       ?apply.health = <int>;               # amount of health to apply
+##       ?apply.health.shields-down = <boolean>; # condition for health apply
+##       ?apply.missiles = <int>;             # number of missiles to apply
+##       ?apply.remove = <boolean>;           # remove on apply
+##       ?box-id = <int>;                     # this box's id number (set after load)
+##       ?apply.reward-info = <boolean>;      # contains reward information
+##       ?apply.reward-info.positive-id = <int>; # correct box id (set after load)
+##       ?apply.reward = <boolean>;           # is reward box
+##       ?apply.reward.correct = <boolean>;   # is the correct box (set randomly after load)
+##       ?apply.reward.positive = <int>;      # reward if correct
+##       ?apply.reward.negative = <int>;      # "reward" if incorrect, different from wrong box
+##       ?apply.reset = <boolean>;            # reset sim on apply
+##       ?apply.properties {                  # these get moved to top level on applyProperties call
+##          ?<p1> = <value>;                  # user apply property
+##          ?<p1> = [<value1>, <value2>];     # user apply property
+##       }
+##       ?update.decay = <int>;               # decay apply.points by this amount on update
+##       ?update.fly-missile = <int>;         # increment update.fly-missile phase on update
+##       ?update.linger = <int>;              # decrement update.linger on update, remove at 0
+##    }
 #}
 ```

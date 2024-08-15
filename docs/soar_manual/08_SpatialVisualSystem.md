@@ -1,6 +1,6 @@
 {{manual_wip_warning}}
 
-# Spatial Visual System
+## Spatial Visual System
 
 
 
@@ -26,7 +26,7 @@ suffer from the frame problem that relational representations have.
 
 ![(a) Typical environment setup without using SVS. (b) Same environment using SVS.](Images/svs-setup.svg)
 
-## The scene graph
+### The scene graph
 
 The primary data structure of SVS is the scene graph. The scene graph is a tree
 in which the nodes represent objects in the scene and the edges represent
@@ -89,7 +89,7 @@ destructively modify the scene graph in a search state using mental imagery
 operations.
 
 
-### svs_viewer
+#### svs_viewer
 
 A viewer has been provided to show the scene graph visually. Run the
 program `svs_viewer -s <PORT>` from the soar/out folder to launch the viewer listening
@@ -101,7 +101,7 @@ substate, first stop drawing the top state with `svs S1.scene.draw off` and then
 draw the desired substate with `svs <STATE ID>.scene.draw on`, where `<STATE ID>`
 is `S7`, etc.
 
-## Scene Graph Edit Language
+### Scene Graph Edit Language
 
 The **Scene Graph Edit Language** (SGEL) is a simple, plain text, line oriented
 language that is used by SVS to modify the contents of the scene graph.
@@ -147,7 +147,7 @@ The `GEOMETRY` argument has two forms:
   Make the node a geometry node with a convex polyhedron shape with the specified
   vertices. Any number of vertices can be listed.
 
-### Examples
+#### Examples
 
 Create a sphere `ball4` with radius 5 at location (4, 4, 0):
 
@@ -183,7 +183,7 @@ Change the color tag on `box7` to green:
 tag change box7 color green
 ```
 
-## Commands
+### Commands
 
 The Soar agent initiates commands in SVS via the **^command** link, similar to semantic
 and episodic memory. These commands allow the agent to modify the scene graph and
@@ -199,7 +199,7 @@ to working memory during the input phase. SVS supports the following commands:
 - `extract` Compute the truth value of spatial relationships in the current scene graph.
 - `extract_once` Same as extract, except it is only computed once and doesn’t update when the scene changes.
 
-### add_node
+#### add_node
 
 This commands adds a new node to the scene graph.
 
@@ -222,7 +222,7 @@ node has a box shape of side length 0.1 and is placed at position (1, 1, 0).
         (S6 ^x 0.1 ^y 0.1 ^z 0.1)
 ```
 
-### copy_node
+#### copy_node
 
 This command creates a copy of an existing node and adds it to the scene graph.
 This copy is not recursive, it only copies the node itself, not its children.
@@ -247,7 +247,7 @@ position (2, 0, 2).
         (P1 ^x 2.0 ^y 0.0 ^z 2.0)
 ```
 
-### delete_node
+#### delete_node
 
 This command deletes a node from the scene graph. Any children will also
 be deleted.
@@ -264,7 +264,7 @@ The following example deletes a node called
       (D1 ^id box5)
 ```
 
-### set_transform
+#### set_transform
 
 This command allows you to change the position, rotation, and/ or scale
 of an existing node. You can specify any combination of the three
@@ -286,7 +286,7 @@ The following example moves and rotates a node called `box5`.
         (R1 ^x 0.0 ^y 0.0 ^z 1.57)
 ```
 
-### set_tag
+#### set_tag
 
 This command allows you to add or change a tag on a node. If a tag with
 the same id already exists, the existing value will be replaced with the
@@ -305,7 +305,7 @@ The following example adds a shape tag to the node `box5`.
       (S6 ^id box5 ^tag_name shape ^tag_value cube)
 ```
 
-### delete_tag
+#### delete_tag
 
 This command allows you to delete a tag from a node.
 
@@ -322,7 +322,7 @@ The following example deletes the shape tag from the node .
       (D1 ^name box5 ^tag_name shape)
 ```
 
-### extract and extract_once
+#### extract and extract_once
 
 This command is commonly used to compute spatial relationships in the scene
 graph. More generally, it puts the **result** of a filter pipeline (described in
@@ -351,7 +351,7 @@ intersecting.  The `^status` and `^result` WMEs are added by SVS when the comman
             (P1 ^a car ^b pole)
 ```
 
-## Filters
+### Filters
 
 **Filters** are the basic unit of computation in SVS. They transform the
 continuous information in the scene graph into symbolic information that
@@ -398,7 +398,7 @@ Notice that a `^status` success is placed on each identifier corresponding to a
 filter. A result WME is placed on the extract command with a single record with
 value **false**.
 
-### Result lists
+#### Result lists
 
 Spatial queries often involve a large number of objects. For example,
 the agent may want to compute whether an object intersects any others in
@@ -433,7 +433,7 @@ convenient than creating a separate command for each pair of nodes, but
 it also allows the intersect filter to answer the query more efficiently using
 special algorithms that can quickly rule out non-intersecting objects.
 
-### Filter List
+#### Filter List
 
 The following is a list of all filters that are included in SVS. You can also
 get this list by using the cli command `svs filters` and get information about a
@@ -491,7 +491,7 @@ largest of them).
   Outputs all the nodes in input set `^a` which have the tag specified by
   `^tag_name` and `^tag_value`.
 
-### Examples
+#### Examples
 
 Select all the objects with a volume between 1 and 2.
 
@@ -552,7 +552,7 @@ Find the smallest object that intersects the table (excluding itself).
             (A3 ^type all_nodes)
 ```
 
-## Writing new filters
+### Writing new filters
 
 SVS contains a small set of generally useful filters, but many users
 will need additional specialized filters for their application. Writing
@@ -563,7 +563,7 @@ new filters for SVS is conceptually simple.
 1.  Register the new class in a global table of all filters ().
 1.  Recompile the kernel.
 
-### Filter subclasses
+#### Filter subclasses
 
 The fact that filter inputs and outputs are lists rather than single
 values introduces some complexity to how filters are implemented.
@@ -577,7 +577,7 @@ implemented as subclasses of the basic `filter` class. When writing custom
 filters, try to inherit from one of these classes instead of from `filter`
 directly.
 
-#### Map filter
+##### Map filter
 
 This is the most straightforward and useful class of filters. A filter
 of this class takes the Cartesian product of all input values in all
@@ -611,7 +611,7 @@ class new_map_filter : public map_filter<double> // templated with output type
 };
 ```
 
-#### Select filter
+##### Select filter
 
 This is very similar to a map filter, except for each input combination
 from the Cartesian product the output is optional. This is useful for
@@ -645,7 +645,7 @@ class new_select_filter : public select_filter<double> // templated with output 
 };
 ```
 
-#### Rank filter
+##### Rank filter
 
 A filter where a ranking is computed for each combination from the Cartesian
 product of the input and only the combination which results in the highest (or
@@ -678,7 +678,7 @@ class new_rank_filter : public rank_filter
 };
 ```
 
-### Generic Node Filters
+#### Generic Node Filters
 
 There are also a set of generic filters specialized for computations
 involving nodes. With these you only need to specify a predicate
@@ -686,7 +686,7 @@ function involving nodes. (Also see filters/base_node_filters.h ).
 
 There are three types of these filters:
 
-#### Node Test Filters
+##### Node Test Filters
 
 These filters involve a binary test between two nodes (e.g. intersection
 or larger). You must specify a test function of the following form:
@@ -703,7 +703,7 @@ For an example of how the following base filters are used, see filters/intersect
   For each input pair (a, b) this outputs node b if .  
   (Can choose to select b if the test is false by calling ).
 
-#### Node Comparison Filters
+##### Node Comparison Filters
 
 These filters involve a numerical comparison between two nodes (e.g.
 distance). You must specify a comparison function of the following form:
@@ -724,7 +724,7 @@ For an example of how the following base filters are used, see filters/distance.
   This outputs the input pair (a, b) for which `node_comparison(a, b)` produces the highest value.
   To instead have the lowest value output call `set_select_highest(true)`.
 
-#### Node Evaluation Filters
+##### Node Evaluation Filters
 
 These filters involve a numerical evaluation of a single node (e.g.
 volume). You must specify an evaluation function of the following form:
@@ -745,7 +745,7 @@ For an example of how the following base filters are used, see filters/volume.cp
   This outputs the input node a for which produces the highest value. To
   instead have the lowest value output call .
 
-## Command line interface
+### Command line interface
 
 The user can query and modify the runtime behavior of SVS using the `svs`
 command. The syntax of this command differs from other Soar commands due to the

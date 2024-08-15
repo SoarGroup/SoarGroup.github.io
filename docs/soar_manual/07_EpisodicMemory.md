@@ -1,6 +1,6 @@
 {{manual_wip_warning}}
 
-# Episodic Memory
+## Episodic Memory
 
 Episodic memory is a record of an agent’s stream of experience. The episodic
 storage mechanism will automatically record episodes as a Soar agent executes.
@@ -18,7 +18,7 @@ determined by numerous parameters that can be controlled and configured via the
 
 Please refer to the [documentation for the `epmem` command](../reference/cli/cmd_epmem.md).
 
-## Working Memory Structure
+### Working Memory Structure
 
 Upon [creation of a new state in working memory](./02_TheSoarArchitecture.md#creating-new-states), the architecture creates the following augmentations to facilitate agent
 interaction with episodic memory:
@@ -39,7 +39,7 @@ The value of the present-id augmentation is an integer and will update to expose
 to the agent the current episode number. This information is identical to what
 is available via the [time statistic](../reference/cli/cmd_stats.md) and the present-id retrieval meta-data (7.3.4).
 
-## Episodic Storage
+### Episodic Storage
 
 Episodic memory records new episodes without deliberate action/consideration by
 the agent.  The timing and frequency of recording new episodes is controlled by
@@ -58,7 +58,7 @@ During the phase of episodic storage, episodic memory tests the value of the
 force parameter; if it has a value other than of off, episodic memory follows
 the force d policy irrespective of the value of the trigger parameter.
 
-### Episode Contents
+#### Episode Contents
 
 When episodic memory stores a new episode, it captures the entire top-state of working
 memory. There are currently two exceptions to this policy:
@@ -74,7 +74,7 @@ via an excluded WME will not be stored. By default, episodic memory excludes the
 epmem and smem structures, to prevent encoding of potentially large and/or frequently
 changing memory retrievals.
 
-### Storage Location
+#### Storage Location
 
 Episodic memory uses SQLite to facilitate efficient and standardized storage and
 querying of episodes. The episodic store can be maintained in memory or on disk
@@ -103,7 +103,7 @@ Note: As of version 9.3.3, Soar now uses a new schema for the episodic memory da
 This means databases from 9.3.2 and below can no longer be loaded. A conversion utility
 will be available in Soar 9.4 to convert from the old schema to the new one.
 
-## Retrieving Episodes
+### Retrieving Episodes
 
 An agent retrieves episodes by creating an appropriate command (we detail the
 types of commands below) on the command link of a state’s epmem structure. At
@@ -140,7 +140,7 @@ A retrieval of the episode would become:
 (<o1> ^name move)
 ```
 
-### Cue-Based Retrievals
+#### Cue-Based Retrievals
 
 Cue-based retrieval commands are used to search for an episode in the store that
 best matches an agent-supplied cue, while adhering to optional modifiers. A cue
@@ -245,7 +245,7 @@ If no episode satisfies the cue(s) and optional modifiers an error is returned:
 
 If an episode is returned, there is additional meta-data supplied (7.3.4).
 
-### Absolute Non-Cue-Based Retrieval
+#### Absolute Non-Cue-Based Retrieval
 
 At time of storage, each episode is attributed a unique time. This is the
 current value of **time** statistic and is provided as the memory-id meta-data
@@ -269,7 +269,7 @@ dynamics, such as forgetting. Thus any integer time greater than 0 and less than
 the current value of the time statistic will be valid. However, if forgetting is
 implemented in future versions, no such guarantee will be made.
 
-### Relative Non-Cue-Based Retrieval
+#### Relative Non-Cue-Based Retrieval
 
 Episodic memory supports the ability for an agent to "play forward" episodes using relative
 non-cue-based retrievals.
@@ -296,7 +296,7 @@ adding/subtracting 1 to the last time (respectively).  However, if an episodic
 store dynamic like forgetting is implemented, these relative commands are
 guaranteed to return the next/previous valid episode (assuming one exists).
 
-### Retrieval Meta-Data
+#### Retrieval Meta-Data
 
 The following list details the WMEs that episodic memory creates in the result
 link of the epmem structure wherein a command was issued:
@@ -352,7 +352,7 @@ episode. In a graph match it is possible to have multiple identifier mappings �
 this map represents the "first" unified mapping (with respect to episodic memory
 algorithms).
 
-## Performance
+### Performance
 
 There are currently two sources of "unbounded" computation: graph matching and
 cue- based queries. Graph matching is combinatorial in the worst case. Thus, if
@@ -376,7 +376,7 @@ in at least one of the cue WMEs. However, a cue that has no match and contains
 WMEs relevant to all episodes will force inspection of all episodes.  Thus,
 worst-case performance will be linear in the number of episodes.
 
-### Performance Tweaking
+#### Performance Tweaking
 
 When using a database stored to disk, several parameters become crucial to
 performance.  The first is **commit** , which controls the number of episodes

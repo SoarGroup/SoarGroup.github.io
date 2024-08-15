@@ -1,8 +1,8 @@
 {{manual_wip_warning}}
 
-# Procedural Knowledge Learning
+## Procedural Knowledge Learning
 
-## Chunking
+### Chunking
 
 Chunking is Soar’s experience-based mechanism for learning new procedural
 knowledge.  Chunking utilizes Soar’s impasse-driven model of problem
@@ -34,7 +34,7 @@ waiting until the impasse is resolved.
 While chunking is a core capability of Soar, procedural learning is disabled by
 default. See section [usage](#usage) for more information about enabling and using chunking.
 
-## Explanation-based Chunking
+### Explanation-based Chunking
 
 Explanation-based chunking improves on previous versions of chunking by learning
 rules that are qualitatively more general and expressive. In fact, any element
@@ -102,7 +102,7 @@ analysis to create more expressive and general rules, which can contain the full
 gamut of tests that hand-written rules can and can have any element variablized.
 <!-- TODO What is gamut? -->
 
-## Overview of the EBC Algorithm
+### Overview of the EBC Algorithm
 
 **Basic concepts**:
 
@@ -117,7 +117,7 @@ gamut of tests that hand-written rules can and can have any element variablized.
 - An element is either a variable, like `<s>` or a literal constant, like `23`,
   `3.3`, or `someString`
 
-### Identity
+#### Identity
 
 Before we can discuss the algorithm, we must first define one of its central
 concepts: *identity*.
@@ -205,7 +205,7 @@ on the identity graph.
 ![Note that the two rows on the bottom indicate when each component occurs during Soar’s processing.](Images/chunking-ebc-components.png)
 
 
-### The Five Main Components of Explanation-Based Chunking
+#### The Five Main Components of Explanation-Based Chunking
 
 1. **Identity analysis**
    This component determines which variables in an explanation trace share the same
@@ -239,7 +239,7 @@ on the identity graph.
 
 The following sections will describe each component in more detail.
 
-## What EBC Does Prior to the Learning Episode
+### What EBC Does Prior to the Learning Episode
 
 While most of the work that explanation-based chunking performs occurs during
 the learning episode, i.e. after a rule in a substate fires and Soar detects
@@ -248,7 +248,7 @@ also occur prior to the learning episode, during problem-solving in the
 substate. The two points when that happens is when a rule fires in a substate
 and when an operator is selected in a substate.
 
-### Identity Assignment and Propagation
+#### Identity Assignment and Propagation
 
 Each instantiation describes the working memory elements that matched each
 condition and the working memory elements and preferences that are created by
@@ -311,7 +311,7 @@ pairs as it performs a backward traversal of the explanation trace and fix the
 missing propagations. It does this by creating and manipulating an identity
 graph that can correctly incorporate all identity relationships.
 
-### Relevant Operator Selection Knowledge Tracking
+#### Relevant Operator Selection Knowledge Tracking
 
 As described in the beginning of this chapter, chunking summarizes the
 processing required to produce the results of subgoals. Traditionally, the
@@ -387,7 +387,7 @@ ROSK to do this and incorporate the necessary operator selection reasoning
 knowledge into the learned rule. For some types of agent designs, including
 operator selection knowledge is needed to ensure correctness.
 
-## What EBC Does During the Learning Episode
+### What EBC Does During the Learning Episode
 
 All of the previously discussed steps occurred during problem-solving in the
 substate as rules matched and operators were selected. It is worth noting that
@@ -399,7 +399,7 @@ Every time a rule fires in a substate, Soar checks to see if any of the working
 memory elements created by the rule qualify as results. This is when the actual
 learning episode begins.
 
-### Calculating the Complete Set of Results
+#### Calculating the Complete Set of Results
 
 A chunk’s actions are built from the results of a subgoal. Aresultis any working memory
 element created in the substate that is linked to a superstate. A working memory element is
@@ -414,7 +414,7 @@ single WME that is linked to a superstate can lead to the creation of a large
 number of results. All of the newly created results become the basis of the
 chunk’s actions.
 
-### Backtracing and the Three Types of Analysis Performed
+#### Backtracing and the Three Types of Analysis Performed
 
 When learning a new rule, EBC performs a dependency analysis of the productions
 that fired in a substate – a process called backtracing. Backtracing works as
@@ -436,7 +436,7 @@ analysis, identity analysis and constraint tracking. The following sections will
 discuss what aspects of the agent’s problem-solving are analyzed during
 backtracing.
 
-#### Operationality Analysis
+##### Operationality Analysis
 
 The traditional core function of chunking’s backtracing is to determine which
 conditions in the working memory trace tested working memory elements accessible
@@ -478,7 +478,7 @@ the trace as a negated condition. In all other cases, the negated condition is
 ignored because the system cannot determine why a working memory element was not
 produced in the subgoal and thus allowed the production to fire.
 
-#### Identity Analysis
+##### Identity Analysis
 
 The first phase of identity analysis, forward identity propagation, occurred as
 rules fired and instantiations were recorded. Unfortunately, forward propagation
@@ -514,7 +514,7 @@ identity graph based on the condition-action pairs it encounters.
    like constants, and will not be variablized. Instead, the matched value will be
    used for that element.
 
-#### Constraint Tracking
+##### Constraint Tracking
 
 Our definition of operationality is very clear and allows us to almost trivially
 determine which conditions we should include in a learned rule, but it does have
@@ -537,14 +537,14 @@ the variables used. For example, if a variable<foo>had the constraint<> <other>,
 EBC would record that the variables that share the identity of<foo>cannot have
 the same value as variables that share the identity of<other>.
 
-### Rule Formation
+#### Rule Formation
 
 ![](Images/chunking-rule-formation.png)
 
 There are seven distinct, sequential stages to rule formation.
 The following sections will give a brief overview of each one.
 
-#### Condition and Action Creation
+##### Condition and Action Creation
 
 This stage creates the basis for the left-hand and right-hand side of the rule.
 To create the initial conditions of the chunk, it copies all conditions in the
@@ -553,7 +553,7 @@ initial conditions contain literal values for each element. To form the actions
 of the chunk, it creates copies of the actions that produced each of the result
 and all children of those results that came along for the ride.
 
-#### Enforcement of Constraints
+##### Enforcement of Constraints
 
 This stage adds all constraints on non-operational conditions that were
 collected during backtracing. As previously described, each constraint is
@@ -572,7 +572,7 @@ the constraint and attach it to a variable in another condition. In this
 example, it would add a< 3to some other condition with an element that ha `<x>`
 ’s identity.
 
-#### Identity-Based Variablization
+##### Identity-Based Variablization
 
 To achieve any useful generality in chunks, identifiers of actual objects must
 be replaced by variables when the chunk is created; otherwise chunks will only
@@ -585,7 +585,7 @@ variables, making sure that elements with the same joined identity are assigned
 the same variable.  This step also makes sure to skip and elements with
 identities that have been flagged as literalized.
 
-#### Merging Redundant Conditions
+##### Merging Redundant Conditions
 
 Any two conditions in the learned rule that share the same identities in all
 three elements can be combined. In such cases, it is logically impossible for
@@ -595,7 +595,7 @@ at least one of the other rules in the explanation trace that had unified the
 two conditions would not have matched.) As a result, EBC can safely merge those
 two conditions without losing generality.
 
-#### Polishing Conditions
+##### Polishing Conditions
 
 EBC polishes the conditions of the learned rule by pruning unnecessary
 constraints on literalized elements and replacing multiple disjunction
@@ -611,7 +611,7 @@ literalized but also has a literal constraint on its value, then the constraint
 is unnecessary and will be thrown out. For example, `<s> ^value{ < 33 23 }` becomes
 `<s> ^value 23`.
 
-#### Validating Rule and Repairing Unconnected Conditions
+##### Validating Rule and Repairing Unconnected Conditions
 
 At this point, the rule is essentially formed. Chunking must now make sure that
 the learned rule is fully operational and can be legally added to production
@@ -632,7 +632,7 @@ Note that there may be multiple paths from a state to the unconnected
 identifier. EBC does a breadth-first search, so it will find one with the
 shortest distance.
 
-#### Re-ordering Conditions
+##### Re-ordering Conditions
 
 Since the efficiency of the Rete matcher depends heavily upon the order of a
 production’s conditions, the chunking mechanism attempts to sort the chunk’s
@@ -645,9 +645,9 @@ these conditions later in the ordering. This is the same process that internally
 reorders the conditions in user- defined productions, as mentioned briefly in
 Section 2.3.1.
 
-## Subtleties of EBC
+### Subtleties of EBC
 
-### Relationship Between Chunks and Justifications
+#### Relationship Between Chunks and Justifications
 
 Chunks are closely related to another type of rule called a justification.
 Justifications are also created when a substate creates a result for a
@@ -676,7 +676,7 @@ chunks and justifications are:
 3. Justifications get removed from production memory as soon as their conditions no
    longer match.
 
-### Chunk Inhibition
+#### Chunk Inhibition
 
 If a newly learned chunk was immediately added to production memory, it would
 immediately match with the same working memory elements that participated in its
@@ -694,7 +694,7 @@ based on the exact set of working memory elements used to create it.
 Note that inhibition does not prevent a newly learned chunk from immediately matching
 other working memory elements that are present and creating a new instantiation.
 
-### Chunks Based on Chunks
+#### Chunks Based on Chunks
 
 When a problem has been decomposed into more than one substate, a single result
 can produce multiple chunks. This process is called bottom-up chunking. The
@@ -706,7 +706,7 @@ chunk match and learn a second chunk (relative to the substate that the chunk
 matched in). This process continues until it learns a chunk that only creates
 working memory elements in the same state that it matched in.
 
-### Mixing Chunks and Justifications
+#### Mixing Chunks and Justifications
 
 If an agent is using the only or except setting, then justifications will be
 built in states where learning is disabled and chunks will be built in states
@@ -724,7 +724,7 @@ the reasoning behind a justification just like you would a chunk, which may be
 important if that justification later participates in the formation a chunk. See
 Section 9.6.3 for more information about the explainer’s settings.
 
-### Generality and Correctness of Learned Rules
+#### Generality and Correctness of Learned Rules
 
 Chunking is intended to produce the most general rule that is also correct.
 
@@ -742,7 +742,7 @@ produces.
 
 Note that an over-general rule is an incorrect rule, but not all incorrect rules are over-general.
 
-### Over-specialization and Over-generalization
+#### Over-specialization and Over-generalization
 
 Explanation-based chunking was pursued to address the main limitation of
 traditional chunk- ing:over-specialized rules that were very specific and could
@@ -763,7 +763,7 @@ While over-specialization may no longer be a common problem, it is still
 possible to get over-general rules. Several of the sources of correctness issues
 listed in the next section can produce over-general rules in certain situations.
 
-### Previous Results and Rule Repair
+#### Previous Results and Rule Repair
 
 An agent may learn a slightly over-specialized rule when EBC repairs a rule that
 has unconnected conditions, which are conditions that have an identifier that
@@ -815,7 +815,7 @@ To detect when this is happening, use the chunk stats command. (See section
 repair. If you instruct the explainer to record the chunk, you can also see
 whether a specific chunk was repaired by looking at the chunk’s individual stats
 
-### Missing Operator Selection Knowledge
+#### Missing Operator Selection Knowledge
 
 If an agent uses rules that create operator preferences to choose amongst
 multiple operators in the substate, it is possible that the reasoning behind
@@ -825,7 +825,7 @@ discussed in greater detail in Section 4.4.2.
 EBC will incorporate relevant operator selection knowledge if you enable the
 chunk setting add-osk, which is off by default. (See Section 9.4.1.5.)
 
-### Generalizing Over Operators Selected Probabilistically
+#### Generalizing Over Operators Selected Probabilistically
 
 If the problem-solving in a substate involves operators that were selected
 probabilistically, chunking will not be able to summarize the agent’s reasoning
@@ -840,7 +840,7 @@ when a probabilistically-selected operator was chosen during problem-solving.
 Until then, agent engineers can disable learning in states that involve such
 reasoning.
 
-### Collapsed Negative Reasoning
+#### Collapsed Negative Reasoning
 
 Over-general chunks can be created when conditions in the explanation trace test
 for the absence of a working memory elements in the substate. Since there is no
@@ -870,7 +870,7 @@ If such chunks are problematic, turning off chunking’s correctness filter
 allow-local-negations will force Soar to reject chunks whose problem-solving
 involved a local negation.
 
-### Problem-Solving That Doesn’t Test The Superstate
+#### Problem-Solving That Doesn’t Test The Superstate
 
 Over-general chunks can be created if a result of a subgoal is dependent on the
 creation of an impasse within the substate. For example, processing in a subgoal
@@ -896,7 +896,7 @@ in the explanation trace, EBC will not build a chunk. The history of this test
 is maintained, so that if the result of the substate is then used to produce
 further results for a superstate, no higher chunks will be built.
 
-### Disjunctive Context Conflation
+#### Disjunctive Context Conflation
 
 An incorrect rule can be learned when multiple rules fire in a substate that
 test different structures in the superstate but create the same WME in the
@@ -925,7 +925,7 @@ If this type of reasoning is needed, agents can move the conflating WME to the
 superstate.  The rule learned would then produce only one result regardless of
 the number of rules that repeatedly created that WME.
 
-### Generalizing knowledge retrieved from semantic or episodic memory
+#### Generalizing knowledge retrieved from semantic or episodic memory
 
 Generalizing problem-solving based on knowledge recalled from an external memory
 system can be problematic for three main reasons.
@@ -959,7 +959,7 @@ system can be problematic for three main reasons.
    the knowledge in a higher-level state rather than the substate in which the
    rule is learned.
 
-### Learning from Instruction
+#### Learning from Instruction
 
 Note that some agent designs, for example an agent that learns by instruction,
 can take advantage of the fact that knowledge recalled from semantic or episodic
@@ -988,7 +988,7 @@ included in the chunk, but the undesired portion of the reason that they matched
 will not be, namely the fact that the superstate knowledge corresponded to
 recalled instructions.
 
-### Determining Which OSK Preferences are Relevant
+#### Determining Which OSK Preferences are Relevant
 
 The following outline describes the logic that happens at each step. For a more
 detailed description of the various filters (but not the ROSK) see Section 2.4.2
@@ -1051,7 +1051,7 @@ The ROSK also affects the conditions of justifications, so the
 `add-desirability-prefs` setting does have an effect on the agent even if
 learning is turned off.
 
-### Generalizing Knowledge From Math
+#### Generalizing Knowledge From Math
 
 and Other Right-Hand Side Functions
 
@@ -1089,7 +1089,7 @@ conditions that test the output of that RHS function will be met. While this
 will make the learned rule more specific, it will also ensure that the rule is
 correct.
 
-### Situations in which a Chunk is Not Learned
+#### Situations in which a Chunk is Not Learned
 
 Soar learns a chunk every time a subgoal produces a result, unless one of the following
 conditions is true:
@@ -1149,9 +1149,9 @@ conditions is true:
    fired within the substate. So, when the substate is removed, those results will
    also be removed.
 
-## Usage
+### Usage
 
-### Overview of the chunk command
+#### Overview of the chunk command
 
 ```
 ===================================================
@@ -1192,7 +1192,7 @@ allow-uncertain-operators* [ ON | off ] ...tested probabilistic operators
 
 See Section 9.4.1 for more detailed information about the chunk command’s settings.
 
-### Enabling Procedural Learning
+#### Enabling Procedural Learning
 
 By default, explanation-based chunking is off.
 
@@ -1223,9 +1223,9 @@ about learning and operator selection knowledge.
 See Section 9.4.1 on page 233 for more information about using the chunk command
 to enable and disable procedural learning.
 
-### Fine-tuning What Your Agent Learns
+#### Fine-tuning What Your Agent Learns
 
-#### Prohibiting known sources of correctness issues
+##### Prohibiting known sources of correctness issues
 
 It is theoretically possible to detect nearly all of the sources of correctness
 issues and prevent rules from forming when those situations are detected. In
@@ -1239,7 +1239,7 @@ can be gleaned indirectly. For example, if the stats show that some rules
 required repair, you know that your agent testing or augmenting a previous
 result in a substate.
 
-#### Using Singletons to Simplify a Rule’s Conditions
+##### Using Singletons to Simplify a Rule’s Conditions
 
 Unlike previous versions of chunking, EBC adds all conditions that tested
 superstate knowledge to a chunk, regardless of whether another condition
@@ -1263,9 +1263,9 @@ singleton command can be used.
 
 See Section 9.4.1 for more information about the chunk singleton command.
 
-### Examining What Was Learned
+#### Examining What Was Learned
 
-#### Printing and Traces
+##### Printing and Traces
 
 **Printing Rules**
 
@@ -1304,7 +1304,7 @@ can be acquired using the explain mechanism as described in section 9.6.3 on
 page 269. That is highly recommended over printing the backtracing trace
 messages.
 
-#### Chunking Statistics
+##### Chunking Statistics
 
 Chunking automatically compiles various statistics about the procedural rule
 learning that an agent performs. To access these stats, use the command `chunk`,
@@ -1388,7 +1388,7 @@ Skipped because MAX-DUPES exceeded for rule this decision cycle 0
 Note that similar statistics for a specific learned rule can be acquired using the explain
 mechanism as described in section 9.6.3 on page 269.
 
-#### Interrupting Execution To Examine Learning
+##### Interrupting Execution To Examine Learning
 
 - To stop Soar after each successful learning episode:
 ```
@@ -1408,7 +1408,7 @@ chunk explain-interrupt on
 For more information about how to record when a specific rule is learned, see section
 on page 269 that describes the explain mechanism.
 
-## Explaining Learned Procedural Knowledge
+### Explaining Learned Procedural Knowledge
 
 While explanation-based chunking makes it easier for people to now incorporate
 learning into their agents, the complexity of the analysis it performs makes it
@@ -1563,7 +1563,7 @@ not have occurred.
 This feature is not yet implemented. You can use explain stats to see if any
 transitive constraints were added to a particular chunk.
 
-#### explain identity
+##### explain identity
 
 explain identity will show the mappings from variable identities to identity
 sets. If avail- able, the variable in a chunk that an identity set maps to will
@@ -1574,7 +1574,7 @@ identity analysis. To see the identity set mappings for other sets, change the
 only-chunk-identities setting to `off`.
 
 ```
-# soar % explain identity
+## soar % explain identity
 
 - # Variablization Identity to Identity Set Mappings -
 
@@ -1652,7 +1652,7 @@ experimental and in beta.
 
 ![A colored visualization of an explanation trace](Images/chunking-trace-identity.png)
 
-## Visualizing the Explanation
+### Visualizing the Explanation
 
 The `visualize` command can generate two graphical representations of the
 analysis that chunking performed to learn a rule. While the explainer provides
@@ -1687,7 +1687,7 @@ free third-party tools, and both must be available on your path. To date, the
 visualizer has only been tested on Mac and Linux. It is possible that certain
 systems may not allow Soar to launch an external program.
 
-## Footnotes
+### Footnotes
 - <a name="footnote1">[1]</a>: Even though they don’t contain variables,
    justifications can be over-general because they don’t incorporate enough
    knowledge, for example, operator selection knowledge.

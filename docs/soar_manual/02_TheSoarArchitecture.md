@@ -1,6 +1,6 @@
 {{manual_wip_warning}}
 
-# The Soar Architecture
+## The Soar Architecture
 
 This chapter describes the Soar architecture. It covers all aspects of Soar except for the
 specific syntax of Soar’s memories and descriptions of the Soar user-interface commands.
@@ -10,7 +10,7 @@ then goes into more detail for each of Soar’s main memories (working memory, p
 memory, and preference memory) and processes (the decision procedure, learning, and input
 and output).
 
-## An Overview of Soar
+### An Overview of Soar
 
 The design of Soar is based on the hypothesis that all deliberate goal-oriented behavior can
 be cast as the selection and application of operators to a state. A state is a representation
@@ -43,7 +43,7 @@ A Soar program contains the knowledge to be used for solving a specific task (or
 including information about how to select and apply operators to transform the states of the
 problem, and a means of recognizing that the goal has been achieved.
 
-### Types of Procedural Knowledge in Soar
+#### Types of Procedural Knowledge in Soar
 
 Soar’s procedural knowledge can be categorized into four distinct types of knowledge:
 
@@ -69,7 +69,7 @@ Note that state elaborations can indirectly affect operator selection and
 application by creating knowledge that the proposal and application rules match
 on.
 
-### Problem-Solving Functions in Soar
+#### Problem-Solving Functions in Soar
 
 These problem-solving functions are the primitives for generating behavior that is relevant to
 the current situation: elaborating the state, proposing candidate operators, comparing the
@@ -105,7 +105,7 @@ a Soar program may do a lookahead search to compare candidate operators if compa
 knowledge is not directly available. Impasses and substates are described in more detail in
 [Impasses and Substates](#impasses-and-substates).
 
-### An Example Task: The Blocks-World
+#### An Example Task: The Blocks-World
 
 We will use a task called the blocks-world as an example throughout this manual. In the
 blocks-world task, the initial state has three blocks named A, B, and C on a table; the
@@ -130,7 +130,7 @@ each operator is represented with the following information:
 The goal in this task is to stack the blocks so that C is on the table, with
 block B on top of block C, and block A on top of block B.
 
-### Representation of States, Operators, and Goals
+#### Representation of States, Operators, and Goals
 
 The initial state in our blocks-world task - before any operators have been proposed or
 selected - is illustrated in Figure 2.3.
@@ -166,7 +166,7 @@ within the rule’s programming.
 <!-- Figure 2.4 -->
 ![An abstract illustration of working memory in the blocks world after the first operator has been selected.](Images/ab-wmem2.svg)
 
-### Proposing candidate operators
+#### Proposing candidate operators
 
 As a first step in selecting an operator, one or more candidate operators are
 proposed.  Operators are proposed by rules that test features of the current
@@ -175,7 +175,7 @@ distinct (but similar) operators for the initial state as illustrated in Figure
 2.5. These operators correspond to the six different actions that are possible
 given the initial state.
 
-### Comparing candidate operators: Preferences
+#### Comparing candidate operators: Preferences
 
 The second step Soar takes in selecting an operator is to evaluate or compare
 the candidate operators. In Soar, this is done via rules that test the proposed
@@ -189,7 +189,7 @@ are discussed in detail in [how preferences are evaluated to decide an operator]
 
 ![The six operators proposed for the initial state of the blocks world each move one block to a new location.](Images/blocks-proposal.svg)
 
-### Selecting a single operator: Decision
+#### Selecting a single operator: Decision
 
 Soar attempts to select a single operator as a decision, based on the
 preferences available for the candidate operators. There are four different
@@ -208,7 +208,7 @@ solving, and a new substate is created. Impasses are discussed in [Impasses and 
 In our blocks-world example, the second case holds, and Soar can select one of the operators
 randomly
 
-### Applying the operator
+#### Applying the operator
 
 An operator applies by making changes to the state; the specific changes that
 are appropriate depend on the operator and the current state.
@@ -249,7 +249,7 @@ The blocks-world task could also be implemented using an external simulator. In 
 the Soar program does not update all the "on top" and "clear" relations; the updated state
 description comes from the simulator.
 
-### Making inferences about the state
+#### Making inferences about the state
 
 Making monotonic inferences about the state is the other role that Soar long-term procedural
 knowledge may fulfill. Such elaboration knowledge can simplify the encoding of operators
@@ -263,7 +263,7 @@ of a particular block; if there is no such "on top", the block is "clear". When 
 application creates a new "on top", the corresponding elaboration retracts, and the block is
 no longer "clear".
 
-### Problem Spaces
+#### Problem Spaces
 
 If we were to construct a Soar system that worked on a large number of different types of
 problems, we would need to include large numbers of operators in our Soar program. For
@@ -298,7 +298,7 @@ The remaining sections in this chapter describe the memories and processes of So
 ing memory, production memory, preference memory, Soar’s execution cycle (the decision
 procedure), learning, and how input and output fit in.
 
-## Working memory: The Current Situation
+### Working memory: The Current Situation
 
 Soar represents the current problem-solving situation in its working memory. Thus, working
 memory holds the current state and operator and is Soar’s "short-term" knowledge, reflecting
@@ -408,7 +408,7 @@ productions, which allows a Soar program to reason about candidates operators to
 determine which one should be selected. Preference memory and the different
 types of preferences will be discussed in Section [Preference Memory: Selection Knowledge](02_TheSoarArchitecture.md#preference-memory-selection-knowledge).
 
-## Production Memory: Long-term Procedural Knowledge
+### Production Memory: Long-term Procedural Knowledge
 
 Soar represents long-term procedural knowledge as **productions** that are stored in
 *production memory*, illustrated in Figure 2.7. Each production has a set of
@@ -417,7 +417,7 @@ memory, the production *fires*, and the actions are performed.
 
 ![An abstract view of production memory. The productions are not related to one another.](Images/ab-prodmem.svg)
 
-### The structure of a production
+#### The structure of a production
 
 In the simplest form of a production, conditions and actions refer directly to the presence
 (or absence) of objects in working memory. For example, a production might say:
@@ -443,7 +443,7 @@ most users. However, you may print your productions to the screen or save them i
 they are not in the order that you expected them to be, it is likely that the conditions have
 been reordered by Soar.
 
-#### Variables in productions and multiple instantiations
+##### Variables in productions and multiple instantiations
 
 In the example production above, the names of the blocks are "hardcoded", that is, they are
 named specifically. In Soar productions, variables are used so that a production can apply
@@ -471,7 +471,7 @@ must the objects referred to in a production’s conditions. That is, one condit
 a state object *and* all other conditions must test that same state or objects that are linked
 to that state.
 
-### Architectural roles of productions
+#### Architectural roles of productions
 
 Soar productions can fulfill the following four roles, by retrieving 
 [different types of procedural knowledge](#types-of-procedural-knowledge-in-soar):
@@ -488,7 +488,7 @@ structure of each production and classifies the rules automatically based on
 whether they propose and compare operators, apply operators, or elaborate the
 state.
 
-### Production Actions and Persistence
+#### Production Actions and Persistence
 
 Generally, actions of a production either create preferences for operator selection, or cre-
 ate/remove working memory elements. For operator proposal and comparison, a production
@@ -536,7 +536,7 @@ working memory elements and preferences may be removed at the same time. (Of cou
 all this doesn’t happen literally at the same time, but the order of firings and retractions is
 unimportant, and happens in parallel from a functional perspective.)
 
-## Preference Memory: Selection Knowledge
+### Preference Memory: Selection Knowledge
 
 The selection of the current operator is determined by the **preferences** in
 *preference memory*. Preferences are suggestions or imperatives about the current
@@ -554,7 +554,7 @@ example to say that the value is "best".
 Preferences remain in preference memory until removed for one of the reasons previously
 discussed in [Production Actions and Persistence](#production-actions-and-persistence).
 
-### Preference Semantics
+#### Preference Semantics
 
 This section describes the semantics of each type of preference. More details on the preference
 resolution process are provided in [How preferences are evaluated to decide an operator](#how-preferences-are-evaluated-to-decide-an-operator).
@@ -646,7 +646,7 @@ Preferences can be confusing; for example, there can be two suggested values tha
 or there may be one preference to say that value A is better than valueB and a second
 preference to say that value B is better than valueA.
 
-### How preferences are evaluated to decide an operator
+#### How preferences are evaluated to decide an operator
 
 During the decision phase, operator preferences are evaluated in a sequence of eight steps,
 in an effort to select a single operator. Each step handles a specific type of preference, as
@@ -742,7 +742,7 @@ candidates that were passed into the IndifferentFilter. Otherwise, the candidate
 mutually indifferent, in which case an operator is chosen according to the method set
 by the [`decide indifferent-selection` command](../reference/cli/cmd_decide.md).
 
-## Soar’s Execution Cycle: Without Substates
+### Soar’s Execution Cycle: Without Substates
 
 The execution of a Soar program proceeds through a number of decision cycles. Each
 cycle has five phases:
@@ -793,7 +793,7 @@ operator is not selected until the next decision phase, when all knowledge has h
 to be retrieved. In other words, if, during the *Apply* phase, the production(s) that proposed
 the selected operator retract, that *Apply* phase will immediately end.
 
-## Input and Output
+### Input and Output
 
 Many Soar users will want their programs to interact with a real or simulated environment.
 For example, Soar programs may control a robot, receiving sensory inputs and sending
@@ -845,7 +845,7 @@ ApplicationPhase
       RetractNewlyUnmatchedProductions;
 ```
 
-## Impasses and Substates
+### Impasses and Substates
 
 When the decision procedure is applied to evaluate preferences and determine the
 operator augmentation of the state, it is possible that the preferences are
@@ -856,24 +856,24 @@ if, for instance, operator A is preferred to operator B, and operator B is prefe
 to operator A. Since preferences are generated independently across different
 production instantiations, there is no guarantee that they will be consistent.
 
-### Impasse Types
+#### Impasse Types
 
 There are four types of impasses that can arise from the preference scheme.
 
-#### Tie impasse
+##### Tie impasse
 
 A *tie* impasse arises if the preferences do not distinguish between two or more
 operators that have `acceptable` preferences. If two operators both have best or
 worst preferences, they will tie unless additional preferences distinguish
 between them.
 
-#### Conflict impasse
+##### Conflict impasse
 
 A *conflict* impasse arises if at least two values have conflicting better or
 worse preferences (such as A is better than B and B is better than A) for an operator,
 and neither one is rejected, prohibited, or required.
 
-#### Constraint-failure impasse
+##### Constraint-failure impasse
 
 A *constraint-failure* impasse arises if there is more than one `required` value for
 an operator, or if a value has both a `require` and a `prohibit` preference. These
@@ -881,7 +881,7 @@ preferences represent constraints on the legal selections that can be made for a
 decision and if they conflict, no progress can be made from the current
 situation and the impasse cannot be resolved by additional preferences.
 
-#### No-change impasse
+##### No-change impasse
 A *no-change* impasse arises if a new operator is not selected during
 the decision procedure. There are two types of no-change impasses: 
 
@@ -904,7 +904,7 @@ because one of the four problem-solving functions (described in
 [Problem-Solving function in Soar](#problem-solving-functions-in-soar)) 
 was incomplete.
 
-### Creating New States
+#### Creating New States
 
 Soar handles these inconsistencies by creating a new state, called a **substate** in which the
 goal of the problem solving is to resolve the impasse. Thus, in the substate, operators will
@@ -942,7 +942,7 @@ although problem-solving activity will tend to focus on the most recently create
 However, problem solving is active at all levels, and productions that match at any level will
 fire.
 
-### Results
+#### Results
 
 In order to resolve impasses, subgoals must generate results that allow the problem solving
 at higher levels to proceed. The **results** of a subgoal are the working memory elements and
@@ -971,7 +971,7 @@ and is linked to the superstate (and, through the superstate, is linked to the t
 The substructures of the operator then become results because the operator’s identifier is
 now linked to the superstate.
 
-### Justifications: Support for results
+#### Justifications: Support for results
 
 Recall from section [Production Actions and
 Persistance](#production-actions-and-persistence) that WMEs with *i-support*
@@ -1021,7 +1021,7 @@ Sections [Operational Analysis](./04_ProceduralKnowledgeLearning.md#operationali
 [Collapsed Negative Reasoning](./04_ProceduralKnowledgeLearning.md#collapsed-negative-reasoning) for
 details).
 
-### Chunking: Learning Procedural Knowledge
+#### Chunking: Learning Procedural Knowledge
 
 When an operator impasse is resolved, it means that Soar has, through problem solving,
 gained access to knowledge that was not readily available before. Therefore, when an impasse
@@ -1050,7 +1050,7 @@ chunk, whenever the agent encounters the same situation again as that which resu
 original impasse, it can simply fire the chunk to generate the same result previously derived,
 preempting the need for a substate and repeated deliberate problem solving.
 
-### The calculation of o-support
+#### The calculation of o-support
 
 This section provides a more detailed description of when an action is given
 o-support by an instantiation.<sup>[5](#footnote5)</sup> The content here is
@@ -1126,7 +1126,7 @@ sp {operator*augmentation*application
 In such cases, both receive i-support. Soar will print a warning on firing this production,
 because this is considered bad coding style.
 
-### Removal of Substates: Impasse Resolution
+#### Removal of Substates: Impasse Resolution
 
 Problem solving in substates is an important part of what Soar *does*, and an
 operator impasse does not necessarily indicate a problem in the Soar program.
@@ -1139,7 +1139,7 @@ Soar program, how they may be eliminated during execution without being
 resolved, and some tips on how to modify a Soar program to prevent a specific
 impasse from occurring in the first place.
 
-#### Resolving Impasses
+##### Resolving Impasses
 
 An impasse is *resolved* when processing in a subgoal creates results that lead to the selection
 of a new operator for the state where the impasse arose. When an operator impasse is
@@ -1169,7 +1169,7 @@ that create `acceptable` or `require` preferences for operators.
 productions that apply the operator, change the state so the operator proposal
 no longer matches, or cause other operators to be proposed and preferred.
 
-#### Eliminating Impasses
+##### Eliminating Impasses
 
 An impasse is resolved when results are created that allow progress to be made in the state
 where the impasse arose. In Soar, an impasse can be *eliminated* (but not resolved) when
@@ -1184,7 +1184,7 @@ mine whether it should move block A onto block C or block B onto block C in its 
 situation. If a child suddenly throws block A out a window, this problem solving becomes
 irrelevant, and the impasse is eliminated.
 
-#### Regenerating Impasses
+##### Regenerating Impasses
 
 An impasse is regenerated when the problem solving in the subgoal becomes
 inconsistent with the current situation. During problem solving in a subgoal,
@@ -1224,7 +1224,7 @@ the dependency set, nor do o-supported results. Thus, only subgoals that involve
 the creation of internal o-support working memory elements risk regeneration,
 and then only when the basis for the creation of those elements changes.
 
-#### Substate Removal
+##### Substate Removal
 
 Whenever a substate is removed, all working memory elements and preferences that were
 created in the substate that are not results are removed from working memory. In Figure
@@ -1238,7 +1238,7 @@ they are no longer linked to the subgoal stack. The `acceptable` preferences for
 linked to state `S2`, they will stay in working memory until `S2` is removed (or until they are
 retracted or rejected).
 
-### Soar’s Cycle: With Substates
+#### Soar’s Cycle: With Substates
 
 When there are multiple substates, Soar’s cycle remains basically the same but has a few
 minor changes.
@@ -1255,7 +1255,7 @@ at higher levels can resolve impasses and thus eliminate lower states before the
 at the lower level ever fire. Thus, whenever a level in the state stack is reached, all production
 activity is guaranteed to be consistent with any processing that has occurred at higher levels.
 
-### Removal of Substates: The Goal Dependency Set
+#### Removal of Substates: The Goal Dependency Set
 
 This subsection describes the Goal Dependency Set (GDS) with discussions on the motivation
 for the GDS and behavioral consequences of the GDS from a developer/modeler’s point of
@@ -1263,7 +1263,7 @@ view. It goes into greater detail than might be beneficial for someone becoming 
 the general operation of Soar for the first time. Readers may skip this section and return
 later if desired.
 
-#### Why the GDS was needed
+##### Why the GDS was needed
 
 As a symbol system, Soar attempts to approximate a true knowledge level but will
 necessarily always fall short. We can informally think of the way in which Soar
@@ -1324,7 +1324,7 @@ identify and respond to inconsistencies automatically. The knowledge designer th
 not have to consider potential inconsistencies between local, o-supported WMEs and the
 context.
 
-#### Behavior-level view of the Goal Dependency Set
+##### Behavior-level view of the Goal Dependency Set
 
 The following discussion covers what the GDS does, and how that impacts
 production knowledge design and implementation.
@@ -1428,7 +1428,7 @@ the GDS interrupts the processing by removing the state. While this may seem lik
 severe over-reaction, formal and empirical analysis have suggested that this solution is less
 computationally expensive than attempting to identify the specific dependent assumption.
 
-## Footnotes
+### Footnotes
 
 - <a name="footnote1">[1]</a>: In this blocks-world task, the table always has
    room for another block, so it is represented as always being "clear".

@@ -1,6 +1,6 @@
 {{manual_wip_warning}}
 
-# The Soar User Interface
+## The Soar User Interface
 
 This chapter describes the set of user interface commands for Soar. All
 commands and examples are presented as if they are being entered at the
@@ -33,7 +33,7 @@ For a concise overview of the Soar interface functions, see the Function
 Summary and Index on page . This index is intended to be a quick
 reference into the commands described in this chapter.
 
-## Notation
+### Notation
 
 The notation used to denote the syntax for each user-interface command
 follows some general conventions:
@@ -62,7 +62,7 @@ special mechanism have been added to maintain backwards compatibility
 with old Soar commands. As a result, many of the sub-commands of the
 newer commands may use different styles of arguments.
 
-## Basic Commands for Running Soar
+### Basic Commands for Running Soar
 
 This section describes the commands used to start, run and stop a Soar
 program; to invoke on-line help information; and to create and delete
@@ -158,7 +158,7 @@ The specific commands described in this section are:
 
 These commands are all frequently used anytime Soar is run.
 
-## Procedural Memory Commands
+### Procedural Memory Commands
 
 This section describes the commands used to create and delete Soar
 productions, to see what productions will match and fire in the next
@@ -211,7 +211,7 @@ find** is especially useful when the number of productions loaded is high.
 fire. **production watch** is related to **wm watch** , but applies only to
 specific, named productions.
 
-## Short-term Memory Commands
+### Short-term Memory Commands
 
 This section describes the commands for interacting with working memory
 and preference memory, seeing what productions will match and fire in
@@ -257,7 +257,7 @@ complex). **print –gds** is useful for examining the goal dependency set
 when subgoals seem to be disappearing unexpectedly. **preferences** is
 used to examine which candidate operators have been proposed.
 
-## Learning
+### Learning
 
 This section describes the commands for enabling and configuring Soar’s
 mechanisms of chunking and reinforcement learning. The specific commands
@@ -270,7 +270,7 @@ described in this section are:
 - [rl](../reference/cli/cmd_rl.md#rl)  
   Get/Set RL parameters and statistics.
 
-## Long-term Declarative Memory
+### Long-term Declarative Memory
 
 This section describes the commands for enabling and configuring Soar’s
 long-term semantic memory and episodic memory systems. The specific
@@ -282,7 +282,7 @@ commands described in this section are:
 - [epmem](../reference/cli/cmd_epmem.md#epmem)  
   Get/Set episodic memory parameters and statistics.
 
-## Other Debugging Commands
+### Other Debugging Commands
 
 This section describes the commands used primarily for debugging or to
 configure the trace output printed by Soar as it runs. Many of these
@@ -362,7 +362,7 @@ Of these commands, **trace** is the most often used (and the most complex).
 **output print-depth** is related to the **print** command. **stats** is useful
 *for understanding how much work Soar is doing.
 
-## File System I/O Commands
+### File System I/O Commands
 
 This section describes commands which interact in one way or another
 with operating system input and output, or file I/O. Users can

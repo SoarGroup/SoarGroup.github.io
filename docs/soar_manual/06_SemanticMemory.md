@@ -1,7 +1,7 @@
 <!-- markdownlint-disable MD041 -->
 {{manual_wip_warning}}
 
-# Semantic Memory
+## Semantic Memory
 
 Soar’s semantic memory is a repository for long-term declarative knowledge,
 supplement- ing what is contained in short-term working memory (and production
@@ -21,7 +21,7 @@ performance](#performance). The detailed behavior of semantic memory is
 determined by numerous parameters that can be controlled and configured via the
 [`smem` command](../reference/cli/cmd_smem.md).
 
-## Working Memory Structure
+### Working Memory Structure
 
 Upon creation of a new state in working memory (see
 [Impasse Types](02_TheSoarArchitecture.md#impasse-types);
@@ -43,7 +43,7 @@ knowledge
 should not remove augmentations of the `result` structure directly, as semantic
 memory will maintain these WMEs.
 
-## Knowledge Representation
+### Knowledge Representation
 
 The representation of knowledge in semantic memory is similar to that in
 [working memory](02_TheSoarArchitecture.md#working-memory-the-current-situation)
@@ -74,13 +74,13 @@ $6 + 7 = 13$ (or, rather, 3, carry 1, in context of multi-column arithmetic).
 
 ![Example long-term identifier with four augmentations.](Images/smem-concept.svg)
 
-### Integrating Long-Term Identifiers with Soar
+#### Integrating Long-Term Identifiers with Soar
 
 Integrating long-term identifiers in Soar presents a number of theoretical and
 implementation challenges. This section discusses the state of integration with
 each of Soar’s memories/learning mechanisms.
 
-#### Working Memory
+##### Working Memory
 
 Long-term identifiers themselves never exist in working memory. Rather,
 instances of long term memories are loaded into working memory as STIs through
@@ -104,23 +104,23 @@ what the actual stored memory is.
     added after retrieval, would always be merged under the same ID, unless
     deep-copy was used to make a duplicate short-term memory.
 
-#### Procedural Memory
+##### Procedural Memory
 
 Soar productions can use various conditions to test whether an STI is
 associated with an LTI or whether two STIs are linked to the same LTI (see
 [Predicates for Values](03_SyntaxOfSoarPrograms.md#predicates-for-values)). LTI
 names (e.g. `@6`) may not appear in the action side of productions.
 
-#### Episodic Memory
+##### Episodic Memory
 
 [Episodic memory](07_EpisodicMemory.md) faithfully captures LTI-linked
 STIs, including the episode of transition. Retrieved episodes contain STIs as
 they existed during the episode, regardless of any changes to linked LTIs that
 transpired since the episode occurred.
 
-## Storing Semantic Knowledge
+### Storing Semantic Knowledge
 
-### Store command
+#### Store command
 
 An agent stores a long-term identifier in semantic memory by creating a
 `^store` command: this is a WME whose identifier is the command link of a
@@ -153,7 +153,7 @@ augmentations `^A do` `^B re` `^C mi`, and a `store` command stored short-term
 identifier `L35` which was linked to `@5` but had only the augmentation
 `^D fa`, the LTI `@5` would be changed to only have `^D fa`.
 
-### Store-new command
+#### Store-new command
 
 The `^store-new` command structure is just like the `^store` command, except
 that smem will always store the given memory as an entirely new structure,
@@ -168,7 +168,7 @@ chunking to backtrace through a stored memory in a manner that will be
 consistent with a later state of memory when the newly stored LTI is retrieved
 again.
 
-### User-Initiated Storage
+#### User-Initiated Storage
 
 Semantic memory provides agent designers the ability to store semantic
 knowledge via the `add` switch of the [`smem` command](../reference/cli/cmd_smem.md).
@@ -193,7 +193,7 @@ augmentation will each become an LTI with two constant attribute/value pairs.
 Manual storage can be arbitrarily complex and use standard dot-notation. The add
 command also supports hardcoded LTI ids such as `@1` in place of variables.
 
-### Storage Location
+#### Storage Location
 
 Semantic memory uses SQLite to facilitate efficient and standardized storage
 and querying of knowledge. The semantic store can be maintained in memory or on
@@ -233,7 +233,7 @@ optimization parameter (see Section [Performance](#performance)) will have an
 affect on whether databases on disk can be opened while the Soar kernel is
 running.
 
-## Retrieving Semantic Knowledge
+### Retrieving Semantic Knowledge
 
 An agent retrieves knowledge from semantic memory by creating an appropriate
 command (we detail the types of commands below) on the `command` link of a
@@ -256,7 +256,7 @@ aspect of the command structure changes (via addition/removal of WMEs). When
 this occurs, the result structure is cleared and the new command (if one
 exists) is processed.
 
-### Non-Cue-Based Retrievals
+#### Non-Cue-Based Retrievals
 
 A non-cue-based retrieval is a request by the agent to reflect in working
 memory the current augmentations of an LTI in semantic memory. The command WME
@@ -282,7 +282,7 @@ Otherwise, two new WMEs will be placed on the result structure:
 All augmentations of the long-term identifier in semantic memory will be
 created as new WMEs in working memory.
 
-### Cue-Based Retrievals
+#### Cue-Based Retrievals
 
 A cue-based retrieval performs a search for a long-term identifier in semantic
 memory whose augmentations exactly match an agent-supplied cue, as well as
@@ -406,7 +406,7 @@ The cue-based retrieval process can be further tempered using optional modifiers
     -   `max` The maximum value for the attribute
     -   `min` The minimum value for the attribute
 
-#### Activation
+##### Activation
 
 When an agent issues a cue-based retrieval and multiple LTIs match the cue, the
 LTI which semantic memory provides to working memory as the result is the LTI
@@ -508,7 +508,7 @@ with relevant knowledge in response to a query. However, to provide an agent
 with more context-relevant results as opposed to results based only on
 historical usage, one must use spreading activation.
 
-### Retrieval with Depth
+#### Retrieval with Depth
 
 For either cue-based or non-cue-based retrieval, it is possible to retrieve a
 long-term identifier with additional depth. Using the **depth** parameter
@@ -554,7 +554,7 @@ working memory.
 Depth can incur a large cost depending on the specified depth and the
 structures stored in semantic memory.
 
-## Performance
+### Performance
 
 Initial empirical results with toy agents show that semantic memory queries
 carry up to a $40\ \%$ overhead as compared to comparable rete matching.
@@ -571,7 +571,7 @@ Once the number of long-term identifiers overcomes initial overhead (about 1000
 WMEs), initial empirical study shows that semantic storage requires far less
 than 1KB per stored WME.
 
-### Math queries
+#### Math queries
 
 There are some additional performance considerations when using math queries
 during retrieval. Initial testing indicates that conditional queries show the
@@ -581,7 +581,7 @@ Superlative queries will often show a worse result than similar non-superlative
 queries, because the current implementation of semantic memory requires them to
 iterate over any memory that matches all other involved cues.
 
-### Performance Tweaking
+#### Performance Tweaking
 
 When using a database stored to disk, several parameters become crucial to
 performance. The first is **lazy-commit** , which controls when database
