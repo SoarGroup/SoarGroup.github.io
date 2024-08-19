@@ -14,7 +14,11 @@ and follow the [quick start guide](home/QuickStart.md).
 
 *   [**Soar 9.6.3 available for download**](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/SoarSuite_{{soar_version}}-Multiplatform.zip):
 This release of Soar contains ergonomic improvements to the debugger and Soar CLI,
-lots of new VisualSoar features, and plenty of bug fixes and stability improvements.
+lots of new VisualSoar features, and plenty of bug fixes and stability
+improvements. Note: if you are a Mac user with an Intel processor and you
+downloaded the release prior to August 19, 2024, then you will need to
+re-download. There was an issue with the setup script for Mac/Intel users which
+would prevent running Soar.
 *   **44th Soar Workshop 2024** This year’s Soar workshop will be held on May 29,
 2024, at the University of Michigan’s Beyster Building on North Campus in Ann
 Arbor, MI. It will be a hybrid workshop, and remote presentations will be possible.
