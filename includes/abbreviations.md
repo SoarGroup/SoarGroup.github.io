@@ -14,3 +14,5 @@
 *[EpMem]: Episodic Memory
 *[ECR]: Expected Current Reward
 *[EFR]: Expected Future Reward
+*[EBC]: Explanation-based Chunking
+*[ROSK]: Relevant Operator Selection Knowledge

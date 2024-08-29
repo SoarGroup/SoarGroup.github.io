@@ -1938,7 +1938,7 @@ After this rule fires, working memory might look like:
 `(S1 ^heading 526.432 ^true-heading 166.5)`.
 
 **size** — This function returns an integer symbol whose value is the count of
-WME aug- mentations on a given ID argument. Providing a non-ID argument results
+WME augmentations on a given ID argument. Providing a non-ID argument results
 in an error. For example:
 
 ```Soar
