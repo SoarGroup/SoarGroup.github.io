@@ -4,7 +4,7 @@
 # The Syntax of Soar Programs
 
 This chapter describes in detail the syntax of elements in working memory,
-preference mem- ory, and production memory, and how impasses and I/O are
+preference memory, and production memory, and how impasses and I/O are
 represented in working memory and in productions. Working memory elements and
 preferences are created as Soar runs, while productions are created by the user
 or through chunking. The bulk of this chapter explains the syntax for writing
@@ -115,7 +115,7 @@ to find a specific attribute.
 Working memory is a set, so that at any time, there are never duplicate versions
 of working memory elements. However, it is possible for several working memory
 elements to share the same identifier and attribute but have different values.
-Such attributes are called multi- valued attributes or _multi-attributes_. For
+Such attributes are called multi-valued attributes or _multi-attributes_. For
 example, state `S1`, above, has two attributes that are multi-valued: `thing`
 and `ontop`.
 
@@ -157,7 +157,7 @@ _timetag_.
 ### Acceptable preferences in working memory
 
 The `acceptable` preferences for operators appear in working memory as
-identifier-attribute- value-preference quadruples. No other preferences appear
+identifier-attribute-value-preference quadruples. No other preferences appear
 in working memory. A template for an `acceptable` preference in working memory
 is:
 
@@ -591,7 +591,7 @@ sp {example*lti*predicates
 
 In this production,`<orig-sti>`, is tested for whether it is linked to some LTI.
 It is also compared against `<result-sti>`(a working memory element retrieved
-from long-term mem- ory and known to be linked to an LTI) to see if the two
+from long-term memory and known to be linked to an LTI) to see if the two
 elements point to the same long-term memory. Note the the `@+` in this example
 is actually unnecessary, since the `{ @ <orig-sti> <result-sti> }` test will
 fail to match if either value tested is not linked to an LTI.
@@ -719,7 +719,7 @@ On the other hand, the condition:
 ```
 
 would match only if there is no object in working memory that matches all three
-attribute- value tests.
+attribute-value tests.
 
 ##### Example Production
 
@@ -809,7 +809,7 @@ That is, "not (A and B and C)" becomes "(not A) or (not B) or (not C)".
 #### Multi-valued attributes
 
 An object in working memory may have multiple augmentations that specify the
-same at- tribute with different values; these are called multi-valued
+same attribute with different values; these are called multi-valued
 attributes, or multi-attributes for short. To shorten the specification of a
 condition, tests for multi-valued attributes can be shortened so that the value
 tests are together.
@@ -1394,7 +1394,7 @@ The identifier and value will always be variables, such as
 
 The preference notation appears similar to the predicate tests that appear on
 the left-hand side of productions, but has very different meaning. Predicates
-cannot be used on the right- hand side of a production and you cannot restrict
+cannot be used on the right-hand side of a production and you cannot restrict
 the bindings of variables on the right-hand side of a production. (Such
 restrictions can happen only in the conditions.)
 
@@ -1476,7 +1476,7 @@ But `(<s> ^operator <o1> <o2> >, <o3>)` would be interpreted as
 
 The fourth type of action that can occur in productions is called a _right-hand
 side function_. Right-hand side functions allow productions to create side
-effects other than changing work- ing memory. The RHS functions are described
+effects other than changing working memory. The RHS functions are described
 below, organized by the type of side effect they have.
 
 ##### Stopping and pausing Soar
@@ -1671,7 +1671,7 @@ expects either an integer constant, symbolic constant, or floating point
 constant. The symbolic constant must be a string which can be interpreted as a
 single floating point number. This function essentially operates as a type
 casting function. For example, if you wanted to print out an integer expression
-as a floating-point num- ber, you could do the following:
+as a floating-point number, you could do the following:
 
 ```Soar
 sp {
@@ -1747,7 +1747,7 @@ After this rule fires, working memory would look like:
 ```
 
 **concat** — Given an arbitrary number of symbols, this function concatenates
-them to- gether into a single constant symbol. For example:
+them together into a single constant symbol. For example:
 
 ```Soar
 sp {example
@@ -1760,7 +1760,7 @@ After this rule fires, the WME `(S1 ^name foobar6)` will be added.
 
 **deep-copy** — This function returns a copy of the given symbol along with
 linked copies of all descendant symbols. In other terms, a full copy is made of
-the working mem- ory subgraph that can be reached when starting from the given
+the working memory subgraph that can be reached when starting from the given
 symbol. All copied identifiers are created as new IDs, and all copied values
 remain the same. For example:
 

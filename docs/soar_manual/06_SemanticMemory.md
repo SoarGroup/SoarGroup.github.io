@@ -4,7 +4,7 @@
 # Semantic Memory
 
 Soar’s semantic memory is a repository for long-term declarative knowledge,
-supplement- ing what is contained in short-term working memory (and production
+supplementing what is contained in short-term working memory (and production
 memory). Episodic memory, which contains memories of the agent’s experiences,
 is described in [Chapter 7](./07_EpisodicMemory.md). The knowledge encoded in
 episodic memory is organized temporally, and specific information is embedded
@@ -200,7 +200,7 @@ and querying of knowledge. The semantic store can be maintained in memory or on
 disk (per the database and path parameters; see
 [`smem` command](../reference/cli/cmd_smem.md)). If the store is located on
 disk, users can use any standard SQLite programs/components to access/query its
-contents. However, using a disk- based semantic store is very costly
+contents. However, using a disk-based semantic store is very costly
 (performance is discussed in greater detail in Section
 [Performance](#performance)), and running in memory is recommended for most
 runs.
@@ -354,7 +354,7 @@ augmentations include other LTIs in smem, they too are instantiated into new
 short-term identifiers in working memory.
 
 It is possible that multiple long-term identifiers match the cue equally well.
-In this case, se- mantic memory will retrieve the long-term identifier that was
+In this case, semantic memory will retrieve the long-term identifier that was
 most recently stored/retrieved. (More accurately, it will retrieve the LTI with
 the greatest activation value. See below.)
 
@@ -472,8 +472,8 @@ Spreading activation values are updated each decision cycle only as needed for
 specific smem retrievals. For efficiency, two limits exist for the amount of
 spread calculated. The `spreading-limit` parameter limits how many LTIs can
 receive spread from a given spreading source LTI. By default, this value is
-(300). Spread is distributed in a magnitude- first manner to all descendants of
-a source. (Without edge-weights, this simplifies to breadth- first.) Once the
+(300). Spread is distributed in a magnitude-first manner to all descendants of
+a source. (Without edge-weights, this simplifies to breadth-first.) Once the
 number of LTIs that have been given spread from a given source reaches the max
 value indicated by `spreading-limit`, no more is calculated for that source that
 update cycle, and the next spreading source’s contributions are calculated. The
@@ -614,7 +614,7 @@ suggests to SQLite how many pages are available for the cache. Total cache size
 is the product of these two parameter settings. The cache memory is not pre-
 allocated, so short/small runs will not necessarily make use of this space.
 Generally speaking, a greater number of cache pages will benefit query time, as
-SQLite can keep necessary meta- data in memory. However, some documented
+SQLite can keep necessary meta-data in memory. However, some documented
 situations have shown improved performance from decreasing cache pages to
 increase memory locality. This is of greater concern when dealing with
 file-based databases, versus in-memory. The size of each page, however, may be
@@ -636,7 +636,7 @@ for writes to complete before continuing execution. Second, transaction
 journaling is turned off (journalmode pragma), thus groups of modifications to
 the semantic store are not atomic (and thus interruptions due to
 application/os/hardware failure could lead to inconsistent database state).
-Finally, upon initialization, semantic mem- ory maintains a continuous exclusive
+Finally, upon initialization, semantic memory maintains a continuous exclusive
 lock to the database (locking mode pragma), thus other applications/agents
 cannot make simultaneous read/write calls to the database (thereby reducing the
 need for potentially expensive system calls to secure/release file locks).

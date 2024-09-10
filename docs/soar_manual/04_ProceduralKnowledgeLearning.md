@@ -14,7 +14,7 @@ Whenever a rule fires and creates such new superstate knowledge, which are
 called **results**, Soar learns a new rule and immediately adds it to production
 memory. In future similar situations, the new chunk will fire and create the
 appropriate results in a single step, which eliminates the need to spawn another
-subgoal to perform similar problem- solving. In other words, rather than
+subgoal to perform similar problem-solving. In other words, rather than
 contemplating and figuring out what to do, the agent immediately knows what to
 do.
 
@@ -216,7 +216,7 @@ concepts: _identity_.
     cannot be generalized and must contain a specific value.** - All elements in
     the original rule that reference specific constant values are trivially
     assigned the NULL identity. - A variable’s identity can also be _mapped to the
-    NULL identity_. When this hap- pens, we say the identity has been
+    NULL identity_. When this happens, we say the identity has been
     **literalized**.
 
 EBC traverses an explanation trace of the problem-solving that occurred in the
@@ -300,7 +300,7 @@ on the identity graph.
     variablization because they were tested against literal values in some
     rules.  Note that this component has two distinct mechanisms that occur at
     very different times. The first mechanism, identity propagation, occurs
-    constantly while problem- solving in the substate. The second mechanism,
+    constantly while problem-solving in the substate. The second mechanism,
     identity graph manipulation, occurs during the learning episode.
 2.  **Relevant operator selection knowledge tracking**
     This component also occurs before the learning episode. Whenever an operator
@@ -347,7 +347,7 @@ literal constants, which variables are the same variables, what constraints must
 be met on the values of each variable and any relationships between variables.
 
 EBC uses this underlying logic to determine the identities of objects used
-during the problem- solving. Identities are not simply IDs. Each identity is a
+during the problem-solving. Identities are not simply IDs. Each identity is a
 declarative object that describes a set of variables across multiple rule
 firings and the various properties they hold.
 
@@ -551,7 +551,7 @@ Soar’s operationality analysis. In previous versions of chunking, chunking wou
 never add two conditions to a chunk that matched the same superstate working
 memory element. This made sense because chunking was based on a generalization
 of the working memory trace. More than one condition that tested the same WME
-would be redundant. Explanation-based chunk- ing, though, learns based on the
+would be redundant. Explanation-based chunking, though, learns based on the
 reasoning within the original hand-written rules. Since the reasoning behind
 each of the two conditions may be different even if they matched the same WME,
 EBC must always add both conditions. (Note that there are some exceptions. See
@@ -697,11 +697,11 @@ two conditions without losing generality.
 
 EBC polishes the conditions of the learned rule by pruning unnecessary
 constraints on literalized elements and replacing multiple disjunction
-constraints with a single simplified dis- junction.
+constraints with a single simplified disjunction.
 
 1.  Merging disjunctions: If an element in a condition has two disjunction
     tests, the constraints will be merged into a single disjunction that
-    contains only the shared val- ues. `{ << a b c >> << b c d >> <x>}` becomes `{
+    contains only the shared values. `{ << a b c >> << b c d >> <x>}` becomes `{
 <<b c >> <x> }`, because it is impossible fo `<x>` to be either a or b. This
     will also eliminate any duplicate disjunctions.
 2.  Throwing out unnecessary constraints: If an element in a condition has been
@@ -740,7 +740,7 @@ to the fewest number of partial instantiations when the chunk is matched. A
 condition that matches an object with a multi-valued attribute will lead to
 multiple partial instantiations, so it is generally more efficient to place
 these conditions later in the ordering. This is the same process that internally
-reorders the conditions in user- defined productions, as mentioned briefly in
+reorders the conditions in user-defined productions, as mentioned briefly in
 Section 2.3.1.
 
 ## Subtleties of EBC
@@ -809,7 +809,7 @@ When a problem has been decomposed into more than one substate, a single result
 can produce multiple chunks. This process is called bottom-up chunking. The
 first chunk is produced in the substate where the problem-solving that produced
 the result occurred. The next chunk is based on the implicit match of the first
-chunk in one of the higher level problem- spaces. If that match is lower than
+chunk in one of the higher level problem-spaces. If that match is lower than
 the state that the result is being returned to, Soar will backtrace through the
 chunk match and learn a second chunk (relative to the substate that the chunk
 matched in). This process continues until it learns a chunk that only creates
@@ -839,7 +839,7 @@ Chunking is intended to produce the most general rule that is also correct.
 
 Generality is a measure of the space of similar situations that a rule can apply
 to. A more general rule can be applied to a larger space of similar situations.
-A rule is considered over- general if it can apply to situations in which the
+A rule is considered over-general if it can apply to situations in which the
 original problem-solving would have never occurred.
 
 Correctness is a requirement that the learned rule produces the exact same
@@ -855,13 +855,13 @@ rules are over-general.
 ### Over-specialization and Over-generalization
 
 Explanation-based chunking was pursued to address the main limitation of
-traditional chunk- ing:over-specialized rules that were very specific and could
+traditional chunking: over-specialized rules that were very specific and could
 not be applied to many other situations. Specifically, EBC’s identity-based
 variablization and constraint tracking/enforcement has eliminated the core
 source of this issue.
 
 The nature of EBC’s algorithm does add two new situations in which rules may
-become over- specialized. Section 4.6.16 discusses how variables used in certain
+become over-specialized. Section 4.6.16 discusses how variables used in certain
 RHS functions need to be literalized to maintain correctness, which can cause
 overspecialization. Section 4.6.7 discusses how testing or augmenting a previous
 result creates non-operational rules that require repair, a process which may
@@ -988,7 +988,7 @@ may consist of exhaustively applying all the operators in the problem space. If
 so, then a convenient way to recognize that all operators have applied and
 processing is complete is to wait for a state no-change impasse to occur. When
 the impasse occurs, a production can test for the resulting substate and create
-a result for the original subgoal. This form of state test builds over- general
+a result for the original subgoal. This form of state test builds over-general
 chunks because no pre-existing structure is relevant to the result that
 terminates the subgoal. The result is dependent only on the existence of the
 substate within a substate.
@@ -1026,7 +1026,7 @@ create its own distinct result in the superstate. Since this is different
 behavior than the original substate, this rule would be considered incorrect.
 
 If it were possible, EBC should learn a disjunctive conjunctive condition, with
-each dis- junction being the superstate conditions tested by each substate rule
+each disjunction being the superstate conditions tested by each substate rule
 that had previously created the substate WME that was repeatedly asserted. This
 is why this potential source of incorrect rules is called disjunctive context
 conflation.
@@ -1230,7 +1230,7 @@ conditions is true:
     from being formed if the problem-solving that led to the result was
     dependent on a condition that tested whether a subgoal WME doesn’t exist.
     Since there is no practical way to determine why a piece of knowledge
-    doesn’t exist, testing a local negation can result in an over- general and
+    doesn’t exist, testing a local negation can result in an over-general and
     incorrect chunk, cf. [prohibiting known sources for correctness issues](04_ProceduralKnowledgeLearning.md#prohibiting-known-sources-of-correctness-issues)
     for more information. Note that correctness filters have not yet been
     implemented for all the identified potential sources of correctness issues.
@@ -1737,7 +1737,7 @@ transitive constraints were added to a particular chunk.
 ### explain identity
 
 explain identity will show the mappings from variable identities to identity
-sets. If avail- able, the variable in a chunk that an identity set maps to will
+sets. If available, the variable in a chunk that an identity set maps to will
 also be displayed.
 
 By default, only identity sets that appear in the chunk will be displayed in the
@@ -1828,7 +1828,7 @@ The `visualize` command can generate two graphical representations of the
 analysis that chunking performed to learn a rule. While the explainer provides
 more date, these images are the easiest and most effective ways to quickly
 understand how a chunk was formed, especially for particularly complex chunks.
-The visualizer can create two types of chunking- related images:
+The visualizer can create two types of chunking-related images:
 
 1.  An image that shows the entire instantiation graph at once and how it
     contributed to the learned rule. Use the command visualize ebc analysis to

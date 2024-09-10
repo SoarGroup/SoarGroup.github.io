@@ -1,3 +1,4 @@
+<!-- markdownlint-disable-next-line -->
 {{manual_wip_warning}}
 
 # Episodic Memory
@@ -20,7 +21,8 @@ Please refer to the [documentation for the `epmem` command](../reference/cli/cmd
 
 ## Working Memory Structure
 
-Upon [creation of a new state in working memory](./02_TheSoarArchitecture.md#creating-new-states), the architecture creates the following augmentations to facilitate agent
+Upon [creation of a new state in working memory](./02_TheSoarArchitecture.md#creating-new-states),
+the architecture creates the following augmentations to facilitate agent
 interaction with episodic memory:
 
 ```Soar
@@ -37,7 +39,8 @@ memory will maintain these WMEs.
 
 The value of the present-id augmentation is an integer and will update to expose
 to the agent the current episode number. This information is identical to what
-is available via the [time statistic](../reference/cli/cmd_stats.md) and the present-id retrieval meta-data (7.3.4).
+is available via the [time statistic](../reference/cli/cmd_stats.md) and the
+present-id retrieval meta-data (7.3.4).
 
 ## Episodic Storage
 
@@ -60,12 +63,12 @@ the force d policy irrespective of the value of the trigger parameter.
 
 ### Episode Contents
 
-When episodic memory stores a new episode, it captures the entire top-state of working
-memory. There are currently two exceptions to this policy:
+When episodic memory stores a new episode, it captures the entire top-state of
+working memory. There are currently two exceptions to this policy:
 
 Episodic memory only supports WMEs whose attribute is a constant. Behavior is
-currently undefined when attempting to store a WME that has an attribute that is an
-identifier.
+currently undefined when attempting to store a WME that has an attribute that is
+an identifier.
 
 The exclusions parameter allows the user to specify a set of attributes for which
 Soar will not store WMEs. The storage process currently walks the top-state of working
@@ -83,15 +86,16 @@ can use any standard SQLite programs/components to access/query its contents.
 See the later [discussion on performance](#performance) for additional
 parameters dealing with databases on disk.
 
-Note that changes to storage parameters, for example database, path and append will
-not have an effect until the database is used after an initialization. This happens either
-shortly after launch (on first use) or after a database initialization command is issued. To
-switch databases or database storage types while running, set your new parameters and then
-perform an `epmem --init` command.
+Note that changes to storage parameters, for example database, path and append
+will not have an effect until the database is used after an initialization. This
+happens either shortly after launch (on first use) or after a database
+initialization command is issued. To switch databases or database storage types
+while running, set your new parameters and then perform an `epmem --init`
+command.
 
-The **path** parameter specifies the file system path the database is stored in. When path is
-set to a valid file system path and database mode is set to file, then the SQLite database is
-written to that path.
+The **path** parameter specifies the file system path the database is stored in.
+When path is set to a valid file system path and database mode is set to file,
+then the SQLite database is written to that path.
 
 The **append** parameter will determine whether all existing facts stored in a
 database on disk will be erased when episodic memory loads. Note that this
@@ -124,9 +128,9 @@ aspect of the command structure changes (via addition/removal of WMEs). When
 this occurs, the result structure is cleared and the new command (if one exists)
 is processed.
 
-All retrieved episodes are recreated exactly as stored, except for any operators that have an
-acceptable preference, which are recreated with the attribute operator\*. For example, if
-the original episode was:
+All retrieved episodes are recreated exactly as stored, except for any operators
+that have an acceptable preference, which are recreated with the attribute
+operator\*. For example, if the original episode was:
 
 ```Soar
 (<s> ^operator <o1> +)
@@ -207,7 +211,7 @@ A special note should be made with respect to how short- vs. long-term
 identifiers (see Section 6.2 on page 146) are interpreted in a cue. Short-term
 identifiers are processed much as they are in working memory – transient
 structures. Cue matching will try to find any identifier in an episode (with
-respect to WME path from state) that can apply. Long- term identifiers, however,
+respect to WME path from state) that can apply. Long-term identifiers, however,
 are treated as constants. Thus, when analyzing the cue, episodic memory will not
 consider long-term identifier augmentations, and will only match with the same
 long-term identifier (in the same context) in an episode.
@@ -271,8 +275,8 @@ implemented in future versions, no such guarantee will be made.
 
 ### Relative Non-Cue-Based Retrieval
 
-Episodic memory supports the ability for an agent to "play forward" episodes using relative
-non-cue-based retrievals.
+Episodic memory supports the ability for an agent to "play forward" episodes
+using relative non-cue-based retrievals.
 
 Episodic memory stores the time of the last successful retrieval (non-cue-based
 or cue-based).  Agents can indirectly make use of this information by issuing
@@ -281,7 +285,7 @@ attempting to retrieve the episode immediately proceeding/preceding the last
 successful retrieval (respectively). To issue one of these commands, the agent
 must create a new WME on the command link with the appropriate attribute (next
 or previous) and value of an arbitrary identifier:
- 
+
 ```Soar
 <s> ^epmem.command.next <n>
 <s> ^epmem.command.previous <p>
@@ -306,7 +310,9 @@ memory is placed here. This WME is an identifier that is treated as the root of
 the state that was used to create the episodic memory. If the retrieve command was
 issued with an invalid time, the value of this WME will be no-memory.
 
-success `<query> <optional-neg-query>` If the cue-based retrieval was successful, the WME will have the status as the attribute and the value of the identifier of the query (and neg-query, if applicable).
+success `<query> <optional-neg-query>` If the cue-based retrieval was
+successful, the WME will have the status as the attribute and the value of the
+identifier of the query (and neg-query, if applicable).
 
 match-score This WME is created whenever an episode is successfully retrieved
 from a cue-based retrieval command. The WME value is a decimal indicating the raw
@@ -316,10 +322,10 @@ cue-size This WME is created whenever an episode is successfully retrieved from 
 cue-based retrieval command. The WME value is an integer indicating the number of
 leaf WMEs in the cue(s).
 
-normalized-match-score This WME is created whenever an episode is success-
-fully retrieved from a cue-based retrieval command. The WME value is the decimal
-result of dividing the raw match score by the cue size. It can hypothetically be used
-as a measure of episodic memory’s relative confidence in the retrieval.
+normalized-match-score This WME is created whenever an episode is success- fully
+retrieved from a cue-based retrieval command. The WME value is the decimal
+result of dividing the raw match score by the cue size. It can hypothetically be
+used as a measure of episodic memory’s relative confidence in the retrieval.
 
 match-cardinality This WME is created whenever an episode is successfully
 retrieved from a cue-based retrieval command. The WME value is an integer
@@ -330,18 +336,18 @@ memory-id This WME is created whenever an episode is successfully retrieved from
 a cue-based retrieval command. The WME value is an integer indicating the time of
 the retrieved episode.
 
-present-id This WME is created whenever an episode is successfully retrieved from
-a cue-based retrieval command. The WME value is an integer indicating the current
-time, such as to provide a sense of "now" in episodic memory terms. By comparing
-this value to the memory-id value, the agent can gain a sense of the relative time that
-has passed since the retrieved episode was recorded.
+present-id This WME is created whenever an episode is successfully retrieved
+from a cue-based retrieval command. The WME value is an integer indicating the
+current time, such as to provide a sense of "now" in episodic memory terms. By
+comparing this value to the memory-id value, the agent can gain a sense of the
+relative time that has passed since the retrieved episode was recorded.
 
 graph-match This WME is created whenever an episode is successfully retrieved
 from a cue-based retrieval command and the graph-match parameter was on. The
-value is an integer with value 1 if graph matching was executed successfully and 0
-otherwise.
+value is an integer with value 1 if graph matching was executed successfully and
+0 otherwise.
 
-mapping `<mapping-root>`  This WME is created whenever an episode is success- fully
+mapping `<mapping-root>`  This WME is created whenever an episode is successfully
 retrieved from a cue-based retrieval command, the graph-match parameter was on,
 and structural match was successful on the retrieved episode. This WME provides
 a mapping between identifiers in the cue and in the retrieved episode. For each
@@ -355,7 +361,7 @@ algorithms).
 ## Performance
 
 There are currently two sources of "unbounded" computation: graph matching and
-cue- based queries. Graph matching is combinatorial in the worst case. Thus, if
+cue-based queries. Graph matching is combinatorial in the worst case. Thus, if
 an episode presents a perfect surface match, but imperfect structural match
 (i.e. there is no way to unify the cue with the candidate episode), there is the
 potential for exhaustive search. Each identifier in the cue can be assigned one
@@ -389,10 +395,10 @@ to speed operations like queries by keeping in memory structures like levels of
 index B+-trees. The first parameter, **page-size** , indicates the size, in
 bytes, of each cache page. The second parameter, **cache-size** , suggests to
 SQLite how many pages are available for the cache.  Total cache size is the
-product of these two parameter settings. The cache memory is not pre- allocated,
+product of these two parameter settings. The cache memory is not preallocated,
 so short/small runs will not necessarily make use of this space. Generally
 speaking, a greater number of cache pages will benefit query time, as SQLite can
-keep necessary meta- data in memory. However, some documented situations have
+keep necessary meta-data in memory. However, some documented situations have
 shown improved performance from decreasing cache pages to increase memory
 locality. This is of greater concern when dealing with file-based databases,
 versus in-memory. The size of each page, however, may be important whether
@@ -435,10 +441,11 @@ thus other applications/agents cannot make simultaneous read/write calls to the
 database (thereby reducing the need for potentially expensive system calls to
 secure/release file locks).
 
-Finally, maintaining accurate operation timers can be relatively expensive in Soar. Thus,
-these should be enabled with caution and understanding of their limitations. First, they
-will affect performance, depending on the level (set via the timers parameter). A level of
-three, for instance, times every step in the cue-based retrieval candidate episode search.
-Furthermore, because these iterations are relatively cheap (typically a single step in the
-linked-list of a b+-tree), timer values are typically unreliable (depending upon the system,
+Finally, maintaining accurate operation timers can be relatively expensive in
+Soar. Thus, these should be enabled with caution and understanding of their
+limitations. First, they will affect performance, depending on the level (set
+via the timers parameter). A level of three, for instance, times every step in
+the cue-based retrieval candidate episode search.  Furthermore, because these
+iterations are relatively cheap (typically a single step in the linked-list of a
+b+-tree), timer values are typically unreliable (depending upon the system,
 resolution is 1 microsecond or more).
