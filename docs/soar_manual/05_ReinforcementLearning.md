@@ -345,7 +345,7 @@ for that operator are only affected by the rewards collected on the `reward-link
 for Sand the $Q$-values of subsequent RL operators selected in `S`.
 
 The only exception to this independence is when a selected RL operator forces an
-operator- no-change impasse. When this occurs, the number of decision cycles the
+operator-no-change impasse. When this occurs, the number of decision cycles the
 RL operator at the superstate remains selected is dependent upon the processing
 in the impasse state. Consider the operator trace in the following figure:
 
@@ -442,7 +442,7 @@ determines how operators are selected based on their
 numeric-indifferent preferences. Although all the indifferent selection
 settings are valid regardless of how the numeric-indifferent preferences were
 arrived at, the `epsilon-greedy` and `boltzmann` settings are specifically designed
-for use with RL and cor- respond to the two most common exploration strategies.
+for use with RL and correspond to the two most common exploration strategies.
 In an effort to maintain backwards compatibility, the default exploration
 policy is `softmax`. As a result, one should change to `epsilon-greedy` or
 `boltzmann` when the reinforcement learning mechanism is enabled.
