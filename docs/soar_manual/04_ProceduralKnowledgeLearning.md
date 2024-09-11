@@ -1744,7 +1744,8 @@ By default, only identity sets that appear in the chunk will be displayed in the
 identity analysis. To see the identity set mappings for other sets, change the
 only-chunk-identities setting to `off`.
 
-```shell# soar % explain identity
+```shell
+# soar % explain identity
 
 - # Variablization Identity to Identity Set Mappings -
 
