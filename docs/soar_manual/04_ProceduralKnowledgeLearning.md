@@ -375,7 +375,8 @@ created and propagated using the following rules:
         identities forward through the explanation trace, which allows us to
         represent that the variable in the condition refers to the same object
         as the variable in the action of the other rule.
-    1.  Any element that matches special working memory elements called singletons
+    1.  <p id="listing4b"/>
+        Any element that matches special working memory elements called singletons
         are assigned the same identity. Singletons are working memory elements
         that are guaranteed to only have a single possible value in a state. The
         most important singleton is the local `^superstate` singleton, which is
@@ -557,7 +558,7 @@ would be redundant. Explanation-based chunking, though, learns based on the
 reasoning within the original hand-written rules. Since the reasoning behind
 each of the two conditions may be different even if they matched the same WME,
 EBC must always add both conditions. (Note that there are some exceptions. See
-[using singletons to simplify rule's confitions](#using-singletons-to-simplify-a-rules-conditions)
+[using singletons to simplify rule's conditions](#using-singletons-to-simplify-a-rules-conditions)
 on superstate singletons and user singletons.)
 
 Negated conditions are included in a trace in the following way: when a
@@ -1306,7 +1307,7 @@ To change a setting:                                  chunk <setting> [<value>]
 For a detailed explanation of these settings:         help chunk
 ```
 
-See [chunk](../reference/cli/cmd_chunk.md) for more detailed information the
+See [chunk](../reference/cli/cmd_chunk.md) for more detailed information on the
 settings.
 
 ### Enabling Procedural Learning
@@ -1375,7 +1376,7 @@ call any working memory element that is guaranteed to only have a single
 possible value at any given time, a singleton. If EBC encounters two different
 conditions in the backtrace that both test the same superstate WME that matches
 a user singleton pattern, it will merge the two conditions. As described in
-[Listing 4b](#identity-assignment-and-propagation), there are several
+<a href="#listing4b">Listing 4b</a>, there are several
 architectural singleton’s that EBC already knows about. To specify patterns for
 domain-specific singletons, the chunk singleton command can be used.
 
