@@ -118,6 +118,18 @@ This feature is not yet implemented.
 
 ## Preventing Possible Correctness Issues
 
+It is theoretically possible to detect nearly all of the sources of correctness
+issues and prevent rules from forming when those situations are detected. In
+Soar 9.6.0, though, only one filter is available, `allow-local-negations`. Future
+versions of Soar will include more correctness filters.
+
+Note that it is still possible to detect that your agent may have encountered a
+known source of a correctness issue by looking at the output of the chunk
+stats command. It has specific statistics for some of the sources, while others
+can be gleaned indirectly. For example, if the stats show that some rules
+required repair, you know that your agent testing or augmenting a previous
+result in a substate.
+
 ### chunk allow-local-negations
 
 The option `allow-local-negations` control whether or not chunks can be created

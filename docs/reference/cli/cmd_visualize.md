@@ -104,7 +104,7 @@ applies to visualizing memory systems.
 ## File Handling Settings
 
 `file-name` specifies the base file name that Soar will use when creating both
-graphviz data files and images. You can specify a path as well, for example
+Graphviz data files and images. You can specify a path as well, for example
 "visualization/soar_viz", but make sure the directory exists first!
 
 `use-same-file` tells the visualizer to always overwrite the same files for each
@@ -114,7 +114,7 @@ command does not yet handle file creation as robustly as it could. If the file
 already exists, it will simply overwrite it rather than looking for a new file
 name.
 
-`generate-image` specifies whether the visualizer should render the graphviz
+`generate-image` specifies whether the visualizer should render the Graphviz
 file into an image. This setting is overridden if the viewer-launch setting is
 enabled.
 
@@ -143,6 +143,12 @@ generating for your agent.
 Note that your operating system chooses which program to launch based on the
 file type. This feature has not been tested extensively on other platforms.
 Certain systems may not allow Soar to launch an external program.
+
+???+ note
+    For the visualizer to work, you must have Graphviz and DOT installed, which are
+    free third-party tools, and both must be available on your path. To date, the
+    visualizer has only been tested on Mac and Linux. It is possible that certain
+    systems may not allow Soar to launch an external program.
 
 ## See Also
 
