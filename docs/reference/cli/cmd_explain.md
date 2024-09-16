@@ -329,6 +329,49 @@ explainer will write out a file with the statistics when either Soar exits or a
 `soar init` is executed. This option is still considered experimental and in
 beta.
 
+## Explaining Learned Procedural Knowledge
+
+While explanation-based chunking makes it easier for people to now incorporate
+learning into their agents, the complexity of the analysis it performs makes it
+far more difficult to understand how the learned rules were formed. The
+explainer is a new module that has been developed to help ameliorate this
+problem. The explainer allows you to interactively explore how rules were
+learned.
+
+When requested, the explainer will make a very detailed record of everything
+that happened during a learning episode. Once a user specifies a recorded chunk
+to "discuss", they can browse all of the rule firings that contributed to the
+learned rule, one at a time. The explainer will present each of these rules with
+detailed information about the identity of the variables, whether it tested
+knowledge relevant to the the superstate, and how it is connected to other rule
+firings in the substate. Rule firings are assigned IDs so that user can quickly
+choose a new rule to examine.
+
+The explainer can also present several different screens that show more verbose
+analyses of how the chunk was created. Specifically, the user can ask for a
+description of (1) the chunk’s initial formation, (2) the identities of
+variables and how they map to identity sets, (3) the constraints that the
+problem-solving placed on values that a particular identity can have, and (4)
+specific statistics about that chunk, such as whether correctness issues were
+detected or whether it required repair to make it fully operational.
+
+Finally, the explainer will also create the data necessary to visualize all of
+the processing described in an image using the new ’visualize’ command. These
+visualization are the easiest way to quickly understand how a rule was formed.
+
+Note that, despite recording so much information, a lot of effort has been put
+into minimizing the cost of the explainer. When debugging, we often let it
+record all chunks and justifications formed because it is efficient enough to do
+so.
+
+Use the explain command without any arguments to display a summary of which rule
+firings the explainer is watching. It also shows which chunk or justification
+the user has specified is the current focus of its output, i.e. the chunk being
+discussed.
+
+Tip: This is a good way to get a chunk id so that you don’t have to type or
+paste in a chunk name.
+
 ## Visualizing an Explanation
 
 Soar's `visualize` command allows you to create images that represent processing
