@@ -43,11 +43,12 @@ rules that are qualitatively more general and expressive. In fact, any element
 of a learned rule can now be variablized, and learned rules now have the full
 expressive power of hand-written rules.
 
-Figure 4.1 shows an example of an explanation-based chunk and how it differs
-from a chunk learned from the original algorithm. It is interesting to note that
-in Soar 9.4, the arithmetic agent learns 1263 rules like the one on the
-left-side of the figure. In Soar 9.6, the same agent only learns 8 rules like
-the one on the right because they are so much more general.
+The following side-by-side code comparison shows an example of an
+explanation-based chunk and how it differs from a chunk learned from the
+original algorithm. It is interesting to note that in Soar 9.4, the arithmetic
+agent learns 1263 rules like the one on the left-side of the figure. In Soar
+9.6, the same agent only learns 8 rules like the one on the right because they
+are so much more general.
 
 <div class="grid cards" markdown>
 
@@ -195,10 +196,11 @@ gamut of tests that hand-written rules can and can have any element variablized.
 
 -   Every condition and action in the explanation trace has three elements:
     -   For conditions, the three elements refer to the symbol in the positive
-        equality test for the identifier, attribute and value of the condition. For
-        example, the last condition of rule 2 in Figure 4.4 has `<s>` as the
-        identifier element, number as the attribute element, and `<y>` as the value
-        element.
+        equality test for the identifier, attribute and value of the condition.
+        For example, the last condition of rule 2 in the
+        <a href="#fig_explanation_trace">explanation trace figure</a> has `<s>` as
+        the identifier element, number as the attribute element, and `<y>` as
+        the value element.
     -   For actions, the three elements refer to the identifier, attribute and
         value of the WME being created.
 -   An element is either a variable, like `<s>` or a literal constant, like `23`,
@@ -233,11 +235,13 @@ shared identity:
     interaction between the two rules indicates a shared identity between their
     corresponding variables.
 
+<p id="fig_explanation_trace"/>
 ![An explanation trace of two simple rules that matched in a substate.](Images/chunking-trace2.png)
 
 To get a better picture of what a shared identity is, consider the two simple
 rules and the explanation trace of how they matched in a substate as shown in
-Figure 4.4. The connection between rule 2 and rule 1 will unify the identities
+the <a href="#fig_explanation_trace">explanation trace figure</a>.
+The connection between rule 2 and rule 1 will unify the identities
 of `<s>` ,`<x>` an `<y>` in rule 1 with the identities of `<s>` ,`<x>` an `<y2>`
 in rule 2. So, the `<x>` in rule 2 shares the same identity as the `<x>` in rule
 
@@ -252,7 +256,8 @@ sharing an identity, the only thing that matters is how the rules interact,
 namely whether there’s a connection between elements in the condition of one
 rule and elements in the actions of another rule.
 
-All literal values, for example all of the attribute in Figure 4.4 (superstate,
+All literal values, for example all of the attribute in the
+<a href="#fig_explanation_trace">explanation trace figure</a> (superstate,
 number, intermediate1, etc.) are considered members of the `NULL` identity.
 
 Variable identities can also be mapped to the NULL identity, which means that
@@ -275,10 +280,12 @@ ways that a rule interaction can effect an identity literalization:
 
 Identities are the basis of nearly every mechanism in explanation-based
 chunking. EBC’s identity analysis algorithm, which is a fairly complicated
-process, determines all shared identities in an explanation trace. Figure 4.5
+process, determines all shared identities in an explanation trace. The following
+<a href="#fig_explanation_trace_after_identity_analysis">figure</a>
 shows an explanation trace after identity analysis has been performed. Elements
 that share an identity in the figure are colored the same.
 
+<p id="fig_explanation_trace_after_identity_analysis"/>
 ![An explanation trace after identity analysis.](Images/chunking-trace-identity.png)
 
 While it’s not readable in this figure, note that each identity is assigned a
