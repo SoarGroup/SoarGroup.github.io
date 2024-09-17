@@ -145,10 +145,11 @@ file type. This feature has not been tested extensively on other platforms.
 Certain systems may not allow Soar to launch an external program.
 
 ???+ note
-    For the visualizer to work, you must have Graphviz and DOT installed, which are
-    free third-party tools, and both must be available on your path. To date, the
-    visualizer has only been tested on Mac and Linux. It is possible that certain
-    systems may not allow Soar to launch an external program.
+    For the visualizer to work, you must have [Graphviz](https://graphviz.org/)
+    and `dot` installed, which are free third-party tools, and both must be
+    available on your path. To date, the visualizer has only been tested on Mac
+    and Linux. It is possible that certain systems may not allow Soar to launch
+    an external program.
 
 ## See Also
 
