@@ -357,7 +357,7 @@ detected or whether it required repair to make it fully operational.
 
 Finally, the explainer will also create the data necessary to visualize all of
 the processing described in an image using the new ’visualize’ command. These
-visualization are the easiest way to quickly understand how a rule was formed.
+visualizations are the easiest way to quickly understand how a rule was formed.
 
 Note that, despite recording so much information, a lot of effort has been put
 into minimizing the cost of the explainer. When debugging, we often let it

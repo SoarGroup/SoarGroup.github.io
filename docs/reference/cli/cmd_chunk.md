@@ -127,7 +127,7 @@ Note that it is still possible to detect that your agent may have encountered a
 known source of a correctness issue by looking at the output of the chunk
 stats command. It has specific statistics for some of the sources, while others
 can be gleaned indirectly. For example, if the stats show that some rules
-required repair, you know that your agent testing or augmenting a previous
+required repair, you know that your agent is testing or augmenting a previous
 result in a substate.
 
 ### chunk allow-local-negations
