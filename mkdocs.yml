@@ -95,7 +95,7 @@ extra:
   social:
     - icon: fontawesome/brands/github-alt
       link: https://github.com/SoarGroup/Soar
-  manual_wip_warning: "# 🚧 Under Construction 🚧\n The HTML version of the manual is currently under construction. If you find it difficult to read, there is a PDF version available [here](https://github.com/SoarGroup/Soar/releases/download/releases%2F9.6.2/SoarManual.pdf)."
+  manual_wip_warning: "🚧 **Under Construction** 🚧<br/> The HTML version of the manual is currently under construction and slightly out of date. If you find it difficult to read, there is a PDF version available [here](https://github.com/SoarGroup/Soar/releases/download/releases%2F9.6.3/SoarManual.pdf)."
   # MAINTAINER NOTE: when you update this, don't forget to also
   # update the release notes on the downloads page
   soar_version: 9.6.3
