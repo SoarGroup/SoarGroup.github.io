@@ -4,7 +4,7 @@
 
 Soar has been developed to be an architecture for constructing general intelligent systems.
 It has been in use since 1983, and has evolved through many different versions. This manual
-documents the most current of these: version 9.6.1.
+documents the most current of these: version {{soar_version}}.
 
 Our goals for Soar include that it ultimately be an architecture that can:
 
