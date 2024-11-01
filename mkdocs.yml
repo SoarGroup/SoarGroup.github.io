@@ -148,6 +148,7 @@ nav:
           - Part VII Semantic Memory: tutorials/soar_tutorial/07.md
           - Part VIII Episodic Memory: tutorials/soar_tutorial/08.md
           - Tank and Eaters Configuration: tutorials/soar_tutorial/TankEatersConfigFile.md
+      - Engineer's Guide to Soar: https://github.com/SoarGroup/Engineers-Guide-to-Soar
       - Java Soar Debugger Intro: tutorials/IntroSoarDebugger/index.md
       - SML Quick Start Guide: tutorials/SMLQuickStartGuide.md
   - Soar Manual:
