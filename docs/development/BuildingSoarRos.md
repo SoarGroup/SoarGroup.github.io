@@ -12,7 +12,13 @@ tags:
 <!-- old URL: https://soar.eecs.umich.edu/forum/help/sml/
 287-build-soar-with-ros -->
 
-# Build Soar with ROS
+# Build Soar with ROS 1
+
+???+ info "Soar for ROS 2"
+    For ROS 2, a package called `soar_ros` is available from
+    [GitHub](https://github.com/THA-Embedded-Systems-Lab/soar_ros) that includes
+    documentation. The last [ROS 1 distribution](http://wiki.ros.org/Distributions)
+    is end of life (EOL) as of May 2025.
 
 ## Requirements
 
