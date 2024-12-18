@@ -169,7 +169,9 @@ nav:
   - Development:
       - development/index.md
       - Technical FAQ: development/SoarTechnicalFAQ.md
-      - Building Soar and ROS1: development/BuildingSoarRos.md
+      - Robot Operating System (ROS):
+        - ROS 1: development/BuildingSoarRos.md
+        - ROS 2: https://github.com/THA-Embedded-Systems-Lab/soar_ros
       - Soar Agents:
         - Design Dogma: development/agents/DesignDogma.md
         - Soar Programmer's Guide: development/agents/SoarProgrammersGuide.md

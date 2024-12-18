@@ -12,6 +12,9 @@ and follow the [quick start guide](home/QuickStart.md).
 
 ## News and Announcements
 
+*   [`soar_ros`](https://github.com/THA-Embedded-Systems-Lab/soar_ros), a ROS2
+package by Moritz Schmidt that enables integration between ROS and Soar, is now
+available on GitHub.
 *   [**Engineer's Guide to Soar**](https://github.com/SoarGroup/Engineers-Guide-to-Soar):
 A 14-part course on programming Soar for engineers, by Bryan Stearns is now
 available on GitHub.
@@ -34,4 +37,3 @@ complete the registration form.
     Workshop!
 
     [Register here](https://forms.gle/M1JRwpVZPgy5hQc3A)
-
