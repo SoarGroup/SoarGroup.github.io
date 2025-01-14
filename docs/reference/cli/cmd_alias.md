@@ -34,8 +34,8 @@ option, make sure to enclose it in quotes. For example:
 
 ## Printing Existing Aliases
 
-With no arguments, alias returns the list of defined aliases. With only the name
-given, alias returns the current definition.
+With no arguments, `alias` returns the list of defined aliases. With only the name
+given, `alias` returns the current definition.
 
 ## Examples
 
