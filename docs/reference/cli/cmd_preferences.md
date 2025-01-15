@@ -26,7 +26,7 @@ preferences [options] [identifier [attribute]]
 The `preferences` command prints all the preferences for the given object
 identifier and attribute. If identifier and attribute are not specified, they
 default to the current state and the current operator. The Soar syntax attribute
-carat (`^`) is optional when specifying the attribute. The optional arguments
+caret (`^`) is optional when specifying the attribute. The optional arguments
 indicates the level of detail to print about each preference.
 
 This command is useful for examining which candidate operators have been

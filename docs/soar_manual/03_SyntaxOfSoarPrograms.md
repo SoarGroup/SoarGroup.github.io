@@ -1425,7 +1425,7 @@ since it does not have an `acceptable` preference.
 
 Ambiguity can easily arise when using a preference that can be either binary or
 unary: `> < =`. The default assumption is that if a value follows the
-preference, then the preference is binary. It will be unary if a carat
+preference, then the preference is binary. It will be unary if a caret
 (up-arrow), a closing parenthesis, another preference, or a comma follows it.
 
 Below are four examples of legal, although unrealistic, actions that have the
