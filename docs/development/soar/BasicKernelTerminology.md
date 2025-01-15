@@ -189,7 +189,7 @@ temporary memory. I believe that any preference that is currently valid in Soar
 matches) is in temporary memory. Once a preference is no longer valid, it is
 taken out of temporary memory (which involves setting the in_tm flag to false,
 and taking them off the preferences array and all_preferences lists on the slot
-they're on). |
+they're on).
 
 ### clone (preference)
 
@@ -198,13 +198,10 @@ of the original preference points to the instantiation of the rule that fired in
 the subgoal to create the result, the inst pointer of the clone points to the
 newly created chunk or justification. Therefore, the preference and its clone
 exist on different match goals, and hence different match goal levels.
-|
 
 ### instantiation
 
-a particular match of a production in working memory, and the preferences
-generated
-|
+a particular match of a production in working memory, and the preferences generated
 
 ### DEBUG_MEMORY
 
