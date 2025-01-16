@@ -244,7 +244,7 @@ is zero (0), only the productions that haven't fired at all are listed. If
 a production name is given as an argument, the firing count for that production
 is printed.
 
-Note that firing counts are reset by a call to [soar init] (cmd_soar).
+Note that firing counts are reset by a call to [soar init](cmd_soar).
 
 ### Examples
 
