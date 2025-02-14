@@ -209,4 +209,9 @@ pools are memset to `0xBB`
 
 ### Refraction
 
-Refracting a fired production means to prevent it from firing again.
+Via [Wikipedia](https://en.wikipedia.org/wiki/Rete_algorithm#Production_execution):
+
+>Each production instance will fire only once, at most, during any one
+match-resolve-act cycle. This characteristic is termed _refraction_.
+
+Refracting a fired instance means to prevent it from firing again.
