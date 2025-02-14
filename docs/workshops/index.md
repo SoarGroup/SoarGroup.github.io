@@ -1,6 +1,8 @@
 # Soar Workshop Proceedings
 
 *   [44th Soar Workshop (2024)](44.md)
+*   [43rd Soar Workshop (2023)](43.md)
+*   [42nd Soar Workshop (2022)](42.md)
 *   [41st Soar Workshop (2021)](41.md)
 *   [40th Soar Workshop (2020)](40.md)
 *   [39th Soar Workshop (2019)](39.md)

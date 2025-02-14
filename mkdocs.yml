@@ -10,7 +10,6 @@ theme:
   locale: en
   logo: Images/soar.png
   favicon: Images/soar.png
-  custom_dir: overrides
   icon:
     admonition:
       note: octicons/tag-16
@@ -188,6 +187,8 @@ nav:
   - Workshops:
     - workshops/index.md
     - workshops/44.md
+    - workshops/43.md
+    - workshops/42.md
     - workshops/41.md
     - workshops/40.md
     - workshops/39.md

@@ -16,7 +16,7 @@ script file at the top level of the SoarSuite folder that will launch it.
 
 ## Documentation
 
-An introductory tutorial to the Soar debugger can be found at [this page](/tutorials/IntroSoarDebugger/).
+An introductory tutorial to the Soar debugger can be found at [this page](../../tutorials/IntroSoarDebugger/index.md).
 
 ## Developers
 

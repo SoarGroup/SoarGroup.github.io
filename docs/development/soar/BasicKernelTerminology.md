@@ -52,18 +52,17 @@ Structures that you should familiarize yourself with are symbols (a typedef'd
 union!!), wmes, productions, instantiations, preferences, and (eventually)
 memory pools.
 
-*   symbol_struct is in symtab.h, everything in soar boils down to
-    some kind of symbol. See Development/ Symbol for details.
-*   wme_struct is in wmem.h, defines the working memory elements of an agent
-*   production_struct is in production.h, these are the productions as loaded into
-    Soar and stored in the rete. instantiations are in instantiation.h, these store
-    the bindings of productions as they are matched in the rete. Instantiations
-    whose conditions all
-*   match are fired during specific phases - meaning their actions are executed:
-    preferences are asserted to create wmes, and/or RHS actions are executed.
-*   preference_struct is defined in gdatastructs.h store a pointer to the
-    instantiation that created them, and when the instantiation no longer matches,
-    the preference is retracted.
+*   `symbol_struct` is in `symtab.h`, everything in Soar boils down to some kind
+of symbol.
+*   `wme_struct` is in `wmem.h`, defines the working memory elements of an agent
+*   `production_struct` is in `production.h`, these are the productions as loaded
+into Soar and stored in the rete. instantiations are in instantiation.h, these store
+the bindings of productions as they are matched in the rete. Instantiations whose
+conditions all match are fired during specific phases - meaning their actions are
+executed: preferences are asserted to create wmes, and/or RHS actions are executed.
+*   `preference_struct` is defined in `preference.h`, stores a pointer to the
+instantiation that created it, and when the instantiation no longer matches,the
+preference is retracted.
 
 ## I want to add a new link!
 
