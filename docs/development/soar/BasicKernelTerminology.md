@@ -206,3 +206,7 @@ a particular match of a production in working memory, and the preferences genera
 
 if this flag is defined, the contents of freed memory locations in the memory
 pools are memset to `0xBB`
+
+### Refraction
+
+Refracting a fired production means to prevent it from firing again.
