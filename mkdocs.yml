@@ -133,6 +133,14 @@ nav:
         - QuickLink Input Simulator: downloads/agent_development_tools/quicklink_input_simulator.md
         - Soar Data Collector: downloads/agent_development_tools/soar_data_collector.md
         - Soar Debugger: downloads/agent_development_tools/soar_debugger.md
+        - SoarEditor: downloads/agent_development_tools/soareditor.md
+        - SoarIDE: downloads/agent_development_tools/soaride.md
+        - SoarUnit: downloads/agent_development_tools/soarunit.md
+        - State2Dot: downloads/agent_development_tools/state2dot.md
+        - SublimeText Soar Tools Package: downloads/agent_development_tools/sublimetext_soar_tools_package/index.md
+        - UltraEdit Syntax Coloring Wordfile: downloads/agent_development_tools/ultraedit_syntax_coloring_wordfile.md
+        - Vim Soar Plug-In: downloads/agent_development_tools/vim_soar_plug-in.md
+        - VisualSoar: downloads/agent_development_tools/visualsoar.md
       - Examples and Unsupported:
         - downloads/examples_and_unsupported/index.md
         - C++ Command Line Filter: downloads/examples_and_unsupported/cpp_command_line_filter_example.md
