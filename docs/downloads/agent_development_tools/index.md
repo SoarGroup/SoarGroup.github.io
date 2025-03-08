@@ -17,7 +17,7 @@ editors.
 *   [SoarIDE](./soaride.md)
 *   [SoarUnit](./soarunit.md)
 *   [State2Dot](./state2dot.md)
-*   [SublimeText Soar Tools Package](./sublimetext_soar_tools_package/)
+*   [SublimeText Soar Tools Package](./sublimetext_soar_tools_package/index.md)
 *   [UltraEdit Syntax Coloring Wordfile](./ultraedit_syntax_coloring_wordfile.md)
 *   [Vim Soar Plug-In](./vim_soar_plug-in.md)
 *   [VisualSoar](./visualsoar.md)
