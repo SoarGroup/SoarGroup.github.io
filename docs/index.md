@@ -11,8 +11,18 @@ and [MIT Press](https://mitpress.mit.edu/books/soar-cognitive-architecture).
 To get started, [download Soar](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/Soar-Release-{{soar_version}}.zip)
 and follow the [quick start guide](home/QuickStart.md).
 
+If you are looking for help or discussion, please see our
+[support](support/index.md) page.
+
 ## News and Announcements
 
+*   This year’s Soar workshop will be held on May 5, 2025, at the University
+of Michigan’s Beyster Building on North Campus in Ann Arbor, MI. It will be a
+hybrid workshop, and remote presentations will be possible. As in the past, it
+will be free. Our guest speaker this year is
+[Professor Jonathan Cohen](https://pni.princeton.edu/people/jonathan-cohen) of Princeton.
+Information on registration and sign-up for talks will be sent in a few weeks.
+Please contact John Laird if you have any questions.
 *   [`soar_ros`](https://github.com/THA-Embedded-Systems-Lab/soar_ros), a ROS2
 package by Moritz Schmidt that enables integration between ROS and Soar, is now
 available on GitHub.
@@ -27,15 +37,3 @@ improvements. Note: if you are a Mac user with an Intel processor and you
 downloaded the release prior to August 19, 2024, then you will need to
 re-download. There was an issue with the setup script for Mac/Intel users which
 would prevent running Soar.
-*   **44th Soar Workshop 2024** This year’s Soar workshop will be held on May 29,
-2024, at the University of Michigan’s Beyster Building on North Campus in Ann
-Arbor, MI. It will be a hybrid workshop, and remote presentations will be possible.
-As in the past, it will be free.
-
-    Please consider participating! If you are interested in the workshop, please
-complete the registration form.
-
-    Registration closes on 10 May. We look forward to seeing you at the 2024 Soar
-    Workshop!
-
-    [Register here](https://forms.gle/M1JRwpVZPgy5hQc3A)

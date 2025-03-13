@@ -1,6 +1,7 @@
 # Support
 
-While Soar is an academic, open-source project, there are several options to get help ing learning Soar and developing Soar systems:
+While Soar is an academic, open-source project, there are several options to
+get help learning Soar and developing Soar systems:
 
 <!-- TODO: re-write this section, adding missing pages where needed -->
 <!-- ## Commonly Used Documentation:
