@@ -26,9 +26,6 @@ valid for a local kernel)
 -   `-width <width>`: Start with the specified window width
 -   `-height <height>`: Start with the specified window height
 -   `-x <x> -y <y>`: Start with the specified window position
--   `-cascade`: Cascade each opened window (offsetting from the -x `<x>` -y `<y>`
-    if given). This option is always on. (Providing width/height/x/y => not a
-    maximized window)
 -   `-layout <xml file>`: Load the layout (window positions, types of windows etc.)
 from the specified XML file. You can also store the layout file in the debugger settings
 folder and refer to it by just the file name.
