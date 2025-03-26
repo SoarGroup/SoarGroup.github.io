@@ -145,6 +145,11 @@ nav:
         - downloads/examples_and_unsupported/index.md
         - C++ Command Line Filter: downloads/examples_and_unsupported/cpp_command_line_filter_example.md
         - Towers of Hanoi: downloads/examples_and_unsupported/towers_of_hanoi.md
+        - C++ Logger: downloads/examples_and_unsupported/c++_logger.md
+        - C# Interface Example: downloads/examples_and_unsupported/csharp_interface_example.md
+        - Java Logger: downloads/examples_and_unsupported/java_logger.md
+        - Missionaries and Cannibals: downloads/examples_and_unsupported/missionaries_and_cannibals.md
+        - PHP Interface Example: downloads/examples_and_unsupported/php_interface_example.md
   - Tutorials:
       - tutorials/index.md
       - Official Soar Tutorials:

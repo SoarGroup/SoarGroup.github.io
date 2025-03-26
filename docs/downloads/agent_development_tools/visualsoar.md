@@ -25,11 +25,11 @@ mouse controls are documented [here](https://soar.eecs.umich.edu/reference/Visua
 
 ## Developers
 
-Jon Bauman
-Brad Jones
-Brian Harelton
-Andrew Nuxoll
-Douglas Pearson
+*   Jon Bauman
+*   Brad Jones
+*   Brian Harelton
+*   Andrew Nuxoll
+*   Douglas Pearson
 
 ## Language
 

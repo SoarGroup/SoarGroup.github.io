@@ -38,7 +38,7 @@ TODO
 
 ## Download Links
 
-*   [TODO](https://github.com/SoarGroup/website-downloads/raw/main/$parent_camel_case/TODO)
+*   [TODO](https://github.com/SoarGroup/website-downloads/raw/main/$repo_folder/TODO)
 
 ## Associated Agents
 
@@ -99,8 +99,9 @@ def main(parent: str, title: str):
     if new_file_path.exists():
         print(f"File {new_file_path} already exists")
         return
-    parent_camel_case = parent.replace("_", " ").title().replace(" ", "")
-    new_file_contents = DOWNLOAD_TEMPLATE.substitute(title=title, parent=parent, parent_camel_case=parent_camel_case)
+    # parent_camel_case = parent.replace("_", " ").title().replace(" ", "")
+    parent_kebab_case = parent.replace("_", "-")
+    new_file_contents = DOWNLOAD_TEMPLATE.substitute(title=title, parent=parent, repo_folder=parent_kebab_case)
 
     with open(MKDOCS_YML, "r") as f:
         lines = f.readlines()
