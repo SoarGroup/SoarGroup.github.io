@@ -150,6 +150,9 @@ nav:
         - Java Logger: downloads/examples_and_unsupported/java_logger.md
         - Missionaries and Cannibals: downloads/examples_and_unsupported/missionaries_and_cannibals.md
         - PHP Interface Example: downloads/examples_and_unsupported/php_interface_example.md
+        - Python Interface Example: downloads/examples_and_unsupported/python_interface_example.md
+        - RL Command Line Interface: downloads/examples_and_unsupported/rl_command_line_interface.md
+        - Soar Obfuscator: downloads/examples_and_unsupported/soar_obfuscator.md
   - Tutorials:
       - tutorials/index.md
       - Official Soar Tutorials:

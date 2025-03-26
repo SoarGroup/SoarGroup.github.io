@@ -11,3 +11,6 @@ This code is unsupported but may still work.
 *   [Java Logger](./java_logger.md)
 *   [Missionaries and Cannibals](./missionaries_and_cannibals.md)
 *   [PHP Interface Example](./php_interface_example.md)
+*   [Python Interface Example](./python_interface_example.md)
+*   [RL Command Line Interface](./rl_command_line_interface.md)
+*   [Soar Obfuscator](./soar_obfuscator.md)
