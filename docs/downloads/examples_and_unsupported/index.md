@@ -14,3 +14,8 @@ This code is unsupported but may still work.
 *   [Python Interface Example](./python_interface_example.md)
 *   [RL Command Line Interface](./rl_command_line_interface.md)
 *   [Soar Obfuscator](./soar_obfuscator.md)
+*   [Soar on iOS](./soar_on_ios.md)
+*   [Soar Scratch Pad](./soar_scratch_pad.md)
+*   [Tcl Command Line Filter Example](./tcl_command_line_filter_example.md)
+*   [Tower of Hanoi SML Example](./tower_of_hanoi_sml_example.md)
+*   [Working Memory Activation Tracker](./working_memory_activation_tracker.md)

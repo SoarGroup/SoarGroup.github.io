@@ -153,6 +153,11 @@ nav:
         - Python Interface Example: downloads/examples_and_unsupported/python_interface_example.md
         - RL Command Line Interface: downloads/examples_and_unsupported/rl_command_line_interface.md
         - Soar Obfuscator: downloads/examples_and_unsupported/soar_obfuscator.md
+        - Soar on iOS: downloads/examples_and_unsupported/soar_on_ios.md
+        - Soar Scratch Pad: downloads/examples_and_unsupported/soar_scratch_pad.md
+        - Tcl Command Line Filter Example: downloads/examples_and_unsupported/tcl_command_line_filter_example.md
+        - Tower of Hanoi SML Example: downloads/examples_and_unsupported/tower_of_hanoi_sml_example.md
+        - Working Memory Activation Tracker: downloads/examples_and_unsupported/working_memory_activation_tracker.md
   - Tutorials:
       - tutorials/index.md
       - Official Soar Tutorials:
