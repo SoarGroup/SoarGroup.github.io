@@ -1,9 +1,9 @@
 <!-- markdownlint-disable-file MD041-->
 
 *[SGIO]: Soar General Input/Output Interface
-*[Tcl]: Tool Command Language
+*[Tcl]: Tool Command Language (a programming language)
 *[DARPA]: Defense Advanced Research Projects Agency
-*[SML]: Soar Markup Language
+*[SML]: Soar Markup Language; Soar client library; an app that interfaces with Soar
 *[GDS]: Goal Dependency Set
 *[RL]: Reinforcement Learning
 *[LHS]: Left-Hand Side
