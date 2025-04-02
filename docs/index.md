@@ -18,10 +18,11 @@ If you are looking for help or discussion, please see our
 
 *   This year’s Soar workshop will be held on May 5, 2025, at the University
 of Michigan’s Beyster Building on North Campus in Ann Arbor, MI. It will be a
-hybrid workshop, and remote presentations will be possible. As in the past, it
+hybrid workshop, with remote participation via Zoom. As in the past, it
 will be free. Our guest speaker this year is
 [Professor Jonathan Cohen](https://pni.princeton.edu/people/jonathan-cohen) of Princeton.
-Information on registration and sign-up for talks will be sent in a few weeks.
+Registration for workshop attendance and talks is now open! Please fill out the
+form [here](https://docs.google.com/forms/d/e/1FAIpQLScHj92CnElLXW7PbhiOmRw9Zyh-iT522A5UenD8msncYXtAvA/viewform).
 Please contact John Laird if you have any questions.
 *   [`soar_ros`](https://github.com/THA-Embedded-Systems-Lab/soar_ros), a ROS2
 package by Moritz Schmidt that enables integration between ROS and Soar, is now
