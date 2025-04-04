@@ -8,7 +8,7 @@ available from [Amazon](http://www.amazon.com/Soar-Cognitive-Architecture-John-L
 and [MIT Press](https://mitpress.mit.edu/books/soar-cognitive-architecture).
 
 <!-- markdown-link-check-disable-next-line -->
-To get started, [download Soar](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/Soar-Release-{{soar_version}}.zip)
+To get started, [download Soar](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/SoarSuite_{{soar_version}}-Multiplatform.zip)
 and follow the [quick start guide](home/QuickStart.md).
 
 If you are looking for help or discussion, please see our

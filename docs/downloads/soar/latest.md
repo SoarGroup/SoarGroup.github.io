@@ -6,8 +6,7 @@ title: Soar
 
 The current version of Soar is {{ soar_version }}.
 <!-- markdown-link-check-disable-next-line -->
-*   [Soar Release](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/SoarSuite_{{soar_version}}-Multiplatform.zip
-)
+*   [Soar Release](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/SoarSuite_{{soar_version}}-Multiplatform.zip)
 (see [quick start guide](../../home/QuickStart.md) for setup instructions)
 <!-- markdown-link-check-disable-next-line -->
 *   [Soar Manual PDF](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/SoarManual.pdf)
