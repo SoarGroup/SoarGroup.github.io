@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Run this file from the root directory of this repository, otherwise
 # the template.tex file path does not match.
 mkdir output
