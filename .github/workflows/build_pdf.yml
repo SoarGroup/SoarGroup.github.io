@@ -11,9 +11,12 @@ jobs:
     runs-on: ubuntu-22.04
     container: pandoc/latex:latest
     steps:
-      - uses: actions/checkout@v3
-      - run: ./docs/soar_manual/build.sh
-      - uses: actions/upload-artifact@v3
-        with:
-          name: output
-          path: output
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Build Manual PDF
+      run: ./docs/soar_manual/build.sh
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: PDFs
+        path: output
