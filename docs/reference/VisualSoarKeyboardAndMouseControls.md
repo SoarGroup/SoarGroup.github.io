@@ -2,14 +2,21 @@
 
 ## Key Bindings
 
+On Macs, the <kbd>⌘</kbd> key ("command") is used in place of the <kbd>Ctrl</kbd>
+key in the shortcuts below.
+
+### Global Actions
+
+*  <kbd>ESC</kbd> Close open dialog
+
 ### Project Level Actions
 
 *   <kbd>Ctrl</kbd>+<kbd>N</kbd> Open a new VisualSoar project
 *   <kbd>Ctrl</kbd>+<kbd>O</kbd> Open an existing VisualSoar project
 *   <kbd>Ctrl</kbd>+<kbd>F</kbd> Open a text file
 *   <kbd>Alt</kbd>+<kbd>X</kbd> Save all open documents and close VisualSoar
-*   <kbd>Ctrl</kbd>+<kbd>T</kbd> Tile windows
-*   <kbd>Ctrl</kbd>+<kbd>T</kbd> Re-Tile windows
+*   <kbd>Ctrl</kbd>+<kbd>T</kbd> Tile windows horizontally
+*   <kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>T</kbd> Tile windows vertically
 
 ### File Level Actions
 
@@ -29,7 +36,7 @@ for area selection, clipboard operations and basic editing:
 * <kbd>Ctrl</kbd>+<kbd>X</kbd> Cut the selected text to the clipboard
 * <kbd>Ctrl</kbd>+<kbd>V</kbd> Paste the clipboard text at the current cursor location
 * <kbd>Ctrl</kbd>+<kbd>Z</kbd> Undo the last editing operation
-* <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> Redo the last editing operation
+* <kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>Z</kbd> Redo the last editing operation
 * <kbd>Ctrl</kbd>+<kbd>A</kbd> Select all text in the current window
 
 The following two editing command have been added:
@@ -70,10 +77,10 @@ button.
 
 ### Datamap
 
-*   Double Click: Expand the current tree node
-*   Drag & Drop : Move a subtree to a new location
-*   <kbd>Ctrl</kbd>+D&D: Copy a subtree to a new location
-*   <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+D&D: Link a subtree to a new location
+*   Double-click: Expand the current tree node
+*   Drag and drop: Move a subtree to a new location
+*   <kbd>Ctrl</kbd>+ drag and drop: Copy a subtree to a new location
+*   <kbd>Ctrl</kbd>+<kbd>shift</kbd> + drag and drop: Link a subtree to a new location
 
 !!! info "What is "Drag and Drop"?"
     It's a common method for manipulating objects under a graphical user
