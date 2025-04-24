@@ -8,6 +8,8 @@ key in the shortcuts below.
 ### Global Actions
 
 *  <kbd>ESC</kbd> Close open dialog
+*  <kbd>Ctrl</kbd>+<kbd>Q</kbd> Quit VisualSoar
+*  <kbd>Ctrl</kbd>+<kbd>,</kbd> Open the VisualSoar preferences
 
 ### Project Level Actions
 
