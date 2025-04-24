@@ -215,3 +215,13 @@ Via [Wikipedia](https://en.wikipedia.org/wiki/Rete_algorithm#Production_executio
 match-resolve-act cycle. This characteristic is termed _refraction_.
 
 Refracting a fired instance means to prevent it from firing again.
+
+### Rete Structures
+
+#### CN
+
+Conjunctive negation
+
+#### NVN
+
+Node variable names
