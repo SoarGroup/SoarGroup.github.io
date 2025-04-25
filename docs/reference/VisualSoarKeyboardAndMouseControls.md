@@ -10,6 +10,8 @@ key in the shortcuts below.
 *  <kbd>ESC</kbd> Close open dialog
 *  <kbd>Ctrl</kbd>+<kbd>Q</kbd> Quit VisualSoar
 *  <kbd>Ctrl</kbd>+<kbd>,</kbd> Open the VisualSoar preferences
+*  <kbd>Ctrl</kbd>+<kbd>=</kbd> Increase font size
+*  <kbd>Ctrl</kbd>+<kbd>-</kbd> Decrease font size
 
 ### Project Level Actions
 
