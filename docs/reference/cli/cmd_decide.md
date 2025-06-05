@@ -157,7 +157,9 @@ decide select O2
 Seeds the random number generator with the passed seed. Calling `decide
 set-random-seed` (or equivalently, `decide srand`) without providing a seed will
 seed the generator based on the contents of /dev/urandom (if available) or else
-based on time() and clock() values.
+based on time() and clock() values. If provided, the seed value is parsed as an
+unsigned 32-bit integer; values that are too large are set to the largest possible
+value, or 4,294,967,295, and negative values are unparseable.
 
 #### Example
 
