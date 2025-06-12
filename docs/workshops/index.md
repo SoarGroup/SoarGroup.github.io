@@ -1,5 +1,6 @@
 # Soar Workshop Proceedings
 
+*   [45th Soar Workshop (2025)](45.md)
 *   [44th Soar Workshop (2024)](44.md)
 *   [43rd Soar Workshop (2023)](43.md)
 *   [42nd Soar Workshop (2022)](42.md)

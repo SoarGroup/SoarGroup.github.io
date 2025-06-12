@@ -207,6 +207,7 @@ nav:
         - Waterfall: development/soar/Waterfall.md
   - Workshops:
     - workshops/index.md
+    - workshops/45.md
     - workshops/44.md
     - workshops/43.md
     - workshops/42.md
