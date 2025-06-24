@@ -16,9 +16,9 @@ If you are looking for help or discussion, please see our
 
 ## News and Announcements
 
-*   This year's Soar workshop held on May 5, 2025 was a success! We had broad participation from various projects using Soar, including a remarkable presentation from our guest speaker
+*   This year's Soar workshop (45th) held on May 5, 2025 was a success! We had broad participation from various projects using Soar, including a remarkable presentation from our guest speaker
 [Professor Jonathan Cohen](https://pni.princeton.edu/people/jonathan-cohen) of Princeton.
-Recordings and supprting information from all the 2025 workshop talks can be found
+Recordings and supporting information from all the 2025 workshop talks can be found
 [here](workshops/45.md).
 
 *   [`soar_ros`](https://github.com/THA-Embedded-Systems-Lab/soar_ros), a ROS2
