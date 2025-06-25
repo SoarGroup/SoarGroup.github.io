@@ -13,17 +13,9 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-    - name: Debug environment
-      run: |
-        echo "Current directory: $(pwd)"
-        echo "Files in current directory:"
-        ls -la
-        echo "Files in docs directory:"
-        ls -la ./docs
-        echo "Files in docs/soar_manual directory:"
-        ls -la ./docs/soar_manual
     - name: Build Manual PDF
-      run: ./docs/soar_manual/build.sh
+      # use bash explicitly in case the container env can't properly interpret the shebang
+      run: bash ./docs/soar_manual/build.sh
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
       with:
