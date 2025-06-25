@@ -9,13 +9,14 @@ on:
 jobs:
   convert_via_pandoc:
     runs-on: ubuntu-22.04
+    # Note: this container does not have bash! Using sh instead.
     container: pandoc/latex:latest
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
     - name: Build Manual PDF
-      # use bash explicitly in case the container env can't properly interpret the shebang
-      run: bash ./docs/soar_manual/build.sh
+      # use sh since bash is not available in the pandoc/latex container
+      run: ./docs/soar_manual/build.sh
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
       with:
