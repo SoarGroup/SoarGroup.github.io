@@ -17,8 +17,8 @@ instead, put them in the [website downloads repository](https://github.com/SoarG
 ## Setup/Running
 
 ```shell
-python -m venv
-source venv/bin/activate (or venv\Scripts\Activate on Windows)
+python -m venv venv
+source venv/bin/activate (or venv\Scripts\activate on Windows)
 pip install -r requirements.txt
 mkdocs serve # add -s to abort on any warnings
 ```
