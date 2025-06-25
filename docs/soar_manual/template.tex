@@ -193,7 +193,7 @@ $if(listings)$
 \makeatother
 
 % \newcommand{\passthrough}[1]{#1}
-\newcommand{\passthrough}[1]{\lstset{mathescape=false}#1\lstset{mathescape=true}} 
+\newcommand{\passthrough}[1]{\lstset{mathescape=false}#1\lstset{mathescape=true}}
 \lstset{defaultdialect=[5.3]Lua}
 \lstset{defaultdialect=[x86masm]Assembler}
 $endif$
@@ -229,15 +229,16 @@ $endif$
 $if(graphics)$
 \usepackage{graphicx}
 \makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-% Set default figure placement to htbp
-\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/widthAdd commentMore actions
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
 \def\fps@figure{htbp}
 \makeatother
 $endif$
@@ -330,13 +331,15 @@ $endfor$
 % get rid of language-specific shorthands (see #6817):
 \let\LanguageShortHands\languageshorthands
 \def\languageshorthands#1{}
+$if(selnolig-langs)$
+\ifLuaTeXAdd commentMore actions
+  \usepackage[$for(selnolig-langs)$$it$$sep$,$endfor$]{selnolig} % disable illegal ligatures
+\fi
+$endif$
 $endif$
 $for(header-includes)$
 $header-includes$
 $endfor$
-\ifLuaTeX
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
 $if(dir)$
 \ifPDFTeX
   \TeXXeTstate=1
@@ -434,22 +437,22 @@ $endif$
 \begin{document}
 \begin{titlepage}
   \vspace{1.5in}
-  
+
   \begin{center}
   \begin{huge}
     The Soar User's Manual \vspace{10pt} \\
     Version \SoarVersionMajor.\SoarVersionMinor.\SoarVersionRevision \vspace{20pt} \\
   \end{huge}
   \vspace{36pt}
-  
-  
+
+
   \begin{large}
       \vspace{20pt}
     John E. Laird, Clare Bates Congdon, \\
     Mazin Assanie, Nate Derbinsky and Joseph Xu  \\
       \vspace{20pt}
   \end{large}
-  
+
     \vspace{20pt}
   \begin{large}
            Additional contributions by: \\
@@ -462,12 +465,12 @@ $endif$
     Division of Computer Science and Engineering\\
     University of Michigan \vspace{.3in} \\
   \end{large}
-  
+
     Draft of:
     \today
-  
+
   \end{center}
-  
+
   \vspace*{0pt plus 1filll}
     {\em
     Errors may be reported to John E. Laird (laird@umich.edu)\\
@@ -475,19 +478,19 @@ $endif$
     }
     Copyright \copyright\ 1998 - \the\year, The Regents of the University of Michigan
   \vspace{.1in}
-  
+
   Development of earlier versions of this manual were supported under
   contract N00014-92-K-2015 from the Advanced Systems Technology Office of
   the Advanced Research Projects Agency and the Naval Research Laboratory,
   and contract N66001-95-C-6013 from the Advanced Systems Technology
   Office of the Advanced Research Projects Agency and the Naval Command
   and Ocean Surveillance Center, RDT\&E division.
-  
+
   \newpage
   \setlength{\parskip}{3pt}
   \normalsize
   \setlength{\parskip}{8pt}
-  
+
   \end{titlepage}
 
 $if(abstract)$
