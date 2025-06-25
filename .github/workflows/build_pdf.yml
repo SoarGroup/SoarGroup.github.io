@@ -1,4 +1,4 @@
-name: Generate PDF Documenatation
+name: Generate PDF Documentation
 
 on:
   push:
@@ -15,10 +15,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
     - name: Build Manual PDF
-      # use sh since bash is not available in the pandoc/latex container
       run: ./docs/soar_manual/build.sh
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: PDFs
-        path: output
+        name: soar-manual-pdf
+        path: output/
+        if-no-files-found: error
