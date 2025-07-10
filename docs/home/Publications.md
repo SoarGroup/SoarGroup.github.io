@@ -8,6 +8,13 @@ tags:
 
 # Publications
 
+## 2025
+
+Schmidt, Moritz & Meitinger, Claudia “Leveraging Agent-Based Reasoning
+for Natural Task Delegation on the Shop Floor,” in Studies in Computational
+Intelligence, Cham: Springer Nature Switzerland, 2025, pp. 41–54. doi:
+[10.1007/978-3-031-85316-6_4](https://doi.org/10.1007/978-3-031-85316-6_4).
+
 ## 2023
 
 N.Narayan, P. Ganeriwala, R. Jones, M. Matessa, S. Bhattacharyya, J. Davis, H.
