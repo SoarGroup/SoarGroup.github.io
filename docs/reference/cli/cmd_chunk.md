@@ -1,6 +1,7 @@
 # chunk
 
-Sets the parameters for explanation-based chunking.
+Sets the parameters for Soar's chunking algorithm, explanation-based behavior
+summarization (EBBS).
 
 ## Synopsis
 
@@ -8,36 +9,29 @@ Sets the parameters for explanation-based chunking.
 ===================================================
            Chunk Commands and Settings
 ===================================================
-? | help                                              Print this help listing
-timers                                 [ on | OFF ]   Timing statistics (no args to print stats)
-stats                                                 Print statistics on learning
+chunk ? | help                                        Print all EBBS settings
+chunk stats                                           Print statistics on learning that has occurred
 ------------------- Settings ----------------------
 always | NEVER | only | except                        When Soar will learn new rules
 bottom-only                            [ on | OFF ]   Learn only from bottom sub-state
-naming-style                     [ numbered | RULE]   Numeric names or rule-based names
-max-chunks                                 50         Max chunks learned per phase
-max-dupes                                   3         Max duplicate chunks (per rule, per phase)
+naming-style                     [ numbered | RULE]   Simple numeric chunk names or informational rule-based name
+max-chunks                                 50         Maximum chunks that can be learned (per phase)
+max-dupes                                   3         Maximum duplicate chunks (per rule, per phase)
 ------------------- Debugging ---------------------
-interrupt                              [ on | OFF ]   Stop after learning from any rule
-explain-interrupt                      [ on | OFF ]   Stop after learning rule watched
-warning-interrupt                      [ on | OFF ]   Stop after detecting learning issue
+interrupt                              [ on | OFF ]   Stop Soar after learning from any rule
+explain-interrupt                      [ on | OFF ]   Stop Soar after learning rule watched by explainer
+warning-interrupt                      [ on | OFF ]   Stop Soar after detecting learning issue
 ------------------- Fine Tune ---------------------
 singleton                                             Print all WME singletons
 singleton                <type> <attribute> <type>    Add a WME singleton pattern
 singleton -r             <type> <attribute> <type>    Remove a WME singleton pattern
------------------ EBC Mechanisms ------------------
-add-ltm-links                          [ on | OFF ]   Recreate LTM links in results
-add-osk                                [ on | OFF ]   Incorporate operator selection rules
-merge                                  [ ON | off ]   Merge redundant conditions
-lhs-repair                             [ ON | off ]   Add conds for unconnected LHS IDs
-rhs-repair                             [ ON | off ]   Add conds for unconnected RHS IDs
-user-singletons                        [ ON | off ]   Unify with domain singletons
----------- Correctness Guarantee Filters ----------     Allow rules to form that...
+automatically-create-singletons        [ ON | off ]   Attempt creating singletons for every string attribute
+----------------- EBBS Mechanisms ------------------
+add-ltm-links                          [ on | OFF ]   Recreate LTM links in original results
+add-osk                                [ ON | off ]   Incorporate operator selection knowledge
+---------- Correctness Guarantee Filters ----------   Allow rules to form that...
 allow-local-negations                  [ ON | off ]   ...used local negative reasoning
-allow-opaque*                          [ ON | off ]   ...used knowledge from a LTM recall
-allow-missing-osk*                     [ ON | off ]   ...tested operators selected through OSK
-allow-uncertain-operators*             [ ON | off ]   ...tested operators selected probabilistically
-* disabled
+allow-opaque                           [ ON | off ]   ...used knowledge from a LTM recall
 ---------------------------------------------------
 
 To change a setting:                                  chunk <setting> [<value>]
@@ -55,7 +49,7 @@ current values.
 ## Turning on Explanation-Based Chunking
 
 Chunking is _disabled_ by default. Learning can be turned on or off at any point
-during a run. Also note that Soar uses most aspects of EBC to create
+during a run. Also note that Soar uses most aspects of EBBS to create
 justifications as well, so many aspects of the chunking algorithm still occur
 even when learning is off.
 
@@ -203,7 +197,7 @@ can now produce very general chunks, so this can happen in problem states in
 which the logic leads to multiple matches, which leads to results being created
 multiple times in the same decision cycle.
 
-## Settings that Alter the Mechanisms that EBC Uses
+## Settings that Alter the Mechanisms that EBBS Uses
 
 ### chunk add-osk
 
@@ -212,10 +206,11 @@ backtraced through when creating justifications and chunks. When this option is
 disabled, only requirement preferences (requires and prohibits) will be added
 backtraced through. When this option is enabled, relevant desirability prefs
 (better, best, worse, worst, indifferent) will also be added, producing more
-specific and possibly correct chunks. This feature is still experimental, so the
-default is to not include operator selection knowledge.
+specific and possibly more correct chunks. This feature is still experimental and
+incurs a performance penalty, so the default is to not include operator
+selection knowledge.
 
-The following commands are not yet enabled. Soar will always use the EBC
+The following commands are not yet enabled. Soar will always use the EBBS
 mechanisms listed below.
 
 ### variablize-identity
