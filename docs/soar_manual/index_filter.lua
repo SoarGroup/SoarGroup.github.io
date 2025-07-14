@@ -24,9 +24,9 @@ function extractAndReplaceIndexFromComment(elem)
 
                 -- If we found index commands, replace the HTML comment with LaTeX index commands
                 if #index_commands > 0 then
-                    local combined_latex = table.concat(index_commands, " ")
+                    local combined_latex = table.concat(index_commands, "\n")
                     io.stderr:write("Index filter: Replacing HTML comment with: " .. combined_latex .. "\n")
-                    return pandoc.RawInline("latex", combined_latex .. " ")
+                    return pandoc.RawBlock("latex", combined_latex)
                 end
             else
                 io.stderr:write("Index filter: Comment does not contain \\index, ignoring: " .. comment_content .. "\n")
