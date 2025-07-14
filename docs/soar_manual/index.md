@@ -1,5 +1,3 @@
-{{manual_wip_warning}}
-
 # The Soar User’s Manual
 
 John E. Laird, Clare Bates Congdon,
@@ -13,7 +11,7 @@ Aaron Mininger, Preeti Ramaraj and Bryan Stearns
 Division of Computer Science and Engineering
 University of Michigan
 
-*Errors may be reported to John E. Laird (laird@umich.edu)*
+*Errors may be reported to John E. Laird (<laird@umich.edu>)*
 
 Copyright © 1998 - 2023, The Regents of the University of Michigan
 
