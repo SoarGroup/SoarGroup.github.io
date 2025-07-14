@@ -24,7 +24,7 @@ pandoc \
     --listings \
     --number-sections \
     --lua-filter=docs/soar_manual/path_filter.lua \
-    --lua-filter=docs/soar_manual/debug_filter.lua \
+    --lua-filter=docs/soar_manual/index_filter.lua \
     -V geometry:"left=3cm, top=2.5cm, right=3cm, bottom=3cm" \
     -V has-index \
     docs/soar_manual/04_ProceduralKnowledgeLearning.md \
