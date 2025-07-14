@@ -25,8 +25,15 @@ pandoc \
     --number-sections \
     --lua-filter=docs/soar_manual/path_filter.lua \
     -V geometry:"left=3cm, top=2.5cm, right=3cm, bottom=3cm" \
-    -V has-index \
+    docs/soar_manual/01_Introduction.md \
+    docs/soar_manual/02_TheSoarArchitecture.md \
+    docs/soar_manual/03_SyntaxOfSoarPrograms.md \
     docs/soar_manual/04_ProceduralKnowledgeLearning.md \
+    docs/soar_manual/05_ReinforcementLearning.md \
+    docs/soar_manual/06_SemanticMemory.md \
+    docs/soar_manual/07_EpisodicMemory.md \
+    docs/soar_manual/08_SpatialVisualSystem.md \
+    docs/soar_manual/09_SoarUserInterface.md \
     output/cli.tex \
     -o output/SoarManual.pdf
 
