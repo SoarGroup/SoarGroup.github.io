@@ -1,6 +1,11 @@
 <!-- markdownlint-disable-next-line -->
 # Procedural Knowledge Learning
 
+<!-- \index{chunking} -->
+<!-- \index{chunk} -->
+<!-- \index{result} -->
+<!-- \index{subgoal} -->
+
 ## Chunking
 
 Chunking is Soar’s experience-based mechanism for learning new procedural
@@ -40,6 +45,8 @@ and using chunking:
 1.  [visualize](../reference/cli/cmd_visualize.md)
 
 ## Explanation-based Behavior Summarization
+
+<!-- \index{chunking!explanation-based behavior summarization} -->
 
 Explanation-based behavior summarization (EBBS) improves on generality and
 correctness issues in previous versions of chunking. EBBS learns general rules
@@ -155,7 +162,7 @@ analyzes a behavior trace. Figure below shows an example behavior trace.
 
 Note that this trace is generated dynamically as rules match. Whenever a rule
 matches during agent execution, Soar creates an internal record of the rule that
-fired, which is called a rule instantiation. (Each box in the behavior traces
+fired, which is called a rule instantiation. <!-- \index{instantiation} --> (Each box in the behavior traces
 of this chapter represents an instantiation that was created during task
 execution within a particular substate.) The instantiation contains both
 instance information about what matched (the working memory elements) and
@@ -174,7 +181,7 @@ Similarly, architectural instantiations are created for structures recalled by
 semantic and episodic memory in the substate.
 
 All of the instantiations that were created in a substate form the
-_instantiation graph_ of that substate. As chunking **backtraces** through the
+_instantiation graph_ of that substate. As chunking **backtraces** <!-- \index{chunking!backtracing} --> through the
 instantiation graph, it determines the subset of instantiations that contributed
 to a result. This set of instantiations and the connections between them is the
 basis for the behavior trace used for a learning episode. (At this point, the
@@ -211,6 +218,8 @@ underlying object and supports identity-based variabilization.
 
 ### Identity
 
+<!-- \index{chunking!identity} -->
+
 Before we can discuss the algorithm, we must first define one of its central
 concepts: _identity_.
 
@@ -220,9 +229,9 @@ concepts: _identity_.
 -   **The NULL identity is a special identity that indicates an element which
     cannot be generalized and must contain a specific value.** - All elements in
     the original rule that reference specific constant values are trivially
-    assigned the NULL identity. - A variable’s identity can also be _mapped to the
+    assigned the NULL identity. - A variable's identity can also be _mapped to the
     NULL identity_. When this happens, we say the identity has been
-    **literalized**.
+    **literalized**. <!-- \index{chunking!literalization} -->
 
 EBBS traverses a behavior trace of the problem-solving that occurred in the
 substate to determine which variables in different rule instances refer to the
@@ -303,6 +312,8 @@ on the identity graph.
 
 ### The Nine Components of Explanation-Based Behavior Summarization
 
+<!-- \index{chunking!ebbs-components} -->
+
 1.  **Operator Selection Knowledge Analysis**
     This component also occurs before the learning episode. Whenever an operator
     is selected, it analyzes what rule firings contributed necessary operator
@@ -362,6 +373,8 @@ when that happens is when a rule fires in a substate and when an operator is
 selected in a substate.
 
 ### Operator Selection Knowledge Analysis
+
+<!-- \index{chunking!relevant operator selection knowledge} -->
 
 As described in the beginning of this chapter, chunking summarizes the processing
 required to produce the results of subgoals. Traditionally, the philosophy behind
@@ -491,7 +504,7 @@ created and propagated using the following rules:
         represent that the variable in the condition refers to the same object
         as the variable in the action of the other rule.
     1.  Any element that matches special working memory elements called singletons
-        are assigned the same identity. Singletons are working memory elements
+        are assigned the same identity. Singletons <!-- \index{singleton} --> are working memory elements
         that are guaranteed to only have a single possible value in a state. The
         most important singleton is the local `^superstate` singleton, which is
         an architecturally created WME that links the substate to the
@@ -515,6 +528,8 @@ missing propagations. It does this by creating and manipulating an identity
 graph that can correctly incorporate all identity relationships.
 
 ### Constraint Tracking
+
+<!-- \index{constraint-tracking} -->
 
 Rules underlying a behavior trace can include conditions that impose constraints
 on the values that a variable can hold. These can include equality tests,
@@ -561,6 +576,8 @@ number of results. All of the newly created results become the basis of the
 chunk’s actions.
 
 ### Backtracing
+
+<!-- \index{chunking!backtracing} -->
 
 When learning a new rule, EBBS performs a dependency analysis of the productions
 that fired in a substate – a process called backtracing. Backtracing works as
@@ -802,6 +819,9 @@ same state it matched in.
 
 ### Relationship Between Chunks and Justifications
 
+<!-- \index{justification} -->
+<!-- \index{chunk} -->
+
 Chunks are closely related to another type of rule called a justification.
 Justifications are also created when a substate creates a result for a
 superstate, the difference being that justifications are only built when
@@ -842,6 +862,8 @@ chunks and justifications are:
     conditions no longer match.
 
 ### Chunk Inhibition
+
+<!-- \index{chunking!inhibition} -->
 
 If a newly learned chunk was immediately added to production memory, it would
 immediately match with the same working memory elements that participated in its
@@ -890,6 +912,9 @@ the [explainer’s settings](../reference/cli/cmd_explain.md) for more informati
 
 ### Generality and Correctness of Learned Rules
 
+<!-- \index{chunking!correctness} -->
+<!-- \index{chunking!over-general} -->
+
 Chunking is intended to produce the most general rule that is also correct.
 
 Generality is a measure of the space of similar situations that a rule can apply
@@ -908,6 +933,11 @@ Note that an over-general rule is an incorrect rule, but not all incorrect
 rules are over-general.
 
 ### Over-specialization and Over-generalization
+
+<!-- \index{chunking!over-specialization} -->
+<!-- \index{chunking!correctness} -->
+<!-- \index{chunking!over-general} -->
+<!-- \index{chunking!explanation-based chunking} -->
 
 Explanation-based behavior summarization was pursued to address the main limitation
 of traditional chunking: over-specialized rules that were very specific and could
@@ -930,6 +960,8 @@ possible to get over-general rules. Several of the sources of correctness issues
 listed in the next section can produce over-general rules in certain situations.
 
 ### Previous Results and Rule Repair
+
+<!-- \index{chunking!repair} -->
 
 An agent may learn a slightly over-specialized rule when EBBS repairs a rule that
 has unconnected conditions, which are conditions that have an identifier that
@@ -1008,6 +1040,9 @@ to production memory.
 
 ### Collapsed Negative Reasoning
 
+<!-- \index{chunking!negated conditions} -->
+<!-- \index{chunking!over-general} -->
+
 Over-general chunks can be created when conditions in the behavior trace test
 for the absence of a working memory elements in the substate. Since there is no
 clear way for chunking to generate a set of conditions that describe when a
@@ -1058,7 +1093,7 @@ operators were exhaustively applied.
 
 The current solution to this problem is a bit of a hack. Soar allows an agent to
 signal to the architecture that a test for a substate is being made by testing
-for the^quiescence t augmentation of the subgoal. If this special test is found
+for the^quiescence t <!-- \index{quiescence} --> augmentation of the subgoal. If this special test is found
 in the behavior trace, EBBS will not build a chunk. The history of this test
 is maintained, so that if the result of the substate is then used to produce
 further results for a superstate, no higher chunks will be built.
@@ -1224,6 +1259,8 @@ learning is turned off.
 
 ### Generalizing Knowledge From Math
 
+<!-- \index{chunking!RHS functions} -->
+
 EBBS introduces the ability to learn more expressive rules
 whose actions perform arbitrary right-hand side functions with variablized
 arguments.
@@ -1364,7 +1401,7 @@ procedural learning.
 
 It is theoretically possible to detect nearly all of the sources of
 correctness issues and prevent rules from forming when those situations
-are detected. In Soar 9.6.0, though, only one filter is available,
+are detected. In Soar  9.6.0, though, only one filter is available,
 `allow-local-negations`. Future versions of Soar will include more
 correctness filters.
 
