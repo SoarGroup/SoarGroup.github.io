@@ -65,15 +65,15 @@ perceptual input into practical semantic knowledge.
 Soar user interface — how the user interacts with Soar. The chapter is a catalog
 of user-interface commands, grouped by functionality. The most accurate and
 up-to-date information on the syntax of the Soar User Interface is found online,
-at the Soar web site, at <https://github.com/SoarGroup/Soar/wiki/CommandIndex>.
+at the Soar web site, at <https://soar.eecs.umich.edu/reference/>.
 
 Advanced users will refer most often to Chapter 9, flipping back to Chapters 2 and 3 to
 answer specific questions.
 
 Chapters 2 and 3 make use of a Blocks World example agent. The Soar code for
-this agent can be downloaded at
-<https://web.eecs.umich.edu/~soar/blocksworld.soar> or found
-[here](blocksworld.md).
+this agent can be downloaded from
+<https://raw.githubusercontent.com/SoarGroup/website-downloads/refs/heads/main/files/blocksworld.soar>
+or [viewed in the manual here](blocksworld.md).
 
 ### Additional Back Matter
 

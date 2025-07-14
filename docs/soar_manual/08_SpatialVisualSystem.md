@@ -86,8 +86,8 @@ Each state in working memory has its own scene graph. When a new state is
 created, it will receive an independent copy of its parent’s scene graph. This
 is useful for performing look-ahead search, as it allows the agent to
 destructively modify the scene graph in a search state using mental imagery
-operations.
-
+operations. If you wish to turn off the scene graph copying behavior, you can disable
+it with `svs --disable-in-substates`. You can also re-enable it with `svs --enable-in-substates`.
 
 ### svs_viewer
 

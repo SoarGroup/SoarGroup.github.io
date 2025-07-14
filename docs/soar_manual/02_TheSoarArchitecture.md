@@ -110,13 +110,13 @@ knowledge is not directly available. Impasses and substates are described in mor
 We will use a task called the blocks-world as an example throughout this manual. In the
 blocks-world task, the initial state has three blocks named A, B, and C on a table; the
 operators move one block at a time to another location (on top of another block or onto the
-table); and the goal is to build a tower withAon top,Bin the middle, andCon the bottom.
+table); and the goal is to build a tower with A on top, B in the middle, and C on the bottom.
 The initial state and the goal are illustrated in Figure 2.2.
 
-The Soar code for this task is available online at
-<https://web.eecs.umich.edu/~soar/blocksworld.soar> or in the
-[here](blocksworld.md#blocksworld-soar-rules).  You do not need to look at the
-code at this point.
+The Soar code for this task is available for download here
+<https://raw.githubusercontent.com/SoarGroup/website-downloads/refs/heads/main/files/blocksworld.soar>
+and can be [viewed in the manual here](blocksworld.md#blocksworld-soar-rules).
+You do not need to look at the code at this point.
 
 ![The initial state and goal of the &quot;blocks-world&quot; task.](Images/blocks.svg)
 

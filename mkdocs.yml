@@ -250,7 +250,7 @@ nav:
           - echo: reference/cli/cmd_echo.md
           - epmem: reference/cli/cmd_epmem.md
           - explain: reference/cli/cmd_explain.md
-          - file_system: reference/cli/cmd_file_system.md
+          - "file system": reference/cli/cmd_file_system.md
           - gp: reference/cli/cmd_gp.md
           - help: reference/cli/cmd_help.md
           - load: reference/cli/cmd_load.md
