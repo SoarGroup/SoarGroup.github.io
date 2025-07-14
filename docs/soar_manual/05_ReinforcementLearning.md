@@ -113,7 +113,7 @@ more generally as binary features in a linear approximator of each
 state-operator pair’s $Q$-value, and their numeric-indifferent preference values
 their weights. In other words,
 
-$$Q(s, a) = w_1 \phi_2 (s, a) + w_2 \phi_2 (s, a) + \ldots + w_n \phi_n (s, a)$$
+$$Q(s, a) = w_1 \phi_1 (s, a) + w_2 \phi_2 (s, a) + \ldots + w_n \phi_n (s, a)$$
 
 where all RL rules in production memory are numbered $1 \dots n$, $Q(s, a)$ is
 the $Q$-value of the state-operator pair $(s, a)$, $w_i$ is the
@@ -198,13 +198,13 @@ or programmer. For example:
       (R3 ^duration 5)
 ```
 
-The `(R2 ^source environment)`,`(R3 ^source intrinsic)`, and `(R3 ^duration 5)`
+The `(R2 ^source environment)`, `(R3 ^source intrinsic)`, and `(R3 ^duration 5)`
 WMEs are arbitrary and ignored by RL, but were added by the agent to keep track
 of where the rewards came from and for how long.
 
 Note that the `reward-link` is not part of the io structure and is not modified
 directly by the environment. Reward information from the environment should be
-copied, via rules, from the `output-link` to the reward-link. Also note that when
+copied, via rules, from the `input-link` to the reward-link. Also note that when
 collecting rewards, Soar simply scans the `reward-link` and sums the values of all
 valid reward WMEs. The WMEs are not modified and no bookkeeping is done to keep
 track of previously seen WMEs. This means that reward WMEs that exist for
@@ -350,10 +350,10 @@ in the impasse state. Consider the operator trace in the following figure:
 ![Example Soar substate operator trace.](Images/rl-optrace.svg)
 
 -   At decision cycle 1, RL operator `O1` is selected in `S1` and causes an
-    operator-no-change impass for three decision cycles.
+    operator-no-change impasse for three decision cycles.
 -   In the substate `S2`, operators `O2`, `O3`, and `O4` are selected and
     applied sequentially.
--   Meanwhile in `S1`, rewards $r_2$ ,$r_3$ , and $r_4$ are put on the
+-   Meanwhile in `S1`, rewards $r_2$, $r_3$, and $r_4$ are put on the
     `reward-link` sequentially.
 -   Finally, the impasse is resolved by `O4`, the proposal for `O1` is retracted,
     and RL operator `O5` is selected in `S1`.
@@ -545,7 +545,7 @@ sp {rl*sample*rule*template*1
 ```
 
 The variable `<v>` is replaced by `3.2` on both the LHS and the RHS, but `<s>`
-and `<o>` are not replaced because they matches against identifiers (`S1` and
+and `<o>` are not replaced because they match against identifiers (`S1` and
 `O1`). As with other RL rules, the value of `3.2` on the RHS of this rule may
 be updated later by reinforcement learning, whereas the value of `3.2` on the LHS
 will remain unchanged. If `<v>` had matched against a non-numeric constant, it
@@ -553,14 +553,15 @@ will be replaced by that constant on the LHS, but the RHS numeric-indifference
 preference value will be set to zero to make the new rule valid.
 
 The new production’s name adheres to the following pattern: `rl*template-name*id`,
-where `template-name` is the name of the originating rule template and id is
+where `template-name` is the name of the originating rule template and `id` is
 monotonically increasing integer that guarantees the uniqueness of the name.
 
 If an identical production already exists in production memory, then the newly
 generated production is discarded. It should be noted that the current process
 of identifying unique template match instances can become quite expensive in
 long agent runs. Therefore, it is recommended to generate all necessary RL rules
-using the gp command or via custom scripting when possible.
+using the [`gp` command](../reference/cli/cmd_gp.md) or via custom scripting when
+possible.
 
 ### Chunking
 

@@ -226,7 +226,7 @@ Note that changes to storage parameters, for example database, path and append
 will not have an effect until the database is used after an initialization.
 This happens either shortly after launch (on first use) or after a database
 initialization command is issued. To switch databases or database storage types
-while running, set your new parameters and then perform an –init command.
+while running, set your new parameters and then perform an --init command.
 
 The **path** parameter specifies the file system path the database is stored
 in. When path is set to a valid file system path and database mode is set to
@@ -454,7 +454,7 @@ t_k^{1-d})}{(1-d)(t_n-t_k)} \right]
 $$
 
 where $n$ is the number of activation boosts, $t_n$ is the time since the first
-boost, $t_k$ is the time of the $k$th boost, dis the decay factor, and $k$ is
+boost, $t_k$ is the time of the $k$th boost, $d$ is the decay factor, and $k$ is
 the number of recent activation boosts which are stored. (In Soar, $k$ is
 hard-coded to $10$.) To use base-level activation, use the following CLI command
 when sourcing an agent:
@@ -476,14 +476,14 @@ may be thought of as _spreading sources_.
 
 Spreading activation values spread according to network structure. That is,
 spreading sources will add to the spreading activation values of any of their
-child LTIs, according to the directed graph structure with in smem(not working
+child LTIs, according to the directed graph structure within smem (not working
 memory). The amount of spread is controlled by the
 `spreading-continue-probability` parameter. By default this value is set to
 0.9. This would mean that $90\ \%$ of an LTI’s spreading activation value would
 be divided among its direct children (without subtracting from its own value).
 This value is multiplicative with depth. A "grandchild" LTI, connected at a
 distance of two from a source LTI, would receive spreading according to
-$0. 9 \times 0 .9 = 0.81$ of the source spreading activation value.
+$0.9 \times 0.9 = 0.81$ of the source spreading activation value.
 
 Spreading activation values are updated each decision cycle only as needed for
 specific smem retrievals. For efficiency, two limits exist for the amount of
@@ -625,8 +625,8 @@ effects of selectivity).
 
 The next two parameters deal with the SQLite cache, which is a memory store
 used to speed operations like queries by keeping in memory structures like
-levels of index B+-trees. The first parameter, **page-size** , indicates the
-size, in bytes, of each cache page. The second parameter, **cache-size** ,
+levels of index B+-trees. The first parameter, **page-size**, indicates the
+size, in bytes, of each cache page. The second parameter, **cache-size**,
 suggests to SQLite how many pages are available for the cache. Total cache size
 is the product of these two parameter settings. The cache memory is not pre-
 allocated, so short/small runs will not necessarily make use of this space.
@@ -638,8 +638,9 @@ file-based databases, versus in-memory. The size of each page, however, may be
 important whether databases are disk- or memory-based. This setting can have
 far-reaching consequences, such as index B+-tree depth. While this setting can
 be dependent upon a particular situation, a good heuristic is that short,
-simple runs should use small values of the page size (1k, 2k, 4k), whereas
-longer, more complicated runs will benefit from larger values (8k, 16k, 32k, 64k).
+simple runs should use small values of the page size (`1k`, `2k`, `4k`), whereas
+longer, more complicated runs will benefit from larger values (`8k`, `16k`,
+`32k`, `64k`).
 The episodic memory [chapter on performance](07_EpisodicMemory.md#performance)
 has some further empirical evidence to assist in setting these parameters for
 very large stores.
@@ -650,18 +651,18 @@ ideal. The performance setting will make use of lesser data consistency
 guarantees for significantly greater performance. First, writes are no longer
 synchronous with the OS (synchronous pragma), thus semantic memory won’t wait
 for writes to complete before continuing execution. Second, transaction
-journaling is turned off (journalmode pragma), thus groups of modifications to
+journaling is turned off (journal_mode pragma), thus groups of modifications to
 the semantic store are not atomic (and thus interruptions due to
 application/os/hardware failure could lead to inconsistent database state).
 Finally, upon initialization, semantic memory maintains a continuous exclusive
-lock to the database (locking mode pragma), thus other applications/agents
+lock to the database (locking_mode pragma), thus other applications/agents
 cannot make simultaneous read/write calls to the database (thereby reducing the
 need for potentially expensive system calls to secure/release file locks).
 
 Finally, maintaining accurate operation timers can be relatively expensive in
 Soar. Thus, these should be enabled with caution and understanding of their
 limitations. First, they will affect performance, depending on the level (set
-via the **timers** parameter). A level of three, for instance, times every
+via the **timers** parameter). A level of `three`, for instance, times every
 modification to long-term identifier recency statistics. Furthermore, because
 these iterations are relatively cheap (typically a single step in the
 linked-list of a `b+-`tree), timer values are typically unreliable (depending

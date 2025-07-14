@@ -38,13 +38,13 @@ memory will maintain these WMEs.
 The value of the present-id augmentation is an integer and will update to expose
 to the agent the current episode number. This information is identical to what
 is available via the [time statistic](../reference/cli/cmd_stats.md) and the
-present-id retrieval meta-data (7.3.4).
+[present-id retrieval metadata](#retrieval-metadata).
 
 ## Episodic Storage
 
 Episodic memory records new episodes without deliberate action/consideration by
-the agent.  The timing and frequency of recording new episodes is controlled by
-the phase and trigger parameters. The **phase** parameter sets the phase in the
+the agent. The timing and frequency of recording new episodes is controlled by
+the `phase` and `trigger` parameters. The **phase** parameter sets the phase in the
 decision cycle (default: end of each decision cycle) during which episodic
 memory stores episodes and processes commands. The value of the **trigger**
 parameter indicates to the architecture the event that concludes an episode:
@@ -54,26 +54,26 @@ For debugging purposes, the **force** parameter allows the user to manually
 request that an episode be recorded (or not) during the current decision cycle.
 Behavior is as follows:
 
-The value of the force parameter is initialized to off every decision cycle.
-During the phase of episodic storage, episodic memory tests the value of the
-force parameter; if it has a value other than of off, episodic memory follows
-the force d policy irrespective of the value of the trigger parameter.
+-   The value of the `force` parameter is initialized to `off` every decision cycle.
+-   During the phase of episodic storage, episodic memory tests the value of the
+    `force` parameter; if it has a value other than `off`, episodic memory follows
+    the forced policy irrespective of the value of the `trigger` parameter.
 
 ### Episode Contents
 
 When episodic memory stores a new episode, it captures the entire top-state of
 working memory. There are currently two exceptions to this policy:
 
-Episodic memory only supports WMEs whose attribute is a constant. Behavior is
-currently undefined when attempting to store a WME that has an attribute that is
-an identifier.
+-   Episodic memory only supports WMEs whose attribute is a constant. Behavior is
+    currently undefined when attempting to store a WME that has an attribute that
+    is an identifier.
 
-The exclusions parameter allows the user to specify a set of attributes for which
-Soar will not store WMEs. The storage process currently walks the top-state of working
-memory in a breadth-first manner, and any WME that is not reachable other than
-via an excluded WME will not be stored. By default, episodic memory excludes the
-epmem and smem structures, to prevent encoding of potentially large and/or frequently
-changing memory retrievals.
+-   The `exclusions` parameter allows the user to specify a set of attributes for
+    which Soar will not store WMEs. The storage process currently walks the
+    top-state of working memory in a breadth-first manner, and any WME that is not
+    reachable other than via an excluded WME will not be stored. By default,
+    episodic memory excludes the `epmem` and `smem` structures, to prevent encoding
+    of potentially large and/or frequently changing memory retrievals.
 
 ### Storage Location
 
@@ -97,9 +97,9 @@ then the SQLite database is written to that path.
 
 The **append** parameter will determine whether all existing facts stored in a
 database on disk will be erased when episodic memory loads. Note that this
-affects init-soar also. In other words, if the append setting is off, all
-episodes stored will be lost when an init-soar is performed. For episodic
-memory, append mode is off by default.
+affects `init-soar` also. In other words, if the `append` setting is `off`, all
+episodes stored will be lost when an `init-soar` is performed. For episodic
+memory, `append` mode is `off` by default.
 
 Note: As of version 9.3.3, Soar now uses a new schema for the episodic memory database.
 This means databases from 9.3.2 and below can no longer be loaded. A conversion utility
@@ -128,7 +128,7 @@ is processed.
 
 All retrieved episodes are recreated exactly as stored, except for any operators
 that have an acceptable preference, which are recreated with the attribute
-operator\*. For example, if the original episode was:
+`operator*`. For example, if the original episode was:
 
 ```Soar
 (<s> ^operator <o1> +)
@@ -175,7 +175,9 @@ As detailed below, multiple prior episodes may equally match the structure and
 contents of an agent’s cue. Nuxoll has produced initial evidence that in some
 tasks, retrieval quality improves when using activation of cue WMEs as a form of
 feature weighting. Thus, episodic memory supports integration with working
-memory activation (see Section 9.3.2.1 on page 221). For a theoretical
+memory activation (see the
+[Soar Manual working memory activation section](../reference/cli/cmd_wm.md#wm-activation)).
+For a theoretical
 discussion of the Soar implementation of working memory activation, consider
 readingComprehensive Working Memory Activation in Soar (Nuxoll, A., Laird, J.,
 James, M., ICCM 2004).
@@ -206,7 +208,8 @@ structural match, or the most recent candidate episode with the greatest match
 score.
 
 A special note should be made with respect to how short- vs. long-term
-identifiers (see Section 6.2 on page 146) are interpreted in a cue. Short-term
+identifiers (see [Knowledge Representation](06_SemanticMemory.md#knowledge-representation))
+are interpreted in a cue. Short-term
 identifiers are processed much as they are in working memory – transient
 structures. Cue matching will try to find any identifier in an episode (with
 respect to WME path from state) that can apply. Long-term identifiers, however,
@@ -298,7 +301,7 @@ adding/subtracting 1 to the last time (respectively).  However, if an episodic
 store dynamic like forgetting is implemented, these relative commands are
 guaranteed to return the next/previous valid episode (assuming one exists).
 
-### Retrieval Meta-Data
+### Retrieval Metadata
 
 The following list details the WMEs that episodic memory creates in the result
 link of the epmem structure wherein a command was issued:
@@ -403,8 +406,9 @@ versus in-memory. The size of each page, however, may be important whether
 databases are disk- or memory-based. This setting can have far-reaching
 consequences, such as index B+-tree depth. While this setting can be dependent
 upon a particular situation, a good heuristic is that short, simple runs should
-use small values of the page size (1k, 2k, 4k), whereas longer, more complicated
-runs will benefit from larger values (8k, 16k, 32k, 64k). One known situation of
+use small values of the page size (`1k`, `2k`, `4k`), whereas longer, more
+complicated runs will benefit from larger values (`8k`, `16k`, `32k`, `64k`).
+One known situation of
 concern is that as indexed tables accumulate many rows (~millions), insertion
 time of new rows can suffer an infrequent, but linearly increasing burst of
 computation. In episodic memory, this situation will typically arise with many
@@ -416,16 +420,16 @@ long, complicated runs establishes the
 ![Example episodic memory cache setting data.](Images/epmem-cache.png)
 
 desired balance of reactivity (i.e. max computation) and average speed. To
-ground this discussion, the Figure 7.1 depicts maximum and average episodic
-storage time (the value of the epmem storage timer, converted to milliseconds)
+ground this discussion, the above figure depicts maximum and average episodic
+storage time (the value of the `epmem_storage` timer, converted to milliseconds)
 with different page sizes after 10 million decisions (1 episode/decision) of a
 very basic agent (i.e. very few working memory changes per episode) running on a
 2.8GHz Core i7 with Mac OS X 10.6.5. While only a single use case, the
 cross-point of these data forms the basis for the decision to default the
 parameter at 8192 bytes.
 
-The next parameter is **optimization** , which can be set to either safety or
-performance.  The safety parameter setting will use SQLite default settings. If
+The next parameter is **optimization**, which can be set to either `safety` or
+`performance`. The `safety` parameter setting will use SQLite default settings. If
 data integrity is of importance, this setting is ideal. The performance setting
 will make use of lesser data consistency guarantees for significantly greater
 performance. First, writes are no longer synchronous with the OS (synchronous
@@ -442,8 +446,8 @@ secure/release file locks).
 Finally, maintaining accurate operation timers can be relatively expensive in
 Soar. Thus, these should be enabled with caution and understanding of their
 limitations. First, they will affect performance, depending on the level (set
-via the timers parameter). A level of three, for instance, times every step in
-the cue-based retrieval candidate episode search.  Furthermore, because these
+via the **timers** parameter). A level of `three`, for instance, times every
+step in the cue-based retrieval candidate episode search. Furthermore, because these
 iterations are relatively cheap (typically a single step in the linked-list of a
 b+-tree), timer values are typically unreliable (depending upon the system,
 resolution is 1 microsecond or more).
