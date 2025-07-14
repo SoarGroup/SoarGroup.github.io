@@ -1,38 +1,42 @@
--- Pandoc Lua filter to extract LaTeX index commands from HTML comments
--- This allows index entries to be hidden from MkDocs while being processed for PDF output
+-- Pandoc Lua filter to extract LaTeX index commands
+-- This allows index entries to be included in PDF output while being invisible in MkDocs
 
-function extractIndexFromComments(elem)
-    -- Handle RawInline and RawBlock elements with any format
-    if elem.tag == "RawInline" or elem.tag == "RawBlock" then
+function processIndexCommands(elem)
+    -- Handle RawInline and RawBlock elements with LaTeX format
+    if elem.tag == "RawInline" and elem.format == "latex" then
         local text = elem.text or ""
-        -- Match HTML comments containing \index commands
-        local index_cmd = text:match("<!%-%-%s*\\index{(.-)}.-->")
-        if index_cmd then
-            return pandoc.RawInline("latex", "\\index{" .. index_cmd .. "}")
-        end
-        -- Match full \index{...} commands in comments (allowing spaces)
-        local full_index = text:match("<!%-%-%s*(%\\index{.-})%s*-->")
-        if full_index then
-            return pandoc.RawInline("latex", full_index)
+        -- If it contains \index commands, pass them through
+        if text:match("\\index{.-}") then
+            return elem  -- Pass through as-is
         end
     end
     return elem
 end
 
--- Also try to catch HTML comments that might be processed as plain text
-function extractFromPlainText(elem)
-    local text = ""
+-- Convert standalone \index{} commands in text to raw LaTeX
+function convertIndexToRaw(elem)
     if elem.tag == "Str" then
-        text = elem.text or ""
-    elseif elem.tag == "Para" then
-        text = pandoc.utils.stringify(elem)
-    end
-
-    if text and text:match("<!%-%-%s*\\index{.-}%s*-->") then
-        -- Replace HTML comments with LaTeX index commands
-        local new_text = text:gsub("<!%-%-%s*(\\index{.-})%s*-->", "%1")
-        if new_text ~= text then
-            return pandoc.RawInline("latex", new_text)
+        local text = elem.text or ""
+        -- If the entire string is just \index commands, convert to raw LaTeX
+        if text:match("^\\index{.-}+$") then
+            return pandoc.RawInline("latex", text)
+        end
+        -- If it contains \index commands mixed with other text, extract them
+        if text:match("\\index{.-}") then
+            local parts = {}
+            local last_end = 1
+            for index_cmd in text:gmatch("(\\index{.-})") do
+                local start_pos, end_pos = text:find(index_cmd, last_end, true)
+                if start_pos > last_end then
+                    table.insert(parts, pandoc.Str(text:sub(last_end, start_pos - 1)))
+                end
+                table.insert(parts, pandoc.RawInline("latex", index_cmd))
+                last_end = end_pos + 1
+            end
+            if last_end <= #text then
+                table.insert(parts, pandoc.Str(text:sub(last_end)))
+            end
+            return parts
         end
     end
     return elem
@@ -40,9 +44,7 @@ end
 
 return {
     {
-        RawInline = extractIndexFromComments,
-        RawBlock = extractIndexFromComments,
-        Str = extractFromPlainText,
-        Para = extractFromPlainText
+        RawInline = processIndexCommands,
+        Str = convertIndexToRaw
     }
 }

@@ -1,10 +1,7 @@
 <!-- markdownlint-disable-next-line -->
 # Procedural Knowledge Learning
 
-<!-- \index{chunking} -->
-<!-- \index{chunk} -->
-<!-- \index{result} -->
-<!-- \index{subgoal} -->
+\index{chunking}\index{chunk}\index{result}\index{subgoal}
 
 ## Chunking
 
