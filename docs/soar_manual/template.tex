@@ -23,7 +23,7 @@ $endif$
 % soar version information
 \newcommand{\SoarVersionMajor}{9}
 \newcommand{\SoarVersionMinor}{6}
-\newcommand{\SoarVersionRevision}{1}
+\newcommand{\SoarVersionRevision}{4}
 
 $if(linestretch)$
 \usepackage{setspace}
@@ -435,6 +435,9 @@ $endif$
 $endif$
 
 \begin{document}
+$if(has-index)$
+\makeindex
+$endif$
 \begin{titlepage}
   \vspace{1.5in}
 
@@ -558,4 +561,7 @@ $for(include-after)$
 $include-after$
 
 $endfor$
+$if(has-index)$
+\printindex
+$endif$
 \end{document}
