@@ -1,8 +1,10 @@
 #!/bin/sh
+set -e  # Exit on any error
 
 # Run this file from the root directory of this repository, otherwise
 # the template.tex file path does not match.
 mkdir -p output
+echo "Created output directory"
 
 pandoc \
     --pdf-engine=lualatex \
@@ -12,6 +14,8 @@ pandoc \
     docs/reference/cli/cmd_*.md \
     --shift-heading-level-by=1 \
     -o output/cli.tex
+
+echo "Generated CLI LaTeX file"
 
 pandoc \
     --pdf-engine=lualatex \
@@ -35,8 +39,14 @@ pandoc \
     output/cli.tex \
     -o output/SoarManual.pdf
 
-# Run makeindex to generate the index file (only if .idx file was created)
+echo "Generated initial PDF with index commands"
+
+# Run makeindex to generate the index file
+echo "Running makeindex on SoarManual.idx"
 cd output && makeindex SoarManual.idx && cd ..
+echo "Makeindex completed"
+
+echo "Starting second pandoc run to include index"
 
 # Run pandoc again to include the index in the final PDF
 pandoc \
@@ -61,7 +71,11 @@ pandoc \
     output/cli.tex \
     -o output/SoarManual.pdf
 
+echo "Generated PDF successfully"
+
 # Clean up the temporary CLI file
 if [ -f "output/cli.tex" ]; then
     rm output/cli.tex
 fi
+
+echo "Build completed"
