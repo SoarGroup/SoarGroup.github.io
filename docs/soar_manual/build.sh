@@ -41,9 +41,15 @@ pandoc \
 
 echo "Generated initial PDF with index commands"
 
+# Debug: List all output files to see what was generated
+echo "All files in output directory:"
+ls -la output/
+
 # Check if index file was generated
 if [ -f "output/SoarManual.idx" ]; then
     echo "Index entries found, running makeindex..."
+    echo "Contents of .idx file:"
+    cat output/SoarManual.idx
     cd output && makeindex SoarManual.idx && cd ..
     echo "Makeindex completed"
 else

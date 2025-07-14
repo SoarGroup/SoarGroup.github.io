@@ -10,7 +10,7 @@ $endif$
 %
 
 \documentclass[12pt,a4paper]{article}
-\usepackage{makeidx}		% for index
+\usepackage{imakeidx}		% for index (modern version)
 \usepackage{epsfig}		% for figures (was 'psfig')
 \usepackage[colorlinks]{hyperref}     % for hyperlinks
 \usepackage[figure,figure*]{hypcap}   % to correct anchor placement for figures
@@ -435,7 +435,7 @@ $endif$
 $endif$
 
 $if(has-index)$
-\makeindex
+\makeindex[columns=2]
 $endif$
 \begin{document}
 \begin{titlepage}
