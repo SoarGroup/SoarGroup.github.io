@@ -1,5 +1,3 @@
-{{manual_wip_warning}}
-
 # The Soar Architecture
 
 This chapter describes the Soar architecture. It covers all aspects of Soar except for the

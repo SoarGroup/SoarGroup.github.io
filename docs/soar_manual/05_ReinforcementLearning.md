@@ -1,6 +1,4 @@
 <!-- markdownlint-disable MD041 -->
-{{manual_wip_warning}}
-
 # Reinforcement Learning
 
 Soar has a reinforcement learning (RL) mechanism that tunes operator selection

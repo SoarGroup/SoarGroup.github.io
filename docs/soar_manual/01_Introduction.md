@@ -1,5 +1,3 @@
-{{manual_wip_warning}}
-
 # Introduction
 
 Soar has been developed to be an architecture for constructing general intelligent systems.

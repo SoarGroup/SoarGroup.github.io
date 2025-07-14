@@ -1,5 +1,3 @@
-{{manual_wip_warning}}
-
 # The Soar User Interface
 
 This chapter describes the set of user interface commands for Soar. All
