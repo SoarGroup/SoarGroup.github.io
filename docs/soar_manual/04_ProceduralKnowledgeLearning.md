@@ -41,12 +41,11 @@ and using chunking:
 1.  [explain](../reference/cli/cmd_explain.md)
 1.  [visualize](../reference/cli/cmd_visualize.md)
 
-## Explanation-based Chunking
+## Explanation-based Behavior Summarization
 
-Explanation-based chunking improves on previous versions of chunking by learning
-rules that are qualitatively more general and expressive. In fact, any element
-of a learned rule can now be variablized, and learned rules now have the full
-expressive power of hand-written rules.
+Explanation-based behavior summarization (EBBS) improves on generality and
+correctness issues in previous versions of chunking. EBBS learns general rules
+with the full expressive power of hand-written rules.
 
 The following side-by-side code comparison shows an example of an
 explanation-based chunk and how it differs from a chunk learned from the
@@ -140,8 +139,8 @@ sp {chunk-96*process-column*apply
 
 </div>
 
-To achieve this generality, chunking needs information about why rules matched
-in a sub-state and how those rules interacted. This allows it to determine what
+To achieve this generality, chunking needs information about how rules matched
+in a substate and how those rules interacted. This allows it to determine what
 is generalizable and what limits there are on those generalizations.
 Unfortunately, the information necessary to determine this information was not
 readily available in prior versions of Soar which only recorded a trace of all
@@ -151,16 +150,14 @@ to learning very specific rules in which only Soar identifiers were variablized
 and all other elements tested the exact values found in the working memory
 trace.
 
-To remedy this limitation and produce more general chunks, EBC instead analyzes
-two traces simultaneously: the working memory trace and a corresponding trace of
-the hand-written rules that matched in the substate. This new network of rule
-matches is called the explanation trace:
+To remedy this limitation and produce more general chunks, EBBS creates and
+analyzes a behavior trace. Figure below shows an example behavior trace.
 
-![A close-up of a trace showing differences between a working memory trace (left) and an explanation trace (right). The working memory trace only contains the literal values of the WMEs that matched. The explanation trace, on the other hand, contains variables and various constraints on the values those variables can hold.](Images/chunking-wm-vs-exp-trace.png)
+![A close-up of a trace showing differences between a working memory trace (left) and a behavior trace (right). The working memory trace only contains the literal values of the WMEs that matched. The behavior trace, on the other hand, contains variables and various constraints on the values those variables can hold.](Images/chunking-wm-vs-exp-trace.png)
 
 Note that this trace is generated dynamically as rules match. Whenever a rule
 matches during agent execution, Soar creates an internal record of the rule that
-fired, which is called a rule instantiation. (Each box in the explanation traces
+fired, which is called a rule instantiation. (Each box in the behavior traces
 of this chapter represents an instantiation that was created during task
 execution within a particular substate.) The instantiation contains both
 instance information about what matched (the working memory elements) and
@@ -181,25 +178,28 @@ semantic and episodic memory in the substate.
 All of the instantiations that were created in a substate form the
 _instantiation graph_ of that substate. As chunking **backtraces** through the
 instantiation graph, it determines the subset of instantiations that contributed
-to a result. This set of instantiations and the connections between them
-composes the explanation trace for a learning episode. (So, the explanation
-trace is a subgraph of the instantiation graph.)
+to a result. This set of instantiations and the connections between them is the
+basis for the behavior trace used for a learning episode. (At this point, the
+behavior trace is a subgraph of the instantiation graph.)
 
-![A visualization of the explanation trace of a chunk learned by the arithmetic agent. Each box represents a rule that fired in the substate. Arrows show dependencies between rules that create working memory elements and conditions that test those working memory elements.](Images/chunking-trace.png)
+![A visualization of the behavior trace of a chunk learned by the arithmetic agent. Each box represents a rule that fired in the substate. Arrows show dependencies between rules that create working memory elements and conditions that test those working memory elements.](Images/chunking-trace.png)
 
-EBC uses the explanation trace to determine (1) how variables were used during a
-problem-solving episode and (2) what constraints on those variables had to be
-met in order for the substate rules to match. EBC then uses the results of this
-analysis to create more expressive and general rules, which can contain the full
-gamut of tests that hand-written rules can and can have any element variablized.
+<!-- TODO: sjj: not sure how good this paragraph is, but it's my understanding -->
+EBBS also creates an identity graph as it incrementally builds the instantiation
+graph. Production memory has knowledge about the actual matched value for each
+element in each condition of a rule in the instantiation graph. Some elements
+are variables, some are literal constants, some variables are the same as other
+variables, constraints are placed on some variables. Distributed Identity Graph
+Unification (DIGU) annotates each element with a pointer that maps it to either
+a new or existing identity in the identity graph. This annotation is used to
+determine whether elements in different instantiations refer to the same
+underlying object and supports identity-based variabilization.
 
-<!-- TODO What is gamut? -->
-
-## Overview of the EBC Algorithm
+## Overview of the EBBS Algorithm
 
 **Basic concepts**:
 
--   Every condition and action in the explanation trace has three elements:
+-   Every condition and action in the instantiation graph has three elements:
     -   For conditions, the three elements refer to the symbol in the positive
         equality test for the identifier, attribute and value of the condition.
         For example, the last condition of rule 2 in the
@@ -226,10 +226,9 @@ concepts: _identity_.
     NULL identity_. When this happens, we say the identity has been
     **literalized**.
 
-EBC traverses an explanation trace of the problem-solving that occurred in the
+EBBS traverses a behavior trace of the problem-solving that occurred in the
 substate to determine which variables in different rule instances refer to the
-same underlying object. There are two ways that an explanation trace can show a
-shared identity:
+same underlying object. Identities can be shared in the following situations.
 
 1.  Variables that have the same name and are in the same rule firing will share
     an identity This is the trivial case. The basic semantics of rules implies that
@@ -241,18 +240,17 @@ shared identity:
     corresponding variables.
 
 <p id="fig_explanation_trace"/>
-![An explanation trace of two simple rules that matched in a substate.](Images/chunking-trace2.png)
+![A behavior trace of two simple rules that matched in a substate.](Images/chunking-trace2.png)
 
 To get a better picture of what a shared identity is, consider the two simple
-rules and the explanation trace of how they matched in a substate as shown in
+rules and the behavior trace of how they matched in a substate as shown in
 the <a href="#fig_explanation_trace">explanation trace figure</a>.
 The connection between rule 2 and rule 1 will unify the identities
 of `<s>` ,`<x>` an `<y>` in rule 1 with the identities of `<s>` ,`<x>` an `<y2>`
-in rule 2. So, the `<x>` in rule 2 shares the same identity as the `<x>` in rule
-
-1.  Similarly, the `<y2>` in rule 2 shares the same identity as `<y>` in rule 1.
-    In contrast, the `<y>` in rule 2 does NOT share the same identity as the `<y>`
-    in rule 1.
+in rule 2. So, the `<x>` in rule 2 shares the same identity as the `<x>` in rule 1.
+Similarly, the `<y2>` in rule 2 shares the same identity as `<y>` in rule 1. In
+contrast, the `<y>` in rule 2 does NOT share the same identity as the `<y>` in rule
+1.
 
 It doesn’t matter that the `<y>` in rule 1 uses the same variable name as
 the`<y>` in rule 2. It also doesn’t matter that both conditions with `<y>`
@@ -261,9 +259,9 @@ sharing an identity, the only thing that matters is how the rules interact,
 namely whether there’s a connection between elements in the condition of one
 rule and elements in the actions of another rule.
 
-All literal values, for example all of the attribute in the
+<!-- All literal values, for example all of the attribute in the
 <a href="#fig_explanation_trace">explanation trace figure</a> (superstate,
-number, intermediate1, etc.) are considered members of the `NULL` identity.
+number, intermediate1, etc.) are considered members of the `NULL` identity. -->
 
 Variable identities can also be mapped to the NULL identity, which means that
 any elements in the final rule that share that identity will not be variablized.
@@ -283,15 +281,15 @@ ways that a rule interaction can effect an identity literalization:
     constant, literal value, the action’s variable must have that same value.
     Otherwise, it would not have created something that matched the condition.
 
-Identities are the basis of nearly every mechanism in explanation-based
-chunking. EBC’s identity analysis algorithm, which is a fairly complicated
-process, determines all shared identities in an explanation trace. The following
+Identities are the basis of nearly every mechanism in EBBS. DIGU, which is a
+fairly complicated
+process, determines all identities in a behavior trace. The following
 <a href="#fig_explanation_trace_after_identity_analysis">figure</a>
-shows an explanation trace after identity analysis has been performed. Elements
+shows a trace after identity analysis has been performed. Elements
 that share an identity in the figure are colored the same.
 
 <p id="fig_explanation_trace_after_identity_analysis"/>
-![An explanation trace after identity analysis.](Images/chunking-trace-identity.png)
+![A behavior trace incorporating identity analysis.](Images/chunking-trace-identity.png)
 
 While it’s not readable in this figure, note that each identity is assigned a
 numeric ID. Both the explainer and the visualizer annotate elements of an
@@ -302,68 +300,175 @@ identity data structure that will be discussed in more detail in Section
 [Identity Assignment and Propagation](#identity-assignment-and-propagation)
 on the identity graph.
 
-![Note that the two rows on the bottom indicate when each component occurs during Soar’s processing.](Images/chunking-ebc-components.png)
+<!-- TODO: need attribution to Mazin's thesis -->
+![Note that the two rows on the bottom indicate when each component occurs during Soar’s processing.](Images/chunking-ebbs-components.png)
 
-### The Five Main Components of Explanation-Based Chunking
+### The Nine Components of Explanation-Based Behavior Summarization
 
-1.  **Identity analysis**
-    This component determines which variables in an explanation trace share the
-    same identity. It also determines which identities are ineligible for
-    variablization because they were tested against literal values in some
-    rules.  Note that this component has two distinct mechanisms that occur at
-    very different times. The first mechanism, identity propagation, occurs
-    constantly while problem-solving in the substate. The second mechanism,
-    identity graph manipulation, occurs during the learning episode.
-2.  **Relevant operator selection knowledge tracking**
+1.  **Operator Selection Knowledge Analysis**
     This component also occurs before the learning episode. Whenever an operator
     is selected, it analyzes what rule firings contributed necessary operator
     selection preferences and caches them in all rule instances that tests that
     operator.
-3.  **Constraint tracking**
-    This component keeps track of every value or relational constraint (e.g. `<>
-    <x>,>= 3.14,<< disjunction of constants >>`) placed on the various variables
-    that share an identity. It is used by the rule formation component to make
-    sure that the learned rule only fires when all constraints required are met.
-4.  **Operationality analysis**
-    This component determines which conditions in an
-    explanation trace tested working memory elements in a superstate. The rule
-    formation component will use these conditions as a basis for the left-hand side
-    of the chunk. While it does have a few key new differences, this is the one step
-    that is similar to previous versions of chunking.
-5.  **Rule Formation**
-    The above four components performed the analysis that EBC needs to form a
+
+2.  **Instantiation Creation**
+    As a rule is fired, copies of the exact knowledge structures that matched
+    each condition are made.
+
+3.  **Identity Assignment and Propagation**
+    When a rule matches, identities are created and assigned for each element.
+    The identity graph built during these rules firings is manipulated later for
+    further generalization and identity sharing.
+
+4.  **Constraint Tracking**
+    This component stores every value or relational constraint (e.g. `<> <x>`,
+    `>= 3.14`, `<< disjunction of constants >>`) placed on variables.
+
+5.  **Collect Full Set of Inferences**
+    When a rule creates a result with an identifier, children of that identifier
+    also become results. This step determines which working memory elements
+    become supergoal results.
+
+6.  **Dependency Analysis**
+    The first part of a learning episode, this step backtraces through the
+    behavior trace to determine which rule conditions test working memory
+    elements in a supergoal. This works similarly in classical chunking.
+
+7.  **Identity Graph Manipulation**
+    As backtracing occurs, the identity graph is also manipulated to build rules
+    at the right level of generality and to prevent correctness issues in
+    previous versions of chunking.
+
+8.  **Constraint Collection**
+    Constraints recorded during constraint tracking that are encountered during
+    backtracing are copied to the relevant identities in the identity graph.
+    Later, during rule formation, these constraints are enforced on identities
+    included in the learned rule.
+
+9.  **Rule Formation**
+    The above eight components performed the analysis that EBBS needs to form a
     general but correct rule. This final component uses the results of that
-    analysis to actually build the new rule. This is a complex component that has
-    seven different stages. If a valid rule is created, Soar immediately adds the
-    rule to production memory.
+    analysis to actually build the new rule. This is a complex component that
+    has eight different stages. If a valid rule is created, Soar immediately
+    adds the rule to production memory.
 
 The following sections will describe each component in more detail.
 
-## What EBC Does Prior to the Learning Episode
+## What EBBS Does Prior to the Learning Episode
 
-While most of the work that explanation-based chunking performs occurs during
-the learning episode, i.e. after a rule in a substate fires and Soar detects
-that a result will be created, some critical aspects of the analysis it performs
-also occur prior to the learning episode, during problem-solving in the
-substate. The two points when that happens is when a rule fires in a substate
-and when an operator is selected in a substate.
+While most of the work that EBBS performs occurs during the learning episode,
+i.e. after a rule in a substate fires and Soar detects that a result will be
+created, some critical aspects of the analysis it performs also occur prior to
+the learning episode, during problem-solving in the substate. The two points
+when that happens is when a rule fires in a substate and when an operator is
+selected in a substate.
+
+### Operator Selection Knowledge Analysis
+
+As described in the beginning of this chapter, chunking summarizes the processing
+required to produce the results of subgoals. Traditionally, the philosophy behind
+how an agent should be designed was that the path of operator selections and
+applications from an initial state in a substate to a result would always have
+all necessary tests in the operator proposal conditions and any goal test, so
+only those items would need to be summarized. The idea was that in a properly
+designed agent, a substate's operator evaluation preferences lead to a more
+efficient search of the space but do not influence the correctness of the result.
+As a result, the knowledge used by rules that produce such evaluation preferences
+should not be included in any chunks produced from that substate.
+
+In practice, however, it may make sense to design an agent so that search control
+does affect the correctness of search. Here are just two examples:
+
+1.  Some of the tests for correctness of a result are included in productions
+    that prefer operators that will produce correct results. The system will work
+    correctly only when those productions are loaded.
+
+2.  An operator is given a worst preference, indicating that it should be used
+    only when all other options have been exhausted. Because of the semantics of
+    worst, this operator will be selected after all other operators; however, if
+    this operator then produces a result that is dependent on the operator
+    occurring after all others, this fact will not be captured in the conditions
+    of the chunk.
+
+In both of these cases, part of the test for producing a result is implicit in
+search control productions. This move allows the explicit state test to be
+simpler because any state to which the test is applied is guaranteed to satisfy
+some of the requirements for success. However, chunks created in such a problem
+space will not be correct because important parts of the superstate that were
+tested by operator evaluation rules do not appear as conditions. The chunks would
+not accurately summarize the processing in that problem state. The tracking of
+**Relevant Operator Selection Knowledge** (ROSK) is a way to address this issue.
+
+Relevant operator selection knowledge is the set of necessary operator evaluation
+preferences that led to the selection of an operator in a subgoal. As previously
+described, whenever Soar learns a rule, it recursively backtraces through rule
+instances to determine which conditions to include in the final chunk or
+justification. With the ROSK, not only does Soar backtrace through each rule
+instance that created a matched working memory element, but it also backtraces
+through every rule instance that created preferences in the ROSK for any operator
+that gave those matched WMEs o-support. By backtracing through that additional
+set of preferences at each step of the backtrace, an agent will create more
+specific chunks that incorporate the goal-attainment knowledge encoded in the
+operator evaluation rules.
+
+Specifically, this component does two things:
+
+1.  When an operator is selected, it analyzes the operator preferences that led
+    to the decision, and caches any operator selection knowledge that played a
+    necessary role in the selection.
+
+    All necessity preferences, i.e. prohibit and require preferences, are always
+    included in the ROSK since they inherently encode the correctness of whether
+    an operator is applicable in a problem space. In contrast, some desirability
+    preferences (rejects, betters, worses, bests, worsts and indifferents) are
+    included in the ROSK depending on the role they play in the selection of the
+    operator.
+
+    How Soar determines which of those preferences to include in the ROSK is
+    determined by the preference semantics it uses to choose an operator. During
+    the decision phase, operator preferences are evaluated in a sequence of seven
+    steps or filters, in an effort to select a single operator, as described in
+    [how preferences are evaluated to decide an operator](02_TheSoarArchitecture.md#how-preferences-are-evaluated-to-decide-an-operator).
+    Each step, or filter, handles a specific type of preference. As the preference
+    semantics are applied at each step to incrementally filter the candidate
+    operators to a potential selected operator, EBBS incrementally adds operator
+    preferences to the ROSK based on the preferences that were instrumental in
+    applying each filter. A more detailed explanation of the logic used at each
+    step can be found in
+    [determining which OSK preferences are relevant](#determining-which-osk-preferences-are-relevant).
+
+2.  When an o-supported rule matches, EBBS caches the operator's ROSK in the
+    instantiation of that rule. Since that selection knowledge was necessary to
+    select the operator needed for the rule to match, EBBS must backtrace
+    through that knowledge. Cached ROSK is used to do this and incorporate the
+    necessary operator selection reasoning knowledge into the learned rule. For
+    some types of agent designs, including operator selection knowledge is needed
+    to ensure correctness.
+
+### Instantiation Creation
+
+Whenever a rule matches, EBBS creates a record called an instantiation that
+contains information about what specific working memory elements matched, what
+elements were created, and extends the instantiation graph by creating links from
+other instantiations to this instantiation for those instantiations that
+correspond to rule firings that created the elements tested in the rule.
 
 ### Identity Assignment and Propagation
 
 Each instantiation describes the working memory elements that matched each
 condition and the working memory elements and preferences that are created by
-each action. With the introduction of EBC, all instantiations now also store the
-underlying explanation behind each condition and action as defined by the
+each action. With the introduction of EBBS, all instantiations now also store
+the underlying explanation behind each condition and action as defined by the
 original rule: which elements in conditions are variables and which ones are
 literal constants, which variables are the same variables, what constraints must
 be met on the values of each variable and any relationships between variables.
 
-EBC uses this underlying logic to determine the identities of objects used
+EBBS uses this underlying logic to determine the identities of objects used
 during the problem-solving. Identities are not simply IDs. Each identity is a
 declarative object that describes a set of variables across multiple rule
 firings and the various properties they hold.
 
-_When an instantiation is created, EBC assigns all elements of every condition
+_When an instantiation is created, EBBS assigns all elements of every condition
 and action to an identity, creating new identities as necessary._ Identities are
 created and propagated using the following rules:
 
@@ -379,12 +484,12 @@ created and propagated using the following rules:
         WME, each condition is considered independent. This means that each
         condition is assigned new identities for each of its elements and will
         produce its own condition in the final learned rule. This is a key way
-        that EBC differs from previous versions of chunking.
+        that EBBS differs from previous versions of chunking.
 1.  An existing identity is propagated for:
     1.  Any condition element that matched a substate WME with existing identities
         Each element is assigned the identity found in the corresponding element
         of the action of the rule that created that WME. This propagates
-        identities forward through the explanation trace, which allows us to
+        identities forward through the behavior trace, which allows us to
         represent that the variable in the condition refers to the same object
         as the variable in the action of the other rule.
     1.  Any element that matches special working memory elements called singletons
@@ -406,103 +511,42 @@ Note that rule 1 may conflict with other rules. For example, if a variable
 appears in two different conditions, then two different identities may propagate
 into each one of them. In such cases, rule 1 is always enforced and propagation
 is ignored. During the second phase of identity analysis, which occurs during
-the actual learning episode, EBC will re-examine all of the condition-action
-pairs as it performs a backward traversal of the explanation trace and fix the
+the actual learning episode, EBBS will re-examine all of the condition-action
+pairs as it performs a backward traversal of the behavior trace and fix the
 missing propagations. It does this by creating and manipulating an identity
 graph that can correctly incorporate all identity relationships.
 
-### Relevant Operator Selection Knowledge Tracking
+### Constraint Tracking
 
-As described in the beginning of this chapter, chunking summarizes the
-processing required to produce the results of subgoals. Traditionally, the
-philosophy behind how an agent should be designed was that the path of operator
-selections and applications from an initial state in a substate to a result
-would always have all necessary tests in the operator proposal conditions and
-any goal test, so only those items would need to be summarized. The idea was
-that in a properly designed agent, a substate’s operator evaluation preferences
-lead to a more efficient search of the space but do not influence the
-correctness of the result. As a result, the knowledge used by rules that produce
-such evaluation preferences should not be included in any chunks produced from
-that substate.
+Rules underlying a behavior trace can include conditions that impose constraints
+on the values that a variable can hold. These can include equality tests,
+disjunctions, relative comparisons, literal tests, and conjunctions of
+constraints. These constraints must be included in later analysis of the
+behavior trace so that overgeneral rules are not created that fire when those
+constraints are not met. Thus, as instantiations are created, EBBS stores with
+each instantiation the constraints required for that rule to match.
 
-In practice, however, it may make sense to design an agent so that search
-control does affect the correctness of search. Here are just two examples:
+Constraints are stored relative to identities used in an instantiation. If a
+rule tests that `<x> < 7`, EBBS would record on identity node 1 associated with
+`<x>` that identity node 1 must have a value less than 7. Similarly, if another
+condition imposed the constraint `<> <y>` on `<x>` and `<y>` was mapped to
+identity node 2, then EBBS would record on identity node 1 that it cannot have
+the same value as identity node 2.
 
-1.  Some of the tests for correctness of a result are included in productions
-    that prefer operators that will produce correct results. The system will work
-    correctly only when those productions are loaded.
-2.  An operator is given a worst preference, indicating that it should be used
-    only when all other options have been exhausted. Because of the semantics of
-    worst, this operator will be selected after all other operators; however, if
-    this operator then produces a result that is dependent on the operator occurring
-    after all others, this fact will not be captured in the conditions of the chunk.
-
-In both of these cases, part of the test for producing a result is implicit in
-search control productions. This move allows the explicit state test to be
-simpler because any state to which the test is applied is guaranteed to satisfy
-some of the requirements for success. However, chunks created in such a problem
-space will not be correct because important parts of the superstate that were
-tested by operator evaluation rules do not appear as conditions. The chunks
-would not accurately summarize the processing in that problem state. The
-tracking of **Relevant Operator Selection Knowledge** (ROSK) is a way to address
-this issue.
-
-Relevant operator selection knowledge is the set of necessary operator
-evaluation preferences that led to the selection of an operator in a subgoal. As
-previously described, whenever Soar learns a rule, it recursively backtraces
-through rule instances to determine which conditions to include in the final
-chunk or justification. With the ROSK, not only does Soar backtrace through each
-rule instance that created a matched working memory element, but it also
-backtraces through every rule instance that created preferences in the ROSK for
-any operator that gave those matched WMEs o-support. By backtracing through that
-additional set of preferences at each step of the backtrace, an agent will
-create more specific chunks that incorporate the goal-attainment knowledge
-encoded in the operator evaluation rules.
-
-Specifically, this component does two things:
-
-1.  When an operator is selected, it analyzes the operator preferences that led
-    to the decision, and caches any operator selection knowledge that played a
-    necessary role in the selection.
-    All necessity preferences, i.e. prohibit and require preferences, are always
-    included in the ROSK since they inherently encode the correctness of whether
-    an operator is applicable in a problem space. In contrast, some desirability
-    preferences (rejects, betters, worses, bests, worsts and indifferents) are
-    included in the ROSK depending on the role they play in the selection of the
-    operator. How Soar determines which of those preferences to include in the
-    ROSK is determined by the preference semantics it uses to choose an
-    operator. During the decision phase, operator preferences are evaluated in a
-    sequence of seven steps or filters, in an effort to select a single
-    operator, as described in
-    [how preferences are evaluated to decide an operator](02_TheSoarArchitecture.md#how-preferences-are-evaluated-to-decide-an-operator).
-    Each step, or filter, handles a
-    specific type of preference. As the preference semantics are applied at each
-    step to incrementally filter the candidate operators to a potential selected
-    operator, EBC incrementally adds operator preferences to the ROSK based on
-    the preferences that were instrumental in applying each filter. A more
-    detailed explanation of the logic used at each step can be found in
-    [determining which OSK preferences are relevant](#determining-which-osk-preferences-are-relevant).
-2.  When an o-supported rule matches, EBC caches the operator’s ROSK in the
-    instantiation of that rule. Since that selection knowledge was necessary to
-    select the operator needed for the rule to match, chunking must backtrace
-    through that knowledge. The operationality analysis component uses the cached
-    ROSK to do this and incorporate the necessary operator selection reasoning
-    knowledge into the learned rule. For some types of agent designs, including
-    operator selection knowledge is needed to ensure correctness.
-
-## What EBC Does During the Learning Episode
+## What EBBS Does During the Learning Episode
 
 All of the previously discussed steps occurred during problem-solving in the
 substate as rules matched and operators were selected. It is worth noting that
-the analysis performed prior to the learning episode is persistent and can be
-shared across learning episodes. In other words, EBC can repeatedly re-use that
-analysis if it learns multiple chunks in the same substate.
+the analysis performed prior to the learning episode (such as identity
+propagation) is persistent and can be shared across learning episodes. In other
+words, EBBS can repeatedly re-use that analysis if it learns multiple chunks in
+the same substate.
 
 Every time a rule fires in a substate, Soar checks to see if any of the working
 memory elements created by the rule qualify as results. This is when the actual
 learning episode begins.
 
-### Calculating the Complete Set of Results
+### Collect Full Set of Inferences
 
 A chunk’s actions are built from the results of a subgoal. Aresultis any
 working memory element created in the substate that is linked to a superstate.
@@ -518,56 +562,43 @@ single WME that is linked to a superstate can lead to the creation of a large
 number of results. All of the newly created results become the basis of the
 chunk’s actions.
 
-### Backtracing and the Three Types of Analysis Performed
+### Backtracing
 
-When learning a new rule, EBC performs a dependency analysis of the productions
+When learning a new rule, EBBS performs a dependency analysis of the productions
 that fired in a substate – a process called backtracing. Backtracing works as
 follows. For each instantiated production that creates a subgoal result,
-backtracing examines the explanation trace to determine which working memory
+backtracing examines the behavior trace to determine which working memory
 elements matched each condition. If the working memory element is local to the
 substate, then backtracing recursively examines the instantiation that created
 that condition’s matched working memory element. Thus, backtracing traces
 backwards through all rules that fired and created working memory elements that
 were used to produce a result.
 
-If an instantiation being backtraced through tested a selected operator, EBC
+If an instantiation being backtraced through tested a selected operator, EBBS
 will backtrace through each instantiation that created a preference in that
 operator’s relevant operator selection knowledge set. This behavior is off by
 default and can be enabled with [`chunk add-osk on`](../reference/cli/cmd_chunk.md).
 
-Multiple components of EBC perform their work during backtracing: operationality
-analysis, identity analysis and constraint tracking. The following sections will
+Multiple components of EBBS perform their work during backtracing: dependency analysis,
+identity graph manipulation and constraint collection. The following sections will
 discuss what aspects of the agent’s problem-solving are analyzed during
 backtracing.
 
-#### Operationality Analysis
+#### Dependency Analysis
 
 The traditional core function of chunking’s backtracing is to determine which
 conditions in the working memory trace tested working memory elements accessible
 to the superstate. These conditions will form the left-hand side of the rule.
-
-The determination of which conditions to include is analogous to the concept of
-operationality in explanation-based techniques. In classic EBL literature,
-operationality is typically defined as nodes in the explanation trace that are
-"efficiently calculatable". In terms of Soar’s problem-state computational
-model, operationality can be defined as any condition that tests knowledge
-linked to a superstate.
-
-As EBC is backtracing through rules that fired in a substate, it collects all of
-these operational conditions. Once the entire explanation trace is traversed,
-the operationality analysis will have determined exactly what superstate
-knowledge was tested during the process of creating a result, which it then uses
-as the basis for the left-hand side of the newly learned rule.
 
 Note: Soar 9.6.0’s explanation-based approach has led to one key change to
 Soar’s operationality analysis. In previous versions of chunking, chunking would
 never add two conditions to a chunk that matched the same superstate working
 memory element. This made sense because chunking was based on a generalization
 of the working memory trace. More than one condition that tested the same WME
-would be redundant. Explanation-based chunking, though, learns based on the
-reasoning within the original hand-written rules. Since the reasoning behind
+would be redundant. Explanation-based behavior summarization, though, learns based
+on the reasoning within the original hand-written rules. Since the reasoning behind
 each of the two conditions may be different even if they matched the same WME,
-EBC must always add both conditions. (Note that there are some exceptions. See
+EBBS must always add both conditions. (Note that there are some exceptions. See
 [chunk singletons](../reference/cli/cmd_chunk.md#user-singletons)
 on superstate singletons and user singletons.)
 
@@ -583,7 +614,7 @@ the trace as a negated condition. In all other cases, the negated condition is
 ignored because the system cannot determine why a working memory element was not
 produced in the subgoal and thus allowed the production to fire.
 
-#### Identity Analysis
+#### Identity Graph Manipulation
 
 The first phase of identity analysis, forward identity propagation, occurred as
 rules fired and instantiations were recorded. Unfortunately, forward propagation
@@ -595,82 +626,79 @@ identity analysis will be performed during backtracing that will refine and
 correct the limitations of the initial forward propagation of identity. This
 second phase achieves these corrections by building an identity graph, which
 represent the identities involved during problem-solving, and manipulating it as
-it backtraces through the explanation trace.
+it backtraces through the behavior trace.
 
 ##### The Identity Graph
 
+<!-- TODO: add stuff from earlier discussion of identity here and make the
+previous stuff less complicated. -->
+
 The identity graph initially contains a node for each identity used in the
-explanation trace. Each node can have multiple edges that point to children
+instantiation graph. Each node can have multiple edges that point to children
 identities and a single directed join edge that initially points back to itself.
-As the agent backtraces through the explanation trace, EBC will manipulate the
+As the agent backtraces through the instantiation graph, EBBS will manipulate the
 identity graph based on the condition-action pairs it encounters.
 
 1.  **Joining identities**
-    If a condition matches an action with a conflicting identity, EBC performs a
+    If a condition matches an action with a conflicting identity, EBBS performs a
     join operation between the two identities. This chooses one identity as
     the joined identity and points the join edges of the other identity and any
     previously joined identities to the new joined identity. Note that any time
-    EBC uses an element’s identity, it is actually using the joined identity.
+    EBBS uses an element’s identity, it is actually using the joined identity.
 2.  **Literalizing identities**
     If a condition/action with a variable element matches an action/condition
-    with a literal element, EBC marks the identity as literalized. This means
+    with a literal element, EBBS marks the identity as literalized. This means
     that any conditions in the final chunk that have elements with that identity
     will be considered to have the NULL identity, just like constants, and will
     not be variablized. Instead, the matched value will be used for that
     element.
 
-#### Constraint Tracking
+#### Constraint Collection
 
-Our definition of operationality is very clear and allows us to almost trivially
-determine which conditions we should include in a learned rule, but it does have
-one shortcoming: non-operational conditions, which are ones that don’t test
-working memory elements in the superstate, can transitively place constraints on
-the values of variables in operational conditions that will appear in a chunk. If
-our learning algorithm does not include these constraints, the learned rule can
-apply to situations where the previous substate reasoning could not have
-occurred, which means that the learned rule is over-general.
+Some constraints in the behavior trace may not test working memory elements in
+the superstate, but could transitively place constraints on the values of variables
+in conditions that \textit{will} appear in a chunk. To handle this, once backtracing
+is complete, EBBS:
 
-To handle this limitation,EBC keeps track of all constraints found in
-non-operational conditions that it encounters while backtracing in the following
-manner:
-
--   It stores constraints on the value a single identity, for example>= 0,< 23.
--   It stores relational constraints between two identities, for example>
-    `<min>`, `< <max>` or `<> <other>`.
--   EBC stores all of these constraints based on the underlying identities, not
-    the variables used. For example, if a variable `<foo>` had the constraint `<>
-    <other>`, EBC would record that the variables that share the identity of
+-   stores constraints on the value a single identity, for example `>=0`, `<23`.
+-   stores relational constraints between two identities, for example `> <min>`,
+    `< <max>` or `<> <other>`.
+-   stores all of these constraints based on the underlying identities, not
+    the variables used. For example, if a variable `<foo>` had the constraint
+    `<> <other>`, EBBS would record that the variables that share the identity of
     `<foo>` cannot have the same value as variables that share the identity of
     `<other>`.
 
 ### Rule Formation
 
-There are seven distinct, sequential stages to rule formation.
-The following sections will give a brief overview of each one.
+There are eight distinct, sequential stages to rule formation:
 
 1.  Conditions and Action Generation
 2.  Constraint Enforcement
 3.  Identity-based Generalization
 4.  Condition Merging
-5.  Condition Polishing
+5.  Condition Simplification
 6.  Rule Repair and Validation
 7.  Condition Re-Ordering
+8.  Add and Recursively Learn Additional Rules
+
+The following sections will give a brief overview of each stage.
 
 #### Condition and Action Creation
 
 This stage creates the basis for the left-hand and right-hand side of the rule.
 To create the initial conditions of the chunk, it copies all conditions in the
-explanation trace that were flagged as operational during backtracing. These
+behavior trace that were flagged as operational during backtracing. These
 initial conditions contain literal values for each element. To form the actions
 of the chunk, it creates copies of the actions that produced each of the result
 and all children of those results that came along for the ride.
 
-#### Enforcement of Constraints
+#### Identity-based Constraint Enforcement
 
-This stage adds all constraints on non-operational conditions that were
+This stage adds all constraints on conditions that were
 collected during backtracing. As previously described, each constraint is
 indexed in terms of the identity it constrains. So,if the identity being
-constrained exists in one of the conditions of the learned rule, EBC will
+constrained exists in one of the conditions of the learned rule, EBBS will
 enforce the constraint by adding a new test to that condition.
 
 One situation in which attaching a constraint can be tricky occurs when the
@@ -679,12 +707,12 @@ identity that has not been literalized, for example `{ > <x> 3 }`. While that
 constraint references a condition element that can only match a value of 3 , the
 relationship between 3 and the identity o `<x>` must still hold (assuming `<x>`
 appears in a different element somewhere else in the rule.) Since these
-constraints still need to be enforced to ensure a correct rule, EBC will invert
+constraints still need to be enforced to ensure a correct rule, EBBS will invert
 the constraint and attach it to a variable in another condition. In this
 example, it would add `a < 3` to some other condition with an element that had
 `<x>`’s identity.
 
-#### Identity-Based Variablization
+#### Identity-Based Generalization
 
 To achieve any useful generality in chunks, identifiers of actual objects must
 be replaced by variables when the chunk is created; otherwise chunks will only
@@ -697,19 +725,19 @@ variables, making sure that elements with the same joined identity are assigned
 the same variable. This step also makes sure to skip and elements with
 identities that have been flagged as literalized.
 
-#### Merging Redundant Conditions
+#### Conditionn Merging
 
 Any two conditions in the learned rule that share the same identities in all
 three elements can be combined. In such cases, it is logically impossible for
 those two conditions to match two different WMEs and cause the same rules to
 match in the substate. (If the two conditions were to match two different WMEs,
-at least one of the other rules in the explanation trace that had unified the
-two conditions would not have matched.) As a result, EBC can safely merge those
+at least one of the other rules in the behavior trace that had unified the
+two conditions would not have matched.) As a result, EBBS can safely merge those
 two conditions without losing generality.
 
-#### Polishing Conditions
+#### Condition Simplification
 
-EBC polishes the conditions of the learned rule by pruning unnecessary
+EBBS polishes the conditions of the learned rule by pruning unnecessary
 constraints on literalized elements and replacing multiple disjunction
 constraints with a single simplified disjunction.
 
@@ -723,28 +751,28 @@ constraints with a single simplified disjunction.
     constraint is unnecessary and will be thrown out. For example, `<s> ^value{ <
 33 23 }` becomes `<s> ^value 23`.
 
-#### Validating Rule and Repairing Unconnected Conditions
+#### Rule Validation and Repair
 
 At this point, the rule is essentially formed. Chunking must now make sure that
-the learned rule is fully operational and can be legally added to production
-memory. A fully operational rule does not have any conditions or actions that
-are not linked to a goal state specified in the rule.
+the learned rule can be legally added to production memory.  Specifically, the
+rule cannot have any conditions or actions that are not linked to a goal state
+specified in the rule.
 
-If an unconnected action or condition is found, EBC will attempt to repair the
+If an unconnected action or condition is found, EBBS will attempt to repair the
 rule by adding new conditions that provide a link from a state that is already
 tested somewhere else in the rule to the unconnected condition or action.
 
-To repair the rule, EBC performs a search through working memory to find the
+To repair the rule, EBBS performs a search through working memory to find the
 shortest path of working memory elements that lead from a state identifier in
 the rule to a WME with the identifier in the unconnected condition or action. A
 new condition is then added for every WME in that found path, which is then
 variablized.
 
 Note that there may be multiple paths from a state to the unconnected
-identifier. EBC does a breadth-first search, so it will find one with the
+identifier. EBBS does a breadth-first search, so it will find one with the
 shortest distance.
 
-#### Re-ordering Conditions
+#### Conditions Re-ordering
 
 Since the efficiency of the Rete matcher depends heavily upon the order of a
 production’s conditions, the chunking mechanism attempts to sort the chunk’s
@@ -757,7 +785,22 @@ these conditions later in the ordering. This is the same process that internally
 reorders the conditions in user-defined productions, as mentioned briefly in
 [the structure of a production](02_TheSoarArchitecture.md#the-structure-of-a-production).
 
-## Subtleties of EBC
+If the constructed rule is not a duplicate of an existing rule, it is added to
+production memory.
+
+#### Add and Recursively Learn Additional Rules
+
+When a rule is added, it may generate another learned rule. Once the learned rule
+is added to production memory, it is guaranteed to immediately match in the supergoal.
+When it does, the chunk makes new data structures and EBBS creates an instantiation
+for the chunk that includes new identities relative to the existing identity graph.
+In the case when a problem has been decomposed into at least two subgoals and the
+newly created chunk makes results for an even higher level goal, EBBS then backtraces
+and creates a second chunk based on the reasoning in the subgoal that the chunk matched
+it. This process stops when a chunk only generates working memory elements in the
+same state it matched in.
+
+## Subtleties of EBBS
 
 ### Relationship Between Chunks and Justifications
 
@@ -777,7 +820,7 @@ tests an operator in the superstate, it gives the result o-support. (Note that
 when learning is on, a justification is not needed since the chunk will provide
 the correct support.)
 
-Justifications use all the components described in the following sections and
+Justifications use all the components described in the previous sections and
 are even affected by the current chunk settings. You
 can even print justifications out like other rules. The only differences between
 chunks and justifications are:
@@ -835,9 +878,9 @@ If an agent is using the only or except setting, then justifications will be
 built in states where learning is disabled and chunks will be built in states
 where learning is enabled. In these situations, justifications also serve
 another purpose: they provide an explanation of the results for future learning
-episodes in states that do have learning on. EBC does this by retaining all of
+episodes in states that do have learning on. EBBS does this by retaining all of
 the extra information that chunks have but justifications do not, namely those
-extra tests and how things would have been variablized. This allows EBC to learn
+extra tests and how things would have been variablized. This allows EBBS to learn
 chunks from justifications as readily as it can from hand-written rules and
 other chunks.
 
@@ -868,18 +911,18 @@ rules are over-general.
 
 ### Over-specialization and Over-generalization
 
-Explanation-based chunking was pursued to address the main limitation of
-traditional chunking: over-specialized rules that were very specific and could
-not be applied to many other situations. Specifically, EBC’s identity-based
+Explanation-based behavior summarization was pursued to address the main limitation
+of traditional chunking: over-specialized rules that were very specific and could
+not be applied to many other situations. Specifically, EBBS’s identity-based
 variablization and constraint tracking/enforcement has eliminated the core
 source of this issue.
 
-The nature of EBC’s algorithm does add two new situations in which rules may
+The nature of EBBS’s algorithm does add two new situations in which rules may
 become over-specialized. [Generalizing knowledge retrieved](#generalizing-knowledge-retrieved-from-semantic-or-episodic-memory)
 discusses how variables used in certain RHS functions need to be literalized to
 maintain correctness, which can cause
 overspecialization. [Previous results and rule repair](#previous-results-and-rule-repair)
-discusses how testing or augmenting a previous result creates non-operational
+discusses how testing or augmenting a previous result creates
 rules that require repair, a process which may sometimes over-specialize a rule.
 Note that this situation can easily be avoided and, even when it does occur, may
 not add much unnecessary specificity to learned rules.
@@ -890,7 +933,7 @@ listed in the next section can produce over-general rules in certain situations.
 
 ### Previous Results and Rule Repair
 
-An agent may learn a slightly over-specialized rule when EBC repairs a rule that
+An agent may learn a slightly over-specialized rule when EBBS repairs a rule that
 has unconnected conditions, which are conditions that have an identifier that
 is not linked to one of the states referenced in the rule. Such rules are
 illegal and cannot be added to Soar’s production memory.
@@ -900,7 +943,7 @@ augments a previous result. A previous result is a working memory element that
 was originally created locally in the substate but then later became a result
 when a rule fired and connected it to the superstate. (At which point a chunk
 must have been learned.). If another substate rules later matches or augments
-such a previous result WMEusing a path relative to the local substate, then EBC
+such a previous result WMEusing a path relative to the local substate, then EBBS
 will have problems. It will know that the WME is in the superstate so conditions
 that test the WME are considered operational and augmentations on that
 identifier are considered results – but it won’t know where in the superstate
@@ -909,7 +952,7 @@ rule, because the problem solving referenced the result relative to the local
 substate.
 
 As described in [validating rule and repairing unconnected conditions](#validating-rule-and-repairing-unconnected-conditions),
-EBC repairs the rule by adding new grounding
+EBBS repairs the rule by adding new grounding
 conditions that provide a link from a state, which is tested somewhere else in
 the rule, to the unconnected condition or action. It does this by searching
 through working memory to find the shortest path from a state to the identifier
@@ -933,7 +976,7 @@ generally as an unrepaired rule.
 But if this is not the case, an agent designer can avoid this situation by
 modifying the rules that test or augment the substructure of a previous result.
 If those rules are modified so that they match the previous results by
-referencing them relative to the superstate than the the local substate, EBC
+referencing them relative to the superstate than the the local substate, EBBS
 will be able create a valid rule without any repair.
 
 To detect when this is happening, use the ['chunk' stats command](../reference/cli/cmd_chunk.md).
@@ -948,7 +991,7 @@ multiple operators in the substate, it is possible that the reasoning behind
 those rules needs to be incorporated in any rule learned. This topic is
 discussed in greater detail in [ROSK tracking](#relevant-operator-selection-knowledge-tracking).
 
-EBC will incorporate relevant operator selection knowledge if you enable the
+EBBS will incorporate relevant operator selection knowledge if you enable the
 [chunk setting add-osk](../reference/cli/cmd_chunk.md), which is off by default.
 
 ### Generalizing Over Operators Selected Probabilistically
@@ -968,7 +1011,7 @@ reasoning.
 
 ### Collapsed Negative Reasoning
 
-Over-general chunks can be created when conditions in the explanation trace test
+Over-general chunks can be created when conditions in the behavior trace test
 for the absence of a working memory elements in the substate. Since there is no
 clear way for chunking to generate a set of conditions that describe when a
 given working memory element would not exist in a substate, chunking can’t
@@ -1010,7 +1053,7 @@ chunks because no pre-existing structure is relevant to the result that
 terminates the subgoal. The result is dependent only on the existence of the
 substate within a substate.
 
-In these cases, EBC will learn a chunk with no conditions, which it will reject.
+In these cases, EBBS will learn a chunk with no conditions, which it will reject.
 But the superstate result is still created by the substate rule that matched. If
 a new rule is learned that uses that result, it will be over-general since the
 rule does not summarize the reasoning that led to the result, namely that all
@@ -1019,7 +1062,7 @@ operators were exhaustively applied.
 The current solution to this problem is a bit of a hack. Soar allows an agent to
 signal to the architecture that a test for a substate is being made by testing
 for the^quiescence t augmentation of the subgoal. If this special test is found
-in the explanation trace, EBC will not build a chunk. The history of this test
+in the behavior trace, EBBS will not build a chunk. The history of this test
 is maintained, so that if the result of the substate is then used to produce
 further results for a superstate, no higher chunks will be built.
 
@@ -1042,7 +1085,7 @@ previously created the substate WME. And then, each one of those matches will
 create its own distinct result in the superstate. Since this is different
 behavior than the original substate, this rule would be considered incorrect.
 
-If it were possible, EBC should learn a disjunctive conjunctive condition, with
+If it were possible, EBBS should learn a disjunctive conjunctive condition, with
 each disjunction being the superstate conditions tested by each substate rule
 that had previously created the substate WME that was repeatedly asserted. This
 is why this potential source of incorrect rules is called disjunctive context
@@ -1062,7 +1105,7 @@ system can be problematic for three main reasons.
     knowledge can effect different problem-solving, in which case a rule based on
     the original problem-solving would be incorrect.
 2.  **Justification for a memory recall is opaque to agent**
-    EBC does not have access
+    EBBS does not have access
     to the reasoning behind why a piece of knowledge was recalled from a memory
     system. For example, consider the case of a semantic memory that is recalled
     because it has the highest level of activation at a particular time. In a future
@@ -1074,7 +1117,7 @@ system can be problematic for three main reasons.
 3.  **Knowledge from semantic or episodic memory recalled directly into the
     substate is considered local**
     To understand why this is a problem, remember that a chunk’s conditions are
-    based on the conditions in the explanation trace that tested knowledge linked
+    based on the conditions in the behavior trace that tested knowledge linked
     to a superstate. (See [operational analysis](#operationality-analysis)
     for more information.) If semantic or
     episodic memory is recalled directly into the substate, then any conditions
@@ -1186,20 +1229,20 @@ learning is turned off.
 
 and Other Right-Hand Side Functions
 
-Explanation-based chunking introduces the ability to learn more expressive rules
+Explanation-based behavior summarization introduces the ability to learn more expressive rules
 whose actions perform arbitrary right-hand side functions with variablized
 arguments.
 
-It is important to note that this ability is limited. EBC can only learn rules
+It is important to note that this ability is limited. EBBS can only learn rules
 with generalized RHS functions in its actions when the rule that created the
 result contained a RHS function. In many cases, RHS functions will be used in
-the intermediate rule firings in the explanation trace. Not only will these
+the intermediate rule firings in the behavior trace. Not only will these
 intermediate RHS function not appear in the chunk, but any chunk learned based
 on their output will become more specific. This is one of the sources of
 over-specialization referenced in [over-specialization and over-generalization](#over-specialization-and-over-generalization)
 on over-specialization.
 
-RHS function calls in intermediate rule firings are a challenge for EBC to deal
+RHS function calls in intermediate rule firings are a challenge for EBBS to deal
 with because the problem-solving may have placed constraints on the intermediate
 results that cannot be represented in a single Soar rule.
 
@@ -1213,7 +1256,7 @@ to something less than 5 in a single rule. This is why RHS functions in
 intermediate rule firings can cause over-specialization.
 
 Because the chunk’s conditions can’t represent constraints on the output of
-intermediate RHS functions, EBC must literalize both the identities of the
+intermediate RHS functions, EBBS must literalize both the identities of the
 variables that appear as arguments to the intermediate RHS function, as well as
 the identities in any conditions that test the output of the RHS function. That
 fixes the value of the RHS function and guarantees that any constraints in
@@ -1242,8 +1285,8 @@ conditions is true:
     detected because the order of the conditions or actions is not the same as an
     existing production.
 4.  The problem-solving in the substate violated one of the enabled correctness
-    guarantee filters During the development of explanation-based chunking, we have
-    developed a list of possible causes of incorrect chunks. EBC’s correctness
+    guarantee filters During the development of explanation-based behavior summarization, we have
+    developed a list of possible causes of incorrect chunks. EBBS’s correctness
     guarantee filters detect when those situations occur and prevents a chunk from
     being learned. For example, the allow-local-negations filter will prevent a rule
     from being formed if the problem-solving that led to the result was
