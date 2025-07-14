@@ -2,13 +2,12 @@
 -- This allows index entries to be hidden from MkDocs while being processed for PDF output
 
 function extractIndexFromComments(elem)
-    -- Handle both RawInline and RawBlock elements
+    -- Handle RawInline and RawBlock elements with HTML format
     if (elem.tag == "RawInline" or elem.tag == "RawBlock") and elem.format == "html" then
         local comment = elem.text
         -- Match HTML comments containing \index commands
         local index_cmd = comment:match("<!%-%-%s*\\index{(.-)}.-->")
         if index_cmd then
-            -- Return LaTeX raw inline instead of HTML comment
             return pandoc.RawInline("latex", "\\index{" .. index_cmd .. "}")
         end
         -- Match full \index{...} commands in comments (allowing spaces)
@@ -20,9 +19,26 @@ function extractIndexFromComments(elem)
     return elem
 end
 
+-- Also try to catch HTML comments that might be processed as plain text
+function extractFromPlainText(elem)
+    if elem.tag == "Str" or elem.tag == "Para" then
+        local text = elem.text or pandoc.utils.stringify(elem)
+        if text and text:match("<!%-%-%s*\\index{.-}%s*-->") then
+            -- Replace HTML comments with LaTeX index commands
+            local new_text = text:gsub("<!%-%-%s*(\\index{.-})%s*-->", "%1")
+            if new_text ~= text then
+                return pandoc.RawInline("latex", new_text)
+            end
+        end
+    end
+    return elem
+end
+
 return {
     {
         RawInline = extractIndexFromComments,
-        RawBlock = extractIndexFromComments
+        RawBlock = extractIndexFromComments,
+        Str = extractFromPlainText,
+        Para = extractFromPlainText
     }
 }
