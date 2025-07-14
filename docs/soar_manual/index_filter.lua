@@ -1,35 +1,29 @@
--- Simple Pandoc Lua filter to add index entries
--- For now, let's just add some basic index entries manually
+-- Simple filter to convert HTML comments with \index commands to LaTeX
 
-function addIndexEntries(meta)
-    -- This function runs once per document
-    return meta
+function processBlock(block)
+    if block.tag == "RawBlock" and block.format == "html" then
+        local text = block.text
+        -- Check if this is an HTML comment with \index
+        local index_match = text:match("^<!%-%-%s*\\index{(.-)}.-->$")
+        if index_match then
+            return pandoc.RawBlock("latex", "\\index{" .. index_match .. "}")
+        end
+    end
+    return block
 end
 
-function processDocument(doc)
-    -- Add some basic index entries at the beginning of the document
-    local index_entries = {
-        pandoc.RawBlock("latex", "\\index{chunking}"),
-        pandoc.RawBlock("latex", "\\index{chunk}"),
-        pandoc.RawBlock("latex", "\\index{result}"),
-        pandoc.RawBlock("latex", "\\index{subgoal}"),
-        pandoc.RawBlock("latex", "\\index{instantiation}"),
-        pandoc.RawBlock("latex", "\\index{chunking!backtracing}"),
-        pandoc.RawBlock("latex", "\\index{singleton}"),
-        pandoc.RawBlock("latex", "\\index{chunking!explanation-based behavior summarization}")
-    }
-
-    -- Insert index entries at the beginning
-    for i = #index_entries, 1, -1 do
-        table.insert(doc.blocks, 1, index_entries[i])
+function processInline(inline)
+    if inline.tag == "RawInline" and inline.format == "html" then
+        local text = inline.text
+        -- Check if this is an HTML comment with \index
+        local index_match = text:match("^<!%-%-%s*\\index{(.-)}.-->$")
+        if index_match then
+            return pandoc.RawInline("latex", "\\index{" .. index_match .. "}")
+        end
     end
-
-    return doc
+    return inline
 end
 
 return {
-    {
-        Meta = addIndexEntries,
-        Pandoc = processDocument
-    }
+    { RawBlock = processBlock, RawInline = processInline }
 }
