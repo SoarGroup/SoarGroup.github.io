@@ -190,8 +190,27 @@ Unlike agent storage, declarative storage is automatically recursive. Thus, this
 command instance will add a new long-term identifier (represented by the
 temporary ’arithmetic’ variable) with three augmentations. The value of each
 augmentation will each become an LTI with two constant attribute/value pairs.
-Manual storage can be arbitrarily complex and use standard dot-notation. The add
-command also supports hardcoded LTI ids such as `@1` in place of variables.
+Manual storage can be arbitrarily complex and use standard dot-notation.
+
+The `add` command also supports two methods for hardcoding LTIs. You can use an integer,
+such as `@123`, which will be the literal ID in semantic memory. You can also use
+a string, such as `@table`, which defines a name, or alias, for an LTI. This is
+purely a user convenience; it allows you to refer to an LTI by name or connect
+the same LTI across different `add`s or files.
+
+For Example:
+
+```soar
+smem --add {
+    (@red ^name red ^is-a color)
+}
+smem --add {
+    (<rouge> ^word rouge ^concept @red)
+}
+```
+
+These aliases are not visible to the agent and cannot be used in productions.
+However, they can be used in other CLI commands, such as [`print`](../reference/cli/cmd_print.md).
 
 ### Storage Location
 

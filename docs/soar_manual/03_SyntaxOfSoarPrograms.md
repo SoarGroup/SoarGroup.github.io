@@ -98,9 +98,9 @@ an object in working memory is:
 ```
 
 For example, if you run Soar with the supplementary blocks-world program
-provided [online](https://web.eecs.umich.edu/~soar/blocksworld.soar), after one
-elaboration cycle, you can look at the top-level state object by using the print
-command:
+provided [online](https://raw.githubusercontent.com/SoarGroup/website-downloads/refs/heads/main/files/blocksworld.soar),
+after one elaboration cycle, you can look at the top-level state object by using
+the print command:
 
 ```Bash
 soar> print s1
@@ -1650,6 +1650,59 @@ sp {
    -->
    (<s> ^max (max <x> 3.14 <z>)
       ^min (min <a> <b> 42 <c>)) }
+```
+
+**set-[count, sum, multiply, min, max, range, mean, stdev]**
+
+These provide mathematical functions of sets stored as multi-valued attributes.
+Each takes two arguments: the first is the WME ID containing the set attribute,
+and the second is the name of the WME's multi-valued attribute containing the set.
+
+`set-count` returns the number of elements in the set, and the elements of the
+set do not necessarily need to be numeric.
+
+In contrast, the rest of the functions operate only on numeric values. They ignore
+all non-numeric (int, float) set members, and return `|NaN|` if the set is empty
+or contains no numeric members. If there is an issue with the parameters, all of
+the functions (including `set-count`) return a string containing an error message.
+
+`set-range` returns the maximum value minus the minimum value.
+
+`set-stdev` returns the standard deviation of the set.
+
+```soar
+sp { propose*math
+    (state <s> ^superstate nil)
+    (<s> -^results <any>)
+    -->
+    (<s> ^operator <o> +
+        ^operator <o> =)
+    (<o> ^name do-math ^vals 100 ^vals 200 ^vals 40 ^vals -59)
+}
+sp { apply*math
+    (state <s> ^operator <o>)
+    (<o> ^name do-math)
+    -->
+    (<s> ^results done)
+    (write |count: |(set-count <o> vals)
+        |, sum: | (set-sum <o> vals)
+        |, multiply: | (set-multiply <o> vals)
+        |, min: | (set-min <o> vals)
+        |, max: | (set-max <o> vals)
+        |, range: | (set-range <o> vals)
+        |, mean: | (set-mean <o> vals)
+        |, stdev: | (set-stdev <o> vals))
+    }
+step 2
+```
+
+The above prints the following to the console:
+
+```shell
+1:    O: O1 (do-math)count: 4, sum: 281.000000,
+multiply: -47200000.000000, min: -59.000000,
+max: 200.000000, range: 259.000000,
+mean: 70.250000, stdev: 93.995678
 ```
 
 **int** — Converts a single symbol to an integer constant. This function expects

@@ -11,8 +11,9 @@ The site is built using the [MkDocs](https://www.mkdocs.org/), a static site
 generator that uses Markdown files to generate a website. The theme is
 [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
 
-Large files that are not displayed but rather downloaded not be stored here;
-instead, put them in the [website downloads repository](https://github.com/SoarGroup/website-downloads).
+Large files that are not displayed but rather downloaded should not be stored here;
+instead, put them in the [website downloads repository](https://github.com/SoarGroup/website-downloads)
+and link to them here.
 
 ## Setup/Running
 
@@ -26,7 +27,8 @@ mkdocs serve # add -s to abort on any warnings
 ## Deployment
 
 The site is deployed to GitHub Pages automatically as long as the build workflows
-don't fail.
+don't fail. Run it locally to ensure you haven't introduced an error, and then
+just push your commit to the `main` branch and the site will be updated automatically.
 
 ## Updates for New Soar Versions
 
