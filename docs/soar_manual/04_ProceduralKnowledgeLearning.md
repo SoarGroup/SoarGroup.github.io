@@ -938,15 +938,13 @@ has unconnected conditions, which are conditions that have an identifier that
 is not linked to one of the states referenced in the rule. Such rules are
 illegal and cannot be added to Soar’s production memory.
 
-Rules that require repair are caused by substate problem-solving that tests or
-augments a previous result. A previous result is a working memory element that
+_Rules that require repair are caused by substate problem-solving that tests or
+augments a previous result._ A previous result is a working memory element that
 was originally created locally in the substate but then later became a result
 when a rule fired and connected it to the superstate. (At which point a chunk
 must have been learned.). If another substate rules later matches or augments
 such a previous result WMEusing a path relative to the local substate, then EBBS
-will have problems. It will know that the WME is in the superstate so conditions
-that test the WME are considered operational and augmentations on that
-identifier are considered results – but it won’t know where in the superstate
+will have problems. It won’t know where in the superstate
 that working memory is located is and how it should be referenced in the learned
 rule, because the problem solving referenced the result relative to the local
 substate.
@@ -1004,10 +1002,11 @@ production memory. Since a different operator could have been selected which
 could have resulted in different problem-solving, the substate could easily
 produce different results than any chunk learned in that substate.
 
-Future versions of chunking will provide an option to prevent rules from forming
-when a probabilistically-selected operator was chosen during problem-solving.
-Until then, agent engineers can disable learning in states that involve such
-reasoning.
+EBBS detects these cases while it is analyzing operator selection preferences. EBBS
+adds a flag to inndicate whether an operator was selected in an unreliable way (using
+random selection, numeric preferences, or reinforcement learning). EBBS checks for
+this flag during backtracing and if it is encountered, EBBS will not add the rule
+to production memory.
 
 ### Collapsed Negative Reasoning
 
@@ -1192,7 +1191,7 @@ the decision process continues.
     is added to the ROSK. Again, the logic is that the conditions that led to that
     candidate not being selected allowed the final operator to be chosen.
 
--   **Indifferent Filter** This is the final stage, so the operator is now selected
+-   **Indifferent/Numeric Filter** This is the final stage, so the operator is now selected
     based on the agent’s exploration policy. How indifferent preferences are added
     to the ROSK depends on whether any numeric indifferent preferences exist.
 
@@ -1227,9 +1226,7 @@ learning is turned off.
 
 ### Generalizing Knowledge From Math
 
-and Other Right-Hand Side Functions
-
-Explanation-based behavior summarization introduces the ability to learn more expressive rules
+EBBS introduces the ability to learn more expressive rules
 whose actions perform arbitrary right-hand side functions with variablized
 arguments.
 
@@ -1323,3 +1320,565 @@ conditions is true:
     substate. Consequently, those result WMEs will be completely dependent on
     the rules that fired within the substate. So, when the substate is removed,
     those results will also be removed.
+
+## Usage
+
+More details on the `chunk` command and its settings can be found in the
+[chunk command reference](../reference/cli/cmd_chunk.md).
+
+### Enabling Procedural Learning
+
+By default, chunking is off.
+
+-   To turn on chunking: `chunk always`
+-   To turn off chunking: `chunk never`
+
+In real world agents, there may be certain problem spaces in which you
+don't want your agent to learn rules. Chunking has a mechanism to allow
+agents to dynamically specify the states in which rules are learned.
+
+-   To turn off chunking in all states except ones manually flagged on:
+    -   Use `chunk only` setting.
+    -   Design an agent rule that executes the RHS action `force-learn`,
+        which only matches in states in which you want to learn rules.
+-   To turn on chunking in all states except ones manually flagged off:
+    -   Use `chunk except` setting.
+    -   Design an agent rule that executes the RHS action `dont-learn`,
+        which only matches in states in which you don't want to learn
+        rules.
+
+Depending on your agent design, you may want to consider enabling the
+`add-osk` option. As of Soar 9.6.0, EBBS does not incorporate operator
+selection knowledge into learned rules by default, since there is a
+performance cost and not all agents designs require its inclusion. You
+may want to enable this option if your agent has rules that test
+knowledge in the superstate to create operator preferences in the
+substate. See the section on learning and operator selection knowledge
+for more information.
+
+See the [chunk command reference](../reference/cli/cmd_chunk.md) for more
+information about using the chunk command to enable and disable
+procedural learning.
+
+### Fine-tuning What Your Agent Learns
+
+#### Prohibiting known sources of correctness issues
+
+It is theoretically possible to detect nearly all of the sources of
+correctness issues and prevent rules from forming when those situations
+are detected. In Soar 9.6.0, though, only one filter is available,
+`allow-local-negations`. Future versions of Soar will include more
+correctness filters.
+
+Note that it is still possible to detect that your agent may have
+encountered a known source of a correctness issue by looking at the
+output of the `chunk stats` command. It has specific statistics for some
+of the sources, while others can be gleaned indirectly. For example, if
+the stats show that some rules required repair, you know that your agent
+testing or augmenting a previous result in a substate.
+
+#### Using singletons to simplify a rule's conditions
+
+Unlike previous versions of chunking, EBBS adds all conditions that
+tested superstate knowledge to a chunk, regardless of whether another
+condition already tested that working memory element. This means that
+EBBS can sometimes produce learned rules with seemingly duplicate
+conditions. While these conditions are logically correct, they may be
+redundant because the nature of the domain may make it impossible for
+the two conditions to match different working memory elements. For
+example, in the blocks-world domain, the fact that there can be only one
+gripper in the world means that having multiple conditions testing for a
+gripper would be redundant.
+
+Soar allows agents to specify such known domain characteristics, which
+EBBS will then use to create better rules that don't have such
+unnecessary conditions. We call any working memory element that is
+guaranteed to only have a single possible value at any given time, a
+_singleton_. If EBBS encounters two different conditions in the backtrace
+that both test the same superstate WME that matches a user singleton
+pattern, it will merge the two conditions. There are several
+architectural singletons that EBBS already knows about. To specify
+patterns for domain-specific singletons, the `chunk singleton` command
+can be used.
+
+See the [chunk command reference](../reference/cli/cmd_chunk.md) for more
+information about the chunk singleton command.
+
+### Examining What Was Learned
+
+#### Printing and Traces
+
+**Printing Rules:**
+
+-   To print all chunks learned:  
+    `print --chunks` or `print -c`
+-   To print all justifications learned (and still matching):  
+    `print --justifications` or `print -j`
+-   To print a rule or justification:  
+    `print <rule-name>`
+
+For more information on print, see the
+[print command reference](../reference/cli/cmd_print.md).
+
+**Trace Messages:**
+
+-   To print when new rules are learned (just the name):  
+    `trace --learning 1` or `trace -l 1`
+-   To print when new rules are learned (the full rule):  
+    `trace --learning 2` or `trace -l 2`
+-   To print a trace of the conditions as they are collected during
+    backtracing:  
+    `trace --backtracing` or `trace -b`
+-   To print warnings about chunking issues detected while learning:  
+    `trace --chunk-warnings` or `trace -C`
+-   To print when learned chunks match and fire:  
+    `trace --backtracing` or `trace -b`
+
+For more information on trace, see the
+[trace command reference](../reference/cli/cmd_trace.md).
+
+Note that the most detailed information about why a particular rule was
+learned can be acquired using the explain mechanism as described in the
+[explain command reference](../reference/cli/cmd_explain.md). That is
+highly recommended over printing the backtracing trace messages.
+
+#### Chunking Statistics
+
+Chunking automatically compiles various statistics about the procedural
+rule learning that an agent performs. To access these stats, use the
+command `chunk stats` or `stats -l`
+
+```text
+===========================================================================
+                  Explanation-Based Chunking Statistics
+===========================================================================
+Rules learned                                                          0
+Justifications learned                                                 0
+
+---------------------------------------------------------------------------
+                               Work Performed
+---------------------------------------------------------------------------
+Sub-states analyzed                                                    0
+Number of rules fired in substates analyzed                            0
+Number of rule firings analyzed during backtracing                     0
+
+Conditions merged                                                      0
+Disjunction tests merged                                               0
+Operational constraints                                                0
+Non-operational constraints detected                                   0
+Non-operational constraints enforced                                   0
+
+---------------------------------------------------------------------------
+                     Problem-Solving Characteristics
+---------------------------------------------------------------------------
+Rules repaired that had unconnected conditions or actions              0
+Chunk used negated reasoning about sub-state                           0
+Chunk tested knowledge retrieved from long-term memory                 0
+Justification used negated reasoning about sub-state                   0
+Justification tested knowledge retrieved from long-term memory         0
+
+---------------------------------------------------------------------------
+                           Identity Analysis
+---------------------------------------------------------------------------
+Identities created                                                     0
+Distinct identities in learned rules                                   0
+Identity propagations                                                  0
+Identity propagations blocked                                          0
+Identities joined                                                      0
+Identities literalized                                                 0
+
+---------------------------------------------------------------------------
+                      Learning Skipped or Unsuccessful
+---------------------------------------------------------------------------
+Ignored duplicate of existing rule                                     0
+Skipped because problem-solving tested ^quiescence true                0
+Skipped because no super-state knowledge tested                        0
+Skipped because MAX-CHUNKS exceeded in a decision cycle                0
+Skipped because MAX-DUPES exceeded for rule this decision cycle        0
+```
+
+Note that similar statistics for a specific learned rule can be acquired
+using the explain mechanism as described in the
+[explain command reference](../reference/cli/cmd_explain.md).
+
+#### Interrupting Execution To Examine Learning
+
+-   To stop Soar after each successful learning episode:  
+    `chunk interrupt on`
+-   To stop Soar after detecting any learning issue:  
+    `chunk warning-interrupt on`
+-   To stop Soar after learning a rule that the explainer recorded:  
+    `chunk explain-interrupt on`
+
+For more information about how to record when a specific rule is learned,
+see the [explain command reference](../reference/cli/cmd_explain.md) that
+describes the explain mechanism.
+
+## Explaining Learned Procedural Knowledge
+
+While explanation-based behavior summarization makes it easier for people
+to now incorporate learning into their agents, the complexity of the
+analysis it performs makes it far more difficult to understand how the
+learned rules were formed. The explainer is a new module that has been
+developed to help ameliorate this problem. The explainer allows you to
+interactively explore how rules were learned.
+
+When requested, the explainer will make a very detailed record of
+everything that happened during a learning episode. Once a user specifies
+a recorded chunk to "discuss", they can browse all of the rule firings
+that contributed to the learned rule, one at a time. The explainer will
+present each of these rules with detailed information about the identity
+of the variables, whether it tested knowledge relevant to the the
+superstate, and how it is connected to other rule firings in the
+substate. Rule firings are assigned IDs so that user can quickly choose a
+new rule to examine.
+
+The explainer can also present several different screens that show more
+verbose analyses of how the chunk was created. Specifically, the user can
+ask for a description of (1) the chunk's initial formation, (2) the
+identities of variables and how they map to identity sets, (3) the
+constraints that the problem-solving placed on values that a particular
+identity can have, and (4) specific statistics about that chunk, such as
+whether correctness issues were detected or whether it required repair to
+make it fully operational.
+
+Finally, the explainer will also create the data necessary to visualize
+all of the processing described in an image using the new 'visualize'
+command. These visualization are the easiest way to quickly understand
+how a rule was formed.
+
+Note that, despite recording so much information, a lot of effort has
+been put into minimizing the cost of the explainer. When debugging, we
+often let it record all chunks and justifications formed because it is
+efficient enough to do so.
+
+---
+
+Use the `explain` command without any arguments to display a summary of
+which rule firings the explainer is watching. It also shows which chunk
+or justification the user has specified is the current focus of its
+output, i.e. the chunk being discussed.
+
+Tip: This is a good way to get a chunk id so that you don't have to type
+or paste in a chunk name.
+
+```text
+=======================================================
+                   Explainer Summary
+=======================================================
+Watch all chunk formations                            Yes
+Explain justifications                                Nof
+Number of specific rules watched                      0
+
+Chunks available for discussion:                      chunkx2*apply2 (c 14)
+                                                      chunk*apply*o (c 13)
+                                                      chunkx2*apply2 (c 12)
+                                                      chunk*apply*d (c 11)
+                                                      chunkx2*apply2 (c 6)
+                                                      chunk*apply* (c 15)
+                                                      chunkx2*apply (c 8)
+                                                      chunk*apply*c (c 5)
+                                                      chunkx2*apply (c 10)
+                                                      chunk*apply (c 1)
+
+* Note:  Printed the first 10 chunks. 'explain list' to see other 6 chunks.
+
+Current chunk being discussed:                        chunk*apply*down-gripper(c 3)
+```
+
+---
+
+**`explain chunk [ <chunk id> | <chunk name> ]`**
+
+This command starts the explanation process by specifying which chunk's
+explanation trace you want to explore.
+
+Tip: Use the alias `c` to quickly start discussing a chunk, for example:
+
+```soar
+soar % c 3
+Now explaining chunk*apply*move-gripper-above*pass*top-state*OpNoChange*t6-1.
+- Note that future explain commands are now relative
+  to the problem-solving that led to that chunk.
+
+Explanation Trace                                     Using variable identity IDs                  Shortest Path to Result Instantiation
+
+sp {chunk*apply*move-gripper-above*pass*top-state*OpNoChange*t6-1
+1:    (<s1> ^top-state <s2>)                          ([140] ^top-state [162])
+     -{
+2:    (<s1> ^operator <o*1>)                          ([140] ^operator [141])
+3:    (<o*1> ^name evaluate-operator)                 ([141] ^name evaluate-operator)
+     }
+4:    (<s2> ^gripper <g1>)                            ([162] ^gripper [156])                       i 30 -> i 31
+5:    (<g1> ^position up)                             ([156] ^position up)                         i 30 -> i 31
+6:    (<g1> ^holding nothing)                         ([156] ^holding nothing)                     i 30 -> i 31
+7:    (<g1> ^above <t1>)                              ([156] ^above [157])                         i 30 -> i 31
+8:    (<s2> ^io <i2>)                                 ([162] ^io [163])                            i 31
+9:    (<i2> ^output-link <i1>)                        ([163] ^output-link [164])                   i 31
+10:   (<i1> ^gripper <g2>)                            ([164] ^gripper [165])                       i 31
+11:   (<s2> ^clear { <> <t1> <b1> })                  ([162] ^clear { <>[161]  [161] })            i 30 -> i 31
+12:   (<s1> ^operator <o1>)                           ([140] ^operator [149])
+13:   (<o1> ^moving-block <b1>)                       ([149] ^moving-block [161])
+14:   (<o1> ^name pick-up)                            ([149] ^name pick-up)
+      -->
+1:    (<g2> ^command move-gripper-above +)            ([165] ^command move-gripper-above +)
+2:    (<g2> ^destination <c1> +)                      ([165] ^destination [161] +)
+```
+
+---
+
+**`explain formation`**
+
+Once you specify a rule to explain, this will be one of the first commands you issue.  `explain formation` provides an explanation of the initial rule that fired which created a result. This is what is called the `base instantiation' and is what led to the chunk being learned. Other rules may also be base instantiations if they previously created children of the base instantiation's results. They also will be listed in the initial formation output.
+
+```soar
+soar % explain formation
+------------------------------------------------------------------------------------
+The formation of chunk 'chunk*apply*move-gripper-above*pass*top-state*OpNoChange*t6-1' (c 1)
+------------------------------------------------------------------------------------
+
+Initial base instantiation (i 31) that fired when apply*move-gripper-above*pass*top-state matched at level 3 at time 6:
+
+Explanation trace of instantiation # 31            (match of rule apply*move-gripper-above*pass*top-state at level 3)
+ (produced chunk result)
+                                                   Identities instead of variables       Operational    Creator
+
+1:    (<s> ^operator <op>)                         ([159] ^operator [160])                   No         i 30 (pick-up*propose*move-gripper-above)
+2:    (<op> ^name move-gripper-above)              ([160] ^name move-gripper-above)          No         i 30 (pick-up*propose*move-gripper-above)
+3:    (<op> ^destination <des>)                    ([160] ^destination [161])                No         i 30 (pick-up*propose*move-gripper-above)
+4:    (<s> ^top-state <t*1>)                       ([159] ^top-state [162])                  No         i 27 (elaborate*state*top-state)
+5:    (<t*1> ^io <i*1>)                            ([162] ^io [163])                         Yes        Higher-level Problem Space
+6:    (<i*1> ^output-link <o*1>)                   ([163] ^output-link [164])                Yes        Higher-level Problem Space
+7:    (<o*1> ^gripper <gripper>)                   ([164] ^gripper [165])                    Yes        Higher-level Problem Space
+   -->
+1:    (<gripper> ^command move-gripper-above +)    ([165] ^command move-gripper-above +)
+2:    (<gripper> ^destination <des> +)             ([165] ^destination [161] +)
+------
+
+This chunk summarizes the problem-solving involved in the following 5
+rule firings:
+
+   i 27 (elaborate*state*top-state)
+   i 28 (elaborate*state*operator*name)
+   i 29 (pick-up*elaborate*desired)
+   i 30 (pick-up*propose*move-gripper-above)
+   i 31 (apply*move-gripper-above*pass*top-state)
+```
+
+---
+
+**`explain instantiation <instantiation id>`**
+
+This command prints a specific instantiation in the behavior trace. This
+lets you browse the instantiation graph one rule at a time. This is
+probably one of the most common things you will do while using the
+explainer.
+
+Tip: Use the alias `i <instantiation id>` to quickly view an
+instantiation, for example:
+
+```text
+soar % i 30
+Explanation trace of instantiation # 30            (match of rule pick-up*propose*move-gripper-above at level 3)
+- Shortest path to a result: i 30 -> i 31
+                                                   Identities instead of variables       Operational    Creator
+
+1:    (<s> ^name pick-up)                          ([152] ^name pick-up)                     No         i 28 (elaborate*state*operator*name)
+2:    (<s> ^desired <d*1>)                         ([152] ^desired [153])                    No         i 29 (pick-up*elaborate*desired)
+3:    (<d*1> ^moving-block <mblock>)               ([153] ^moving-block [154])               No         i 29 (pick-up*elaborate*desired)
+4:    (<s> ^top-state <ts>)                        ([152] ^top-state [155])                  No         i 27 (elaborate*state*top-state)
+5:    (<ts> ^clear <mblock>)                       ([155] ^clear [154])                      Yes        Higher-level Problem Space
+6:    (<ts> ^gripper <g>)                          ([155] ^gripper [156])                    Yes        Higher-level Problem Space
+7:    (<g> ^position up)                           ([156] ^position up)                      Yes        Higher-level Problem Space
+8:    (<g> ^holding nothing)                       ([156] ^holding nothing)                  Yes        Higher-level Problem Space
+9:    (<g> ^above { <> <mblock> <a*1> })           ([156] ^above { <>[154]  [157] })         Yes        Higher-level Problem Space
+   -->
+1:    (<s> ^operator <op1> +)                      ([152] ^operator [158] +)
+2:    (<op1> ^name move-gripper-above +)           ([158] ^name move-gripper-above +)
+3:    (<op1> ^destination <mblock> +)              ([158] ^destination [154] +)
+```
+
+---
+
+**`explain [explanation-trace | wm-trace]`**
+
+In most cases, users spend most of their time browsing the explanation
+trace. This is where chunking learns most of the subtle relationships
+that you are likely to be debugging. But users will also need to examine
+the working memory trace to see the specific values matched.
+
+To switch between traces, you can use the `explain e` and the `explain w`
+commands.
+
+Tip: Use the aliases `et` and `wt` to quickly switch between traces.
+
+```text
+soar % explain w
+Working memory trace of instantiation # 30     (match of rule pick-up*propose*move-gripper-above at level 3)
+1:    (S9 ^name pick-up)                               No         i 28 (elaborate*state*operator*name)
+2:    (S9 ^desired D6)                                 No         i 29 (pick-up*elaborate*desired)
+3:    (D6 ^moving-block B3)                            No         i 29 (pick-up*elaborate*desired)
+4:    (S9 ^top-state S1)                               No         i 27 (elaborate*state*top-state)
+5:    (S1 ^clear B3)                                   Yes        Higher-level Problem Space
+6:    (S1 ^gripper G2)                                 Yes        Higher-level Problem Space
+7:    (G2 ^position up)                                Yes        Higher-level Problem Space
+8:    (G2 ^holding nothing)                            Yes        Higher-level Problem Space
+9:    (G2 ^above { <> B3 T1 })                         Yes        Higher-level Problem Space
+   -->
+1:    (S9 ^operator O9) +
+2:    (O9 ^name move-gripper-above) +
+3:    (O9 ^destination B3) +
+```
+
+---
+
+**`explain constraints`**
+
+This feature lists all constraints found in non-operational constraints
+of the explanation trace. If these constraints were not met, the
+problem-solving would not have occurred.
+
+This feature is not yet implemented. You can use `explain stats` to see
+if any transitive constraints were added to a particular chunk.
+
+---
+
+**`explain identity`**
+
+`explain identity` will show the mappings from variable identities to
+identity sets. If available, the variable in a chunk that an identity set
+maps to will also be displayed.
+an identity set maps to will also be displayed.
+
+By default, only identity sets that appear in the chunk will be displayed
+in the identity analysis. To see the identity set mappings for other
+sets, change the `only-chunk-identities` setting to `off`.
+
+```text
+soar % explain identity
+=========================================================================
+-             Variablization Identity to Identity Set Mappings          -
+=========================================================================
+
+-== NULL Identity Set ==-
+
+The following variable identities map to the null identity set and will
+not be generalized: 282 301 138 291 355 336 227 309 328 318 128 218 345
+
+-== How variable identities map to identity sets ==-
+
+Variablization IDs      Identity     CVar    Mapping Type
+
+Instantiation 36:
+  125 -> 482          | IdSet 12  | <s>       | New identity set
+  126 -> 493          | IdSet 11  | <o>       | New identity set
+Instantiation 38:
+Instantiation 41:
+  146 -> 482          | IdSet 12  | <s>       | New identity set
+  147 -> 493          | IdSet 11  | <o>       | New identity set
+Instantiation 42:
+  151 -> 180          | IdSet 1   | <ss>      | New identity set
+  149 -> 482          | IdSet 12  | <s>       | New identity set
+  150 -> 493          | IdSet 11  | <o>       | New identity set
+  307 -> 180          | IdSet 1   | <ss>      | Added to identity set
+  187 -> 180          | IdSet 1   | <ss>      | Added to identity set
+  334 -> 180          | IdSet 1   | <ss>      | Added to identity set
+  173 -> 180          | IdSet 1   | <ss>      | Added to identity set
+  280 -> 180          | IdSet 1   | <ss>      | Added to identity set
+Instantiation 53:
+  219 -> 489          | IdSet 15  | <b>       | New identity set
+Instantiation 61:
+Instantiation 65:
+  319 -> 492          | IdSet 20  | <t>       | New identity set
+```
+
+---
+
+**`explain stats`**
+
+Explain's `stat` command prints statistics about the specific chunk being
+discussed. This is a good way to see whether any generality or
+correctness issues were detected while learning that rule.
+
+```text
+===========================================================
+Statistics for 'chunk*apply*move-gripper-above*pass*top-state*OpNoChange*t6-1' (c 1):
+===========================================================
+Number of conditions                                       14
+Number of actions                                          2
+Base instantiation                                         i 31 (apply*move-gripper-above*pass*top-state)
+
+===========================================================
+                 Generality and Correctness
+===========================================================
+
+Tested negation in local substate                          No
+LHS required repair                                        No
+RHS required repair                                        No
+Was unrepairable chunk                                     No
+
+===========================================================
+                      Work Performed
+===========================================================
+Instantiations backtraced through                          5
+Instantiations skipped                                     6
+Constraints collected                                      1
+Constraints attached                                       0
+Duplicates chunks later created                            0
+Conditions merged                                          2
+```
+
+### After-Action Reports
+
+The explainer has an option to create text files that contain statistics
+about the rules learned by an agent during a particular run. When
+enabled, the explainer will write out a file with the statistics when
+either Soar exits or a `soar init` is executed. This option is still
+considered experimental and in beta.
+
+![A colored visualization of a behavior trace](Images/chunking-trace-identity.png)
+
+## Visualizing the Explanation
+
+The `visualize` command can generate two graphical representations of the
+analysis that chunking performed to learn a rule. While the explainer
+provides more data, these images are the easiest and most effective ways
+to quickly understand how a chunk was formed, especially for particularly
+complex chunks. The visualizer can create two types of chunking-related
+images:
+
+1.  **An image that shows the entire instantiation graph at once and how
+    it contributed to the learned rule.**
+
+    Use the command `visualize ebc analysis` to create a very informative
+    graph that shows all rules that fired in a substate with arrows that
+    indicate dependencies between actions in one rule and conditions in
+    others. In addition to all of the dependencies between the rules that
+    fired, this visualization also shows which conditions in the
+    instantiations tested knowledge in the superstate and hence became
+    the basis for a condition in the final learned rule. Finally, the
+    individual elements in the explanation are color-coded to show which
+    variables share the same identity.
+
+2.  **An image that shows the graph of how variable identities were
+    combined.**
+
+    Use the `visualize identity graph` to create a graph that shows how
+    identities were used to determine the variablization of a learned
+    rule. This shows all identities found in the chunk and how the
+    identity analysis joined them based on the problem-solving that
+    occurred. This can be useful in determining why two elements were
+    assigned the same variable.
+
+Note that Soar will automatically attempt to launch a viewer to see the
+image generated. If you have an editor that can open graphviz files, you
+can have Soar launch that automatically as well. (Such editors allow you
+to move things around and lay out the components of the image exactly as
+you want them.) Your operating system chooses which program to launch
+based on the file type.
+
+**For the visualizer to work, you must have Graphviz and DOT installed**,
+which are free third-party tools, and both must be available on your
+path. To date, the visualizer has only been tested on Mac and Linux. It
+is possible that certain systems may not allow Soar to launch an external
+program.
