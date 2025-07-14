@@ -11,9 +11,6 @@ $endif$
 
 \documentclass[12pt,a4paper]{article}
 \usepackage{makeidx}		% for index
-$if(has-index)$
-\makeindex
-$endif$
 \usepackage{epsfig}		% for figures (was 'psfig')
 \usepackage[colorlinks]{hyperref}     % for hyperlinks
 \usepackage[figure,figure*]{hypcap}   % to correct anchor placement for figures
@@ -437,6 +434,9 @@ $if(logo)$
 $endif$
 $endif$
 
+$if(has-index)$
+\makeindex
+$endif$
 \begin{document}
 \begin{titlepage}
   \vspace{1.5in}
