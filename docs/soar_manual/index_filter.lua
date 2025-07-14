@@ -1,29 +1,51 @@
--- Simple filter to convert HTML comments with \index commands to LaTeX
+-- Comprehensive filter to catch HTML comments with index commands
 
-function processBlock(block)
-    if block.tag == "RawBlock" and block.format == "html" then
-        local text = block.text
-        -- Check if this is an HTML comment with \index
-        local index_match = text:match("^<!%-%-%s*\\index{(.-)}.-->$")
-        if index_match then
-            return pandoc.RawBlock("latex", "\\index{" .. index_match .. "}")
+function processAny(elem)
+    -- Handle any element that might contain our HTML comments
+    local text = ""
+
+    if elem.tag == "RawBlock" or elem.tag == "RawInline" then
+        text = elem.text or ""
+    elseif elem.tag == "Str" then
+        text = elem.text or ""
+    elseif elem.tag == "Para" then
+        text = pandoc.utils.stringify(elem)
+    end
+
+    -- Look for HTML comments with index commands anywhere in the text
+    if text and text:match("<!%-%-%s*\\index{.-}%s*-->") then
+        -- Found an index comment - extract all index commands
+        local index_commands = {}
+        for index_cmd in text:gmatch("<!%-%-%s*(\\index{.-})%s*-->") do
+            table.insert(index_commands, pandoc.RawInline("latex", index_cmd))
+        end
+
+        -- If we found any, return them
+        if #index_commands > 0 then
+            if #index_commands == 1 then
+                return index_commands[1]
+            else
+                return index_commands
+            end
         end
     end
-    return block
+
+    return elem
 end
 
-function processInline(inline)
-    if inline.tag == "RawInline" and inline.format == "html" then
-        local text = inline.text
-        -- Check if this is an HTML comment with \index
-        local index_match = text:match("^<!%-%-%s*\\index{(.-)}.-->$")
-        if index_match then
-            return pandoc.RawInline("latex", "\\index{" .. index_match .. "}")
-        end
-    end
-    return inline
+-- Also try a document-level approach to insert some test index entries
+function processDocument(doc)
+    -- Add a test index entry at the very beginning
+    table.insert(doc.blocks, 1, pandoc.RawBlock("latex", "\\index{test-entry}"))
+    return doc
 end
 
 return {
-    { RawBlock = processBlock, RawInline = processInline }
+    {
+        RawBlock = processAny,
+        RawInline = processAny,
+        Str = processAny,
+        Para = processAny,
+        Pandoc = processDocument
+    }
 }
