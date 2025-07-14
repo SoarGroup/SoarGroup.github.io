@@ -41,19 +41,14 @@ pandoc \
 
 echo "Generated initial PDF with index commands"
 
-# Check if index file was generated, and if not, create a test one
+# Check if index file was generated
 if [ -f "output/SoarManual.idx" ]; then
     echo "Index entries found, running makeindex..."
+    cd output && makeindex SoarManual.idx && cd ..
+    echo "Makeindex completed"
 else
-    echo "No .idx file found, creating test index file..."
-    echo '\indexentry{chunking}{1}' > output/SoarManual.idx
-    echo '\indexentry{test-entry}{1}' >> output/SoarManual.idx
-    echo '\indexentry{Soar}{1}' >> output/SoarManual.idx
-    echo "Test index file created"
+    echo "No .idx file found - no index entries to process"
 fi
-
-cd output && makeindex SoarManual.idx && cd ..
-echo "Makeindex completed"
 
 # Check what files were created
 echo "Checking index files:"
