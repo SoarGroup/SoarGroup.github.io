@@ -1,3 +1,5 @@
+-- Changes links between markdown files that are added to manual PDF so that they
+-- point to the correct section in the PDF rather than the file path.
 function DebugMessage(message)
     io.stderr:write("Debug: " .. message .. "\n")
 end

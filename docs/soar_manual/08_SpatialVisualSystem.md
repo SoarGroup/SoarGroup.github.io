@@ -1,7 +1,5 @@
 # Spatial Visual System
 
-
-
 The Spatial Visual System (SVS) allows Soar to effectively represent and reason
 about continuous, three dimensional environments. SVS maintains an internal
 representation of the environment as a collection of discrete objects with
@@ -19,7 +17,7 @@ modifications to the environment code. Furthermore, it allows the agent to
 manipulate internal copies of the scene graph and then extract spatial
 relationships from the modified states, which is useful for look-ahead search
 and action modeling. This type of imagery operation naturally captures and
-propagates the relationships implicit in spatial environments, and doesn’t
+propagates the relationships implicit in spatial environments, and doesn't
 suffer from the frame problem that relational representations have.
 
 ![(a) Typical environment setup without using SVS. (b) Same environment using SVS.](Images/svs-setup.svg)
@@ -29,7 +27,7 @@ suffer from the frame problem that relational representations have.
 The primary data structure of SVS is the scene graph. The scene graph is a tree
 in which the nodes represent objects in the scene and the edges represent
 "part-of" relationships between objects. An example scene graph consisting of a
-car and a pole is shown in Figure 8.2. The scene graph’s leaves are **geometry
+car and a pole is shown in the figure above. The scene graph's leaves are **geometry
 nodes** and its interior nodes are **group nodes**. Geometry nodes represent atomic
 objects that have intrinsic shape, such as the wheels and chassis in the
 example. Currently, the shapes supported by SVS are points, lines, convex
@@ -43,29 +41,30 @@ relationships between its parts (e.g. are the wheels pointing left or right with
 respect to the chassis?). The scene graph always contains at least a root node:
 the **world node**.
 
+![(a) A 3D scene. (b) The scene graph representation.](Images/scene_graph.svg)
+
 Each node other than the world node has a transform with respect to its parent.
 A transform consists of three components:
 
-- position(x,y,z) Specifies the x, y, and z offsets of the node’s origin with
-  respect to its parent’s origin.
-- rotation(x,y,z) Specifies the rotation of the node relative to its origin in
-  Euler angles.  This means that the node is rotated the specified number of
-  radians along each axis in the order x-y-z. For more information,
-  see <http://en.wikipedia.org/wiki/Euler_angles>.
-- scaling(x,y,z) Specifies the factors by which the node is scaled along each axis.
+-   **position(x,y,z)** Specifies the x, y, and z offsets of the node's origin with
+    respect to its parent's origin.
+-   **rotation(x,y,z)** Specifies the rotation of the node relative to its
+    origin in Euler angles.  This means that the node is rotated the specified
+    number of radians along each axis in the order x-y-z. For more information,
+    see <http://en.wikipedia.org/wiki/Euler_angles>.
+-   **scaling(x,y,z)** Specifies the factors by which the node is scaled along
+    each axis.
 
 The component transforms are applied in the order scaling, then rotation, then
-position.  Each node’s transform is applied with respect to its parent’s
-coordinate system, so the transforms accumulate down the tree. A node’s
+position. Each node's transform is applied with respect to its parent's
+coordinate system, so the transforms accumulate down the tree. A node's
 transform with respect to the world node, or its world transform, is the
 aggregate of all its ancestor transforms. For example, if the car has a position
 transform of (1, 0 ,0) and a wheel on the car has a position transform of (0, 1
 ,0), then the world position transform of the wheel is (1, 1 ,0).
 
-SVS represents the scene graph structure in working memory under the^spatial-scene
+SVS represents the scene graph structure in working memory under the `^spatial-scene`
 link. The working memory representation of the car and pole scene graph is
-
-![(a) A 3D scene. (b) The scene graph representation.](Images/scene_graph.svg)
 
 ```Soar
 (S1 ^svs S3)
@@ -81,7 +80,7 @@ link. The working memory representation of the car and pole scene graph is
 ```
 
 Each state in working memory has its own scene graph. When a new state is
-created, it will receive an independent copy of its parent’s scene graph. This
+created, it will receive an independent copy of its parent's scene graph. This
 is useful for performing look-ahead search, as it allows the agent to
 destructively modify the scene graph in a search state using mental imagery
 operations. If you wish to turn off the scene graph copying behavior, you can disable
@@ -90,14 +89,14 @@ it with `svs --disable-in-substates`. You can also re-enable it with `svs --enab
 ### svs_viewer
 
 A viewer has been provided to show the scene graph visually. Run the
-program `svs_viewer -s <PORT>` from the soar/out folder to launch the viewer listening
-on the given port. Once the viewer is running, from within soar use the
-command `svs connect viewer <PORT>` to connect to the viewer and begin drawing the
-scene graph. Any changes to the scene graph will be reflected in the viewer. The
-viewer by default draws the top state scene graph; to draw the scene graph of a 
-substate, first stop drawing the top state with `svs S1.scene.draw off` and then 
-draw the desired substate with `svs <STATE ID>.scene.draw on`, where `<STATE ID>`
-is `S7`, etc.
+program `svs_viewer -s <PORT>` from the soar/out folder to launch the viewer
+listening on the given port. Once the viewer is running, from within soar use
+the command `svs connect_viewer <PORT>` to connect to the viewer and begin
+drawing the scene graph. Any changes to the scene graph will be reflected in
+the viewer. The viewer by default draws the top state scene graph; to draw the
+scene graph of a substate, first stop drawing the top state with
+`svs S1.scene.draw off` and then draw the desired substate with
+`svs <STATE ID>.scene.draw on`, where `<STATE ID>` is `S7`, etc.
 
 ## Scene Graph Edit Language
 
@@ -108,61 +107,69 @@ environment, and the programmer sends SGEL commands reflecting changes in the
 environment to SVS via the `Agent::SendSVSInput` function in the SML API. These
 commands are buffered by the agent and processed at the beginning of each input
 phase. Therefore, it is common to send scene changes through
-SendSVS Input before the input phase. If you send SGEL commands at the end of the
-input phase, the results won’t be processed until the following decision cycle.
+`SendSVSInput` *before* the input phase. If you send SGEL commands at the end of
+the input phase, the results won't be processed until the following decision cycle.
 
 Each SGEL command begins with a single word command type and ends with a newline.
 The four command types are
 
-- **add ID PARENT_ID [GEOMETRY] [TRANSFORM]**
-  Add a node to the scene graph with the givenID, as a child ofPARENTID, and with
-  typeTYPE(usually object).TheGEOMETRYandTRANSFORMarguments are optional and
-  described below.
+-   **add ID PARENT_ID [GEOMETRY] [TRANSFORM]**
 
-- **change ID [GEOMETRY] [TRANSFORM]** 
-  Change the transform and/or geometry of the node with the givenID.
+    Add a node to the scene graph with the given `ID`, as a child of `PARENT_ID`,
+    and with type `TYPE` (usually object). The `GEOMETRY` and `TRANSFORM`
+    arguments are optional and described below.
 
-- **delete ID**
-  Delete the node with the givenID.
+-   **change ID [GEOMETRY] [TRANSFORM]**
 
-- **tag [add|change|delete] ID TAG_NAME TAG_VALUE**
-  Adds, changes, or deletes a tag from an object. A tag consists of a TAG_NAME and
-  TAG_VALUE pair and is added to the node with the given ID. Both TAG_NAMEand
-  TAG_VALUE must be strings. Tags can differentiate nodes (e.g. as a type field) and
-  can be used in conjunction with the tag select filter to choose a subset of the nodes.
+    Change the transform and/or geometry of the node with the given `ID`.
 
-The `TRANSFORM` argument has the `form[p X Y Z] [r X Y Z] [s X Y Z]`, corresponding to
-the position, rotation, and scaling components of the transform, respectively.
-All the components are optional; any combination of them can be excluded, and
-the included components can appear in any order.
+-   **delete ID**
+
+    Delete the node with the given `ID`.
+
+-   **tag [add|change|delete] ID TAG_NAME TAG_VALUE**
+
+    Adds, changes, or deletes a tag from an object. A tag consists of a
+    `TAG_NAME` and `TAG_VALUE` pair and is added to the node with the given `ID`.
+    Both `TAG_NAME` and `TAG_VALUE` must be strings. Tags can differentiate
+    nodes (e.g. as a type field) and can be used in conjunction with the
+    `tag_select` filter to choose a subset of the nodes.
+
+The `TRANSFORM` argument has the form `[p X Y Z] [r X Y Z] [s X Y Z]`,
+corresponding to the position, rotation, and scaling components of the transform,
+respectively. All the components are optional; any combination of them can be
+excluded, and the included components can appear in any order.
 
 The `GEOMETRY` argument has two forms:
 
-- **b RADIUS**
-  Make the node a geometry node with sphere shape with radius RADIUS.
+-   **b RADIUS**
 
-- **v X1 Y1 Z1 X2 Y2 Z2**
-  Make the node a geometry node with a convex polyhedron shape with the specified
-  vertices. Any number of vertices can be listed.
+    Make the node a geometry node with sphere shape with radius `RADIUS`.
+
+-   **v X1 Y1 Z1 X2 Y2 Z2**
+
+    Make the node a geometry node with a convex polyhedron shape with the
+    specified vertices. Any number of vertices can be listed.
 
 ### Examples
 
 Create a sphere `ball4` with radius 5 at location (4, 4, 0):
 
-```
+```soar
 add ball4 world b 5 p 4 4 0
 ```
 
-Create a triangle `tri9` in the xy plane, then rotate it vertically, double its size,
-and move it to (1, 1, 1):
+Create a triangle `tri9` in the xy plane, then rotate it vertically, double its
+size, and move it to (1, 1, 1):
 
-```
+```soar
 add tri9 world v -1 -1 0 1 -1 0 0 0.5 0 p 1 1 1 r 1.507 0 0 s 2 2 2
 ```
 
-Create a `snowman` shape with 3 spheres stacked on each other and located at (2, 2, 0):
+Create a `snowman` shape with 3 spheres stacked on each other and located at
+(2, 2, 0):
 
-```
+```soar
 add snowman world p 2 2 0
 add bottomball snowman b 3 p 0 0 3
 add middleball snowman b 2 p 0 0 8
@@ -171,42 +178,45 @@ add topball snowman b 1 p 0 0 11
 
 Set the rotation transform on `box11` to 180 degrees around the z axis:
 
-```
+```soar
 change box11 r 0 0 3.14159
 ```
 
 Change the color tag on `box7` to green:
 
-```
+```soar
 tag change box7 color green
 ```
 
 ## Commands
 
-The Soar agent initiates commands in SVS via the **^command** link, similar to semantic
-and episodic memory. These commands allow the agent to modify the scene graph and
-extract filters. Commands are processed during the output phase and the results are added
-to working memory during the input phase. SVS supports the following commands:
+The Soar agent initiates commands in SVS via the **^command** link, similar to
+semantic and episodic memory. These commands allow the agent to modify the scene
+graph and extract filters. Commands are processed during the output phase and
+the results are added to working memory during the input phase. SVS supports
+the following commands:
 
-- `add_node` Creates a new node and adds it to the scene graph
-- `copy_node` Creates a copy of an existing node
-- `delete_node` Removes a node from the scene graph and deletes it
-- `set_transform` Changes the position, rotation, and/or scale of a node
-- `set_tag` Adds or changes a tag on a node
-- `delete_tag` Deletes a tag from a node
-- `extract` Compute the truth value of spatial relationships in the current scene graph.
-- `extract_once` Same as extract, except it is only computed once and doesn’t update when the scene changes.
+-   `add_node` Creates a new node and adds it to the scene graph
+-   `copy_node` Creates a copy of an existing node
+-   `delete_node` Removes a node from the scene graph and deletes it
+-   `set_transform` Changes the position, rotation, and/or scale of a node
+-   `set_tag` Adds or changes a tag on a node
+-   `delete_tag` Deletes a tag from a node
+-   `extract` Compute the truth value of spatial relationships in the current
+    scene graph.
+-   `extract_once` Same as extract, except it is only computed once and doesn't
+    update when the scene changes.
 
 ### add_node
 
 This commands adds a new node to the scene graph.
 
-- `^id [string]` The id of the node to create
-- `^parent [string]` The id of the node to attach the new node to (default is world)
-- `^geometry << group point ball box >>` The geometry the node should have
-- `^position.{ ^x ^y ^z }` Position of the node (optional)
-- `^rotation.{ ^x ^y ^z }` Rotation of the node (optional)
-- `^scale.{ ^x ^y ^z }` Scale of the node (optional)
+-   `^id [string]` The id of the node to create
+-   `^parent [string]` The id of the node to attach the new node to (default is world)
+-   `^geometry << group point ball box >>` The geometry the node should have
+-   `^position.{ ^x ^y ^z }` Position of the node (optional)
+-   `^rotation.{ ^x ^y ^z }` Rotation of the node (optional)
+-   `^scale.{ ^x ^y ^z }` Scale of the node (optional)
 
 The following example creates a node called box 5 and adds it to the world. The
 node has a box shape of side length 0.1 and is placed at position (1, 1, 0).
@@ -227,12 +237,13 @@ This copy is not recursive, it only copies the node itself, not its children.
 The position, rotation, and scale transforms are also copied from the source node
 but they can be changed if desired.
 
-- **^id [string]** The id of the node to create
-- **^source [string]** The id of the node to copy
-- **^parent [string]** The id of the node to attach the new node to (default is world)
-- **^position.{^x ^y ^z}** Position of the node (optional)
-- **^rotation.{^x ^y ^z}** Rotation of the node (optional)
-- **^scale.{^x ^y ^z}** Scale of the node (optional)
+-   **^id [string]** The id of the node to create
+-   **^source [string]** The id of the node to copy
+-   **^parent [string]** The id of the node to attach the new node to (default
+is `world`)
+-   **^position.{^x ^y ^z}** Position of the node (optional)
+-   **^rotation.{^x ^y ^z}** Rotation of the node (optional)
+-   **^scale.{^x ^y ^z}** Scale of the node (optional)
 
 The following example copies a node called box5 as new node box6 and moves it to
 position (2, 0, 2).
@@ -250,10 +261,9 @@ position (2, 0, 2).
 This command deletes a node from the scene graph. Any children will also
 be deleted.
 
+-   **`^id [string]** The id of the node to delete
 
-- **`^id [string]** The id of the node to delete
-
-The following example deletes a node called
+The following example deletes a node called `box5`.
 
 ```Soar
 (S1 ^svs S3)
@@ -268,10 +278,10 @@ This command allows you to change the position, rotation, and/ or scale
 of an existing node. You can specify any combination of the three
 transforms.
 
-- **`^id [string]`** The id of the node to change
-- **`^postion`** Position of the node (optional)
-- **`^position.{^x ^y ^z}`** Rotation of the node (optional)
-- **`^scale{^x ^y ^z}`** Scale of the node (optional)
+-   **`^id [string]`** The id of the node to change
+-   **`^postion`** Position of the node (optional)
+-   **`^position.{^x ^y ^z}`** Rotation of the node (optional)
+-   **`^scale{^x ^y ^z}`** Scale of the node (optional)
 
 The following example moves and rotates a node called `box5`.
 
@@ -290,9 +300,9 @@ This command allows you to add or change a tag on a node. If a tag with
 the same id already exists, the existing value will be replaced with the
 new value.
 
-- **`^id [string]`** The id of the node to set the tag on
-- **`^tag_name [string]`** The name of the tag to add
-- **`^tag_value [string]`** The value of the tag to add
+-   **`^id [string]`** The id of the node to set the tag on
+-   **`^tag_name [string]`** The name of the tag to add
+-   **`^tag_value [string]`** The value of the tag to add
 
 The following example adds a shape tag to the node `box5`.
 
@@ -307,35 +317,36 @@ The following example adds a shape tag to the node `box5`.
 
 This command allows you to delete a tag from a node.
 
-- **^id [string]** The id of the node to set the tag on
-- **^tag_name [string]** The name of the tag to add
-- **^tag_value [string]** The value of the tag to add
+-   **^id [string]** The id of the node to delete the tag from
+-   **^tag_name [string]** The name of the tag to delete
 
-The following example deletes the shape tag from the node .
+The following example deletes the shape tag from the node `box5`.
 
 ```Soar
 (S1 ^svs S3)
   (S3 ^command C3 ^spatial-scene S4)
     (C3 ^delete_tag D1)
-      (D1 ^name box5 ^tag_name shape)
+      (D1 ^id box5 ^tag_name shape)
 ```
 
 ### extract and extract_once
 
 This command is commonly used to compute spatial relationships in the scene
 graph. More generally, it puts the **result** of a filter pipeline (described in
-section [svs-filters](#filters) in working memory. Its syntax is the same as
+section [Filters](#filters)) in working memory. Its syntax is the same as
 filter pipeline syntax. During the input phase, SVS will evaluate the filter and
-put a `^result` attribute on the command’s identifier.  Under the `^result`
+put a `^result` attribute on the command's identifier.  Under the `^result`
 attribute is a multi-valued `^record` attribute. Each record corresponds to an
 output value from the head of the filter pipeline, along with the parameters
-that produced the value. With the regular `extract` command, these records will be updated
-as the scene graph changes. With the `extract_once` command, the records will be created once
+that produced the value. With the regular `extract` command, these records will
+be updated as the scene graph changes. With the `extract_once` command, the
+records will be created once
 and will not change. Note that you should not change the structure of a filter
 once it is created (SVS only processes a command once). Instead to extract
 something different you must create a new command. The following is an example
 of an extract command which tests whether the car and pole objects are
-intersecting.  The `^status` and `^result` WMEs are added by SVS when the command is finished.
+intersecting.  The `^status` and `^result` WMEs are added by SVS when the command
+is finished.
 
 ```Soar
 (S1 ^svs S3)
@@ -349,7 +360,7 @@ intersecting.  The `^status` and `^result` WMEs are added by SVS when the comman
             (P1 ^a car ^b pole)
 ```
 
-## Filters
+## Filters {#filters}
 
 **Filters** are the basic unit of computation in SVS. They transform the
 continuous information in the scene graph into symbolic information that
@@ -361,6 +372,7 @@ pipelines by building an analogous structure in working memory as an
 argument to an "extract" command. For example, the following structure
 defines a set of filters that reports whether the car intersects the
 pole:
+
 ```Soar
 (S1 ^svs S3)
   (S3 ^command C3 ^spatial-scene S4)
@@ -375,7 +387,7 @@ attributes specify parameters. This command will create three filters: an
 `intersect` filter and two node filters. A **node** filter takes an `id`
 parameter and returns the scene graph node with that ID as its result. Here, the
 outputs of the `car` and `pole` node filters are fed into the `^a` and `^b`
-parameters of the filter. SVS will update each filter’s output once every
+parameters of the filter. SVS will update each filter's output once every
 decision cycle, at the end of the input phase. The output of the intersect
 filter is a boolean value indicating whether the two objects are intersecting.
 This is placed into working memory as the result of the extract command:
@@ -443,51 +455,56 @@ which intersect the input node a. This is useful for passing the results of one
 filter into another (e.g.  take the nodes that intersect node a and find the
 largest of them).
 
-- **Node**: Given an `^id`, outputs the node with that id.
-- **all_nodes**: Outputs all the nodes in the scene
-- **combine_nodes**: Given multiple node inputs as `^a`, concatenates them into a single output set.
-- **remove_nodes**: Removes node `^a` from the input set and outputs the rest.
-- **node_position**: Outputs the position of each node in input `^a`.
-- **node_rotation**: Outputs the rotation of each node in input `^a`.
-- **node_scale**: Outputs the scale of each node in input `^a`.
-- **node_bbox**: Outputs the bounding box of each node in input `^a`.
-- **distance and distance_select**: 
-  Outputs the distance between input nodes `^a` and `^b` Distance can be specified
-  by `^distance_type << centroid hull >>`, where is the euclidean distance between the centers, and the hull is the
-  minimum distance between the node surfaces. `distance_select` chooses nodes in set b in
-  which the distance to node a falls within the range `^min`and `^max`.
-- **closest and farthest**
-  Outputs the node in set `^b` closest to or farthest from `^a` (also uses `distance_type`).
-- **axis_distance and axis_distance_select**
-  Outputs the distance from input node `^a` to `^b` along a particular axis
-  (`^axis << x y z >>`). This
-  distance is based on bounding boxes. A value of 0 indicates the nodes
-  overlap on the given axis, otherwise the result is a signed value
-  indicating whether node b is greater or less than node a on the given
-  axis. The `axis_distance_select` filter also uses `^min` and `^max` to select nodes in set b.
-- **volume and volume_select**
-  Outputs the bounding box volume of each node in set `^a`. For volume_select,
-  it outputs a subset of the nodes whose volumes fall within the range `^min`
-  and `^max`.
-- **largest and smallest**
-  Outputs the node in set `^a`} with the largest or smallest volume.
-- **larger and larger_select**
-  Outputs whether input node `^a` is larger than each input node `^b`, or selects all nodes in b for which a is larger.
-- **smaller and smaller_select**
-  Outputs whether input node `^a` is smaller than each input node `^b`, or
-  selects all nodes in b for which a is smaller.
-- **contain and contain_select**
-  Outputs whether the bounding box of each input node `^a` contains the bounding
-  box of each input node `^b`, or selects those nodes in b which are contained
-  by node a.
-- **intersect and intersect_select**
-  Outputs whether each input node `^a` intersects each input node `^b`, or
-  selects those nodes in b which intersect node a. Intersection is specified by
-  `^intersect_type << hull box >>`; either the convex hull of the node or
-  the axis-aligned bounding box.
-- **tag_select**
-  Outputs all the nodes in input set `^a` which have the tag specified by
-  `^tag_name` and `^tag_value`.
+-   **Node**: Given an `^id`, outputs the node with that id.
+-   **all_nodes**: Outputs all the nodes in the scene
+-   **combine_nodes**: Given multiple node inputs as `^a`, concatenates them
+    into a single output set.
+-   **remove_nodes**: Removes node `^a` from the input set and outputs the rest.
+-   **node_position**: Outputs the position of each node in input `^a`.
+-   **node_rotation**: Outputs the rotation of each node in input `^a`.
+-   **node_scale**: Outputs the scale of each node in input `^a`.
+-   **node_bbox**: Outputs the bounding box of each node in input `^a`.
+-   **distance and distance_select**:
+
+    Outputs the distance between input nodes `^a` and `^b` Distance can be
+    specified by `^distance_type << centroid hull >>`, where `centroid` is the
+    euclidean distance between the centers, and the hull is the minimum distance
+    between the node surfaces. `distance_select` chooses nodes in set b in which
+    the distance to node a falls within the range `^min`and `^max`.
+-   **closest and farthest**
+    Outputs the node in set `^b` closest to or farthest from `^a` (also uses `distance_type`).
+-   **axis_distance and axis_distance_select**
+    Outputs the distance from input node `^a` to `^b` along a particular axis
+    (`^axis << x y z >>`). This
+    distance is based on bounding boxes. A value of 0 indicates the nodes
+    overlap on the given axis, otherwise the result is a signed value
+    indicating whether node b is greater or less than node a on the given
+    axis. The `axis_distance_select` filter also uses `^min` and `^max` to
+    select nodes in set b.
+-   **volume and volume_select**
+    Outputs the bounding box volume of each node in set `^a`. For volume_select,
+    it outputs a subset of the nodes whose volumes fall within the range `^min`
+    and `^max`.
+-   **largest and smallest**
+    Outputs the node in set `^a` with the largest or smallest volume.
+-   **larger and larger_select**
+    Outputs whether input node `^a` is larger than each input node `^b`, or
+    selects all nodes in b for which a is larger.
+-   **smaller and smaller_select**
+    Outputs whether input node `^a` is smaller than each input node `^b`, or
+    selects all nodes in b for which a is smaller.
+-   **contain and contain_select**
+    Outputs whether the bounding box of each input node `^a` contains the bounding
+    box of each input node `^b`, or selects those nodes in b which are contained
+    by node a.
+-   **intersect and intersect_select**
+    Outputs whether each input node `^a` intersects each input node `^b`, or
+    selects those nodes in b which intersect node a. Intersection is specified by
+    `^intersect_type << hull box >>`; either the convex hull of the node or
+    the axis-aligned bounding box.
+-   **tag_select**
+    Outputs all the nodes in input set `^a` which have the tag specified by
+    `^tag_name` and `^tag_value`.
 
 ### Examples
 
@@ -544,7 +561,7 @@ Find the smallest object that intersects the table (excluding itself).
   (S3 ^command C3)
     (C3 ^extract E1)
       (E1 ^type smallest ^a A1)
-        (A1 ^type intersect_select ^a A2 ^b B2 ^intersect_type hull)
+        (A1 ^type intersect_select ^a A2 ^b B1 ^intersect_type hull)
           (A2 ^type node ^id table)
           (B1 ^type remove_node ^id table ^a A3)
             (A3 ^type all_nodes)
@@ -615,8 +632,8 @@ This is very similar to a map filter, except for each input combination
 from the Cartesian product the output is optional. This is useful for
 selecting and returning a subset of the outputs.
 
-To write a new filter of this class, inherit from the `select_filter` class, and define
-the `compute` function. Below is an example template:
+To write a new filter of this class, inherit from the `select_filter` class, and
+define the `compute` function. Below is an example template:
 
 ```c++
 class new_select_filter : public select_filter<double> // templated with output type
@@ -695,53 +712,55 @@ bool node_test(sgnode* a, sgnode* b, const filter_params* p)
 
 For an example of how the following base filters are used, see filters/intersect.cpp.
 
-- node_test_filter  
-  For each input pair (a, b) this outputs the boolean result of .
-- node_test_select_filter  
-  For each input pair (a, b) this outputs node b if .  
-  (Can choose to select b if the test is false by calling ).
+-   node_test_filter  
+    For each input pair (a, b) this outputs the boolean result of .
+-   node_test_select_filter  
+    For each input pair (a, b) this outputs node b if .  
+    (Can choose to select b if the test is false by calling ).
 
 #### Node Comparison Filters
 
 These filters involve a numerical comparison between two nodes (e.g.
 distance). You must specify a comparison function of the following form:
 
-```
+```c++
 double node_comparison(sgnode* a, sgnode* b, const filter_params* p)
 ```
 
 For an example of how the following base filters are used, see filters/distance.cpp.
 
-- node_comparison_filter  
-  For each input pair (a, b), outputs the numerical result of `node_comparison(a, b)`.
-- node_comparison_select_filter  
-  For each input pair (a, b), outputs node b if `min <= node_comparison(a, b) <=
-  max`. Min and max can be set through calling `set_min(double)` and
-  `set_max(double)`, or as specified by the user through the filter_params.
-- node_comparison_rank_filter  
-  This outputs the input pair (a, b) for which `node_comparison(a, b)` produces the highest value.
-  To instead have the lowest value output call `set_select_highest(true)`.
+-   node_comparison_filter  
+    For each input pair (a, b), outputs the numerical result of
+    `node_comparison(a, b)`.
+-   node_comparison_select_filter  
+    For each input pair (a, b), outputs node b if `min <= node_comparison(a, b) <=
+    max`. Min and max can be set through calling `set_min(double)` and
+    `set_max(double)`, or as specified by the user through the filter_params.
+-   node_comparison_rank_filter  
+    This outputs the input pair (a, b) for which `node_comparison(a, b)` produces
+    the highest value.
+    To instead have the lowest value output call `set_select_highest(true)`.
 
 #### Node Evaluation Filters
 
 These filters involve a numerical evaluation of a single node (e.g.
 volume). You must specify an evaluation function of the following form:
 
-```
+```c++
 double node_evaluation(sgnode* a, const filter_params* p)
 ```
 
 For an example of how the following base filters are used, see filters/volume.cpp.
 
-- node_evaluation_filter  
-  For each input node a, this outputs the numerical result of .
-- node_evaluation_select_filter  
-  or each input node a, this outputs the node if . Min and max can be set
-  through calling and , or as specified by the user through the
-  filter_params.
-- node_evaluation_rank_filter  
-  This outputs the input node a for which produces the highest value. To
-  instead have the lowest value output call .
+-   node_evaluation_filter  
+    For each input node a, this outputs the numerical result of .
+-   node_evaluation_select_filter  
+    or each input node a, this outputs the node if . Min and max can be set
+    through calling and , or as specified by the user through the
+    filter_params.
+-   node_evaluation_rank_filter  
+    This outputs the input node a for which produces the highest value. To
+    instead have the lowest value output call .
 
 ## Command line interface
 
@@ -758,7 +777,7 @@ state.  As another example, `svs connect_viewer 5999` calls the method to
 connect to the SVS visualizer with 5999 being the TCP port to connect on. Every
 path has two special arguments.
 
-- `svs PATH dir` prints all the children of the object at `PATH`.
-- `svs PATH help` prints text about how to use the object, if available.
+-   `svs PATH dir` prints all the children of the object at `PATH`.
+-   `svs PATH help` prints text about how to use the object, if available.
 
 See [SVS](#spatial-visual-system) for more details.
