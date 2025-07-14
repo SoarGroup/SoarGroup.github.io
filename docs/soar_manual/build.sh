@@ -55,6 +55,10 @@ fi
 cd output && makeindex SoarManual.idx && cd ..
 echo "Makeindex completed"
 
+# Check what files were created
+echo "Checking index files:"
+ls -la output/SoarManual.i*
+
 echo "Starting second pandoc run to include index"
 
 # Run pandoc again to include the index in the final PDF
