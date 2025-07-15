@@ -274,13 +274,13 @@ John E. Laird, Kevin Gluck, John Anderson, Kenneth D. Forbus Odest
 Chadwicke Jenkins, Christian Lebiere, Dario Salvucci, Matthias Scheutz,
 Andrea Thomaz, Greg Trafton, Robert E. Wray, Shiwali Mohan, and James R.
 Kirk (2017). [Interactive Task
-Learning](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Laird_et_al_InteractiveTaskLearning_IEEE_IntelligentSystems_2017.pdf)
+Learning](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Laird_et_al_InteractiveTaskLearning_IEEE_IntelligentSystems_2017.pdf)
 *, IEEE Intelligent Systems, 32(4), 6-21, (invited).*
 
 Chien Van Dang, Tin Trung Tran, Ki-Jong Gil, Yong-Bin Shin, Jae-Won
 Choi, Geon-Soo Park, and Jong-Wook Kim (2017). [Application of Soar
 Cognitive Agent Based on Utilitarian Ethics Theory for Home Service
-Robots.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/VanDang_Tran_URAI_2017.pdf)
+Robots.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/VanDang_Tran_URAI_2017.pdf)
 *Proceedings of the 14th International Conference on Ubiquitous Robots
 and Ambient Intelligence (URAI). Jeju, Korea.*
 
@@ -289,11 +289,11 @@ Peter Lindes, Aaron Mininger, James R. Kirk, and John E. Laird (2017).
 Learning.](https://www.aclweb.org/anthology/W17-2801/) *Proceedings of
 the 1st Workshop on Language Grounding for Robotics at ACL.*
 [(Supplemental
-Material).](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Lindes_Laird_ACL_2017_Supp.zip)
+Material).](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Lindes_Laird_ACL_2017_Supp.zip)
 
 Bryan Stearns, Mazin Assanie, John E. Laird (2017). [Applying Primitive
 Elements Theory For Procedural Transfer in
-Soar.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Stearns_05_31_17.pdf)
+Soar.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Stearns_05_31_17.pdf)
 *Proceedings of the 15th International Conference on Cognitive Modelling
 (ICCM). Warwick, UK.*
 
@@ -305,18 +305,18 @@ Comprehension.](https://iccm-conference.neocities.org/2017/ICCMprogram_files/pap
 
 Peter Lindes and John E. Laird (2017). [Cognitive Modeling Approaches to
 Language Comprehension Using Construction
-Grammar.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Lindes_Laird_AAAI-SS17.pdf)
+Grammar.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Lindes_Laird_AAAI-SS17.pdf)
 *Proceedings of The AAAI Spring Symposium on Computational Construction
 Grammar and Natural Language Understanding.*
 
 Emily M. Mooren (2017). [Reinforcement learning applications to combat
-identification.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/17Mar_Mooren_Emily.pdf)
+identification.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/17Mar_Mooren_Emily.pdf)
 *Master’s Thesis. Calhoun: The NPS Institutional Archive.*
 
 Chien Van Dang, Tin Trung Tran, Trung Xuan Pham, Ki-Jong Gil, Yong-Bin
 Shin, and Jong-Wook Kim (2017). [Implementation of a Refusable
 Human-Robot Interaction Task with Humanoid Robot by Connecting Soar and
-ROS.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/JKROS-12-55.pdf)
+ROS.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/JKROS-12-55.pdf)
 *The Journal of Korea Robotics Society, Volume 12, Issue 1.*
 
 ## 2016
@@ -327,26 +327,26 @@ architecture](https://raw.githubusercontent.com/SoarGroup/website-downloads/main
 *, University of Rhode Island.*
 
 J Pérez, E Cerezo, FJ Serón (2016). [E-VOX: A Socially Enhanced Semantic
-ECA.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/E_VOX_ASociallyEnhancedSemanticECA.pdf)
+ECA.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/E_VOX_ASociallyEnhancedSemanticECA.pdf)
 *Proceedings of the International Workshop on Social Learning and
 Multimodal Interaction for Designing Artificial Agents. Tokyo, Japan —
 November 2016.*
 
 Kirk, J., Mininger, A., Laird, J. (2016). [Learning task goals
 interactively with visual
-demonstrations.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/LearningTasksVisually.pdf)
+demonstrations.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/LearningTasksVisually.pdf)
 *Biologically Inspired Cognitive Architectures. New York, New York,
 2016.*
 
 Kirk, J. and Laird, J. (2016). [Learning General and Efficient
 Representations of Novel Games Through Interactive
-Instruction](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Kirk_Laird-ACS-2016.pdf)*.
+Instruction](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Kirk_Laird-ACS-2016.pdf)*.
 In Proceedings of the Fourth Annual Conference on Advances in Cognitive
 Systems. Evanston, Illinois*
 
 Jones, S. J., Wandzel, A. R., Laird, J. E. (2016). [Efficient
 Computation of Spreading Activation Using Lazy
-Evaluation](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Efficient_Computation_of_Spreading_Activation.pdf)*.
+Evaluation](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Efficient_Computation_of_Spreading_Activation.pdf)*.
 Proceedings of the 14th International Conference on Cognitive Modeling
 (ICCM). University Park, Pennsylvania*
 
@@ -358,7 +358,7 @@ Artificial Intelligence.*
 
 Mininger, A., and Laird, J. E. (2016). [Interactively Learning
 Strategies for Handling References to Unseen or Unknown
-Objects](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Interactively_Learning_Strategies_for_Handling_References.pdf)*.
+Objects](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Interactively_Learning_Strategies_for_Handling_References.pdf)*.
 In Proceedings of the Fourth Annual Conference on Advances in Cognitive
 Systems.*
 
@@ -371,7 +371,7 @@ Proceedings of the 14th International Conference on Cognitive Modeling
 Li, J., Jones, S. J., Mohan, S., Derbinsky, N. (2016). [Architectural
 Mechanisms for Mitigating Uncertainty during Long-Term Declarative
 Knowledge
-Access](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Mitigating_Uncertainty_during_LT_Declarative_Knowledge_Access.pdf)*.
+Access](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Mitigating_Uncertainty_during_LT_Declarative_Knowledge_Access.pdf)*.
 Proceedings of the 4th Annual Conference on Advances in Cognitive
 Systems (ACS). Evanston, Illinois.*
 
@@ -379,20 +379,20 @@ Systems (ACS). Evanston, Illinois.*
 
 Shiwali Mohan (2015). [From Verbs to Tasks: An Integrated Account of
 Learning Tasks from Situated Interactive
-Instruction](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/mohan_thesis_2015.pdf)*.
+Instruction](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/mohan_thesis_2015.pdf)*.
 Ph.D. Thesis, University of Michigan, 2015.*
 
 Mohan, S., Kirk, J., Mininger, A., Laird, J. E., (2015). [Agent
 Requirements for Effective and Efficient Task-Oriented
-Dialog](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Agent%20Requirements%20for%20Effective%20and%20Efficient%20Task-Oriented%20Dialog.pdf)*.
+Dialog](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Agent%20Requirements%20for%20Effective%20and%20Efficient%20Task-Oriented%20Dialog.pdf)*.
 AAAI 2015 Fall Symposium Series, 2015.*
 
 S. Bhattacharyya, J. Davis, T. Vogl, M. Fix, A. McLean, M. Matessa and
 L. Smith-Velazquez (2015). [Enhancing Autonomy with Trusted Cognitive
-Modeling](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/SiddharthaBhattacharyyaPaper.pdf)*.
+Modeling](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/SiddharthaBhattacharyyaPaper.pdf)*.
 Related presentation: [Enhancing Autonomy with Trust: Pilot license to
 the
-autonomy](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/SiddharthaBhattacharyyaPresentation.pdf).*
+autonomy](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/SiddharthaBhattacharyyaPresentation.pdf).*
 
 Li, J., and Laird, J. E. (2015). [Spontaneous Retrieval for Prospective
 Memory: Effects of Encoding Specificity and Retention Interval]()*.
@@ -401,35 +401,35 @@ Proceedings of the 13th International Conference on Cognitive Modeling
 
 Li, J., and Laird, J. E. (2015). [Spontaneous Retrieval from Long-Term
 Memory in a Cognitive
-Architecture](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Li2015SpontaneousRetrievalFrom.pdf)*.
+Architecture](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Li2015SpontaneousRetrievalFrom.pdf)*.
 Proceedings of the 29th AAAI Conference on Artificial Intelligence
 (AAAI). Austin, TX.*
 
 ## 2014
 
 Kirk, J., Laird, J. E. (2014). [Interactive task learning for simple
-games](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Interactive_task_learning_for_simple_games.pdf)*.
+games](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Interactive_task_learning_for_simple_games.pdf)*.
 Advances in Cognitive Systems 3, 11-28.*
 
 Laird, J. E., Mohan, S. (2014). [A case study of knowledge integration
 across multiple memories in
-Soar](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Case_study_of_knowledge_integration_across_multiple_memories_in_Soar.pdf)*.
+Soar](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Case_study_of_knowledge_integration_across_multiple_memories_in_Soar.pdf)*.
 Biologically Inspired Cognitive Architectures, 8, 93-99.*
 
 Mohan, S., Laird, J. (2014). [Learning Goal-Oriented Hierarchical Tasks
 from Situated Interactive
-Instruction](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/mohan_AAAI_2014.pdf)*.
+Instruction](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/mohan_AAAI_2014.pdf)*.
 Proceedings of the 27th AAAI Conference on Artificial Intelligence
 (AAAI).*
 
 Laird et al. (2014). [Report on the NSF-funded Workshop on Interactive
 Task
-Learning](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/ITL_Report_NSF_1419590.pdf)
+Learning](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/ITL_Report_NSF_1419590.pdf)
 **
 
 J.-Y. Puigbo, A. Pumarola, C. Angulo, and Ricardo Tellez (2014). *[Using
 a Cognitive Architecture for General-purpose Service Robot
-Control](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Article_SOAR_GPSR-2.pdf),
+Control](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Article_SOAR_GPSR-2.pdf),
 Connection Science, Special Issue on AI and Cognition.*
 
 ## 2013
@@ -441,12 +441,12 @@ Ph.D. Thesis, University of Michigan, 2013.*
 
 Mohan, S., Mininger, A., Laird, J. E. (2013). [Towards an Indexical
 model of situated comprehension for real-world cognitive
-agents](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/paper-9-3-34.pdf)*.
+agents](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/paper-9-3-34.pdf)*.
 Advances in Cognitive Systems 3, 163-182.*
 
 Kirk, J. and Laird J. E. (2013). *[Learning Task Formulations through
 Situated Interactive
-Instruction](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/kirklairdACS2013.pdf)*.
+Instruction](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/kirklairdACS2013.pdf)*.
 Proceedings of the 2nd Conference on Advances in Cognitive Systems.
 Baltimore, Maryland
 
@@ -466,31 +466,31 @@ Abstractions for Intelligence, Washington, D.C.
 
 Gunetti, P., Dodd, T., Thompson, H. (2013). [Simulation of a Soar-Based
 Autonomous Mission Management System for Unmanned
-Aircraft](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Sim_Soar_Autonomous_Mission_Management_Unmanned_Aircraft.pdf),
+Aircraft](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Sim_Soar_Autonomous_Mission_Management_Unmanned_Aircraft.pdf),
 Journal of Aerospace Computing, Information, and Communication, Vol. 10,
 <!-- markdown-link-check-disable-next-line -->
 No. 2, pp. 53-70. [AIAA link](http://arc.aiaa.org/doi/abs/10.2514/1.53282?journalCode=jacic)
 
 Li, J., Laird, J. (2013). [The Computational Problem of Prospective
-Memory](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Li2013TheComputationalProblem.pdf)*.
+Memory](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Li2013TheComputationalProblem.pdf)*.
 Proceedings of the 17th International Conference on Cognitive Modeling.
 Ottawa, Canada*
 
 Li, J., Laird, J. (2013). [Preemptive Strategies for Overcoming the
 Forgetting of
-Goals](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Li2013PreemptiveStrategiesFor.pdf)*.
+Goals](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Li2013PreemptiveStrategiesFor.pdf)*.
 Proceedings of the 27th AAAI Conference on Artificial Intelligence.
 Bellevue, WA.*
 
 Mohan, S., Kirk, J., Laird, J. (2013). [A Computational Model of
 Situated Task Learning with Interactive
-Instruction](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/mohan_ICCM_2013.pdf)*.
+Instruction](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/mohan_ICCM_2013.pdf)*.
 Proceedings of the 12th International Conference on Cognitive Modeling.
 Ottawa, Canada.*
 
 Xu, J. Z., Laird, J. E. (2013). *[Learning Integrated Symbolic and
 Continuous Action Models for Continuous
-Domains](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/xu_aaai2013.pdf)*.
+Domains](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/xu_aaai2013.pdf)*.
 Proceedings of the 27th AAAI Conference on Artificial Intelligence.
 Bellevue, WA.
 
@@ -498,37 +498,37 @@ Bellevue, WA.
 
 Derbinsky, N., Essl, G. (2012). [Exploring Reinforcement Learning for
 Mobile Percussive
-Collaboration](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/nime2012.pdf).
+Collaboration](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/nime2012.pdf).
 Proceedings of the 12th International Conference on New Interfaces for
 Musical Expression (NIME). Ann Arbor, MI, USA.
 
 Derbinsky, N., Laird, J. E. (2012). [Competence-Preserving Retention of
 Learned Knowledge in Soar’s Working and Procedural
-Memories](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/iccm_2012_competence.pdf).
+Memories](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/iccm_2012_competence.pdf).
 Proceedings of the 11th International Conference on Cognitive Modeling
 (ICCM). Berlin, Germany.
 
 Derbinsky, N., Laird, J. E. (2012). [Computationally Efficient
 Forgetting via Base-Level
-Activation](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/iccm_2012_efficiency.pdf).
+Activation](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/iccm_2012_efficiency.pdf).
 Proceedings of the 11th International Conference on Cognitive Modeling
 (ICCM). Berlin, Germany.
 
 Derbinsky, N., Li, J., Laird, J. E. (2012). [A Multi-Domain Evaluation
 of Scaling in a General Episodic
-Memory](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/aaai2012_epmem.pdf).
+Memory](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/aaai2012_epmem.pdf).
 Proceedings of the 26th AAAI Conference on Artificial Intelligence
 (AAAI). Toronto, Canada.
 
 Derbinsky, N., Li, J., Laird, J. E. (2012). [Algorithms for Scaling in a
 General Episodic Memory (Extended
-Abstract)](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/aamas2012.pdf).
+Abstract)](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/aamas2012.pdf).
 Proceedings of the 11th International Conference on Autonomous Agents
 and Multiagent Systems (AAMAS). Valencia, Spain.
 
 Laird, J. E., Kinkade, K. R., Mohan, S., and Xu, J. Z. (2012).
 [Cognitive Robotics using the Soar Cognitive
-Architecture](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/CognitiveRobotics_AAAI-12.pdf),
+Architecture](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/CognitiveRobotics_AAAI-12.pdf),
 8th International Conference on Cognitive Robotics, (Cognitive Robotics
 Workshop, Twenty-Sixth Conference on Artificial Intelligence (AAAI-12)),
 Toronto, CA.
@@ -536,7 +536,7 @@ Toronto, CA.
 Laird, J. E., Derbinsky, N. and Tinkerhess, M. (2012). [Online
 Determination of Value-Function Structure and Action-value Estimates for
 Reinforcement Learning in a Cognitive
-Architecture](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/paper-3-2-38.pdf),
+Architecture](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/paper-3-2-38.pdf),
 Advances in Cognitive Systems, Volume 2, December 2012, Palo Alto,
 California.
 
@@ -545,30 +545,30 @@ Architecture](https://mitpress.mit.edu/books/soar-cognitive-architecture),
 2012, MIT Press.
 
 Laird, J.E. (2012). [The Soar Cognitive
-Architecture](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/AISB_quarterly_134.pdf),
+Architecture](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/AISB_quarterly_134.pdf),
 AISB Quarterly, \\\#134.
 
 Li, J., Derbinsky, N., Laird, J. E. (2012). [Functional Interactions
 between Memory and Recognition
-Judgments](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/aaai2012_recognition.pdf).
+Judgments](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/aaai2012_recognition.pdf).
 Proceedings of the 26th AAAI Conference on Artificial Intelligence
 (AAAI). Toronto, Canada.
 
 Mohan, S. and Laird, J. E. (2012). [Exploring Mixed-Initiative
 Interaction for Learning with Situated Instruction in Cognitive
-Agents](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/mohan_AAAISA_2012.pdf),
+Agents](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/mohan_AAAISA_2012.pdf),
 In Proceedings of the 26th AAAI Conference on Artificial Intelligence.
 (Extended Abstract).
 
 Mohan, S., and Laird, J. E.(2012). [Situated Comprehension of Imperative
 Sentences in Embodied, Cognitive
-Agents](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/mohan_AAAIGPS_2012.pdf),
+Agents](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/mohan_AAAIGPS_2012.pdf),
 In The AAAI 2012 Workshop on Grounding Language for Physical Systems,
 Toronto CA.
 
 Mohan, S., Mininger, A., Kirk, J. and Laird, J. E. (2012). [Acquiring
 Grounded Representations of Words with Situated Interactive
-Instruction](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/paper-3-2-136.pdf),
+Instruction](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/paper-3-2-136.pdf),
 Advances in Cognitive Systems, Volume 2, December 2012, Palo Alto,
 California.
 
@@ -580,103 +580,103 @@ Symposium Series), November 2012, Washington D.C.
 
 Nuxoll, A. M. Laird, J. E. (2012). [Enhancing Intelligent Agents with
 Episodic
-Memory](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/1-s2.0-S1389041711000428-main.pdf),
+Memory](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/1-s2.0-S1389041711000428-main.pdf),
 Cognitive systems Research, 17-18,34-48.
 
 Shiquan Zhong, Hongwei Ma, Lizhen Zhou, Xuelian Wang, Shoufeng Ma, and
 Ning Jia (2012). [Guidance Compliance Behavior on VMS Based on SOAR
 Cognitive
-Architecture](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/530561.pdf).
+Architecture](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/530561.pdf).
 Mathematical Problems in Engineering, vol. 2012, Article ID 530561, 21
 pages.
 
 Stenger A., Fernando B., Heni M. (2012). [Autonomous Mission Planning
 for UAVs: A Cognitive
-Approach](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/AMP_FOR_UAVS_A_COGNITIVE_APPROACH.pdf),
+Approach](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/AMP_FOR_UAVS_A_COGNITIVE_APPROACH.pdf),
 Proceedings des Deutschen Luft- und Raumfahrtkongress, Berlin,
 10.09.-12.09.2012.
 
 Stensrud, B., Purcel, E., Fragomeni, G., Woods, A., Wintermute, S., and
 Garrity, P. (2012), [No More Zombies\! High-Fidelity Character Autonomy
 for Virtual Small-Unit
-Training](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/12045.pdf),
+Training](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/12045.pdf),
 Proceedings of the Interservice/Industry Training, Simulation and
 Education Conference (I/ITSEC) 2012, Orlando, FL, December 3-6, 2012.
 
 Wintermute, S. (2012). [Imagery in Cognitive Architecture:
 Representation and Control at Multiple Levels of
-Abstraction](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/wintermute2012.pdf)
+Abstraction](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/wintermute2012.pdf)
 , Cognitive Systems Research, 19-20,1-29.
 
 ## 2011
 
 Derbinsky, N., Essl, G.: *[Cognitive Architecture in Mobile Music
-Interactions.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/nime2011.pdf)*
+Interactions.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/nime2011.pdf)*
 Proceedings of the International Conference on New Interfaces for
 Musical Expression, 104-107. Oslo, Norway.
 
 Derbinsky, N., Laird, J. E.: *[A Functional Analysis of Historical
 Memory Retrieval Bias in the Word Sense Disambiguation
-Task.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/aaai2011_derbinsky_laird.pdf)*
+Task.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/aaai2011_derbinsky_laird.pdf)*
 Proceedings of the 25th AAAI Conference on Artificial Intelligence,
 663-668. San Francisco, CA.
 
 Derbinsky, N., Laird, J. E.: *[Effective and Efficient Management of
 Soar’s Working Memory via Base-Level
-Activation.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/aaai2011fss_wma.pdf)*
+Activation.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/aaai2011fss_wma.pdf)*
 Papers from the 2011 AAAI Fall Symposium Series: Advances in Cognitive
 Systems. Arlington, VA.
 
 Derbinsky, N., Laird, J. E.: *[A Preliminary Functional Analysis of
 Memory in the Word Sense Disambiguation
-Task.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/aisb2011_smem.pdf)*
+Task.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/aisb2011_smem.pdf)*
 Proceedings of the 2nd Symposium on Human Memory for Artificial Agents,
 AISB, 25-29. York, England.
 
 Gorski, N. A., Laird, J. E. (2011) [Learning to use episodic
-memory](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/GorskiLaird_CogSysRes10.pdf)
+memory](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/GorskiLaird_CogSysRes10.pdf)
 *Cognitive Systems Research*, 12, 144-153.
 doi:10.1016/j.cogsys.2010.08.001
 
 Laird, J. E., Derbinsky, N. Tinkerhess, M.: *[A Case Study in
 Integrating Probabilistic Decision Making and Learning in a Symbolic
 Cognitive Architecture: Soar Plays
-Dice.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/aaai2011fss_dice.pdf)*
+Dice.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/aaai2011fss_dice.pdf)*
 Papers from the 2011 AAAI Fall Symposium Series: Advances in Cognitive
 Systems. Arlington, VA.
 
 Laird, J. E., Derbinsky, N., Voigt, J. (2011). *[Performance Evaluation
 of Declarative Memory Systems in
-Soar](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/laird_brims2011.pdf)*,
+Soar](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/laird_brims2011.pdf)*,
 Proceedings of the 20th Behavior Representation in Modeling & Simulation
 Conference, 33-40. Sundance, UT.
 
 Li, J., Laird, J. E.: *[Preliminary Evaluation of Long-term Memories for
 Fulfilling Delayed
-Intentions.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/aaai2011fss_intentions.pdf)*
+Intentions.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/aaai2011fss_intentions.pdf)*
 Papers from the 2011 AAAI Fall Symposium Series: Advances in Cognitive
 Systems. Arlington, VA.
 
 Mohan, S., Laird, J. E. (2011).*[An Object-Oriented Approach to
 Reinforcement Learning in an Action
-Game](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/mohan_aiide_2011.pdf)*,
+Game](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/mohan_aiide_2011.pdf)*,
 Proceedings of 7th the Artificial Intelligence for Interactive Digital
 Entertainment Conference, AIIDE 2011
 
 Mohan, S., Laird, J. E. (2011).*[Towards Situated, Interactive,
 Instructable Agents in a Cognitive
-Architecture](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/mohan_fss_2011.pdf)*,
+Architecture](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/mohan_fss_2011.pdf)*,
 Papers from the 2011 AAAI Fall Symposium Series: Advances in Cognitive
 Systems. Arlington, VA.
 
 Wang, Y. (2011). *[Hierarchical Functional Category Learning for
 Efficient Value Function Approximation in Object-Based
-Environments.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/yongjiaw_1.pdf)*
+Environments.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/yongjiaw_1.pdf)*
 PhD Thesis, University of Michigan
 
 Xu, J. Z., Laird, J. E. (2011). *[Combining Learned Discrete and
 Continuous Action
-Models.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/xu_aaai2011.pdf)*
+Models.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/xu_aaai2011.pdf)*
 Proceedings of the 25th AAAI Conference on Artificial Intelligence. San
 Francisco, CA.
 
@@ -690,171 +690,171 @@ Topics in Cognitive Science 3, 796–818.
 
 Derbinsky, N., Gorski, N.A.: *[Exploring the Space of Computational
 Memory
-Models.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/aisb2010_rwwa_exploring.pdf)*
+Models.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/aisb2010_rwwa_exploring.pdf)*
 Proceedings of the 1st Symposium on Human Memory for Artificial Agents,
 AISB, 38-41. Leicester, England.
 
 Derbinsky, N., Laird, J. E., Smith, B.: *[Towards Efficiently Supporting
 Large Symbolic Declarative
-Memories.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/iccm2010_smem.pdf)*
+Memories.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/iccm2010_smem.pdf)*
 Proceedings of the 10th International Conference on Cognitive Modeling,
 49-54. Philadelphia, PA.
 
 Derbinsky, N., Laird, J.E.: *[Extending Soar with Dissociated Symbolic
-Memories.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/aisb2010_rwwa_soar9.pdf)*
+Memories.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/aisb2010_rwwa_soar9.pdf)*
 Proceedings of the 1st Symposium on Human Memory for Artificial Agents,
 AISB, 31-37. Leicester, England.
 
 Gunetti, Dodd, Thompson, *[A Software Architecture for Autonomous
 Mission Management and
-Control](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Software_Arch_Autonomous_UAV_Mission_Management.pdf),
+Control](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Software_Arch_Autonomous_UAV_Mission_Management.pdf),
 American Institute of Aeronautics and Astronautics, AIAA
 InfoTech[?](https://code.google.com/p/soar/w/edit/InfoTech) Aerospace
 Conference 2010, Paper No. 2010-3305*
 
 Gunetti, Thompson, *[Development and Evaluation of a Multi-Agent System
 for Gas-Turbine Engine Health
-Management](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Dev_Eval_MAS_Gas-Turbine_Engine_Health_Management.pdf),
+Management](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Dev_Eval_MAS_Gas-Turbine_Engine_Health_Management.pdf),
 Automatic Control in Aerospace Online Journal, Year 3, Number 1, May
 2010*
 
 Laird, J. E., Wray III, R. E. (2010). *[Cognitive Architecture
 Requirements for Achieving
-AGI](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Laird-Wray-AGI.pdf)*.
+AGI](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Laird-Wray-AGI.pdf)*.
 Proceedings of the Third Conference on Artificial General Intelligence
 (AGI)
 
 Laird, J. E., Xu, J. Z., and Wintermute, S. (2010). *[Using Diverse
 Cognitive Mechanisms for Action
-Modeling](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Laird-ICCM-final.pdf)*.
+Modeling](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Laird-ICCM-final.pdf)*.
 Proceedings of the Tenth International Conference on Cognitive Modeling,
 Philadelphia, PA.
 
 Wang, Y., Laird, J. E. (2010). *[Efficient Value Function Approximation
 with Unsupervised Hierarchical Categorization for a Reinforcement
 Learning
-Agent.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/4191b197.pdf)*
+Agent.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/4191b197.pdf)*
 International Conference on Intelligent Agent Technology (IAT-10),
 Toronto. (Best Paper Award Nomination)
 
 Wang, Y., Laird, J. E. (2010). *[A Computational Model of Functional
 Category Learning in a Cognitive
-Architecture.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Wang.pdf)*
+Architecture.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Wang.pdf)*
 Proceedings of the Tenth International Conference on Cognitive Modeling
 (ICCM-10), Philadelphia, PA.
 
 Wintermute, S. (2010). *[Using Imagery to Simplify Perceptual
 Abstraction in Reinforcement Learning
-Agents](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/wintermute_aaai2010.pdf)*.
+Agents](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/wintermute_aaai2010.pdf)*.
 Proceedings of the Twenty-Fourth AAAI Conference on Artificial
 Intelligence (AAAI-10), Atlanta, Georgia
 
 Wintermute, S. (2010). *[Abstraction, Imagery, and Control in Cognitive
-Architecture](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/wintermute_thesis.pdf)*.
+Architecture](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/wintermute_thesis.pdf)*.
 PhD Thesis, University of Michigan, Ann Arbor.
 
 Xu, J. Z., Laird, J. E. (2010). *[Instance-Based Online Learning of
 Deterministic Relational Action
-Models](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/xu_aaai2010.pdf)*.
+Models](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/xu_aaai2010.pdf)*.
 Proceedings of the 24th AAAI Conference on Artificial Intelligence.
 Atlanta, GA.
 
 ## 2009
 
 Bloch, M.K. *[Hierarchical Reinforcement Learning in the Taxicab
-Domain.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/bazald_-_tr1.pdf)*
+Domain.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/bazald_-_tr1.pdf)*
 (Report No. CCA-TR-2009-02). Ann Arbor, MI: Center for Cognitive
 Architecture, University of Michigan. (2009)
 
 Derbinsky, N., Laird, J.E.: *[Efficiently Implementing Episodic
-Memory.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/iccbr09.pdf)*
+Memory.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/iccbr09.pdf)*
 Proceedings of the 8th International Conference on Case-Based Reasoning,
 403-417. Seattle, WA.
 
 Fridman, N. & Kaminka, G.A. (2009). *[Comparing Human and Synthetic
 Group Behaviors: A Model Based on Social
-Psychology.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/paper130.pdf)*
+Psychology.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/paper130.pdf)*
 Proceedings of the 9th International Conference on Cognitive Modeling
 (ICCM-09). Manchester, UK.
 
 Gorski, N.A., and Laird, J.E. (2009). *[Evaluating Evaluations: A
 Comparative Study of Metrics for Comparing Learning
-Performances](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/cca-tr-2009-05.pdf)*
+Performances](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/cca-tr-2009-05.pdf)*
 (Report No. CCA-TR-2009-05). Ann Arbor, MI: Center for Cognitive
 Architecture, University of Michigan.
 
 Gorski, N.A. & Laird, J.E. (2009). *[Learning to Use Episodic
-Memory.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/LearningToUseEpMem-ICCM09.pdf)*
+Memory.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/LearningToUseEpMem-ICCM09.pdf)*
 Proceedings of the 9th International Conference on Cognitive Modeling
 (ICCM-09). Manchester, UK.
 
 Jones, R.M., Stensrud, B.S. and Taylor, G. (2009), *[Knowledge-Rich
 Intelligent Agents for Special Operations Forces (SOF)
-Training](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/sofic-2009-soartech-paper.pdf)*Proceedings
+Training](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/sofic-2009-soartech-paper.pdf)*Proceedings
 of the 2009 Special Operations Forces Industry Conference (SOFIC),
 Tampa, FL. June 2-4, 2009.
 
 Laird, J.E. (2009). *[Towards Cognitive
-Robotics](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/SPIE.pdf)*,
+Robotics](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/SPIE.pdf)*,
 SPIE Defense and Sensing Conferences, Orlando, FL.
 
 Laird, J.E., Derbinsky, N.: *[A Year of Episodic
-Memory.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/ijcai09.pdf)*
+Memory.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/ijcai09.pdf)*
 Proceedings of the Workshop on Grand Challenges for Reasoning from
 Experiences, IJCAI, 7-10. Pasadena, CA.
 
 Laird, J.E., Wray, R.E., Marinier, R.P., Langley, P. (2009) *[Claims and
 Challenges in Evaluating Human-Level Intelligent
-Systems](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Laird-agi-09.pdf)*,
+Systems](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Laird-agi-09.pdf)*,
 Proceedings of the Second Conference on Artificial General Intelligence.
 
 Langley, P., Laird, J.E., & Rogers, S. (2009). *[Cognitive
 architectures: Research issues and
-challenges.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/cogarch.cogsys08.pdf)*
+challenges.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/cogarch.cogsys08.pdf)*
 Cognitive Systems Research 10, 141-160.
 
 Lonsdale, D., McGhee, J., Hendrickson, R. & Christensen, C. (2009).
 *[Incremental Processing and Resource
-Usage.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/paper259.pdf)*
+Usage.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/paper259.pdf)*
 Proceedings of the 9th International Conference on Cognitive Modeling
 (ICCM-09). Manchester, UK.
 
 Mohan, S., Laird, J.E.: *[Learning to Play
-Mario.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/mohan_laird_TR.pdf)*
+Mario.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/mohan_laird_TR.pdf)*
 (Report No. CCA-TR-2009-03). Ann Arbor, MI: Center for Cognitive
 Architecture, University of Michigan. (2009)
 
 Rosenbloom, P.S. (2009). *[Towards a New Cognitive Hourglass: Uniform
 Implementation of a Cognitive Architecture via Factor
-Graphs.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/paper129.pdf)*Proceedings
+Graphs.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/paper129.pdf)*Proceedings
 of the 9th International Conference on Cognitive Modeling (ICCM-09).
 Manchester, UK.
 
 Wintermute, S. (2009). *[Integrating Reasoning and Action through
-Simulation.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/AGI09%20simulation.pdf)*
+Simulation.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/AGI09%20simulation.pdf)*
 In Proceedings of the Second Conference on Artificial General
 Intelligence (AGI-09). Arlington, VA.
 
 Wintermute, S. (2009). *[An Overview of Spatial Processing in
-Soar/SVS](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/SVS-TR.pdf)*
+Soar/SVS](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/SVS-TR.pdf)*
 (Report No. CCA-TR-2009-01). Ann Arbor, MI: Center for Cognitive
 Architecture, University of Michigan.
 
 Wintermute, S. (2009). *[Representing Problems (and Plans) Using
-Imagery](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/AAAIFS09-ProblemRepresentation.pdf)*
+Imagery](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/AAAIFS09-ProblemRepresentation.pdf)*
 In Papers from the 2009 AAAI Fall Symposium Series:
 Multi-Representational Architectures for Human-Level Intelligence,
 Arlington, VA, November 2009. AAAI Press.
 
 Wintermute, S., and Laird, J.E. (2009). *[Imagery as Compensation for an
 Imperfect Abstract Problem
-Representation.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/CogSci09%20imperfect%20representation.pdf)*
+Representation.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/CogSci09%20imperfect%20representation.pdf)*
 In Proceedings of The 31st Annual Conference of the Cognitive Science
 Society (CogSci-09)
 
 Xu, J., Wintermute, S., Wang, Y. J., Laird, J. *[Transferring Learned
 Search
-Heuristics](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/CCA-TR-2009-04.pdf)*
+Heuristics](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/CCA-TR-2009-04.pdf)*
 (Report No. CCA-TR-2009-04). Ann Arbor, MI: Center for Cognitive
 Architecture, University of Michigan. (2009)
 
@@ -862,44 +862,44 @@ Architecture, University of Michigan. (2009)
 
 Gunetti, P., Thompson, H.: *[A Soar-Based Planning Agent for Gas-Turbine
 Engine Control and Health
-Management](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Soar_Planning_Agent_for_Gas-Turbine_Engine_Control.pdf)*,
+Management](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Soar_Planning_Agent_for_Gas-Turbine_Engine_Control.pdf)*,
 Proceedings of the 17th IFAC World Congress, 2008, Volume \\\# 17, part
 1.
 
 Gunetti, Mills, Thompson, *[A Distributed Intelligent Agent architecture
 for Gas-Turbine Engine Health
-Monitoring](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Distrib_Intell_Agent_Arch_Gas-Turbine_Engine_Management.pdf),
+Monitoring](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Distrib_Intell_Agent_Arch_Gas-Turbine_Engine_Management.pdf),
 Proceedings of the 46th AIAA Aerospace Sciences Meeting and Exhibit,
 Reno, NV, 2008*
 
 Laird, J. E. (2008). *[Extending the Soar Cognitive
-Architecture.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Laird%20-%202008%20-%20Extending%20the%20Soar%20Cognitive%20Architecture.pdf)*
+Architecture.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Laird%20-%202008%20-%20Extending%20the%20Soar%20Cognitive%20Architecture.pdf)*
 In Proceedings of the First Conference on Artificial General
 Intelligence (AGI-08).
 
 Marinier, R. and Laird, J. E. (2008). *[Emotion-Driven Reinforcement
-Learning.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/marinier_laird_cogsci_2008_emotionrl.pdf)*
+Learning.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/marinier_laird_cogsci_2008_emotionrl.pdf)*
 CogSci 2008, Washington, D.C.
 
 Marinier, R., Laird, J. E., and Lewis, R. L. (2008). *[A Computational
 Unification of Cognitive Behavior and
-Emotion.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/marinier_laird_lewis_jcsr_2008_computationalunification.pdf)*
+Emotion.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/marinier_laird_lewis_jcsr_2008_computationalunification.pdf)*
 Journal of Cognitive Systems Research.
 
 Stensrud, B., Taylor, G., Schricker, B., Montefusco, J. and Maddox, J.
 (2008), *[An Intelligent User Interface for Enhancing Computer Generated
-Forces](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/08F-SIW-039.pdf)*
+Forces](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/08F-SIW-039.pdf)*
 Proceedings of the 2008 Fall Simulation Interoperability Workshop (SIW),
 Orlando, FL, September 15-19, 2008.
 
 Wintermute, S. and Laird, J. E. (2008). *[Bimodal Spatial Reasoning with
 Continuous
-Motion.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/AAAI08-motion.pdf)*
+Motion.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/AAAI08-motion.pdf)*
 Proceedings of the Twenty-Third AAAI Conference on Artificial
 Intelligence (AAAI-08), Chicago, Illinois
 
 Wintermute, S. and Lathrop, S.D. *[AI and Mental
-Imagery.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/AAAIFS08-mentalimagery.pdf)*
+Imagery.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/AAAIFS08-mentalimagery.pdf)*
 In Papers from the 2008 AAAI Fall Symposium Series: Naturally Inspired
 AI, Arlington, VA, November 2008. AAAI Press.
 
@@ -907,19 +907,19 @@ AI, Arlington, VA, November 2008. AAAI Press.
 
 Cohen, M. A., Ritter, F. E., Haynes, S. R. (2007). *[Using Reflective
 Learning to Master Opponent Strategy in a Competitive
-Environment.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/cohenRH07.pdf)*Proceedings
+Environment.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/cohenRH07.pdf)*Proceedings
 of the Eighth International Conference on Cognitive Modeling. Ann Arbor,
 MI.
 
 Gorski, N. A. and Laird, J. E. (2007). *[Investigating Transfer Learning
 in the Urban Combat
-Testbed.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/CCA-TR-2007-02.pdf)*
+Testbed.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/CCA-TR-2007-02.pdf)*
 (Report No. CCA-TR-2007-02). Ann Arbor, MI: Center for Cognitive
 Architecture, University of Michigan.
 
 Hogewoning, E., Broekens, J., Eggermont, J., Bovenkamp, E.G.P.
 *[Strategies for Affect-Controlled Action-Selection in
-Soar-RL.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Hogewoning_Broekens_Eggermont_Bovenkamp_IWINAC2007.pdf)*
+Soar-RL.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Hogewoning_Broekens_Eggermont_Bovenkamp_IWINAC2007.pdf)*
 Proceedings of the 2nd. International Work-Conference on the Interplay
 between Natural and Artificial Computation (IWINAC), 2007. Murcia,
 Spain. LNCS 4528 (pp. 501-510), Springer.
@@ -938,18 +938,18 @@ press.
 
 Marinier, R.P., Laird, J.E. 2007. *[Computational Modeling of Mood and
 Feeling from
-Emotion.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/marinier_laird_cogsci_2007_computationalmodeling.pdf)*
+Emotion.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/marinier_laird_cogsci_2007_computationalmodeling.pdf)*
 CogSci 2007. Nashville, TN.
 
 Nuxoll, A. M. and Laird, J. E. (2007). *[Extending Cognitive
 Architecture with Episodic
-Memory.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/AAAI2007_NuxollLaird_ver14\(final\).pdf)*
+Memory.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/AAAI2007_NuxollLaird_ver14\(final\).pdf)*
 In Proceedings of the 22nd National Conference on Artificial
 Intelligence (AAAI).
 
 Pearson, D., Gorski, N. A., Lewis, R. L., and Laird, J. E. (2007).
 *[Storm: A Framework for Biologically-Inspired Cognitive Architecture
-Research.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/StormFramework_iccm-07.pdf)*Proceedings
+Research.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/StormFramework_iccm-07.pdf)*Proceedings
 of the 8th International Conference on Cognitive Modeling. Ann Arbor,
 MI.
 
@@ -960,23 +960,23 @@ Honolulu, Hi. April 1-5, 2007.
 
 Wang, Y., and Laird, J.E. 2007. *[The Importance of Action History in
 Decision Making and Reinforcement
-Learning.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/ICCM_2007.pdf)*
+Learning.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/ICCM_2007.pdf)*
 
 Wintermute, S. and Laird, J.E. *[Predicate Projection in a Bimodal
 Spatial Reasoning
-System.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/AAAI07-PredicateProjection.pdf)*
+System.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/AAAI07-PredicateProjection.pdf)*
 Proceedings of the Twenty-Second AAAI Conference on Artificial
 Intelligence (AAAI-07), Vancouver, Canada
 
 Wintermute, S., Xu, J., and Laird, J.E. *[SORTS: A Human-Level Approach
 to Real-Time Strategy
-AI.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/AIIDE07-SORTS.pdf)*
+AI.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/AIIDE07-SORTS.pdf)*
 Proceedings of the Third Artificial Intelligence and Interactive Digital
 Entertainment Conference (AIIDE-07), Stanford, California
 
 Wintermute, S., Xu, J., Irizarry, J. 2007. *[SORTS: Integrating Soar
 with a Real-Time Strategy
-Game](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/cca-tr-2007-01.pdf)*
+Game](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/cca-tr-2007-01.pdf)*
 (Report No. CCA-TR-2007-01). Ann Arbor, MI: Center for Cognitive
 Architecture, University of Michigan.
 
@@ -989,7 +989,7 @@ Vancouver, B.C., Canada.
 
 Gorski, N.A., and Laird, J.E. *[Experiments in Transfer Across Multiple
 Learning
-Mechanisms.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/GorskiLaird_icmlTL-06.pdf)*
+Mechanisms.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/GorskiLaird_icmlTL-06.pdf)*
 Proceedings of the ICML-06 Workshop on Structural Knowledge Transfer for
 Machine Learning. Pittsburgh, PA.
 
@@ -1002,18 +1002,18 @@ International Conference on Cognitive Modeling. Trieste, Italy: Edizioni
 Goliandiche.
 
 Kennedy, W.G., and Trafton, J.G. *[Long-Term Learning in Soar and
-ACT-R.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Kennedy-ICCM2006.pdf)*
+ACT-R.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Kennedy-ICCM2006.pdf)*
 Proceedings of the Seventh International Conference on Cognitive
 Modeling, (pp 162-168). Trieste, Italy: Edizioni Goliardiche.
 
 Konik, T., and Laird, J. 2006. *[Learning Goal Hierarchies from
 Structured Observations and Expert
-Annotations](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/KonikLaird2006.pdf)*,
+Annotations](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/KonikLaird2006.pdf)*,
 Machine Learning. 64(1-3) 263-287.
 
 Lathrop, S., and Laird, J.E. 2006. *[Incorporating Visual Imagery into a
 Cognitive Architecture: An Initial Theory, Design and
-Implementation.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/cca_tech_report_2006-01.pdf)*
+Implementation.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/cca_tech_report_2006-01.pdf)*
 
 Magerko, B., Stensrud, B., and Holt, L. *Bringing the Schoolhouse Inside
 the Box - A Tool for Engaging, Individualized Training.* 25th Army
@@ -1040,7 +1040,7 @@ Speech-Enabled Agent for Indirect Fire Training*, Proceedings of the
 
 Wang, Y., and Laird, J.E. 2006. *[Integrating Semantic Memory into a
 Cognitive
-Architecture.](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/smem_tech.pdf)*
+Architecture.](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/smem_tech.pdf)*
 
 ## 2005
 
@@ -1070,12 +1070,12 @@ Learning with Soar. Cognitive Systems Research, 6, 51-59.
 
 Pearson, D.J., Laird, J.E. [Incremental Learning of Procedural Planning
 Knowledge in Challenging
-Environments](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/PearsonLaird-CompInt-2005.pdf).
+Environments](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/PearsonLaird-CompInt-2005.pdf).
 To appear in special issue of Computational Intelligence on “Learning to
 Improve Reasoning”.
 
 Wallace, S. A. [S-Assess: A Library for
-Self-Assessment](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/wallace-2005-aamas.pdf).
+Self-Assessment](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/wallace-2005-aamas.pdf).
 In Proceedings of the Fourth International Conference on Autonomous
 Agents and Multiagent Systems (AAMAS-05). pp. 256-263. Utrecht, The
 Netherlands. 2005.
@@ -1131,7 +1131,7 @@ Interservice/Industry Training/Simulation and Education Conference
 
 Konik, T., and Laird, J. (2004). [Learning Goal Hierarchies from
 Structured Observations and Expert
-Annotations](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/konik_laird_ilp2004.pdf).
+Annotations](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/konik_laird_ilp2004.pdf).
 In 14th International Conference on Inductive Logic Programming
 (ILP-2004), Lecture Notes in AI 3194. Springer
 
@@ -1141,7 +1141,7 @@ Intelligence, 2004. San Jose, California, 108-112.
 
 Magerko, B., Laird, J. E., Assanie, M., Kerfoot, A., Stokes, D., [AI
 Characters and Directors for Interactive Computer
-Games](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/magerko-2004-IAAI-Haunt.pdf),
+Games](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/magerko-2004-IAAI-Haunt.pdf),
 Proceedings of the 2004 Innovative Applications of Artificial
 Intelligence Conference, San Jose, CA, July 2004. AAAI Press.
 
@@ -1151,22 +1151,22 @@ on Cognitive Modelling.
 
 Nason, S. and Laird, J. E., [Soar-RL, Integrating Reinforcement Learning
 with
-Soar](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/nason-2004-ICCMSoarRL.pdf),
+Soar](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/nason-2004-ICCMSoarRL.pdf),
 International Conference on Cognitive Modeling, 2004.
 
 Nuxoll, A., Laird, J. E., [A Cognitive Model of Episodic Memory
 Integrated With a General Cognitive
-Architecture](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/nuxoll-2004-ICCM-epmem.pdf),
+Architecture](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/nuxoll-2004-ICCM-epmem.pdf),
 International Conference on Cognitive Modeling 2004.
 
 Nuxoll, A., Laird, J., James, M. [Comprehensive Working Memory
 Activation in
-Soar](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/nuxoll-2004-ICCM-activation.pdf).
+Soar](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/nuxoll-2004-ICCM-activation.pdf).
 International Conference on Cognitive Modeling, Poster, 2004.
 
 Pearson, D. J., Laird, J. E. [Redux: Example-Driven Diagrammatic Tools
 for Rapid Knowledge
-Acquisition](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/pearsonlaird-2004-BRIMS.pdf),
+Acquisition](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/pearsonlaird-2004-BRIMS.pdf),
 Proceedings of Behavior Representation in Modeling and Simulation, 2004,
 Washington, D.C.
 
@@ -1176,13 +1176,13 @@ Representation in Modeling and Simulation Conference, Arlington, VA.
 
 Wray, R. E., Laird, J. E., Nuxoll, A., Stokes, D., Kerfoot, A.,
 [Synthetic Adversaries for Urban Combat
-Training](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/wray-2004-IAAI-MOUT.pdf),
+Training](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/wray-2004-IAAI-MOUT.pdf),
 Proceedings of the 2004 Innovative Applications of Artificial
 Intelligence Conference, San Jose, CA, July 2004. AAAI Press.
 
 Wray, R. E., Lisse, S., and Beard, J. [Investigating ontology
 infrastructures for execution-oriented autonomous
-agents](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/investigating-ontology-infrastructures-for.pdf).
+agents](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/investigating-ontology-infrastructures-for.pdf).
 Papers from the 2004 AAAI Spring Symposium Series: Knowledge
 Representation and Ontology for Autonomous Systems, Stanford, CA, March
 2004. AAAI Press.
@@ -1210,29 +1210,29 @@ on Autonomous Agents/. Melbourne, Australia.
 
 Kennedy, W.G., and De Jong, K.A. [Characteristics of long-term learning
 in Soar and its application to the utility
-problem](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/247.pdf).
+problem](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/247.pdf).
 In Proceedings of the fifth international conference on machine learning
 (pp. 337-344). Menlo Park: AAAI Press.
 
 Magerko, B. and Laird, J. [“Building an Interactive Drama
-Architecture”](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/magerko.TIDSE_.03.pdf)
+Architecture”](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/magerko.TIDSE_.03.pdf)
 1st International Conference on Technologies for Interactive Digital
 Storytelling and Entertainment, Darmstadt, Germany, March 2003.
 
 Pearson, D. J., Laird, J. E. [“Example-driven Diagrammatic Tools For
 Rapid Knowledge
-Acquisition”](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/vike03.pdf),
+Acquisition”](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/vike03.pdf),
 Visualizing Information in Knowledge Engineering (2003). A workshop at
 K-CAP 2003 (Second International Conference on Knowledge Capture). Oct
 2003.
 
 Wallace, S. [Validating Complex Agent
-Behavior](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/wallace-2003-thesis-duplex.pdf),
+Behavior](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/wallace-2003-thesis-duplex.pdf),
 Ph.D. Thesis University of Michigan, Ann Arbor, MI, 2003.
 
 Wallace. S. A., Laird, J. E. [Comparing Agents and Humans Using
 Behavioral
-Bounding](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/wallace-2003-ijcai.pdf).
+Bounding](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/wallace-2003-ijcai.pdf).
 International Joint Conference on Artificial Intelligence (IJCAI-03).
 
 Wray, R.E., and Chong, R. S. Quantitative Explorations of Category
@@ -1242,7 +1242,7 @@ International Conference on Cognitive Modeling. Bamberg, Germany. April,
 
 Wray, R.E., Laird, J. E. (2003) [“Variability in Human Behavior Modeling
 for Military
-Simulations”](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/VariabilityinHumanBehaviorModeling_WrayLaird_BRIMS2003.pdf),
+Simulations”](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/VariabilityinHumanBehaviorModeling_WrayLaird_BRIMS2003.pdf),
 Behavior Representation in Modeling and Simulation Conference.
 Scottsdale, AZ.
 
@@ -1309,7 +1309,7 @@ AAAI Press.
 
 Wray, R. E. and Jones, R. M. [Resolving contentions between initial and
 learned
-knowledge](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/resolving-contentions-between-initial.pdf).
+knowledge](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/resolving-contentions-between-initial.pdf).
 In Proceedings of the 2001 International Conference on Artificial
 Intelligence, Las Vegas, NV, June 2001.
 
@@ -1402,5 +1402,57 @@ Report No. FS-96-01). Menlo Park, CA: AAAI Press.
 Brian G. Milnes, Garrett Pelton, Robert Doorenbos, Mike H Laird, Paul
 Rosenbloom, and Allen Newell. 1992. [A Specification of the Soar
 Cognitive Architecture in
-Z](http://www.eecs.umich.edu/~soar/sitemaker/docs/pubs/Laird-ASpecificationOfTheSoarCognitiveArchitecture-1992.pdf).
+Z](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Laird-ASpecificationOfTheSoarCognitiveArchitecture-1992.pdf).
 Technical Report. Carnegie Mellon Univ., Pittsburgh, PA, USA.
+
+## The Soar Papers, Volume 1
+
+Published in 1993, this collection comprises of papers spanning the years 1969-1988.
+
+--  [Introduction](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/intro.pdf)
+-- [Index](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/index.pdf)
+
+### 1969-1982
+
+--  [Chapter 1](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/1.pdf)
+--  [Chapter 2](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/2.pdf)
+--  [Chapter 3](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/3.pdf)
+--  [Chapter 4](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/4.pdf)
+--  [Chapter 5](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/5.pdf)
+
+### 1983-1985
+
+--  [Chapter 6](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/6.pdf)
+--  [Chapter 7](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/7.pdf)
+--  [Chapter 8](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/8.pdf)
+--  [Chapter 9](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/9.pdf)
+
+### 1986
+
+--  [Chapter 10](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/10.pdf)
+--  [Chapter 11](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/11.pdf)
+--  [Chapter 12](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/12.pdf)
+--  [Chapter 13](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/13.pdf)
+
+### 1987
+
+--  [Chapter 14](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/14.pdf)
+--  [Chapter 15](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/15.pdf)
+--  [Chapter 16](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/16.pdf)
+--  [Chapter 17](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/17.pdf)
+--  [Chapter 18](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/18.pdf)
+-- [Chapter 19](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/19.pdf)
+
+### 1988
+
+--  [Chapter 20](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/20.pdf)
+--  [Chapter 21](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/21.pdf)
+--  [Chapter 22](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/22.pdf)
+--  [Chapter 23](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/23.pdf)
+--  [Chapter 24](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/24.pdf)
+--  [Chapter 25](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/25.pdf)
+--  [Chapter 26](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/26.pdf)
+--  [Chapter 27](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/27.pdf)
+--  [Chapter 28](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/28.pdf)
+--  [Chapter 29](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/29.pdf)
+--  [Chapter 30](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/30.pdf)
