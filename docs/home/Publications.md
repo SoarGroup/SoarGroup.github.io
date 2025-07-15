@@ -1409,50 +1409,50 @@ Technical Report. Carnegie Mellon Univ., Pittsburgh, PA, USA.
 
 Published in 1993, this collection comprises of papers spanning the years 1969-1988.
 
---  [Introduction](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/intro.pdf)
--- [Index](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/index.pdf)
+-   [Introduction](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/intro.pdf)
+-   [Index](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/index.pdf)
 
 ### 1969-1982
 
---  [Chapter 1](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/1.pdf)
---  [Chapter 2](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/2.pdf)
---  [Chapter 3](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/3.pdf)
---  [Chapter 4](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/4.pdf)
---  [Chapter 5](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/5.pdf)
+-   [Chapter 1](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/1.pdf)
+-   [Chapter 2](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/2.pdf)
+-   [Chapter 3](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/3.pdf)
+-   [Chapter 4](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/4.pdf)
+-   [Chapter 5](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/5.pdf)
 
 ### 1983-1985
 
---  [Chapter 6](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/6.pdf)
---  [Chapter 7](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/7.pdf)
---  [Chapter 8](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/8.pdf)
---  [Chapter 9](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/9.pdf)
+-   [Chapter 6](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/6.pdf)
+-   [Chapter 7](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/7.pdf)
+-   [Chapter 8](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/8.pdf)
+-   [Chapter 9](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/9.pdf)
 
 ### 1986
 
---  [Chapter 10](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/10.pdf)
---  [Chapter 11](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/11.pdf)
---  [Chapter 12](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/12.pdf)
---  [Chapter 13](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/13.pdf)
+-   [Chapter 10](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/10.pdf)
+-   [Chapter 11](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/11.pdf)
+-   [Chapter 12](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/12.pdf)
+-   [Chapter 13](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/13.pdf)
 
 ### 1987
 
---  [Chapter 14](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/14.pdf)
---  [Chapter 15](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/15.pdf)
---  [Chapter 16](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/16.pdf)
---  [Chapter 17](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/17.pdf)
---  [Chapter 18](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/18.pdf)
+-   [Chapter 14](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/14.pdf)
+-   [Chapter 15](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/15.pdf)
+-   [Chapter 16](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/16.pdf)
+-   [Chapter 17](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/17.pdf)
+-   [Chapter 18](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/18.pdf)
 -- [Chapter 19](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/19.pdf)
 
 ### 1988
 
---  [Chapter 20](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/20.pdf)
---  [Chapter 21](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/21.pdf)
---  [Chapter 22](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/22.pdf)
---  [Chapter 23](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/23.pdf)
---  [Chapter 24](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/24.pdf)
---  [Chapter 25](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/25.pdf)
---  [Chapter 26](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/26.pdf)
---  [Chapter 27](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/27.pdf)
---  [Chapter 28](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/28.pdf)
---  [Chapter 29](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/29.pdf)
---  [Chapter 30](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/30.pdf)
+-   [Chapter 20](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/20.pdf)
+-   [Chapter 21](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/21.pdf)
+-   [Chapter 22](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/22.pdf)
+-   [Chapter 23](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/23.pdf)
+-   [Chapter 24](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/24.pdf)
+-   [Chapter 25](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/25.pdf)
+-   [Chapter 26](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/26.pdf)
+-   [Chapter 27](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/27.pdf)
+-   [Chapter 28](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/28.pdf)
+-   [Chapter 29](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/29.pdf)
+-   [Chapter 30](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/30.pdf)
