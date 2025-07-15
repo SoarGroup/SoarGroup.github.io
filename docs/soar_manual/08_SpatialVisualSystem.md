@@ -360,7 +360,7 @@ is finished.
             (P1 ^a car ^b pole)
 ```
 
-## Filters {#filters}
+## Filters
 
 **Filters** are the basic unit of computation in SVS. They transform the
 continuous information in the scene graph into symbolic information that

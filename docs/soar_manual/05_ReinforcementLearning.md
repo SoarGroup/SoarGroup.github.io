@@ -291,7 +291,7 @@ An example walkthrough of a Sarsa update with $\alpha = 0.3$ and $\gamma = 0.9$
     rl-2: (<s> ^operator <o> = -0.9775)
     ```
 
-5.  **rl-3** will be updated when the next RL operator is selected.
+5.  `rl-3` will be updated when the next RL operator is selected.
 
 ### Gaps in Rule Coverage
 
