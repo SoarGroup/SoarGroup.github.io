@@ -40,21 +40,20 @@ TODO
 ## Associated Publications
 
 None
+
 *   TODO
 
 ## Developers
 
-John Laird TODO
+TODO
 
 ## Soar Versions
 
 TODO
+
 *   Soar 8
 *   Soar 9
 
-## Language
-
-TODO (not for agents)
 
 ## Project Type
 

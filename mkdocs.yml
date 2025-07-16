@@ -123,9 +123,86 @@ nav:
         - Arithmetic (with Semantic Memory): downloads/agents/arithmetic_(with_semantic_memory).md
         - Blocks-World (Hierarchical Look-Ahead): downloads/agents/blocks-world_(hierarchical_look-ahead).md
         - Blocks-World (Hierarchical): downloads/agents/blocks-world_(hierarchical).md
+        - Blocks-World (Look-Ahead with RL): downloads/agents/blocks-world_(look-ahead_with_rl).md
+        - Blocks-World (Look-Ahead): downloads/agents/blocks-world_(look-ahead).md
+        - Blocks-World (Reinforcement Learning): downloads/agents/blocks-world_(reinforcement_learning).md
+        - Blocks-World (Simple): downloads/agents/blocks-world_(simple).md
+        - Blocks-World (Subgoaling with RL): downloads/agents/blocks-world_(subgoaling_with_rl).md
+        - Blocks-World (Subgoaling): downloads/agents/blocks-world_(subgoaling).md
+        - Counting Agent: downloads/agents/counting_agent.md
+        - Eaters (Advanced Move): downloads/agents/eaters_(advanced_move).md
+        - Eaters (Hello World Operator): downloads/agents/eaters_(hello_world_operator).md
+        - Eaters (Hello World Rule): downloads/agents/eaters_(hello_world_rule).md
+        - Eaters (Jump and Move): downloads/agents/eaters_(jump_and_move).md
+        - Eaters (Jump): downloads/agents/eaters_(jump).md
+        - Eaters (Move North 2): downloads/agents/eaters_(move_north_2).md
+        - Eaters (Move North): downloads/agents/eaters_(move_north).md
+        - Eaters (Move To Food): downloads/agents/eaters_(move_to_food).md
+        - Eaters (Move): downloads/agents/eaters_(move).md
+        - Eaters (Semantic Error Example): downloads/agents/eaters_(semantic_error_example).md
+        - Eaters (Syntax Error Example): downloads/agents/eaters_(syntax_error_example).md
+        - Episodic Memory Counting Agent: downloads/agents/episodic_memory_counting_agent.md
+        - Episodic Memory Tutorial Agent: downloads/agents/episodic_memory_tutorial_agent.md
+        - Graph Search: downloads/agents/graph_search.md
+        - Graph Search (with Semantic Memory): downloads/agents/graph_search_(with_semantic_memory).md
+        - Infinite Mario RL: downloads/agents/infinite_mario_rl.md
+        - Knowledge Base Agent: downloads/agents/knowledge_base_agent.md
+        - Left-Right Reinforcement Learning Agent: downloads/agents/left-right_reinforcement_learning_agent.md
+        - Missionaries and Cannibals (Planning): downloads/agents/missionaries_and_cannibals_(planning).md
+        - Missionaries and Cannibals (Simple): downloads/agents/missionaries_and_cannibals_(simple).md
+        - Reinforcement Learning Unit Test: downloads/agents/reinforcement_learning_unit_test.md
+        - Semantic Memory Tutorial Agent: downloads/agents/semantic_memory_tutorial_agent.md
+        - Soar 7 Agents: downloads/agents/soar_7_agents.md
+        - TankSoar (Mapping): downloads/agents/tanksoar_(mapping).md
+        - TankSoar (Obscure Bot): downloads/agents/tanksoar_(obscure_bot).md
+        - TankSoar (Simple Sound): downloads/agents/tanksoar_(simple_sound).md
+        - TankSoar (Simple): downloads/agents/tanksoar_(simple).md
+        - TankSoar (Wander): downloads/agents/tanksoar_(wander).md
+        - Taxi (Hierarchical Reinforcement Learning): downloads/agents/taxi_(hierarchical_reinforcement_learning).md
+        - Taxi (Reinforcement Learning): downloads/agents/taxi_(reinforcement_learning).md
+        - TextIO Example: downloads/agents/textio_example.md
+        - Tower of Hanoi (Recursive): downloads/agents/tower_of_hanoi_(recursive).md
+        - Tower of Hanoi (Simple): downloads/agents/tower_of_hanoi_(simple).md
+        - Water Jug (Hierarchical Task Decomposition): downloads/agents/water_jug_(hierarchical_task_decomposition).md
+        - Water Jug (Look-Ahead with State Evaluation): downloads/agents/water_jug_(look-ahead_with_state_evaluation).md
+        - Water Jug (Look-Ahead): downloads/agents/water_jug_(look-ahead).md
+        - Water Jug (Reinforcement Learning): downloads/agents/water_jug_(reinforcement_learning).md
+        - Water Jug (Simple): downloads/agents/water_jug_(simple).md
       - Domains:
         - downloads/domains/index.md
         - Dice: downloads/domains/dice.md
+        - Eaters: downloads/domains/eaters.md
+        - General Game Player Translator: downloads/domains/general_game_player_translator.md
+        - Infinite Mario RL: downloads/domains/infinite_mario_rl.md
+        - PDDL Translator: downloads/domains/pddl_translator.md
+        - RoomsWorld: downloads/domains/roomsworld.md
+        - Soar QnA: downloads/domains/soar_qna.md
+        - TankSoar: downloads/domains/tanksoar.md
+        - Taxi: downloads/domains/taxi.md
+        - WordNet WSD: downloads/domains/wordnet_wsd.md
+        - WordNet WSD (with Parse Trees): downloads/domains/wordnet_wsd_(with_parse_trees).md
+        - Eaters: downloads/domains/eaters.md
+        - General Game Player Translator: downloads/domains/general_game_player_translator.md
+        - Infinite Mario RL: downloads/domains/infinite_mario_rl.md
+        - PDDL Translator: downloads/domains/pddl_translator.md
+        - RoomsWorld: downloads/domains/roomsworld.md
+        - Soar QnA: downloads/domains/soar_qna.md
+        - SoarText-IO: downloads/domains/soartext-io.md
+        - TankSoar: downloads/domains/tanksoar.md
+        - Taxi: downloads/domains/taxi.md
+        - WordNet WSD: downloads/domains/wordnet_wsd.md
+        - WordNet WSD (with Parse Trees): downloads/domains/wordnet_wsd_(with_parse_trees).md
+        - Eaters: downloads/domains/eaters.md
+        - General Game Player Translator: downloads/domains/general_game_player_translator.md
+        - Infinite Mario RL: downloads/domains/infinite_mario_rl.md
+        - PDDL Translator: downloads/domains/pddl_translator.md
+        - RoomsWorld: downloads/domains/roomsworld.md
+        - Soar QnA: downloads/domains/soar_qna.md
+        - SoarText-IO: downloads/domains/soartext-io.md
+        - TankSoar: downloads/domains/tanksoar.md
+        - Taxi: downloads/domains/taxi.md
+        - WordNet WSD: downloads/domains/wordnet_wsd.md
+        - WordNet WSD (with Parse Trees): downloads/domains/wordnet_wsd_(with_parse_trees).md
       - Agent Development Tools:
         - downloads/agent_development_tools/index.md
         - Episodic Memory Size Tool: downloads/agent_development_tools/episodic_memory_size_tool.md

@@ -18,7 +18,7 @@ the following capabilities:
 
 ## Download Links
 
-*   [Vim_Soar_Formatting_Plugin.zip](https://github.com/SoarGroup/website-downloads/raw/main/AgentDevelopmentTools/https://web.archive.org/web/20211023054110/https://soar.eecs.umich.edu/downloads/AgentDevelopmentTools/Vim_Soar_Formatting_Plugin.zip)
+*   [Vim_Soar_Formatting_Plugin.zip](https://github.com/SoarGroup/website-downloads/raw/main/AgentDevelopmentTools/Vim_Soar_Formatting_Plugin.zip)
 
 ## Usage Instructions
 

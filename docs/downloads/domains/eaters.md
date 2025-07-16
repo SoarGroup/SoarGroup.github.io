@@ -3,11 +3,11 @@ Tags:
     - TODO
 ---
 
-# Soar 7 Agents
+# Eaters
 
 TODO: This page has not yet been migrated.
 You can view the original here:
-<https://web.archive.org/web/20230324021432/https://soar.eecs.umich.edu/articles/downloads/agents>
+<https://web.archive.org/web/20230324021432/https://soar.eecs.umich.edu/articles/downloads/domains>
 
 ## Environment Properties
 
@@ -23,7 +23,7 @@ TODO
 
 ## Download Links
 
-*   [TODO](https://github.com/SoarGroup/website-downloads/raw/main/agents/TODO)
+*   [TODO](https://github.com/SoarGroup/website-downloads/raw/main/domains/TODO)
 
 ## Associated Agents
 
@@ -54,7 +54,7 @@ TODO
 *   Soar 8
 *   Soar 9
 
+## Language
 
-## Project Type
+TODO (not for agents)
 
-VisualSoar TODO (agents only)
