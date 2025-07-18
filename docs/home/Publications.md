@@ -1441,7 +1441,7 @@ Published in 1993, this collection comprises of papers spanning the years 1969-1
 -   [Chapter 16](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/16.pdf)
 -   [Chapter 17](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/17.pdf)
 -   [Chapter 18](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/18.pdf)
--- [Chapter 19](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/19.pdf)
+- [Chapter 19](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/19.pdf)
 
 ### 1988
 
