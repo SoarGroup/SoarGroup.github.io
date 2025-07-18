@@ -9,7 +9,7 @@ Soar, such as the debugger and VisualSoar, you will need
 higher installed.
 
 1.  Download Soar Release archive
-[here](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/Soar-Release-{{soar_version}}.zip)<!-- markdown-link-check-disable-line -->
+[here](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/SoarSuite_{{soar_version}}-Multiplatform.zip)<!-- markdown-link-check-disable-line -->
 and extract to the location of your choice.
 
 2.  Run the Soar debugger via one of the scripts included in this folder:
