@@ -1407,7 +1407,7 @@ Technical Report. Carnegie Mellon Univ., Pittsburgh, PA, USA.
 
 ## The Soar Papers, Volume 1
 
-Published in 1993, this collection comprises of papers spanning the years 1969-1988.
+Published in 1993, this collection comprises papers spanning the years 1969-1988.
 
 -   [Introduction](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/intro.pdf)
 -   [Index](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/the_soar_papers_vol_1/index.pdf)
