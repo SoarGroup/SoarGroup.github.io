@@ -16,7 +16,13 @@ If you are looking for help or discussion, please see our
 
 ## News and Announcements
 
-*   This year's Soar workshop (45th) held on May 5, 2025 was a success! We had broad participation from various projects using Soar, including a remarkable presentation from our guest speaker
+<!-- markdown-link-check-disable-next-line -->
+*   [**Soar 9.6.4 available for download**](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/SoarSuite_{{soar_version}}-Multiplatform.zip):
+This release of Soar contains lots of stability and ergonomics improvements to
+VisualSoar and the Soar debugger, as well as newly-added support for LTI aliases.
+*   This year's Soar workshop (45th) held on May 5, 2025 was a success! We had broad
+participation from various projects using Soar, including a remarkable presentation
+from our guest speaker
 [Professor Jonathan Cohen](https://pni.princeton.edu/people/jonathan-cohen) of Princeton.
 Recordings and supporting information from all the 2025 workshop talks can be found
 [here](workshops/45.md).
@@ -27,11 +33,3 @@ available on GitHub.
 *   [**Engineer's Guide to Soar**](https://github.com/SoarGroup/Engineers-Guide-to-Soar):
 A 14-part course on programming Soar for engineers, by Bryan Stearns is now
 available on GitHub.
-<!-- markdown-link-check-disable-next-line -->
-*   [**Soar 9.6.3 available for download**](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/SoarSuite_{{soar_version}}-Multiplatform.zip):
-This release of Soar contains ergonomic improvements to the debugger and Soar CLI,
-lots of new VisualSoar features, and plenty of bug fixes and stability
-improvements. Note: if you are a Mac user with an Intel processor and you
-downloaded the release prior to August 19, 2024, then you will need to
-re-download. There was an issue with the setup script for Mac/Intel users which
-would prevent running Soar.

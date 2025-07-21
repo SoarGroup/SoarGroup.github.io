@@ -96,7 +96,7 @@ extra:
       link: https://github.com/SoarGroup/Soar
   # MAINTAINER NOTE: when you update this, don't forget to also
   # update the release notes on the downloads page
-  soar_version: 9.6.3
+  soar_version: 9.6.4
 nav:
   - Home:
       - index.md
