@@ -16,69 +16,142 @@ The current version of Soar is {{ soar_version }}.
 If you would like to build Soar from the current source code, you'll need to
 acquire the source from our git repository [on GitHub](https://github.com/SoarGroup/Soar).
 
-## Soar 9.6.3 Release Notes
+## Soar 9.6.4 Release Notes
 
-July, 2024
+### New Features
 
-This release of Soar includes lots of VisualSoar goodies.
+*   New special-purpose RHS functions for working with headings and range in
+navigation domains:
+    *   `extrapolate-x-position`
+    *   `extrapolate-y-position`
+    *   `select-point-closest-to-vector`
+    *   `haversine`
+*   Scene names (`S1`, `S2`, etc.) used in SVS commands are now case-insensitive,
+which is consistent with Soar's handling of state names ([#426](https://github.com/SoarGroup/Soar/issues/426))
+*   Soar now supports LTI aliases. Thanks to Aaron Mininger!
+    *   This means you can assign permanent aliases to LTIs in commands such as
+    `smem --add { (@test1 ^name test1 ^info @info1) (@info1 ^number 1) }`.
+    *   These are then referenceable in commands such as `smem --query` and
+    `smem --remove`.
+    *   Also printed in the output of `print`, as well as `smem --history`,
+    `smem --export` and `visualize smem`.
+*   Java SML bindings: Don't throw exception in static block when Soar lib isn't
+found ([#491](https://github.com/SoarGroup/Soar/issues/491))
+    *   Previous behavior was to throw an exception at class load time, which would
+    completely prevent an application from loading
 
-## Addendum Aug. 19, 2024
+## Bug fixes
 
-The release was re-created due to issues running on Intel Macs. If you have an
-Intel Mac and downloaded previous to this date, please download again to
-successfully run Soar.
+*   Fix compilation with `--no-scu` ([#500](https://github.com/SoarGroup/Soar/issues/500)).
+Thanks to James Boggs!
+*   Escape empty strings when printing symbols in productions, etc. ([#484](https://github.com/SoarGroup/Soar/issues/484))
+    *   Without the escaping, productions printed this way are not correct Soar
+    syntax and therefore are not sourceable!
+*   Don't ignore duplicate justifications ([#529](https://github.com/SoarGroup/Soar/issues/529))
+    *   O-supported justifications that are duplicates can be created when the
+    state changes but returns to its original value again. Previously Soar would
+    ignore duplicate justifications, which would then prevent the expected RHS
+    changes from being applied. Now, the previous justification is removed and
+    the new one is added.
+*   `cd` command with no parameters now works as documented in the manual (previous
+behavior was a simple segfault!) ([#494](https://github.com/SoarGroup/Soar/issues/494))
 
-## Breaking Changes
+### Infrastructure improvements
 
-*   New chunking setting, automatically-create-singletons, on by default
-*   In our work we've found that we usually want all attributes to be singletons
-by default unless explicitly specified otherwise. This setting attempts creating
-singletons for every string attribute. We expect this to be a saner default for
-all users, and think it unlikely to have a negative effect on existing projects.
-If you have a project that relies on non-singleton attributes, you can disable
-this setting by setting `chunking automatically-create-singletons off`.
+*   In-progress CMake-based build system (thanks to Moritz Schmidt!)
+*   Look specifically for Tcl 8 when building (Soar is not yet compatible with
+Tcl 9)
 
-*   Linux users: Soar was compiled on the recent Ubuntu 24.04, so you may need
-to update your system or libstdc++ to run the included binaries (or else build
-from source yourself).
+### Cruft and cleanup
 
-## New Features
+*   Lots of compiler warning fixes
+*   Compiler strictness increased
 
-*   Visual-Soar improvements (thanks to amnuxoll)
-    *   A datamap can import the datamap of another project
-    *   Projects can be opened read-only
-    *   Less change noise, i.e. more friendly towards version control
-    *   Automatically opens the last project on startup; new "Open Recent" menu option
-    *   Parser now supports LTI predicates
-    *   Lots more smaller improvements
+## VisualSoar
 
-*   You can pip-install Soar! (thanks to Jonathan de Jong)
-    *   `pip install soar-sml[compat]` is a drop-in replacement for manually
-    installing Soar somewhere and adding its path to your PYTHONPATH environment
-    variable.
-    *   Note that this does not come with the debugger or other Java applications.
-*   New svs commands `--disable-in-substates` and `--enable-in-substates`. By
-default SVS copies the entire scene graph into each substate. This can be
-disabled with `--disable-in-substates` to save memory and improve performance.
-This can be re-enabled with `--enable-in-substates` if you need to access the
-scene graph in substates.
-*   Python bindings are now compatible with all Python versions 3.2 and up,
-rather than only with the minor version that was used to build Soar. This is
-thanks to the work of Jonathan de Jong.
+### Project Stability Improvements
 
-## New Website
+*   Newly designed JSON format for VisualSoar projects combining the datamap, operator
+hierarchy/project layout, and comment files into one file ([#38](https://github.com/SoarGroup/VisualSoar/issues/38),
+[#5](https://github.com/SoarGroup/VisualSoar/issues/5))
+    *   Far less likely to be corrupted
+    *   More human-readable
+    *   More machine readable (tool developers welcome!)
+    *   More robust to collaboration (no non-deterministic output, fewer git conflicts,
+    easier to resolve if they do occur)
+    *   Handles arbitrary enum strings, attribute and operator names, etc.
+    *   VisualSoar will write your project in the new format automatically, but
+    will ask you to delete the old project files yourself. Effort was taken to
+    eliminate any chance of data loss or other unwanted surprises.
+*   Read/write project and config files atomically
+    *   Prevents corruption if an error occurs during read/write
+*   Fix cross-platform incompatibility issues in config files
+*   Improve error messages, fewer hidden from users
+*   Improve undo stack management
+    *   Compound edits such as the comment/uncomment actions are now applied atomically,
+    meaning they can be undone/redone in one step
+    *   Fixed issues that caused the undo stack to be unexpectedly cleared
+*   Improve close/save action workflows to reduce surprises (such as closing and
+saving everything without confirmation!)
 
-Thanks to Moritz Schmidt, we have a new website! The URL remains the same:
-<https://soar.eecs.umich.edu>. New features include:
+### CLI Support
 
-*   HTML versions of the manual and the tutorial
-*   Snappy full-text search based on lunr.js
-*   Much improved editing/deployment workflow based on GitHub pages. We also get
-the full power of GitHub actions, and use it to automatically check for dead
-links, for example.
+VisualSoar can now run project datamap validation from the command line by passing
+the arguments `--check productionsAgainstDatamap --project <path>`, where `<path>`
+is the path to your project `.vsa` or `.vsa.json`.
 
-Note that some pages and download links still need to be ported. The manual and
-tutorial still need to be fully inspected for correctness, and the images in
-particular still need work.
+There is a also a [new GitHub Action](https://github.com/marketplace/actions/soar-datamap-validation)
+to enable you to check your projects automatically when you push to GitHub.
 
-## Other Changes
+### Ergonomics and Bug Fixes
+
+*   Fix Soar Runtime menu functions (connect to kernel, source agent, etc.) ([#33](https://github.com/SoarGroup/VisualSoar/issues/33))
+*   Make comment/uncomment actions inverses of each other and fix issues with extra
+lines getting commented
+*   Display number of feedback messages in the status bar
+    *   A quick way to see if you are making progress on eliminating datamap errors
+*   allow underscores in attribute names ([#32](https://github.com/SoarGroup/VisualSoar/issues/32))
+*   Support ctrl-A "select all" shortcut
+*   Fix undo/redo shortcuts
+*   Fix website links in help menu, and open the browser automatically
+*   Improve searchbox and related ergonomics (#57)
+    *   Wrap search by default
+    *   Don't close the searchbox after searching
+    *   Populate the searchbox with selected text (for the editor view)
+    *   Fix shortcuts for searchbox and many other commands
+    *   Use command on Mac instead of ctrl for all shortcuts
+    *   Allow closing any dialog box with the escape key
+*   New shortcut: ctrl/cmd-, to open preferences
+*   New preferences:
+    *   Save project when datamap check passes
+    *   Run datamap check after saving project
+*   ctrl/cmd-= and ctrl/cmd-- to increase/decrease font size
+*   Responsively re-tile all frames when main window is resized
+*   Better resizing of feedback list when the main window is resized
+*   Improved auto-complete UI
+*   Auto-complete for variables that match their attribute name
+
+### Infrastructure
+
+*   Add continuous integration (via GitHub actions)
+*   Introduce JUnit for unit testing
+*   Build native binaries in CI via jpackage
+*   Update to Java 11, which is already required by other Soar tools ([#29](https://github.com/SoarGroup/VisualSoar/issues/29))
+
+## Debugger
+
+*   Update links in help menu and open them in a browser automatically ([#482](https://github.com/SoarGroup/Soar/issues/482))
+*   Add new "Browse settings files..." option in file menu
+*   Support select-all shortcut in all text windows via cmd/ctrl-a
+*   Copy/paste fixes
+    *   Paste directly into command box instead of the output window
+    *   Fix issue causing paste of 'c' or 'v' into the command box upon copy/paste
+*   Account for half-scrolled lines in right-click ([#417](https://github.com/SoarGroup/Soar/issues/417))
+*   Fix preference file issues ([#509](https://github.com/SoarGroup/Soar/issues/509))
+    *   Don't enter infinite loop when reading an incomplete XML file
+    *   Read/write preference XML file atomically to avoid corruption
+*   Fix broken `cd` button on Windows ([#452](https://github.com/SoarGroup/Soar/issues/452))
+*   Improved CLI parameter handling for debugger ([#510](https://github.com/SoarGroup/Soar/issues/510))
+    *   Parameters are now parsed with the `commons-cli` library
+    *   `--help` and incorrect parameters now show CLI parameter documentation,
+    so users don't have to go to the website
