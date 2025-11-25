@@ -10,6 +10,17 @@ tags:
 
 ## 2025
 
+Rosenbloom, P. S., Laird, J. E., Lebiere, C., & Stocco, A. (2025). [Mapping
+Neural Theories of Consciousness onto the Common Model of
+Cognition.](https://doi.org/10.1007/978-3-032-00800-8_14) In: Iklé, M.,
+Kolonin, A., Bennett, M. (eds) *Artificial General Intelligence. AGI 2025.
+Lecture Notes in Computer Science, vol 16058.* Springer, Cham.
+
+Laird, J., Lebiere, C., Rosenbloom, P., & Stocco, A. (2025). [A Proposal to
+Extend the Common Model of Cognition with
+Metacognition.](https://arxiv.org/abs/2506.07807) *arXiv preprint
+arXiv:2506.07807.*
+
 Yuan, F., Zeng, J., Hu, Y., Zhu, Z., Yin, Q., & Xie, Y. (2025). [NL2GenSym:
 Natural Language to Generative Symbolic Rules for SOAR Cognitive Architecture
 via Large Language Models.](https://arxiv.org/abs/2510.09355)
@@ -60,6 +71,11 @@ Intelligence, Cham: Springer Nature Switzerland, 2025, pp. 41–54. doi:
 [10.1007/978-3-031-85316-6_4](https://doi.org/10.1007/978-3-031-85316-6_4).
 
 ## 2024
+
+Rosenbloom, P. S., Laird, J., Lebiere, C., Stocco, A., Granger, R., & Huyck, C.
+(2024). [A Proposal for Extending the Common Model of Cognition to
+Emotion.](https://mathpsych.org/presentation/1351) *Paper presented at
+MathPsych / ICCM 2024.*
 
 Joshi, H., & Ustun, V. (2024). [Augmenting Cognitive Architectures with Large
 Language Models.](https://doi.org/10.1609/aaaiss.v2i1.27689) *Proceedings of
