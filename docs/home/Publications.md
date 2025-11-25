@@ -82,6 +82,11 @@ Wray, R. E., Kirk, J. R., & Laird, J. E. (2024). [Eliciting Problem Specificatio
 
 ## 2023
 
+Wray, R. E., Jones, S. J., & Laird, J. E. (2023). [Computational-level Analysis
+of Constraint Compliance for General
+Intelligence.](https://arxiv.org/abs/2303.04352) *Proceedings of the
+Artificial General Intelligence (AGI) Conference.*
+
 Dang, C. V., Ahn, H., Kim, J., & Lee, S. C. (2023). [Collision-Free Navigation
 in Human-Following Task Using a Cognitive Robotic
 System.](https://doi.org/10.1109/TCDS.2022.3145915) *IEEE Transactions on
@@ -93,6 +98,11 @@ Autonomous System.](https://doi.org/10.1109/SysCon53073.2023.10131227) *IEEE
 SYSCON 2023.*
 
 ## 2022
+
+Kirk, J., Wray, R. E., Lindes, P., & Laird, J. E. (2022). [Improving Language
+Model Prompting in Support of Semi-autonomous Task
+Learning.](https://arxiv.org/abs/2209.07636) *Proceedings of the 2022
+Advances in Cognitive Systems Conference.*
 
 Jones, Steven (2022). [A Cognitive Architecture Realization of Event
 Cognition Capabilities,](https://dx.doi.org/10.7302/6180)
