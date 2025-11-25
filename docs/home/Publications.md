@@ -82,6 +82,10 @@ Wray, R. E., Kirk, J. R., & Laird, J. E. (2024). [Eliciting Problem Specificatio
 
 ## 2023
 
+Jones, Steven J., & Laird, John E. (2023). [A cognitive architecture theory of
+anticipatory thinking.](https://doi.org/10.1002/aaai.12102) *AI Magazine,
+44(2), 155-164.*
+
 Wray, R. E., Jones, S. J., & Laird, J. E. (2023). [Computational-level Analysis
 of Constraint Compliance for General
 Intelligence.](https://arxiv.org/abs/2303.04352) *Proceedings of the
