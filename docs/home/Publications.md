@@ -10,16 +10,87 @@ tags:
 
 ## 2025
 
+Yuan, F., Zeng, J., Hu, Y., Zhu, Z., Yin, Q., & Xie, Y. (2025). [NL2GenSym:
+Natural Language to Generative Symbolic Rules for SOAR Cognitive Architecture
+via Large Language Models.](https://arxiv.org/abs/2510.09355)
+*arXiv:2510.09355.*
+
+Jayarathne, K. A. I. N., Rathnayaka, R., & Peiris, D. (2025). [Autonomous
+Underwater Cognitive System for Adaptive Navigation: A SLAM-Integrated
+Cognitive Architecture.](https://arxiv.org/abs/2511.11845) *arXiv:2511.11845.*
+
+Precup, S., Pirvu, B., Gellert, A., & Zamfirescu, C. B. (2025). [Cognitive
+Control Units in Smart Manufacturing: Insights from a Soar-Based Assistance
+System.](https://doi.org/10.1109/ACCESS.2025.3633609) *IEEE Access.*
+
+Zhou, R., Cao, H., Huang, J., Song, X., Huang, J., & Huang, Z. (2025). [Hybrid
+lane change strategy of autonomous vehicles based on SOAR cognitive
+architecture and deep reinforcement
+learning.](https://doi.org/10.1016/j.neucom.2024.128669) *Neurocomputing, 611,
+128669.*
+
+Hu, J., Wang, T., Wang, H., & Cao, J. (2025). [CogMUS: A Soar-Based Cognitive
+Framework for Mission Understanding in Multi-UAV Cooperative
+Operation.](https://www.mdpi.com/2504-446X/9/12/813) *Drones, 9(12), 813.*
+
+Wray, R. E., Kirk, J. R., & Laird, J. E. (2025). [Eliciting problem
+specifications for LLM-Modulo cognitive
+systems.](https://doi.org/10.1016/j.cogsys.2025.101409) *Cognitive Systems
+Research, 94, 101409.*
+
+Wray, R. E., Kirk, J. R., & Laird, J. E. (2025). [Applying Cognitive Design
+Patterns to General LLM Agents.](https://arxiv.org/abs/2505.07087) *Proceedings
+of AGI 2025.*
+
+Wray, R. E., Jones, S. J., & Laird, J. E. (2025). [Requirements for Recognition
+and Rapid Response to Unfamiliar Events Outside of Agent Design
+Scope.](https://arxiv.org/abs/2504.12497) *Proceedings of AGI 2025.*
+
+Boggs, J. (2025). [Deliberate Visual-Symbolic Reasoning in a Cognitive
+Architecture.](https://dx.doi.org/10.7302/27226) *Dissertation, University of
+Michigan.*
+
+Boggs, J. (2025). [Towards visual-symbolic integration in the Soar cognitive
+architecture.](https://doi.org/10.1016/j.cogsys.2025.101353) *Cognitive
+Systems Research, 91, 101353.*
+
 Schmidt, Moritz & Meitinger, Claudia “Leveraging Agent-Based Reasoning
 for Natural Task Delegation on the Shop Floor,” in Studies in Computational
 Intelligence, Cham: Springer Nature Switzerland, 2025, pp. 41–54. doi:
 [10.1007/978-3-031-85316-6_4](https://doi.org/10.1007/978-3-031-85316-6_4).
 
+## 2024
+
+Joshi, H., & Ustun, V. (2024). [Augmenting Cognitive Architectures with Large
+Language Models.](https://doi.org/10.1609/aaaiss.v2i1.27689) *Proceedings of
+the AAAI Symposium Series, 2(1), 281-285.*
+
+Kirk, James R., Wray, Robert E., Lindes, Peter, & Laird, John E. (2024).
+[Improving knowledge extraction from LLMs for task learning through agent
+analysis.](https://doi.org/10.1609/aaai.v38i16.29799) *Proceedings of the
+Thirty-Eighth AAAI Conference on Artificial Intelligence (AAAI'24).*
+
+Ding, L., Tang, Y., Wang, T., Xie, T., Huang, P., & Yang, B. (2024). [A Cooperative Decision-Making Approach Based on a Soar Cognitive Architecture for Multi-Unmanned Vehicles.](https://www.mdpi.com/2504-446X/8/4/155) *Drones, 8(4), 155.*
+
+Marinier III, R. P., Bechtel, R., & Dallas, A. (2024). [Achieving Semi-Autonomous Robotic Behaviors Using the Soar Cognitive Architecture.](https://www.sae.org/publications/technical-papers/content/2024-01-3171/) *SAE Technical Paper 2024-01-3171.*
+
+Wu, S., Souza, R. F., Ritter, F. E., & Lima Jr, W. T. (2024). [Comparing LLMs for Prompt-Enhanced ACT-R and Soar Model Development.](https://ojs.aaai.org/index.php/AAAI-SS/article/view/27710) *AAAI Symposium Series, 2(1), 422–427.*
+
+Jones, S. J., & Wray, R. E. (2024). [Toward Constraint Compliant Goal Formulation and Planning.](https://arxiv.org/abs/2405.12862) *Advances in Cognitive Systems (ACS).*
+
+Wray, R. E., Kirk, J. R., & Laird, J. E. (2024). [Eliciting Problem Specifications via Large Language Models.](https://arxiv.org/abs/2405.12147) *Advances in Cognitive Systems (ACS).*
+
 ## 2023
 
+Dang, C. V., Ahn, H., Kim, J., & Lee, S. C. (2023). [Collision-Free Navigation
+in Human-Following Task Using a Cognitive Robotic
+System.](https://doi.org/10.1109/TCDS.2022.3145915) *IEEE Transactions on
+Cognitive and Developmental Systems, 15(1), 78–87.*
+
 N.Narayan, P. Ganeriwala, R. Jones, M. Matessa, S. Bhattacharyya, J. Davis, H.
-Purohit and S. Rollini (2023). Assuring Learning-Enabled Increasingly Autonomous
-System. IEEE SYSCON 2023.
+Purohit and S. Rollini (2023). [Assuring Learning-Enabled Increasingly
+Autonomous System.](https://doi.org/10.1109/SysCon53073.2023.10131227) *IEEE
+SYSCON 2023.*
 
 ## 2022
 
