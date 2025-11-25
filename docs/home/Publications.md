@@ -12,9 +12,8 @@ tags:
 
 Rosenbloom, P. S., Laird, J. E., Lebiere, C., & Stocco, A. (2025). [Mapping
 Neural Theories of Consciousness onto the Common Model of
-Cognition.](https://doi.org/10.1007/978-3-032-00800-8_14) In: Iklé, M.,
-Kolonin, A., Bennett, M. (eds) *Artificial General Intelligence. AGI 2025.
-Lecture Notes in Computer Science, vol 16058.* Springer, Cham.
+Cognition.](https://doi.org/10.1007/978-3-032-00800-8_14) *Proceedings of AGI
+2025.*
 
 Laird, J., Lebiere, C., Rosenbloom, P., & Stocco, A. (2025). [A Proposal to
 Extend the Common Model of Cognition with
