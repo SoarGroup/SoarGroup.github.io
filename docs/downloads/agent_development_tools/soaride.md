@@ -7,6 +7,10 @@ Tags:
 
 # SoarIDE
 
+???+ warning "Warning"
+    This project is no longer actively maintained, instead use
+    [VisualSoar](./visualsoar.md).
+
 The SoarIDE is an advanced editor for the Soar programming language based on the
 Eclipse platform, developed by Soar Technology. As an Eclipse plugin, the SoarIDE
 leverages all of the core features of Eclipse including a flexible UI, update manager,
