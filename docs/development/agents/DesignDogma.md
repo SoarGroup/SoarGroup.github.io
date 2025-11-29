@@ -295,8 +295,8 @@ create performance bottlenecks.
 
 ## Use an IDE like VisualSoar
 
-Write your Soar code using VisualSoar. If so, maintain and use your VisualSoar
-data map!
+Write your Soar code using [VisualSoar][VSIDE].
+If so, maintain and use your [VisualSoar][VSIDE] data map!
 
 ### Example
 
@@ -306,7 +306,7 @@ N/A
 
 Much like comments on code, VisualSoar's enforced structure and
 data map is exceptionally helpful for people who are examining code they have
-not themselves written. VisualSoar provides helpful functionality like syntax
+not themselves written. [VisualSoar][VSIDE] provides helpful functionality like syntax
 highlighting and identifier completion. It also helps you catch bugs in your
 code by watching for rules that match unspecified WMEs. Such bugs (particularly
 typos involving nearly identical letters like l and 1) can sometimes require
@@ -368,3 +368,5 @@ sp {xxyyzz
 By violating the intent of the Soar language you will likely
 achieve undesirable results. There is almost certainly a better way of doing
 what you are trying to do.
+
+[VSIDE]: ../../downloads/agent_development_tools/visualsoar.md

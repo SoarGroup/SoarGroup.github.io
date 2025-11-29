@@ -9,14 +9,14 @@ key in the shortcuts below.
 
 *  <kbd>ESC</kbd> Close open dialog
 *  <kbd>Ctrl</kbd>+<kbd>Q</kbd> Quit VisualSoar
-*  <kbd>Ctrl</kbd>+<kbd>,</kbd> Open the VisualSoar preferences
+*  <kbd>Ctrl</kbd>+<kbd>,</kbd> Open the [VisualSoar][VSIDE] preferences
 *  <kbd>Ctrl</kbd>+<kbd>=</kbd> Increase font size
 *  <kbd>Ctrl</kbd>+<kbd>-</kbd> Decrease font size
 
 ### Project Level Actions
 
-*   <kbd>Ctrl</kbd>+<kbd>N</kbd> Open a new VisualSoar project
-*   <kbd>Ctrl</kbd>+<kbd>O</kbd> Open an existing VisualSoar project
+*   <kbd>Ctrl</kbd>+<kbd>N</kbd> Open a new [VisualSoar][VSIDE] project
+*   <kbd>Ctrl</kbd>+<kbd>O</kbd> Open an existing [VisualSoar][VSIDE] project
 *   <kbd>Ctrl</kbd>+<kbd>F</kbd> Open a text file
 *   <kbd>Alt</kbd>+<kbd>X</kbd> Save all open documents and close VisualSoar
 *   <kbd>Ctrl</kbd>+<kbd>T</kbd> Tile windows horizontally
@@ -33,7 +33,7 @@ key in the shortcuts below.
 
 ### Editing
 
-The VisualSoar rule editor uses all the default editing keystrokes
+The [VisualSoar][VSIDE] rule editor uses all the default editing keystrokes
 for area selection, clipboard operations and basic editing:
 
 * <kbd>CTRL</kbd>+<kbd>C</kbd> Copy the selected text to the clipboard
@@ -75,7 +75,7 @@ and paste) as well as these keystrokes:
 
 ### Context menus
 
-All windows in VisualSoar have context menus that
+All windows in [VisualSoar][VSIDE] have context menus that
 accessible by pressing and holding the right mouse
 button.
 
@@ -96,3 +96,5 @@ button.
 
     When using drag and drop with the datamap you should note that the
     mouse cursor changes as you begin the operation (the drag part).
+
+[VSIDE]: ../downloads/agent_development_tools/visualsoar.md
