@@ -64,6 +64,31 @@ Boggs, J. (2025). [Towards visual-symbolic integration in the Soar cognitive
 architecture.](https://doi.org/10.1016/j.cogsys.2025.101353) *Cognitive
 Systems Research, 91, 101353.*
 
+Ganeriwala, P., Matsumuro, M., Ritter, F. E., &  Bhattacharyya, S. (2025). [Enabling Formal
+Verification in a Common Model of Cognition.](https://sbp-brims.org/2025/papers/working-papers/2025_SBP-BRiMS_paper_18.pdf)
+*Proceedings of the 2025 International Conference on Social Computing,
+Behavioral-Cultural Modeling & Prediction and Behavior Representation in
+Modeling and Simulation (SBP-BRiMS).*
+
+Ganeriwala, P., Wu, S., Bhattacharyya, S., & Ritter, F. E. (2025). [Evaluating
+LLM Translation for Prompt-Enhanced ACT-R and Soar
+Models.](https://sbp-brims.org/2025/papers/working-papers/2025_SBP-BRiMS_paper_26.pdf)
+*Proceedings of the 2025 International Conference on Social Computing,
+Behavioral-Cultural Modeling & Prediction and Behavior Representation in
+Modeling and Simulation (SBP-BRiMS).*
+
+Ganeriwala, P., Matessa, M., Bhattacharyya, S., Jones, R. M., Davis, J., Kaur,
+P., Rollini, S. F., & Neogi, N. (2025). [Design and Validation of Learning
+Aware HMI for Learning-Enabled Increasingly Autonomous
+Systems.](https://ieeexplore.ieee.org/abstract/document/11014784) *2025 IEEE
+International Systems Conference (SysCon).*
+
+Ganeriwala, P., Narayan, N., Jones, R. M., Matessa, M., Bhattacharyya, S., Davis, J., Rollini, S. F., Purohit, H., & Neogi, N. (2025). [Systems Engineering
+With Architecture Modeling, Formal Verification, and Human Interactions for
+Learning‐Enabled Autonomous
+Agent.](https://incose.onlinelibrary.wiley.com/doi/abs/10.1002/sys.21816)
+*Systems Engineering.*
+
 Schmidt, Moritz & Meitinger, Claudia “Leveraging Agent-Based Reasoning
 for Natural Task Delegation on the Shop Floor,” in Studies in Computational
 Intelligence, Cham: Springer Nature Switzerland, 2025, pp. 41–54. doi:
@@ -86,6 +111,9 @@ analysis.](https://doi.org/10.1609/aaai.v38i16.29799) *Proceedings of the
 Thirty-Eighth AAAI Conference on Artificial Intelligence (AAAI'24).*
 
 Ding, L., Tang, Y., Wang, T., Xie, T., Huang, P., & Yang, B. (2024). [A Cooperative Decision-Making Approach Based on a Soar Cognitive Architecture for Multi-Unmanned Vehicles.](https://www.mdpi.com/2504-446X/8/4/155) *Drones, 8(4), 155.*
+
+Goeddel, E. (2024). [Enabling Robot Arm Motion with Multiple Objectives Through
+Agent Representation and Reasoning.](https://dx.doi.org/10.7302/23958) *Dissertation, University of Michigan.*
 
 Marinier III, R. P., Bechtel, R., & Dallas, A. (2024). [Achieving Semi-Autonomous Robotic Behaviors Using the Soar Cognitive Architecture.](https://www.sae.org/publications/technical-papers/content/2024-01-3171/) *SAE Technical Paper 2024-01-3171.*
 
