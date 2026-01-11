@@ -45,20 +45,20 @@ problem, and a means of recognizing that the goal has been achieved.
 
 Soar’s procedural knowledge can be categorized into four distinct types of knowledge:
 
-1. *Inference Rules*  
+1.  *Inference Rules*
    In Soar, we call these state elaborations. This knowledge provides monotonic inferences
    that can be made about the state in a given situation. The knowledge created by such
    rules are not persistent and exist only as long as the conditions of the rules are met.
-2. *Operator Proposal Knowledge*  
+2.  *Operator Proposal Knowledge*
    Knowledge about when a particular operator is appropriate for a situation. Note
    that multiple operators may be appropriate in a given context. So, Soar also needs
    knowledge to determine which of the candidates to choose:
-3. *Operator Selection Knowledge*  
+3.  *Operator Selection Knowledge*
    Knowledge about the desirability of an operator in a particular situation.
    Such knowledge can be either in terms of a single operator (e.g. never choose
    this operator in this
    situation) or relational (e.g. prefer this operator over another in this situation).
-4. *Operator Application Rules*  
+4.  *Operator Application Rules*
    Knowledge of how a specific selected operator modifies the state. This knowledge
    creates persistent changes to the state that remain even after the rule no longer matches
    or the operator is no longer selected.
@@ -91,10 +91,10 @@ When the knowledge to perform the problem-solving functions is not directly avai
 productions, Soar is unable to make progress and reaches an impasse. There are three types
 of possible impasses in Soar:
 
-1. An operator cannot be selected because no new operators are proposed.
-2. An operator cannot be selected because multiple operators are proposed and
+1.  An operator cannot be selected because no new operators are proposed.
+2.  An operator cannot be selected because multiple operators are proposed and
    the comparisons are insufficient to determine which one should be selected.
-3. An operator has been selected, but there is insufficient knowledge to apply it.
+3.  An operator has been selected, but there is insufficient knowledge to apply it.
 
 In response to an impasse, the Soar architecture creates a substate in which operators can be
 selected and applied to generate or deliberately retrieve the knowledge that was not directly
@@ -121,9 +121,9 @@ You do not need to look at the code at this point.
 The operators in this task move a single block from its current location to a new location;
 each operator is represented with the following information:
 
-- the name of the block being moved
-- the current location of the block (the "thing" it is on top of)
-- the destination of the block (the "thing" it will be on top of)
+-   the name of the block being moved
+-   the current location of the block (the "thing" it is on top of)
+-   the destination of the block (the "thing" it will be on top of)
 
 The goal in this task is to stack the blocks so that C is on the table, with
 block B on top of block C, and block A on top of block B.
@@ -184,7 +184,6 @@ candidate operators. For example, a preference may say that operator A is a
 that operator A is the "best" thing to do at this particular time. Preferences
 are discussed in detail in [how preferences are evaluated to decide an operator](#how-preferences-are-evaluated-to-decide-an-operator).
 
-
 ![The six operators proposed for the initial state of the blocks world each move one block to a new location.](Images/blocks-proposal.svg)
 
 ### Selecting a single operator: Decision
@@ -193,11 +192,11 @@ Soar attempts to select a single operator as a decision, based on the
 preferences available for the candidate operators. There are four different
 situations that may arise:
 
-1. The available preferences unambiguously prefer a single operator.
-2. The available preferences suggest multiple operators, and prefer a subset that can be
+1.  The available preferences unambiguously prefer a single operator.
+2.  The available preferences suggest multiple operators, and prefer a subset that can be
    selected from randomly.
-3. The available preferences suggest multiple operators,but neither case 1 or 2 above hold.
-4. The available preferences do not suggest any operators.
+3.  The available preferences suggest multiple operators,but neither case 1 or 2 above hold.
+4.  The available preferences do not suggest any operators.
 
 In the first case, the preferred operator is selected. In the second case, one of the subset is
 selected randomly. In the third and fourth cases, Soar has reached an impasse in problem
@@ -236,11 +235,11 @@ environment. Therefore, the Soar program directly makes changes to the state
 when operators are applied. There are four changes that may need to be made when
 a block is moved in our task:
 
-1. The block that is being moved is no longer where it was (it is no longer "on top" of
+1.  The block that is being moved is no longer where it was (it is no longer "on top" of
    the same thing).
-2. The block that is being moved is in a new location (it is "on top" of a new thing).
-3. The place that the block used to be in is now clear.
-4. The place that the block is moving to is no longer clear — unless it is the table, which
+2.  The block that is being moved is in a new location (it is "on top" of a new thing).
+3.  The place that the block used to be in is now clear.
+4.  The place that the block is moving to is no longer clear — unless it is the table, which
    is always considered "clear".<sup>[1](#footnote1)</sup>
 
 The blocks-world task could also be implemented using an external simulator. In this case,
@@ -362,33 +361,33 @@ suitable labels and to use them consistently.
 
 The elements in working memory arise from one of four sources:
 
-1. ***Productions***: The actions on the RHS of productions create most working memory
+1.  ***Productions***: The actions on the RHS of productions create most working memory
    elements.
-2. ***Architecture***:
-      - (a) State augmentations: The decision procedure automatically creates some special
+2.  ***Architecture***:
+      -   (a) State augmentations: The decision procedure automatically creates some special
       state augmentations (type, superstate, impasse, ...) whenever a state is created.
       States are created during initialization (the first state) or because of an impasse
       (a substate).
-      - (b) Operator augmentations: The decision procedure creates the operator
+      -   (b) Operator augmentations: The decision procedure creates the operator
       augmentation of the state based on preferences. This records the selection of
       the current operator.
-3. ***Memory Systems*** 
-4. ***SVS***
-5. ***The Environment***: External I/O systems create working memory elements on the
+3.  ***Memory Systems***
+4.  ***SVS***
+5.  ***The Environment***: External I/O systems create working memory elements on the
    input-link for sensory data.
 
 The elements in working memory are removed in six different ways:
 
-1. The decision procedure automatically removes all state augmentations it creates when
+1.  The decision procedure automatically removes all state augmentations it creates when
    the impasse that led to their creation is resolved.
-2. The decision procedure removes the operator augmentation of the state when that
+2.  The decision procedure removes the operator augmentation of the state when that
    operator is no longer selected as the current operator.
-3. Production actions that user `reject` preferences remove working memory elements that
+3.  Production actions that user `reject` preferences remove working memory elements that
    were created by other productions.
-4. The architecture automatically removes i-supported WMEs when the productions that
+4.  The architecture automatically removes i-supported WMEs when the productions that
    created them no longer match.
-5. The I/O system removes sensory data from the input-link when it is no longer valid.
-6. The architecture automatically removes WMEs that are no longer linked to a state
+5.  The I/O system removes sensory data from the input-link when it is no longer valid.
+6.  The architecture automatically removes WMEs that are no longer linked to a state
    (because some other WME has been removed).
 
 For the most part, the user is free to use any attributes and values that are appropriate for the
@@ -471,13 +470,13 @@ to that state.
 
 ### Architectural roles of productions
 
-Soar productions can fulfill the following four roles, by retrieving 
+Soar productions can fulfill the following four roles, by retrieving
 [different types of procedural knowledge](#types-of-procedural-knowledge-in-soar):
 
-1. Operator proposal
-1. Operator comparison
-1. Operator application
-1. State elaboration
+1.  Operator proposal
+1.  Operator comparison
+1.  Operator application
+1.  State elaboration
 
 A single production should not fulfill more than one of these roles (except for
 proposing an operator and creating an absolute preference for it). Although
@@ -563,21 +562,21 @@ is indifferent to B, and B is indifferent to C, A and C will not be indifferent 
 unless there is a preference that A is indifferent to C (or C and A are both indifferent to all
 competing values).
 
-- **Acceptable (+)** An `acceptable` preference states that a value is a candidate for selection.
+-   **Acceptable (+)** An `acceptable` preference states that a value is a candidate for selection.
 All values, except those with require preferences, must have an `acceptable` preference
 in order to be selected. If there is only one value with an `acceptable` preference (and
 none with a require preference), that value will be selected as long as it does not also
 have a reject or a prohibit preference.
 
-- **Reject (-)** A `reject` preference states that the value is not a candidate for selection.
+-   **Reject (-)** A `reject` preference states that the value is not a candidate for selection.
 
-- **Better (`>value`), Worse (`<value`)** A `better` or `worse` preference states, for the two
+-   **Better (`>value`), Worse (`<value`)** A `better` or `worse` preference states, for the two
 values involved, that one value should not be selected if the other value is a candidate.
 `Better` and `worse` allow for the creation of a partial ordering between candidate values.
 `Better` and `worse` are simple inverses of each other, so that A better than B is equivalent
 to be worse than A.
 
-- **Best (>)** A `best` preference states that the value may be better than any
+-   **Best (>)** A `best` preference states that the value may be better than any
 competing value (unless there are other competing values that are also "best").
 If a value is `best` (and not `rejected`, `prohibited`, or worse than another), it will
 be selected over any other value that is not also `best` (or required). If two such
@@ -589,22 +588,22 @@ explicit knowledge about the relative worth of two values to dominate knowledge
 of only a single value. A require preference should be used when a value must be
 selected for the goal to be achieved.)
 
-- **Worst (<)** A `worst` preference states that the value should be selected only if there are no
+-   **Worst (<)** A `worst` preference states that the value should be selected only if there are no
 alternatives. It allows for a simple type of default specification. The semantics of the
 worst preference are similar to those for the `best` preference.
 
-- **Unary Indifferent (=)** A `unary indifferent` preference states that there
+-   **Unary Indifferent (=)** A `unary indifferent` preference states that there
 is positive knowledge that a single value is as good or as bad a choice as other
 expected alternatives.  When two or more competing values both have indifferent
 preferences, by default, Soar chooses randomly from among the alternatives. (The
 [`decide indifferent-selection` function](../reference/cli/cmd_decide.md) can be used to change this behavior).
 
-- **Binary Indifferent (=value)** A `binary indifferent` preference states that two values
+-   **Binary Indifferent (=value)** A `binary indifferent` preference states that two values
 are mutually indifferent and it does not matter which of these values are selected. It
 behaves like a unary in different preference, except that the operator value given
 this preference is only made indifferent to the operator value given as the argument.
 
-- **Numeric-Indifferent (=number)** A `numeric-indifferent` preference is used
+-   **Numeric-Indifferent (=number)** A `numeric-indifferent` preference is used
 to bias the random selection from mutually indifferent values. This preference
 includes a unary indifferent preference, and behaves in that manner when
 competing with another value having a unary indifferent preference. But when a
@@ -621,11 +620,11 @@ learning mechanism. In this way, it’s possible for an agent to begin a task wi
 only arbitrarily initialized numeric indifferent preferences and with experience
 learn to make the optimal decisions.  See chapter 5 for more information.
 
-- **Require (!)** A `require` preference states that the value must be selected if the goal is to be
+-   **Require (!)** A `require` preference states that the value must be selected if the goal is to be
 achieved. A `required` value is preferred over all others. Only a single operator value
 should be given a `require` preference at a time.
 
-- **Prohibit (~)** A `prohibit` preference states that the value cannot be selected if the goal is
+-   **Prohibit (~)** A `prohibit` preference states that the value cannot be selected if the goal is
 to be achieved. If a value has a prohibit preference, it will not be selected for a value
 of an augmentation, independent of the other preferences.
 
@@ -654,9 +653,9 @@ exits through a arrow to the right, or passes to the next step through an arrow 
 
 Input to the procedure is the set of current operator preferences, and the output consists of:
 
-1. A subset of the candidate operators, which is either the empty set, a single, winning
+1.  A subset of the candidate operators, which is either the empty set, a single, winning
    candidate, or a larger set of candidates that may be conflicting, tied, or indifferent.
-2. An impasse-type.
+2.  An impasse-type.
 
 The procedure has several potential exit points. Some occur when the procedure has detected
 a particular type of impasse. The others occur when the number of candidates has been
@@ -666,7 +665,7 @@ reduced to one (necessarily the winner) or zero (a no-change impasse).
 
 Each step in Figure 2.8 is described below:
 
-- **RequireTest (!)** This test checks for required candidates in preference memory and also
+-   **RequireTest (!)** This test checks for required candidates in preference memory and also
 constraint-failure impasses involving require preferences, cf. [Impasses and Substates](#impasses-and-substates).
       - If there is exactly one candidate operator with a require preference and that
       candidate does not have a prohibit preference, then that candidate is the winner
@@ -679,56 +678,56 @@ constraint-failure impasses involving require preferences, cf. [Impasses and Sub
       semantics terminates.
       - Otherwise — There is no required candidate; candidates are passed to AcceptableCollect.
 
-- **AcceptableCollect (+)** This operation builds a list of operators for which there is an
+-   **AcceptableCollect (+)** This operation builds a list of operators for which there is an
 acceptable preference in preference memory. This list of candidate operators is passed
 to the ProhibitFilter.
 
-- **ProhibitFilter (~)** This filter removes the candidates that have prohibit preferences in
+-   **ProhibitFilter (~)** This filter removes the candidates that have prohibit preferences in
 memory. The rest of the candidates are passed to the RejectFilter.
 
-- **RejectFilter (-)** This filter removes the candidates that have reject preferences in mem-
+-   **RejectFilter (-)** This filter removes the candidates that have reject preferences in mem-
 ory.
 
-- **Exit Point 1**:
+-   **Exit Point 1**:
       - At this point, if the set of remaining candidates is empty, a no-change impasse is
       created with no operators being selected.
       - If the set has one member, preference semantics terminates and this set is re-
       turned.
       - Otherwise, the remaining candidates are passed to the BetterWorseFilter.
 
-- **BetterWorseFilter (>), (<)** This filter removes any candidates that are worse than an-
+-   **BetterWorseFilter (>), (<)** This filter removes any candidates that are worse than an-
 other candidate.
 
-- **Exit point 2**:  
+-   **Exit point 2**:
       - If the set of remaining candidates is empty, a conflict impasse is created returning
       the set of all candidates passed into this filter, i.e. all of the conflicted operators.
       - If the set of remaining candidates has one member, preference semantics terminates and this set is returned.
       - Otherwise, the remaining candidates are passed to the BestFilter.
 
-- **BestFilter (>)** If some remaining candidate has a best preference, this filter removes any
+-   **BestFilter (>)** If some remaining candidate has a best preference, this filter removes any
 candidates that do not have a best preference. If there are no best preferences for any
 of the current candidates, the filter has no effect. The remaining candidates are passed
 to the WorstFilter.
 
-- **Exit Point 3**:
+-   **Exit Point 3**:
       - At this point, if the set of remaining candidates is empty, a no-change impasse is
       created with no operators being selected.
       - If the set has one member, preference semantics terminates and this set is re-
       turned.
       - Otherwise, the remaining candidates are passed to the WorstFilter.
 
-- **WorstFilter (<)** This filter removes any candidates that have a `worst` preference. If all
+-   **WorstFilter (<)** This filter removes any candidates that have a `worst` preference. If all
    remaining candidates have `worst` preferences or there are no `worst` preferences, this
    filter has no effect.
 
-- **Exit Point 4**:
+-   **Exit Point 4**:
       - At this point, if the set of remaining candidates is empty, a no-change impasse is
       created with no operators being selected.
       - If the set has one member, preference semantics terminates and this set is re-
       turned.
       - Otherwise, the remaining candidates are passed to the IndifferentFilter.
 
-- **IndifferentFilter (=)** This operation traverses the remaining candidates and marks each
+-   **IndifferentFilter (=)** This operation traverses the remaining candidates and marks each
    candidate for which one of the following is true:
       - the candidate has a unary indifferent preference
       - the candidate has a numeric indifferent preference
@@ -745,22 +744,22 @@ by the [`decide indifferent-selection` command](../reference/cli/cmd_decide.md).
 The execution of a Soar program proceeds through a number of decision cycles. Each
 cycle has five phases:
 
-1. **Input**: New sensory data comes into working memory.
-2. **Proposal**: Productions fire (and retract) to interpret new data (state
+1.  **Input**: New sensory data comes into working memory.
+2.  **Proposal**: Productions fire (and retract) to interpret new data (state
    elaboration), propose operators for the current situation (operator proposal),
    and compare proposed operators (operator comparison). All of the actions of
    these productions are i-supported. All matched productions fire in parallel (and
    all retractions occur in parallel), and matching and firing continues until
    there are no more additional complete matches or retractions of productions
    (*quiescence*).
-3. **Decision**: A new operator is selected, or an impasse is detected and a new state is
+3.  **Decision**: A new operator is selected, or an impasse is detected and a new state is
    created.
-4. **Application**: Productions fire to apply the operator (operator application).
+4.  **Application**: Productions fire to apply the operator (operator application).
    The actions of these productions will be o-supported. Because of changes from
    operator application productions, other productions with i-supported actions may
    also match or retract. Just as during proposal, productions fire and retract in
    parallel until quiescence.
-5. **Output**: Output commands are sent to the external environment.
+5.  **Output**: Output commands are sent to the external environment.
 
 The cycles continue until the halt action is issued from the Soar program (as the action of
 a production) or until Soar is interrupted by the user.
@@ -803,14 +802,15 @@ When Soar interacts with an external environment, it must make use of mechanisms
 allow it to receive input from that environment and to effect changes in that environment;
 the mechanisms provided in Soar are called input functions and output functions.
 
-- **Input functions** add and delete elements from working memory in response to changes in
+-   **Input functions** add and delete elements from working memory in response to changes in
 the external environment.
-- **Output functions** attempt to effect changes in the external environment.
+-   **Output functions** attempt to effect changes in the external environment.
 
 Input is processed at the beginning of each execution cycle and output occurs at the end of
 each execution cycle. See [Soar I/O: Input and Output in Soar](./03_SyntaxOfSoarPrograms.md#soar-io-input-and-output-in-soar) for more information.
 
-A simplified version of the Soar algorithm: 
+A simplified version of the Soar algorithm:
+
 ```
 Soar
    while (HALT not true) Cycle;
@@ -880,15 +880,16 @@ decision and if they conflict, no progress can be made from the current
 situation and the impasse cannot be resolved by additional preferences.
 
 #### No-change impasse
-A *no-change* impasse arises if a new operator is not selected during
-the decision procedure. There are two types of no-change impasses: 
 
-- A **State no-change impasse** occurs when there are no `acceptable` (or `require`)
+A *no-change* impasse arises if a new operator is not selected during
+the decision procedure. There are two types of no-change impasses:
+
+-   A **State no-change impasse** occurs when there are no `acceptable` (or `require`)
 preferences to suggest operators for the current state (or all the `acceptable`
 values have also been rejected). The decision procedure cannot select a new
 operator.
 
-- A **Operator no-change impasse** occurs when either a new operator is selected for
+-   A **Operator no-change impasse** occurs when either a new operator is selected for
 the current state but no additional productions match during the application
 phase, or a new operator is not selected during the next decision phase.
 
@@ -898,8 +899,8 @@ failure impasse at the same time. In these cases, Soar detects only the constrai
 impasse.
 
 The impasse is detected *during* the selection of the operator, but happens
-because one of the four problem-solving functions (described in 
-[Problem-Solving function in Soar](#problem-solving-functions-in-soar)) 
+because one of the four problem-solving functions (described in
+[Problem-Solving function in Soar](#problem-solving-functions-in-soar))
 was incomplete.
 
 ### Creating New States
@@ -991,20 +992,20 @@ Soar must first determine the function that the working memory element or prefer
 Soar creates a temporary production, called a **justification**. The justification summarizes
 the processing in the substate that led to the result:
 
-- **The conditions** of a justification are those working memory elements that exist in the
+-   **The conditions** of a justification are those working memory elements that exist in the
 superstate (and above) that were necessary for producing the result. This is determined
 by collecting all of the working memory elements tested by the productions that fired
 in the subgoal that led to the creation of the result, and then removing those conditions
 that test working memory elements created in the subgoal.
 
-- **The action** of the justification is the result of the subgoal.
+-   **The action** of the justification is the result of the subgoal.
 
 Thus, when the substate disappears, the generated justification serves as the production that
 supports any subgoal results.
 
 Soar determines i-support or o-support for the justification and its actions
 just as it would for any other production, as described in section
-[Production Actions and Persistence](#production-actions-and-persistence). 
+[Production Actions and Persistence](#production-actions-and-persistence).
 If the justification is an operator application, the result will receive
 o-support. Otherwise, the result gets i-support from the justification. If such
 a result loses i-support from the justification, it will be retracted if there
@@ -1038,8 +1039,8 @@ Chunks and justifications are very similar in that they both summarize substate 
 They are, in fact, generated by the architecture using the same result dependency trace
 mechanisms. However, there are some important distinctions:
 
-1. Justifications disappear as soon as its conditions no longer match.
-2. Chunks contain variables so that they may match working memory in other situations;
+1.  Justifications disappear as soon as its conditions no longer match.
+2.  Chunks contain variables so that they may match working memory in other situations;
    justifications are similar to an instantiated chunk.
 
 In other words, a chunk might be thought of as a permanent and potentially more generalized
@@ -1063,12 +1064,14 @@ Side), respectively.
 
 A production must meet the following two requirements to have o-supported actions:
 
-1. The RHS has no operator proposals, i.e. nothing of the form
+1.  The RHS has no operator proposals, i.e. nothing of the form
+
    ```
    (<s> ^operator <o> +)
    ```
 
-2. The LHS has a condition that tests the current operator, i.e. something of the form
+2.  The LHS has a condition that tests the current operator, i.e. something of the form
+
    ```
    (<s> ^operator <o>)
    ```
@@ -1088,7 +1091,7 @@ sp {elaborate*state*operator\*name
    (<s> ^name something)}
 ```
 
-the RHS action gets i-support. Of course, the state bound to `<s>` is destroyed when 
+the RHS action gets i-support. Of course, the state bound to `<s>` is destroyed when
 `(<s1> ^operator <o>)` retracts, so o-support would make little difference. On the other hand, this
 production,
 
@@ -1146,24 +1149,24 @@ removed from working memory.
 
 Here are possible approaches for resolving specific types of impasses are listed below:
 
-- **Tie impasse** — A tie impasse can be resolved by productions that create preferences that
+-   **Tie impasse** — A tie impasse can be resolved by productions that create preferences that
 prefer one option (`better`, `best`, `require`), eliminate alternatives (`worse`, `worst`,
 `reject`,`prohibit`), or make all of the objects indifferent (`indifferent`).
 
-- **Conflict impasse** — A conflict impasse can be resolved by productions that
+-   **Conflict impasse** — A conflict impasse can be resolved by productions that
 create preferences to require one option (`require`), or eliminate the
 alternatives (`reject`, `prohibit`).
 
-- **Constraint-failure impasse** — A constraint-failure impasse cannot be resolved
+-   **Constraint-failure impasse** — A constraint-failure impasse cannot be resolved
 by additional preferences, but may be prevented by changing productions so that
 they create fewer `require` or `prohibit` preferences. A substate can resolve a
 constraint-failure impasse through actions that cause all but one of the
 conflicting preferences to retract.
 
-- **State no-change impasse** — A state no-change impasse can be resolved by productions
+-   **State no-change impasse** — A state no-change impasse can be resolved by productions
 that create `acceptable` or `require` preferences for operators.
 
-- **Operator no-change impasse** — An operator no-change impasse can be resolved by
+-   **Operator no-change impasse** — An operator no-change impasse can be resolved by
 productions that apply the operator, change the state so the operator proposal
 no longer matches, or cause other operators to be proposed and preferred.
 
@@ -1327,8 +1330,6 @@ context.
 The following discussion covers what the GDS does, and how that impacts
 production knowledge design and implementation.
 
-
-
 **Operation of the Goal Dependency Set**: Consider i-support. The persistence of an
 i-supported ("instantiation supported") WME depends upon the creating production
 instantiation (and, more specifically, the features the instantiation tests).
@@ -1365,19 +1366,19 @@ the dependency set is empty.
 Three types of features can be tested in the creation of an o-supported feature. Each requires
 a slightly different type of update to the dependency set.
 
-1. **Elements in the superstate**: WMEs in the superstate are added directly to the
+1.  **Elements in the superstate**: WMEs in the superstate are added directly to the
    goal’s dependency set. In Figure 2.13, the persistent subgoal item 3 is dependent upon
    A and D. These superstate WMEs are added to the subgoal’s dependency set when 3
    is added to working memory at time $t_1$. It does not matter that A is i-supported and
    Do-supported.
-2. **Local i-supported features**: Local i-supported features are not added to the goal
+2.  **Local i-supported features**: Local i-supported features are not added to the goal
    dependency set. Instead, the superstate WMEs that led to the creation of the i-
    supported feature are determined and added to the GDS. In the example, when 4
    is created,A, B and C must be added to the dependency set because they are the
    superstate features that led to 1 , which in turn led to 2 and finally 4. However, because
    item A was previously added to the dependency set at $t_1$ , it is unnecessary to add it
    again.
-3. **Local o-supported features**: The dependencies of a local o-supported feature have
+3.  **Local o-supported features**: The dependencies of a local o-supported feature have
    already been added to the state’s GDS. Thus, tests of local o-supported WMEs do not
    require additions to the dependency set. In Figure 2.13, the creation of element 5 does
    not change the dependency set because it is dependent only upon persistent items 3
@@ -1390,25 +1391,25 @@ dependency set.
 **The role of the GDS in agent desig**n: The GDS places some design time constraints
 on operator implementation. These constraints are:
 
-- Operator actions that are used to remember a previous state/situation should be asserted in the top state.
-- All operator elaborations should be i-supported.
-- Any operator with local actions should be designed to be re-entrant.
+-   Operator actions that are used to remember a previous state/situation should be asserted in the top state.
+-   All operator elaborations should be i-supported.
+-   Any operator with local actions should be designed to be re-entrant.
 
 Because any dependencies for o-supported subgoal WMEs will be added to the GDS, the
 developer must decide if an o-supported element should be represented in a substate or the
 top state. This decision is straightforward if the functional role of the persistent element is
 considered. Four important capabilities that require persistence are:
 
-1. **Reasoning hypothetically**: Some structures may need to reflect hypothetical states.
+1.  **Reasoning hypothetically**: Some structures may need to reflect hypothetical states.
    These are "assumptions" because a hypothetical inference cannot always be grounded
    in the current context. In problem solvers with truth maintenance, only assumptions
    are persistent.
-2. **Reasoning non-monotonically**: Sometimes the result of an inference changes one
+2.  **Reasoning non-monotonically**: Sometimes the result of an inference changes one
    of the structures on which the inference is dependent. As an example, consider the
    task of counting. Each newly counted item replaces the old value of the count.
-3. **Remembering**: Agents oftentimes need to remember an external situation or
+3.  **Remembering**: Agents oftentimes need to remember an external situation or
    stimulus, even when that perception is no longer available.
-4. **Avoiding Expensive Computations**: In some situations, an agent may have the
+4.  **Avoiding Expensive Computations**: In some situations, an agent may have the
    information needed to derive some belief in a new world state but the expense of
    performing the necessary computation makes this derivation undesirable. For example,
    in dynamic, complex domains, determining when to make an expensive calculation is
@@ -1428,31 +1429,31 @@ computationally expensive than attempting to identify the specific dependent ass
 
 ## Footnotes
 
-- <a name="footnote1">[1]</a>: In this blocks-world task, the table always has
+-   <a name="footnote1">[1]</a>: In this blocks-world task, the table always has
    room for another block, so it is represented as always being "clear".
-- <a name="footnote2">[2]</a>: In order to allow these links to have some
+-   <a name="footnote2">[2]</a>: In order to allow these links to have some
    substructure, the attribute name may be an identifier, which means that the
    attribute may itself have attributes and values, as specified by additional
    working memory elements.
-- <a name="footnote3">[3]</a>:  The original state is the "top" of the stack
+-   <a name="footnote3">[3]</a>:  The original state is the "top" of the stack
    because as Soar runs, this state (created first), will be at the top of the
    computer screen, and substates will appear on the screen below the top-level
    state.
-- <a name="footnote4">[4]</a>: Technically, an i-supported WME is only retracted
+-   <a name="footnote4">[4]</a>: Technically, an i-supported WME is only retracted
    when it loses instantiation support, not when the creating production is
    retracting. For example, a WME could receive i-support from several different
    instantiated productions and the retraction of only one would not lead to the
    retraction of the WME.  justification. If such a result loses i-support from the
    justification, it will be retracted if there is no other support.
-- <a name="footnote5">[5]</a>: In the past, Soar had various experimental
+-   <a name="footnote5">[5]</a>: In the past, Soar had various experimental
    support mode settings. Since version 9.6, the support mode used is what was
    previously called mode 4.  with rule syntax (explained in [Chapter
    3](./03_SyntaxOfSoarPrograms.md)) may wish to skip this section and return at a
    later point.
-- <a name="footnote6">[6]</a>: Robert E. Wray. Ensuring Reasoning Consistency in
+-   <a name="footnote6">[6]</a>: Robert E. Wray. Ensuring Reasoning Consistency in
    Hierarchical Architectures. PhD thesis, University of Michigan, 1998.
-- <a name="footnote7">[7]</a>: This subsection will primarily use "state," not
+-   <a name="footnote7">[7]</a>: This subsection will primarily use "state," not
    "goal." While these terms are often used nearly-interchangeably in the context
    of Soar, states refer to the set of WMEs comprising knowledge related to a
    peculiar level of goal. TheGoalDependency Set is the set of state elements upon
-   which a goal depends.  
+   which a goal depends.

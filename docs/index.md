@@ -19,7 +19,7 @@ If you are looking for help or discussion, please see our
 <!-- markdown-link-check-disable-next-line -->
 *   [**Soar 9.6.4 available for download**](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/SoarSuite_{{soar_version}}-Multiplatform.zip):
 This release of Soar contains lots of stability and ergonomics improvements to
-VisualSoar and the Soar debugger, as well as newly-added support for LTI aliases.
+[VisualSoar][VSIDE] and the Soar debugger, as well as newly-added support for LTI aliases.
 *   This year's Soar workshop (45th) held on May 5, 2025 was a success! We had broad
 participation from various projects using Soar, including a remarkable presentation
 from our guest speaker
@@ -33,3 +33,5 @@ available on GitHub.
 *   [**Engineer's Guide to Soar**](https://github.com/SoarGroup/Engineers-Guide-to-Soar):
 A 14-part course on programming Soar for engineers, by Bryan Stearns is now
 available on GitHub.
+
+[VSIDE]: ../docs/downloads/agent_development_tools/visualsoar.md

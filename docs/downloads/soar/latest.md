@@ -11,7 +11,7 @@ The current version of Soar is {{ soar_version }}.
 <!-- markdown-link-check-disable-next-line -->
 *   [Soar Manual PDF](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/SoarManual.pdf)
 <!-- markdown-link-check-disable-next-line -->
-*   [VisualSoar Manual PDF](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/VisualSoar_UsersManual.pdf)
+*   [[VisualSoar][VSIDE] Manual PDF](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/VisualSoar_UsersManual.pdf)
 
 If you would like to build Soar from the current source code, you'll need to
 acquire the source from our git repository [on GitHub](https://github.com/SoarGroup/Soar).
@@ -71,7 +71,7 @@ Tcl 9)
 
 ### Project Stability Improvements
 
-*   Newly designed JSON format for VisualSoar projects combining the datamap, operator
+*   Newly designed JSON format for [VisualSoar][VSIDE] projects combining the datamap, operator
 hierarchy/project layout, and comment files into one file ([#38](https://github.com/SoarGroup/VisualSoar/issues/38),
 [#5](https://github.com/SoarGroup/VisualSoar/issues/5))
     *   Far less likely to be corrupted
@@ -80,7 +80,7 @@ hierarchy/project layout, and comment files into one file ([#38](https://github.
     *   More robust to collaboration (no non-deterministic output, fewer git conflicts,
     easier to resolve if they do occur)
     *   Handles arbitrary enum strings, attribute and operator names, etc.
-    *   VisualSoar will write your project in the new format automatically, but
+    *   [VisualSoar][VSIDE] will write your project in the new format automatically, but
     will ask you to delete the old project files yourself. Effort was taken to
     eliminate any chance of data loss or other unwanted surprises.
 *   Read/write project and config files atomically
@@ -96,7 +96,7 @@ saving everything without confirmation!)
 
 ### CLI Support
 
-VisualSoar can now run project datamap validation from the command line by passing
+[VisualSoar][VSIDE] can now run project datamap validation from the command line by passing
 the arguments `--check productionsAgainstDatamap --project <path>`, where `<path>`
 is the path to your project `.vsa` or `.vsa.json`.
 
@@ -155,3 +155,5 @@ lines getting commented
     *   Parameters are now parsed with the `commons-cli` library
     *   `--help` and incorrect parameters now show CLI parameter documentation,
     so users don't have to go to the website
+
+[VSIDE]: ../../downloads/agent_development_tools/visualsoar.md

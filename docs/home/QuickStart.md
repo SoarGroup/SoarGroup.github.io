@@ -18,7 +18,7 @@ and extract to the location of your choice.
     -   Linux/Mac users can run `./SoarJavaDebugger.sh` from the terminal
 
 The other included applications are used in the tutorial, which is included under
-`documentation/`. The manuals for Soar and VisualSoar can be found there, as
+`documentation/`. The manuals for Soar and [VisualSoar][VSIDE] can be found there, as
 well.
 
 You can also build Soar from [source](https://github.com/SoarGroup/Soar) if
@@ -26,3 +26,5 @@ you'd like to work with the latest version or make changes to it.
 
 Once you have Soar running, you can follow the
 [Soar Tutorial](../tutorials/soar_tutorial/index.md) to learn how to use it.
+
+[VSIDE]: ../downloads/agent_development_tools/visualsoar.md
