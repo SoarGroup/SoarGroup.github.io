@@ -17,16 +17,11 @@ If you are looking for help or discussion, please see our
 ## News and Announcements
 
 <!-- markdown-link-check-disable-next-line -->
-*   [**Soar 9.6.4 available for download**](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/SoarSuite_{{soar_version}}-Multiplatform.zip):
-This release of Soar contains lots of stability and ergonomics improvements to
-VisualSoar and the Soar debugger, as well as newly-added support for LTI aliases.
-*   This year's Soar workshop (45th) held on May 5, 2025 was a success! We had broad
-participation from various projects using Soar, including a remarkable presentation
-from our guest speaker
-[Professor Jonathan Cohen](https://pni.princeton.edu/people/jonathan-cohen) of Princeton.
-Recordings and supporting information from all the 2025 workshop talks can be found
-[here](workshops/45.md).
-
+*   [**Soar 9.6.5 available for download**](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/SoarSuite_{{soar_version}}-Multiplatform.zip):
+This release introduces the `$` test-literalization operator for finer control
+over chunking, migrates the build system to CMake, and ships SWIG bindings
+for Python, Java, Tcl, C#, and JavaScript, alongside a range of chunking,
+EpMem, and SMem bug fixes.
 *   [`soar_ros`](https://github.com/THA-Embedded-Systems-Lab/soar_ros), a ROS2
 package by Moritz Schmidt that enables integration between ROS and Soar, is now
 available on GitHub.

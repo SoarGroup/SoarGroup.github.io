@@ -206,7 +206,7 @@ wm add id [^]attribute value [+]
 | `id`        | Must be an existing identifier.                                                 |
 | `^`         | Leading `^` on attribute is optional.                                           |
 | `attribute` | Attribute can be any Soar symbol. Use `*` to have Soar create a new identifier. |
-| `value`     | Value can be any soar symbol. Use `*` to have Soar create a new identifier.     |
+| `value`     | Value can be any soar symbol. Use `*` to have Soar create a new identifier. You may also supply an explicit identifier name (e.g. `X7`); Soar will reuse that identifier if it exists, or create it at the parent id's level otherwise. |
 | `+`         | If the optional preference is specified, its value must be `+` (acceptable).    |
 
 ### Description
@@ -245,13 +245,21 @@ left off in this case.
 wm add Z2 message * +
 ```
 
+This example attaches `^link X7` to `S1`, reusing the identifier `X7` if it
+already exists or creating it at `S1`'s level otherwise.
+
+```bash
+wm add S1 ^link X7
+```
+
 ### Warnings
 
 Be careful how you use this command. It may have weird side effects (possibly
 even including system crashes). For example, the chunking mechanism can't
-backtrace through WMEs created via `wm add` nor will such WMEs ever be removed
-through Soar's garbage collection. Manually removing context/impasse WMEs may
-have unexpected side effects.
+backtrace through WMEs created via `wm add` (including wmes attached using
+an explicit identifier value) nor will such WMEs ever be removed through
+Soar's garbage collection. Manually removing context/impasse WMEs may have
+unexpected side effects.
 
 ---
 

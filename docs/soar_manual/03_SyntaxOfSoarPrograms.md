@@ -680,6 +680,46 @@ variables, as demonstrated in the last illegal conjunction above. Any such test
 can instead be coded in simpler terms by only using one variable in the places
 where either would be referenced throughout the rule.
 
+##### Constant match literalization with `$`
+
+When the chunker produces a rule from a sub-state match, constants in
+conditions that matched the substructure are often *variabilized* — they are
+replaced by a variable in the learned chunk. This is usually what you want,
+but sometimes it over-generalizes: you wanted the chunk to keep the specific
+constant you tested.
+
+The `$` operator marks a constant test as **literal**, so the chunker will
+leave it alone.
+
+The shorthand form prefixes the value variable with `$`:
+
+```Soar
+sp {apply-bt1
+    (state <s> ^operator
+               ^superstate <ss>)
+    (<ss> ^foo $ <x>
+          ^foo2 {<> homer <z>})
+-->
+    (<s> ^continue1 true)
+}
+```
+
+Here `^foo $ <x>` binds `<x>` to whatever value `^foo` has *and* tells Soar
+that if this condition contributes to a chunk, the literal constant that
+matched should survive rather than be replaced by a variable.
+
+The shorthand above is sugar for the explicit conjunctive form
+`{<x> $$ <x>}`. Use `$$` when you want to be precise, or when combining
+literalization with other tests in the same conjunction:
+
+```Soar
+(state <s> ^value {<z> $$ <z> < 5})
+```
+
+When Soar prints a production back out, a plain `{<x> $$ <x>}` is simplified
+to `$ <x>`, but conjunctions like `{<z> $$ <z> < 5}` are preserved in the
+explicit form because they cannot be shortened.
+
 #### Negated conditions
 
 In addition to the positive tests for elements in working memory, conditions can

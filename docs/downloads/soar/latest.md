@@ -16,6 +16,62 @@ The current version of Soar is {{ soar_version }}.
 If you would like to build Soar from the current source code, you'll need to
 acquire the source from our git repository [on GitHub](https://github.com/SoarGroup/Soar).
 
+## Soar 9.6.5 Release Notes
+
+### New Features
+
+*   New `$` / `$$` operator in production conditions marks a constant test as
+    literal so the chunker will not variabilize it.
+    See the Soar Manual section
+    [Constant match literalization with `$`](../../soar_manual/03_SyntaxOfSoarPrograms.md).
+*   `wm add` (alias `add-wme`) now accepts an explicit identifier as the value.
+    Soar will reuse the identifier if it already exists, or create it at the
+    parent id's level otherwise. Chunking does not backtrace through wmes
+    added this way.
+*   Negative numbers can now be used as CLI arguments without being
+    misinterpreted as command flags.
+
+### Build & Packaging
+
+*   CMake is now the primary build system. SCons is still supported.
+*   Multi-platform release workflow covers Windows, Linux, and macOS
+    (x86-64 and ARM64).
+*   CPack produces `.tar.gz` on all platforms, `.zip` on Windows, and
+    `.deb` on Linux. `compile_commands.json` is emitted for IDE/tooling use.
+
+### Bindings
+
+*   SWIG bindings for Python, Java, Tcl, C#, and JavaScript are now built
+    via CMake.
+*   Python bindings use the stable ABI (`Py_LIMITED_API`), producing a
+    single `.pyd` on Windows that works across Python 3.8+.
+*   TclSoarLib is a first-class CMake target.
+
+### Bug Fixes
+
+*   **Chunking:** refcount-decrement fix during state cleanup when
+    justifications held OSK knowledge; workaround for a conjunctive-conditions
+    chunking bug; first-instance literalization path fixed.
+*   **Episodic Memory:** refcount / id-reservation fix around exclusions and
+    orphaned wmes (previously surfaced as UNIQUE-constraint violations).
+*   **Semantic Memory:** use-after-free on orphaned justifications fixed.
+    When SMem tracing is enabled, each store now prints a single `@` marker
+    (analogous to `*` for rule fires) instead of a multi-line block per wme.
+*   Atomic operations now work correctly on 32-bit architectures.
+
+### API
+
+*   `GetParameterValue` now throws on bad calls
+    ([PR #465](https://github.com/SoarGroup/Soar/pull/465)). SWIG bindings
+    propagate exceptions instead of silently returning defaults.
+*   64-bit integer extensions in the kernel.
+
+### Platform Support
+
+*   Java 11 is the minimum supported JRE for the Debugger and Java bindings.
+*   In Release builds, the Java Debugger launcher silences GTK/SWT stderr
+    noise on Linux. Debug builds still show stderr.
+
 ## Soar 9.6.4 Release Notes
 
 ### New Features
