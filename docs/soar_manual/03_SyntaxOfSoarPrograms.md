@@ -709,16 +709,31 @@ that if this condition contributes to a chunk, the literal constant that
 matched should survive rather than be replaced by a variable.
 
 The shorthand above is sugar for the explicit conjunctive form
-`{<x> $$ <x>}`. Use `$$` when you want to be precise, or when combining
+
+```Soar
+{<x> $$ <x>}
+```
+
+Use the `$$` form when you want to be precise, or when combining
 literalization with other tests in the same conjunction:
 
 ```Soar
 (state <s> ^value {<z> $$ <z> < 5})
 ```
 
-When Soar prints a production back out, a plain `{<x> $$ <x>}` is simplified
-to `$ <x>`, but conjunctions like `{<z> $$ <z> < 5}` are preserved in the
-explicit form because they cannot be shortened.
+When Soar prints a production back out, a plain literalization like
+
+```Soar
+{<x> $$ <x>}
+```
+
+is simplified to `$ <x>`, but conjunctions like
+
+```Soar
+{<z> $$ <z> < 5}
+```
+
+are preserved in the explicit form because they cannot be shortened.
 
 #### Negated conditions
 

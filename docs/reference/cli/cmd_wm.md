@@ -206,7 +206,7 @@ wm add id [^]attribute value [+]
 | `id`        | Must be an existing identifier.                                                 |
 | `^`         | Leading `^` on attribute is optional.                                           |
 | `attribute` | Attribute can be any Soar symbol. Use `*` to have Soar create a new identifier. |
-| `value`     | Value can be any soar symbol. Use `*` to have Soar create a new identifier. You may also supply an explicit identifier name (e.g. `X7`); Soar will reuse that identifier if it exists, or create it at the parent id's level otherwise. |
+| `value`     | Value can be any soar symbol. Use `*` to have Soar create a new identifier. |
 | `+`         | If the optional preference is specified, its value must be `+` (acceptable).    |
 
 ### Description

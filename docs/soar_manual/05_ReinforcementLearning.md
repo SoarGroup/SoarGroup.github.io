@@ -445,11 +445,9 @@ In an effort to maintain backwards compatibility, the default exploration
 policy is `softmax`. As a result, one should change to `epsilon-greedy` or
 `boltzmann` when the reinforcement learning mechanism is enabled.
 
-### GQ(λ)
-<!-- Math mode not supported in headings and TOCs, therefore changed to
-unicode character. -->
+### GQ($\lambda$)
 
-_Sarsa($\lambda$)_ and _Watkin’s Q($\lambda$)_ help agents to solve the
+Sarsa($\lambda$) and Watkin's Q($\lambda$) help agents to solve the
 temporal credit assignment problem more quickly. However, if you wish to
 implement something akin to CMACs to generalize from experience, convergence is
 not guaranteed by these algorithms. $GQ(\lambda)$ is a gradient descent
