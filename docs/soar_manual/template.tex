@@ -16,6 +16,8 @@ $endif$
 \usepackage[figure,figure*]{hypcap}   % to correct anchor placement for figures
 \usepackage{tabularx}
 \usepackage{longtable}
+\usepackage{caption}            % needed for \LTcaptype in uncaptioned longtables (pandoc >=3.x)
+\newcounter{none}               % pandoc 3.x emits \def\LTcaptype{none}; longtable needs the counter to exist
 \usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{float}
@@ -23,7 +25,7 @@ $endif$
 % soar version information
 \newcommand{\SoarVersionMajor}{9}
 \newcommand{\SoarVersionMinor}{6}
-\newcommand{\SoarVersionRevision}{4}
+\newcommand{\SoarVersionRevision}{5}
 
 $if(linestretch)$
 \usepackage{setspace}
@@ -42,6 +44,59 @@ $if(mathspec)$
   \fi
 $else$
   \usepackage{unicode-math} % this also loads fontspec
+  % Safety net: if any Unicode math glyph leaks into a text-mode context
+  % (e.g. a heading's TOC entry where lualatex can't switch to math mode),
+  % map it back to an ensuremath math command so the math font
+  % provides the glyph. Without this, warnings like "Missing character
+  % U+1D706 in font rm-lmr12" can appear for headings containing math lambda.
+  \IfFileExists{newunicodechar.sty}{%
+  \usepackage{newunicodechar}
+  \newunicodechar{𝐴}{\ensuremath{A}}
+  \newunicodechar{𝐵}{\ensuremath{B}}
+  \newunicodechar{𝐶}{\ensuremath{C}}
+  \newunicodechar{𝐷}{\ensuremath{D}}
+  \newunicodechar{𝐸}{\ensuremath{E}}
+  \newunicodechar{𝐹}{\ensuremath{F}}
+  \newunicodechar{𝐺}{\ensuremath{G}}
+  \newunicodechar{𝐿}{\ensuremath{L}}
+  \newunicodechar{𝑂}{\ensuremath{O}}
+  \newunicodechar{𝑄}{\ensuremath{Q}}
+  \newunicodechar{𝑅}{\ensuremath{R}}
+  \newunicodechar{𝑆}{\ensuremath{S}}
+  \newunicodechar{𝑊}{\ensuremath{W}}
+  \newunicodechar{𝑎}{\ensuremath{a}}
+  \newunicodechar{𝑏}{\ensuremath{b}}
+  \newunicodechar{𝑐}{\ensuremath{c}}
+  \newunicodechar{𝑑}{\ensuremath{d}}
+  \newunicodechar{𝑒}{\ensuremath{e}}
+  \newunicodechar{𝑖}{\ensuremath{i}}
+  \newunicodechar{𝑘}{\ensuremath{k}}
+  \newunicodechar{𝑙}{\ensuremath{l}}
+  \newunicodechar{𝑛}{\ensuremath{n}}
+  \newunicodechar{𝑜}{\ensuremath{o}}
+  \newunicodechar{𝑟}{\ensuremath{r}}
+  \newunicodechar{𝑠}{\ensuremath{s}}
+  \newunicodechar{𝑡}{\ensuremath{t}}
+  \newunicodechar{𝑢}{\ensuremath{u}}
+  \newunicodechar{𝑣}{\ensuremath{v}}
+  \newunicodechar{𝑤}{\ensuremath{w}}
+  \newunicodechar{𝑥}{\ensuremath{x}}
+  \newunicodechar{𝑦}{\ensuremath{y}}
+  \newunicodechar{𝛼}{\ensuremath{\alpha}}
+  \newunicodechar{𝛾}{\ensuremath{\gamma}}
+  \newunicodechar{𝛿}{\ensuremath{\delta}}
+  \newunicodechar{𝜆}{\ensuremath{\lambda}}
+  \newunicodechar{𝜙}{\ensuremath{\phi}}
+  \newunicodechar{…}{\ensuremath{\dots}}
+  \newunicodechar{′}{\ensuremath{'}}
+  \newunicodechar{∈}{\ensuremath{\in}}
+  \newunicodechar{∑}{\ensuremath{\sum}}
+  \newunicodechar{−}{\ensuremath{-}}
+  \newunicodechar{∧}{\ensuremath{\wedge}}
+  \newunicodechar{∨}{\ensuremath{\vee}}
+  \newunicodechar{≤}{\ensuremath{\leq}}
+  \newunicodechar{⋅}{\ensuremath{\cdot}}
+  }{}%
 $endif$
   \defaultfontfeatures{Scale=MatchLowercase}$-- must come before Beamer theme
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
@@ -49,7 +104,14 @@ $endif$
 $if(fontfamily)$
 $else$
 $-- Set default font before Beamer theme so the theme can override it
+% Only load lmodern Type1 fonts under pdflatex. Under lualatex/xelatex
+% we use unicode-math + latinmodern-math via the iftex branch above.
+% Loading lmodern unconditionally here would clobber the unicode-math
+% setup and cause Unicode math glyphs (e.g. U+1D706 lambda) to be
+% requested from the Type1 text font, which doesn't contain them.
+\ifPDFTeX
 \usepackage{lmodern}
+\fi
 $endif$
 $-- Set Beamer theme before user font settings so they can override theme
 $if(beamer)$
@@ -180,20 +242,24 @@ $endif$
 $if(listings)$
 \usepackage{listings}
 \lstset{
-    basicstyle=\ttfamily,
+    basicstyle=\small\ttfamily,
     showspaces=false,
     showstringspaces=false,
     showtabs=false,
     captionpos=b,
     breaklines=true,
-    breakatwhitespace=true,
-    breakautoindent=true,
-    linewidth=\textwidth
+    breakatwhitespace=false,
+    breakautoindent=false,
+    breakindent=0pt,
+    columns=fullflexible,
+    keepspaces=true,
+    linewidth=\textwidth,
+    mathescape=false
 }
 \makeatother
 
 % \newcommand{\passthrough}[1]{#1}
-\newcommand{\passthrough}[1]{\lstset{mathescape=false}#1\lstset{mathescape=true}}
+\newcommand{\passthrough}[1]{\lstset{mathescape=false}#1\lstset{mathescape=false}}
 \lstset{defaultdialect=[5.3]Lua}
 \lstset{defaultdialect=[x86masm]Assembler}
 $endif$
