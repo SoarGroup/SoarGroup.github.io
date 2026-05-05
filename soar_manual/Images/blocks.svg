@@ -1,0 +1,95 @@
+<svg width="520" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      /* Default styles */
+      .platform { fill: lightgray; stroke: black; }
+      .block-face { fill: white; stroke: black; }
+      .text { fill: black; }
+
+      /* Dark mode styles */
+      <!-- @media (prefers-color-scheme: dark) { -->
+      <!-- check user's site setting (slate is dark mode) -->
+      [data-md-color-scheme="slate"] {
+        .platform { fill: darkgray; stroke: white; }
+        .text { fill: white; }
+        /* Keep text on block faces black in dark mode */
+        g .text { fill: black; }
+      }
+    </style>
+  </defs>
+
+  <!-- Initial State platform -->
+  <rect class="platform" x="140" y="160" width="275" height="60" transform="skewX(-30)" />
+
+  <!-- Cubes in Initial State -->
+  <g transform="translate(-10,50)">
+    <!-- Block A -->
+    <!-- Front face -->
+    <polygon class="block-face" points="70,100 120,100 120,150 70,150" />
+    <!-- Top face -->
+    <polygon class="block-face" points="70,100 120,100 130,90 80,90" />
+    <!-- Right face -->
+    <polygon class="block-face" points="120,100 130,90 130,140 120,150" />
+    <!-- Text -->
+    <text x="95" y="135" font-family="Verdana" font-size="24" text-anchor="middle" class="text">A</text>
+
+    <!-- Block B -->
+    <!-- Front face -->
+    <polygon class="block-face" points="150,100 200,100 200,150 150,150" />
+    <!-- Top face -->
+    <polygon class="block-face" points="150,100 200,100 210,90 160,90" />
+    <!-- Right face -->
+    <polygon class="block-face" points="200,100 210,90 210,140 200,150" />
+    <!-- Text -->
+    <text x="175" y="135" font-family="Verdana" font-size="24" text-anchor="middle" class="text">B</text>
+
+    <!-- Block C -->
+    <!-- Front face -->
+    <polygon class="block-face" points="230,100 280,100 280,150 230,150" />
+    <!-- Top face -->
+    <polygon class="block-face" points="230,100 280,100 290,90 240,90" />
+    <!-- Right face -->
+    <polygon class="block-face" points="280,100 290,90 290,140 280,150" />
+    <!-- Text -->
+    <text x="255" y="135" font-family="Verdana" font-size="24" text-anchor="middle" class="text">C</text>
+  </g>
+
+  <!-- Initial State label -->
+  <text x="150" y="250" font-family="Verdana" font-size="18" text-anchor="middle" class="text">Initial State</text>
+
+  <!-- Goal platform -->
+  <rect class="platform" x="480" y="160" width="120" height="60" transform="skewX(-30)" />
+
+  <!-- Cubes in Goal State -->
+  <g transform="translate(-120,0)">
+    <!-- Block A -->
+    <!-- Front face -->
+    <polygon class="block-face" points="525,50 575,50 575,100 525,100" />
+    <!-- Top face -->
+    <polygon class="block-face" points="525,50 575,50 585,40 535,40" />
+    <!-- Right face -->
+    <polygon class="block-face" points="575,50 585,40 585,90 575,100" />
+    <!-- Text -->
+    <text x="550" y="85" font-family="Verdana" font-size="24" text-anchor="middle" class="text">A</text>
+
+    <!-- Block B -->
+    <!-- Front face -->
+    <polygon class="block-face" points="525,100 575,100 575,150 525,150" />
+    <!-- Right face -->
+    <polygon class="block-face" points="575,100 585,90 585,140 575,150" />
+    <!-- Text -->
+    <text x="550" y="135" font-family="Verdana" font-size="24" text-anchor="middle" class="text">B</text>
+
+    <!-- Block C -->
+    <!-- Front face -->
+    <polygon class="block-face" points="525,150 575,150 575,200 525,200" />
+    <!-- Right face -->
+    <polygon class="block-face" points="575,150 585,140 585,190 575,200" />
+    <!-- Text -->
+    <text x="550" y="185" font-family="Verdana" font-size="24" text-anchor="middle" class="text">C</text>
+  </g>
+
+  <!-- Goal label -->
+  <text x="420" y="250" font-family="Verdana" font-size="18" text-anchor="middle" class="text">Goal</text>
+
+</svg>
