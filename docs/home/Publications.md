@@ -8,6 +8,19 @@ tags:
 
 # Publications
 
+## 2026
+
+Laird, J. E., Lebiere, C., Rosenbloom, P. S., & Stocco, A. (2026). Unified, Comprehensive Metacognition within the Common Model of Cognition. Proceedings of the 19th Annual Conference on Artificial General Intelligence. In press.
+
+Ganeriwala, P., Chambers, C., Lathrop, J. I., Bhattacharyya, S., Babar, J., Gilbert, S. B., Amundson, I., Dorneich, M. C., & Khan, M. A. H. (2026). Formal Analysis of Stochastic Cognitive Models: A Translation Framework from Soar to PRISM. NASA Formal Methods Symposium, 192-213.
+
+Ganeriwala, P., Chambers, C., Bhattacharyya, S., Amundson, I., & Babar, J. (2026). Compositional Reasoning over System Architectures with Integrated Cognitive Models. 2026 IEEE International Systems Conference (SysCon), 1-8.
+
+Jones, S. J., Wray, R. E., & Laird, J. E. (2026). Requirements for
+Aligned, Dynamic Resolution of Conflicts in Operational
+Constraints. Proceedings of the
+AAAI Conference on Artificial Intelligence, 40(44), 37481–37490.
+
 ## 2025
 
 Rosenbloom, P. S., Laird, J. E., Lebiere, C., & Stocco, A. (2025). [Mapping
@@ -122,6 +135,8 @@ Wu, S., Souza, R. F., Ritter, F. E., & Lima Jr, W. T. (2024). [Comparing LLMs fo
 Jones, S. J., & Wray, R. E. (2024). [Toward Constraint Compliant Goal Formulation and Planning.](https://arxiv.org/abs/2405.12862) *Advances in Cognitive Systems (ACS).*
 
 Wray, R. E., Kirk, J. R., & Laird, J. E. (2024). [Eliciting Problem Specifications via Large Language Models.](https://arxiv.org/abs/2405.12147) *Advances in Cognitive Systems (ACS).*
+
+Laird, J. E., Lebiere, C., Reitter, D., Rosenbloom, P. S., & Stocco, A. (2024). Report on the AAAI 2023 Fall Symposium on "Integrating Cognitive Architectures and Generative Models." Interactive AI Magazine.
 
 ## 2023
 
