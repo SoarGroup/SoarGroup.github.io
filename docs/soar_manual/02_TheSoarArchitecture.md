@@ -279,7 +279,7 @@ The complete problem space for the blocks world is shown in Figure 2.6. Typicall
 ![The problem space in the blocks-world includes all operators that move blocks from one location to another and all possible configurations of the three blocks.](Images/blocks-ps.svg)
 
 Soar solves a problem in this problem space, it does not explicitly generate all of the states,
-examine them, and then create a path. Instead, Soar isin a specific state at a given time
+examine them, and then create a path. Instead, Soar is in a specific state at a given time
 (represented in working memory), attempting to select an operator that will move it to a
 new state. It uses whatever knowledge it has about selecting operators given the current
 situation, and if its knowledge is sufficient, it will move toward its goal.
