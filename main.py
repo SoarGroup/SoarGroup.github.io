@@ -15,11 +15,16 @@ def define_env(env):
 
     @env.macro
     def tutorial_wip_warning(file_name):
+        # Emitted as an admonition rather than a heading so it does not add a
+        # second <h1> to the page, which suppresses the "On this page" outline.
+        file_name = file_name.strip()
+        url = (
+            "https://github.com/SoarGroup/Soar/releases/download/"
+            f"releases%2F{soar_version()}/{file_name}"
+        )
         return (
-            "# 🚧 Under Construction 🚧\n The HTML version of the tutorial "
-            "is currently under construction; in particular, the figure "
-            "annotations are missing. You may wish to view the PDF version "
-            f"[here](https://github.com/SoarGroup/Soar/releases/download/releases%2F{soar_version()}/{file_name}) "
-            "instead."
-
+            '!!! warning "Under Construction"\n\n'
+            "    The HTML version of the tutorial is currently under "
+            "construction; in particular, the figure annotations are missing. "
+            f"You may wish to view the PDF version [here]({url}) instead.\n"
         )
