@@ -7,6 +7,9 @@ Los Angeles, CA
 [Original Proceedings Page](index_original.html)
 
 ![Participant group photo](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/workshops/20/group.jpg)
+/// caption
+Participant group photo
+///
 
 ## Schedule
 

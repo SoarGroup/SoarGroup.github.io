@@ -32,5 +32,4 @@ jobs:
         config: '.markdownlint.json'
 
     - run: pip install -r requirements.txt
-    - run: mkdocs build -s -v
-
+    - run: zensical build --clean

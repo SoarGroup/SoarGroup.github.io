@@ -20,6 +20,9 @@ operator (a state can have only one operator at a time), until the goal has been
 The selection and application of operators is illustrated in Figure 2.1.
 
 ![Soar is continually trying to select and apply operators.](Images/select-apply.svg)
+/// caption
+Soar is continually trying to select and apply operators.
+///
 
 Soar has separate memories (and different representations) for descriptions of its current
 situation and its long-term procedural knowledge. In Soar, the current situation, including
@@ -45,20 +48,20 @@ problem, and a means of recognizing that the goal has been achieved.
 
 Soar’s procedural knowledge can be categorized into four distinct types of knowledge:
 
-1. *Inference Rules*  
+1. *Inference Rules*
    In Soar, we call these state elaborations. This knowledge provides monotonic inferences
    that can be made about the state in a given situation. The knowledge created by such
    rules are not persistent and exist only as long as the conditions of the rules are met.
-2. *Operator Proposal Knowledge*  
+2. *Operator Proposal Knowledge*
    Knowledge about when a particular operator is appropriate for a situation. Note
    that multiple operators may be appropriate in a given context. So, Soar also needs
    knowledge to determine which of the candidates to choose:
-3. *Operator Selection Knowledge*  
+3. *Operator Selection Knowledge*
    Knowledge about the desirability of an operator in a particular situation.
    Such knowledge can be either in terms of a single operator (e.g. never choose
    this operator in this
    situation) or relational (e.g. prefer this operator over another in this situation).
-4. *Operator Application Rules*  
+4. *Operator Application Rules*
    Knowledge of how a specific selected operator modifies the state. This knowledge
    creates persistent changes to the state that remain even after the rule no longer matches
    or the operator is no longer selected.
@@ -117,6 +120,9 @@ and can be [viewed in the manual here](blocksworld.md#blocksworld-soar-rules).
 You do not need to look at the code at this point.
 
 ![The initial state and goal of the &quot;blocks-world&quot; task.](Images/blocks.svg)
+/// caption
+The initial state and goal of the &quot;blocks-world&quot; task.
+///
 
 The operators in this task move a single block from its current location to a new location;
 each operator is represented with the following information:
@@ -160,9 +166,15 @@ within the rule’s programming.
 
 <!-- Figure 2.3 -->
 ![An abstract illustration of the initial state of the blocks world as working memory objects. At this stage of problem solving, no operators have been proposed or selected.](Images/ab-wmem.svg)
+/// caption
+An abstract illustration of the initial state of the blocks world as working memory objects. At this stage of problem solving, no operators have been proposed or selected.
+///
 
 <!-- Figure 2.4 -->
 ![An abstract illustration of working memory in the blocks world after the first operator has been selected.](Images/ab-wmem2.svg)
+/// caption
+An abstract illustration of working memory in the blocks world after the first operator has been selected.
+///
 
 ### Proposing candidate operators
 
@@ -186,6 +198,9 @@ are discussed in detail in [how preferences are evaluated to decide an operator]
 
 
 ![The six operators proposed for the initial state of the blocks world each move one block to a new location.](Images/blocks-proposal.svg)
+/// caption
+The six operators proposed for the initial state of the blocks world each move one block to a new location.
+///
 
 ### Selecting a single operator: Decision
 
@@ -277,6 +292,9 @@ for proposing operators will restrict an operator to be considered only when it 
 The complete problem space for the blocks world is shown in Figure 2.6. Typically, when
 
 ![The problem space in the blocks-world includes all operators that move blocks from one location to another and all possible configurations of the three blocks.](Images/blocks-ps.svg)
+/// caption
+The problem space in the blocks-world includes all operators that move blocks from one location to another and all possible configurations of the three blocks.
+///
 
 Soar solves a problem in this problem space, it does not explicitly generate all of the states,
 examine them, and then create a path. Instead, Soar isin a specific state at a given time
@@ -372,7 +390,7 @@ The elements in working memory arise from one of four sources:
       - (b) Operator augmentations: The decision procedure creates the operator
       augmentation of the state based on preferences. This records the selection of
       the current operator.
-3. ***Memory Systems*** 
+3. ***Memory Systems***
 4. ***SVS***
 5. ***The Environment***: External I/O systems create working memory elements on the
    input-link for sensory data.
@@ -414,6 +432,9 @@ conditions and a set of actions. If the conditions of a production match working
 memory, the production *fires*, and the actions are performed.
 
 ![An abstract view of production memory. The productions are not related to one another.](Images/ab-prodmem.svg)
+/// caption
+An abstract view of production memory. The productions are not related to one another.
+///
 
 ### The structure of a production
 
@@ -471,7 +492,7 @@ to that state.
 
 ### Architectural roles of productions
 
-Soar productions can fulfill the following four roles, by retrieving 
+Soar productions can fulfill the following four roles, by retrieving
 [different types of procedural knowledge](#types-of-procedural-knowledge-in-soar):
 
 1. Operator proposal
@@ -663,6 +684,9 @@ a particular type of impasse. The others occur when the number of candidates has
 reduced to one (necessarily the winner) or zero (a no-change impasse).
 
 ![An illustration of the preference resolution process. There are eight steps; only five of these provide exits from the resolution process.](Images/newprefsem.svg)
+/// caption
+An illustration of the preference resolution process. There are eight steps; only five of these provide exits from the resolution process.
+///
 
 Each step in Figure 2.8 is described below:
 
@@ -699,7 +723,7 @@ ory.
 - **BetterWorseFilter (>), (<)** This filter removes any candidates that are worse than an-
 other candidate.
 
-- **Exit point 2**:  
+- **Exit point 2**:
       - If the set of remaining candidates is empty, a conflict impasse is created returning
       the set of all candidates passed into this filter, i.e. all of the conflicted operators.
       - If the set of remaining candidates has one member, preference semantics terminates and this set is returned.
@@ -776,6 +800,9 @@ set of matching productions, another cycle ensues. This repeats until the set of
 rules remains unchanged, a situation called **quiescence**.
 
 ![A detailed illustration of Soar’s decision cycle.](Images/decisioncycle.svg)
+/// caption
+A detailed illustration of Soar’s decision cycle.
+///
 
 After quiescence is reached in the *Proposal* phase, the *Decision* phase ensues, which is the
 architectural selection of a single operator, if possible. Once an operator is selected, the
@@ -810,7 +837,7 @@ the external environment.
 Input is processed at the beginning of each execution cycle and output occurs at the end of
 each execution cycle. See [Soar I/O: Input and Output in Soar](./03_SyntaxOfSoarPrograms.md#soar-io-input-and-output-in-soar) for more information.
 
-A simplified version of the Soar algorithm: 
+A simplified version of the Soar algorithm:
 ```
 Soar
    while (HALT not true) Cycle;
@@ -881,7 +908,7 @@ situation and the impasse cannot be resolved by additional preferences.
 
 #### No-change impasse
 A *no-change* impasse arises if a new operator is not selected during
-the decision procedure. There are two types of no-change impasses: 
+the decision procedure. There are two types of no-change impasses:
 
 - A **State no-change impasse** occurs when there are no `acceptable` (or `require`)
 preferences to suggest operators for the current state (or all the `acceptable`
@@ -898,8 +925,8 @@ failure impasse at the same time. In these cases, Soar detects only the constrai
 impasse.
 
 The impasse is detected *during* the selection of the operator, but happens
-because one of the four problem-solving functions (described in 
-[Problem-Solving function in Soar](#problem-solving-functions-in-soar)) 
+because one of the four problem-solving functions (described in
+[Problem-Solving function in Soar](#problem-solving-functions-in-soar))
 was incomplete.
 
 ### Creating New States
@@ -934,6 +961,9 @@ subgoals are considered to be added to the bottom of the stack; the first state 
 called the *top-level state.*<sup>[3](#footnote3)</sup> See Figure 2.11 for a simplified illustrations of a subgoal stack.
 
 ![A simplified illustration of a subgoal stack.](Images/stack1.svg)
+/// caption
+A simplified illustration of a subgoal stack.
+///
 
 Soar continually attempts to retrieve knowledge relevant to all goals in the subgoal stack,
 although problem-solving activity will tend to focus on the most recently created state.
@@ -1004,7 +1034,7 @@ supports any subgoal results.
 
 Soar determines i-support or o-support for the justification and its actions
 just as it would for any other production, as described in section
-[Production Actions and Persistence](#production-actions-and-persistence). 
+[Production Actions and Persistence](#production-actions-and-persistence).
 If the justification is an operator application, the result will receive
 o-support. Otherwise, the result gets i-support from the justification. If such
 a result loses i-support from the justification, it will be retracted if there
@@ -1088,7 +1118,7 @@ sp {elaborate*state*operator\*name
    (<s> ^name something)}
 ```
 
-the RHS action gets i-support. Of course, the state bound to `<s>` is destroyed when 
+the RHS action gets i-support. Of course, the state bound to `<s>` is destroyed when
 `(<s1> ^operator <o>)` retracts, so o-support would make little difference. On the other hand, this
 production,
 
@@ -1359,8 +1389,14 @@ Figure 2.13, at time $t_0$ , because only i-supported features have been created
 the dependency set is empty.
 
 ![Simplified Representation of the context dependencies (above the line), local o-supported WMEs (below the line), and the generation of a result. Prior to GDS, this situation led to non-contemporaneous constraints in the chunk that generates 3.](Images/simple-ncc.svg)
+/// caption
+Simplified Representation of the context dependencies (above the line), local o-supported WMEs (below the line), and the generation of a result. Prior to GDS, this situation led to non-contemporaneous constraints in the chunk that generates 3.
+///
 
 ![The Dependency Set in Soar.](Images/gomor-o-support.svg)
+/// caption
+The Dependency Set in Soar.
+///
 
 Three types of features can be tested in the creation of an o-supported feature. Each requires
 a slightly different type of update to the dependency set.
@@ -1455,4 +1491,4 @@ computationally expensive than attempting to identify the specific dependent ass
    "goal." While these terms are often used nearly-interchangeably in the context
    of Soar, states refer to the set of WMEs comprising knowledge related to a
    peculiar level of goal. TheGoalDependency Set is the set of state elements upon
-   which a goal depends.  
+   which a goal depends.

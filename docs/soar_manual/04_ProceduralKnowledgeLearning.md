@@ -152,6 +152,9 @@ To remedy this limitation and produce more general chunks, EBBS creates and
 analyzes a behavior trace. Figure below shows an example behavior trace.
 
 ![A close-up of a trace showing differences between a working memory trace (left) and a behavior trace (right). The working memory trace only contains the literal values of the WMEs that matched. The behavior trace, on the other hand, contains variables and various constraints on the values those variables can hold.](Images/chunking-wm-vs-exp-trace.png)
+/// caption
+A close-up of a trace showing differences between a working memory trace (left) and a behavior trace (right). The working memory trace only contains the literal values of the WMEs that matched. The behavior trace, on the other hand, contains variables and various constraints on the values those variables can hold.
+///
 
 Note that this trace is generated dynamically as rules match. Whenever a rule
 matches during agent execution, Soar creates an internal record of the rule that
@@ -181,6 +184,9 @@ basis for the behavior trace used for a learning episode. (At this point, the
 behavior trace is a subgraph of the instantiation graph.)
 
 ![A visualization of the behavior trace of a chunk learned by the arithmetic agent. Each box represents a rule that fired in the substate. Arrows show dependencies between rules that create working memory elements and conditions that test those working memory elements.](Images/chunking-trace.png)
+/// caption
+A visualization of the behavior trace of a chunk learned by the arithmetic agent. Each box represents a rule that fired in the substate. Arrows show dependencies between rules that create working memory elements and conditions that test those working memory elements.
+///
 
 <!-- TODO: sjj: not sure how good this paragraph is, but it's my understanding -->
 EBBS also creates an identity graph as it incrementally builds the instantiation
@@ -239,6 +245,9 @@ same underlying object. Identities can be shared in the following situations.
 
 <p id="fig_explanation_trace"/>
 ![A behavior trace of two simple rules that matched in a substate.](Images/chunking-trace2.png)
+/// caption
+A behavior trace of two simple rules that matched in a substate.
+///
 
 To get a better picture of what a shared identity is, consider the two simple
 rules and the behavior trace of how they matched in a substate as shown in
@@ -288,6 +297,9 @@ that share an identity in the figure are colored the same.
 
 <p id="fig_explanation_trace_after_identity_analysis"/>
 ![A behavior trace incorporating identity analysis.](Images/chunking-trace-identity.png)
+/// caption
+A behavior trace incorporating identity analysis.
+///
 
 While it’s not readable in this figure, note that each identity is assigned a
 numeric ID. Both the explainer and the visualizer annotate elements of an
@@ -300,6 +312,9 @@ on the identity graph.
 
 <!-- TODO: need attribution to Mazin's thesis -->
 ![Note that the two rows on the bottom indicate when each component occurs during Soar’s processing.](Images/chunking-ebbs-components.png)
+/// caption
+Note that the two rows on the bottom indicate when each component occurs during Soar’s processing.
+///
 
 ### The Nine Components of Explanation-Based Behavior Summarization
 
@@ -1408,11 +1423,11 @@ information about the chunk singleton command.
 
 **Printing Rules:**
 
--   To print all chunks learned:  
+-   To print all chunks learned:
     `print --chunks` or `print -c`
--   To print all justifications learned (and still matching):  
+-   To print all justifications learned (and still matching):
     `print --justifications` or `print -j`
--   To print a rule or justification:  
+-   To print a rule or justification:
     `print <rule-name>`
 
 For more information on print, see the
@@ -1420,16 +1435,16 @@ For more information on print, see the
 
 **Trace Messages:**
 
--   To print when new rules are learned (just the name):  
+-   To print when new rules are learned (just the name):
     `trace --learning 1` or `trace -l 1`
--   To print when new rules are learned (the full rule):  
+-   To print when new rules are learned (the full rule):
     `trace --learning 2` or `trace -l 2`
 -   To print a trace of the conditions as they are collected during
-    backtracing:  
+    backtracing:
     `trace --backtracing` or `trace -b`
--   To print warnings about chunking issues detected while learning:  
+-   To print warnings about chunking issues detected while learning:
     `trace --chunk-warnings` or `trace -C`
--   To print when learned chunks match and fire:  
+-   To print when learned chunks match and fire:
     `trace --backtracing` or `trace -b`
 
 For more information on trace, see the
@@ -1501,11 +1516,11 @@ using the explain mechanism as described in the
 
 #### Interrupting Execution To Examine Learning
 
--   To stop Soar after each successful learning episode:  
+-   To stop Soar after each successful learning episode:
     `chunk interrupt on`
--   To stop Soar after detecting any learning issue:  
+-   To stop Soar after detecting any learning issue:
     `chunk warning-interrupt on`
--   To stop Soar after learning a rule that the explainer recorded:  
+-   To stop Soar after learning a rule that the explainer recorded:
     `chunk explain-interrupt on`
 
 For more information about how to record when a specific rule is learned,
@@ -1835,6 +1850,9 @@ either Soar exits or a `soar init` is executed. This option is still
 considered experimental and in beta.
 
 ![A colored visualization of a behavior trace](Images/chunking-trace-identity.png)
+/// caption
+A colored visualization of a behavior trace
+///
 
 ## Visualizing the Explanation
 

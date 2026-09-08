@@ -7,6 +7,9 @@ Ann Arbor, MI
 [Original announcement page](25_announcement.html)
 
 ![Participant group photo](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/workshops/25/group_photo.jpg)
+/// caption
+Participant group photo
+///
 
 ## Schedule
 

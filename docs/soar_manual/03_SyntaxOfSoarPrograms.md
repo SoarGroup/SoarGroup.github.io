@@ -205,6 +205,9 @@ WMEs tested in the conditions. The link is one-way, from the identifier to the
 value. Less commonly, the attribute of a WME may be an identifier.
 
 ![A semantic net illustration of four objects in working memory.](Images/o43net.svg)
+/// caption
+A semantic net illustration of four objects in working memory.
+///
 
 This figure illustrates four objects in working memory; the object with
 identifier `X44` has been linked to the object with identifier `O43`, using the
@@ -383,7 +386,7 @@ is printed using the [`print` command](../reference/cli/cmd_print.md).
 ### Production type (optional)
 
 A production may also include an optional _production type_, which may specify
-that the production should be considered a default production (``:default`) or a
+that the production should be considered a default production (`:default`) or a
 chunk (`:chunk`), or may specify that a production should be given o-support
 (`:o-support`) or i-support (`:i-support`). Users are discouraged from using
 these types.
@@ -518,7 +521,7 @@ Syntactically, a variable is a symbol that begins with a left angle-bracket
 non-pipe (|) character in between.
 
 In the example production in Figure 3.2, there are seven variables: `<s>`,
-`<clear1>`, `<clear2>`, `<ontop>,<block1>,<block2>`, and `<o>`.
+`<clear1>`, `<clear2>`, `<ontop>`, `<block1>`, `<block2>`, and `<o>`.
 
 The following table gives examples of legal and illegal variable names.
 
@@ -2542,6 +2545,9 @@ runtime; this is just an example of possible bindings):
 ```
 
 ![An example portion of the input link for the blocks-world task.](Images/blocks-inputlink.svg)
+/// caption
+An example portion of the input link for the blocks-world task.
+///
 
 The ’[A]’ notation in the example is used to indicate the working memory
 elements that are created by the architecture and not by the input function.
@@ -2565,6 +2571,9 @@ creating a structure on the output link, such as:
 ```
 
 ![An example portion of the output link for the blocks-world task.](Images/blocks-outputlink.svg)
+/// caption
+An example portion of the output link for the blocks-world task.
+///
 
 An output function would look for specific structure in this output link and
 translate this into the format required by the external program that controls

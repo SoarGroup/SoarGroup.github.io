@@ -348,6 +348,9 @@ RL operator at the superstate remains selected is dependent upon the processing
 in the impasse state. Consider the operator trace in the following figure:
 
 ![Example Soar substate operator trace.](Images/rl-optrace.svg)
+/// caption
+Example Soar substate operator trace.
+///
 
 -   At decision cycle 1, RL operator `O1` is selected in `S1` and causes an
     operator-no-change impasse for three decision cycles.
