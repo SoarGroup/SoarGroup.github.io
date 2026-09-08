@@ -120,7 +120,7 @@ To avoid redundant entries, please search for duplicate issues first.
 
 Mailing Address:
 
-```
+```text
 The Soar Group
 Artificial Intelligence Laboratory
 University of Michigan

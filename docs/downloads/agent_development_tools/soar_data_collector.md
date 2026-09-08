@@ -25,8 +25,8 @@ Statistics are collected at configurable intervals during a run and include:
 
 No pre-built binaries are currently available for this project.
 
-*   The project repository is [here](https://github.com/voigtjr/soar-datacollector)
-*   A JSoar version is also available [here](https://github.com/voigtjr/jsoar-datacollector)
+*   The [project repository](https://github.com/voigtjr/soar-datacollector) is on GitHub
+*   A [JSoar version](https://github.com/voigtjr/jsoar-datacollector) is also available
 
 ## Documentation
 

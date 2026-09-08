@@ -43,9 +43,9 @@ into the line to the left of the Expand button.
 
 You should be rewarded with a display like this:
 
-![Screenshot showing output of <code>run 20</code>](./Images/2.png)
+![Screenshot showing output of run 20](./Images/2.png)
 /// caption
-Screenshot showing output of <code>run 20</code>
+Screenshot showing output of `run 20`
 ///
 
 This is hard to read but the trace window on the left shows the series of operators
@@ -67,9 +67,9 @@ the command prompt.
 
 This should result in a display like this:
 
-![Screenshot showing output of <code>run 20</code> with watch level set to 5](./Images/3.png)
+![Screenshot showing output of run 20 with watch level set to 5](./Images/3.png)
 /// caption
-Screenshot showing output of <code>run 20</code> with watch level set to 5
+Screenshot showing output of `run 20` with watch level set to 5
 ///
 
 The trace looks similar, but doing the obvious thing of expanding the tree nodes

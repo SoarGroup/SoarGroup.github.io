@@ -1,4 +1,4 @@
-import os 
+import os
 
 # Run this file to generate the filenames and links for the mkdocs.yml navigation bar.
 

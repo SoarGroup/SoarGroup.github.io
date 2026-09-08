@@ -15,7 +15,7 @@ Scala, Clojure, etc)
 
 ## Download
 
-JSoar is downloadable from GitHub [here](https://soartech.github.io/jsoar/).
+JSoar is [downloadable from the jsoar site](https://soartech.github.io/jsoar/).
 
 ## Documentation
 

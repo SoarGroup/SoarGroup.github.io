@@ -7,7 +7,7 @@
     viewBox="0.00 0.00 301.00 149.80" xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
-        <style> 
+        <style>
             .line {stroke: black}
             .text { fill: black; }
             /* Dark mode styles */

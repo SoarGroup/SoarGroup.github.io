@@ -7,6 +7,7 @@ tags:
 ---
 
 <!-- markdown-link-check-disable-next-line -->
+
 <!-- old URL: https://soar.eecs.umich.edu/articles/articles/technical-documentation/201-memory-leak-debugging-with-visual-studio -->
 
 # Tank Eaters Configuration File
@@ -21,7 +22,7 @@ Soar2D configuration files are stored in the Soar2D folder. When running the
 soar2d jar, you may specify the configuration file to use on the command line,
 or run without specifying any and a dialog window will pop-up.
 
-```bash
+``` bash
 java -jar soar2d.jar configs/tanksoar.cnf
 java -jar soar2d.jar configs/eaters.cnf
 java -jar soar2d.jar configs/room.cnf
@@ -30,18 +31,18 @@ java -jar soar2d.jar
 
 Configuration entries are of the format:
 
-```
+```text
 ''key'' = ''value''; # Note the trailing semicolon.
 ```
 
 Use the pound sign for comments. Start them anywhere on a line.
 
-```
+```text
 # Comments go here
 Configuration keys are simple identifiers. Stick to alphanumeric characters and underscores.
 ```
 
-```
+```text
 exampleKey = ''value'';
 example_key = ''value'';
 ```
@@ -49,7 +50,7 @@ example_key = ''value'';
 Configuration keys have an optional hierarchy separated by dots or braces. These
 are equivalent:
 
-```
+```text
 path.to.key = ''value'';
 path.to.another = ''value'';
 
@@ -75,7 +76,7 @@ path.to.another = ''value'';
 Configuration values are strings or an array of strings using the following
 notation:
 
-```
+```text
 single = data;
 single_element_array = [ data ];
 trailing_comma_ok = [ data, ];
@@ -86,7 +87,7 @@ two_element_array_with_trailer = [ data, banks, ];
 Most whitespace is stripped out of the configuration file. These lines are all
 equivalent:
 
-```
+```text
 path.to.key = databanks;        # Value is "databanks"
 path.to.key = data banks;       # Value is "databanks"
 path . to.key = databanks;      # Value is "databanks"
@@ -98,14 +99,14 @@ pa th. to. k ey
 
 Preserve spaces using quotes:
 
-```
+```text
 path.to.key = "data banks";     # Value is "data banks" with a space.
 arrays_too = [ "data banks", "another value" ]; # Values are "data banks" and "another value"
 ```
 
 Don't split keys or values across lines:
 
-```
+```text
 crazy.                 # Syntax error
 spacing = "databanks"; #
 crazy.spacing = "data  # Value truncated
@@ -113,7 +114,7 @@ banks";                # Syntax error
 OK to split other things along lines (or not). These are all legal entires:
 ```
 
-```
+```text
 key1 = value1;
 key2 =
        value2;
@@ -133,7 +134,7 @@ Backslash doesn't escape anything (this is a change from the original behavior).
 Code exists to easily pull out types boolean, string, int, double, or arrays of
 these types:
 
-```
+```text
 parameter = 5.434; # config.requireDouble("parameter");
 switch = false;    # config.requireBoolean("switch");
 count = 4;         # config.requireInt("count");
@@ -142,7 +143,7 @@ players = [7, 8]   # config.requireInts("players"); // returns int [] length 2
 
 Defaults can be enforced in code:
 
-```
+```text
 config.getInt("some.value.not.in.config.file", 4); // returns 4
 ```
 
@@ -152,7 +153,7 @@ Clients are encoded in a clients block using their names for their sub block.
 Additionally, their names must be enumerated in an `active_clients` array. For
 example:
 
-```
+```text
 clients
 {
    active_clients = [ "watchdog", "timer" ];
@@ -221,7 +222,7 @@ blocks. Active player IDs must be enumerated in an `active_players` array. For
 example, the following configuration file defines 3 players but only uses two of
 them for the run:
 
-```
+```text
 players
 {
    active_players = [ "obscure", "simple" ];
@@ -314,27 +315,27 @@ such as eaters.
 
 ## Map file
 
-- `objects_file (string)`
+-   `objects_file (string)`
     - This file defines objects in the world, see Object File below. The path is
-        relative to the map file.
-- `objects (string array)`
+      relative to the map file.
+-   `objects (string array)`
     - This is an array of objects ids that are available for use on the map. Often
-        time these ids are one character so the map is easily human-readable.
-- `cells (block)`
+      time these ids are one character so the map is easily human-readable.
+-   `cells (block)`
     - This sub-block defines the cells in the map, or properties about the cells
-        that will be randomly generated.
-- `cells.size (int)`
+      that will be randomly generated.
+-   `cells.size (int)`
     - Width and height of map.
-- `cells.random_walls (boolean)`
+-   `cells.random_walls (boolean)`
     - Randomly generate the walls on this map.
-- `cells.random_food (boolean)`
+-   `cells.random_food (boolean)`
     - Randomly place food on the map.
-- `cells.rows (block)`
+-   `cells.rows (block)`
     - Cell instances
-- `cells.rows.INTEGER (string array)`
+-   `cells.rows.INTEGER (string array)`
     - The rows the map, from 0 to size - 1, represented as an array of strings.
-        The strings maps to object ids. Separate multiple objects with dashes. Use a
-        single dash for an empty cell.
+      The strings maps to object ids. Separate multiple objects with dashes. Use a
+      single dash for an empty cell.
 
 ## Objects File
 
@@ -343,7 +344,7 @@ the block is their id used in the human-readable map file. Objects need a name
 property, which is how they are referred to in the code and logs. The rest of
 the properties are mostly domain specific.
 
-```
+```text
 # <ignored> means that the value is ignored, key presence is used for "true"
 # objects {
 #    +<id> {

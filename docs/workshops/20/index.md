@@ -71,7 +71,7 @@ Tutorials/Introduction to Soar
 | 3:20 - 3:35 | Wayne Zhang<br/>Randy Hill | A Template-Based & Pattern-Driven Approach to Situtaion Awareness & Assessment | [slides](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/workshops/20/talks/zhang-hill-soar2000.pdf) |
 | 3:35 - 3:45 | Randy Jones             | Interactive Visualization of Situational Awareness                   | [slides](https://raw.githubusercontent.com/SoarGroup/website-downloads/main/workshops/20/talks/soar-00-sap.pdf)                  |
 | 3:45 - 4:00 | | **Break** ||
-| 4:00 - 5:15 | | Break-out Sessions<br/>Possible topics:<ul><li>The Reusability of Soar Code Across Applications?</li><li>Soar Interfaces</li><li>Soar & Psychology</li><li>Future Development Tools</li><li>Multi-Agent Support</li><li>Modeling Emotions and Personality</li><li>Working with the Entertainment Industry XS</li></ul> ||
+| 4:00 - 5:15 | | Break-out Sessions<br/>Possible topics:<br/>• The Reusability of Soar Code Across Applications?<br/>• Soar Interfaces<br/>• Soar & Psychology<br/>• Future Development Tools<br/>• Multi-Agent Support<br/>• Modeling Emotions and Personality<br/>• Working with the Entertainment Industry XS ||
 | 5:15 - 5:45 | | Discussions Summary ||
 | 6:00 | 7241 W. Manchester Avenue, (310) 641-7600 | **Dinner** at Siam ||
 
