@@ -1,0 +1,100 @@
+{
+    // markdownlint config tuned for compatibility with the Zensical toolchain
+    // (https://zensical.org/studio/write/linting/).
+    //
+    // Zensical Studio ships its own Markdown auto-formatter + linter. To avoid
+    // fighting it we split responsibilities:
+    //
+    //   * Zensical auto-formatter  -> owns style (list markers, blank lines,
+    //     fences, tables, emphasis, headings, trailing whitespace, line
+    //     endings). Every markdownlint rule the formatter rewrites is disabled
+    //     below so formatter output always passes `markdownlint`.
+    //   * Zensical linter (default rules) -> owns heading/level-skip (MD001),
+    //     link/empty-destination (MD042), image/missing-alt (MD045). Disabled
+    //     here to avoid duplicate reports.
+    //   * markdownlint -> keeps the content/structure checks that neither
+    //     Zensical tool enforces by default, plus the rules that map to
+    //     Zensical *opt-in* rules (MD025, MD033, MD040, MD041) so they stay
+    //     enforced in CI even for contributors who don't use Studio.
+
+    "default": true,
+
+    // --- Owned by the Zensical auto-formatter (style) ---
+    "MD003": false, // heading style
+    "MD004": false, // unordered list marker style
+    "MD009": false, // trailing spaces
+    "MD010": false, // hard tabs
+    "MD012": false, // multiple consecutive blank lines
+    "MD018": false, // space after ATX hash
+    "MD019": false, // multiple spaces after ATX hash
+    "MD020": false, // space inside closed ATX hash
+    "MD021": false, // multiple spaces inside closed ATX hash
+    "MD022": false, // blank lines around headings
+    "MD023": false, // headings must start at line start
+    "MD027": false, // multiple spaces after blockquote symbol
+    "MD029": false, // ordered list item prefix
+    "MD030": false, // spaces after list markers
+    "MD031": false, // blank lines around fenced code blocks
+    "MD032": false, // blank lines around lists
+    "MD035": false, // horizontal rule style
+    "MD037": false, // spaces inside emphasis markers
+    "MD038": false, // spaces inside code span elements
+    "MD039": false, // spaces inside link text
+    "MD047": false, // single trailing newline
+    "MD048": false, // code fence style
+    "MD049": false, // emphasis style
+    "MD050": false, // strong style
+    "MD054": false, // link/image style
+    "MD055": false, // table pipe style
+    "MD058": false, // blank lines around tables
+    "MD060": false, // table column style
+
+    // --- Covered by the Zensical linter's default rules ---
+    "MD001": false, // -> heading/level-skip
+    "MD042": false, // -> link/empty-destination
+    "MD045": false, // -> image/missing-alt
+
+    // MD046 (code block style) is off: markdownlint has no admonition support,
+    // so the 4-space-indented body of `!!! note` / `???+ info` blocks is
+    // misread as an indented code block, making the "consistent" check
+    // meaningless. Zensical's code/indented rule is opt-in and left off.
+    "MD046": false,
+
+    // --- Kept: content/structure checks, with project overrides ---
+    "MD007": {
+        // 4-space nested list indent is a hard requirement of Python Markdown,
+        // which Zensical renders with; its linter does not guard this.
+        "indent": 4
+    },
+    // MD013 (line length) is off: the Zensical auto-formatter does not wrap
+    // prose, so a hard column limit would fight it. Re-enable with
+    // { "tables": false, "code_blocks": false } if you want it back.
+    "MD013": false,
+    "MD024": {
+        "siblings_only": true
+    },
+    "MD025": {
+        "front_matter_title": ""
+    },
+    "MD026": {
+        "punctuation": ".,;:。："
+    },
+    "MD033": {
+        // Zensical's html/disallowed rule is opt-in (off), so it permits all
+        // of these. This list mirrors the inline HTML the docs actually use.
+        "allowed_elements": [
+            "div",
+            "p",
+            "a",
+            "br",
+            "sup",
+            "sub",
+            "kbd",
+            "small",
+            "abbr",
+            "span",
+            "details",
+            "summary"
+        ]
+    }
+}

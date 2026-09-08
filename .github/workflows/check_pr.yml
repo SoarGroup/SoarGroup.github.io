@@ -23,13 +23,13 @@ jobs:
         files: '**/*.md'
         separator: ","
 
-    - uses: DavidAnson/markdownlint-cli2-action@v14
+    - uses: DavidAnson/markdownlint-cli2-action@v20
       continue-on-error: false
       if: steps.changed-files.outputs.any_changed == 'true'
       with:
         globs: ${{ steps.changed-files.outputs.all_changed_files }}
         separator: ","
-        config: '.markdownlint.json'
+        config: '.markdownlint.jsonc'
 
     - run: pip install -r requirements.txt
     - run: zensical build --clean
