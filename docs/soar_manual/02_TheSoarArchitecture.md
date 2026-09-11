@@ -496,7 +496,7 @@ An abstract view of production memory. The productions are not related to one an
 In the simplest form of a production, conditions and actions refer directly to the presence
 (or absence) of objects in working memory. For example, a production might say:
 
-``` txt
+```txt
 CONDITIONS: block A is clear
             block B is clear
 ACTIONS:    suggest an operator to move block A ontop of block B
@@ -926,7 +926,7 @@ information.
 
 A simplified version of the Soar algorithm:
 
-``` txt
+```txt
 Soar
    while (HALT not true) Cycle;
 
@@ -1221,14 +1221,14 @@ A production must meet the following two requirements to have o-supported action
 
 1. The RHS has no operator proposals, i.e. nothing of the form
 
-``` Soar
+```Soar
 (<s> ^operator <o> +)
 ```
 
 1. The LHS has a condition that tests the current operator, i.e. something of
    the form
 
-``` Soar
+```Soar
 (<s> ^operator <o>)
 ```
 
@@ -1239,8 +1239,8 @@ value)`, some of these id’s match state identifiers, and the system looks for
 the deepest matched state identifier. The tested current operator must be on
 this state. For example, in this production,
 
-``` Soar
-sp {elaborate*state*operator\*name
+```Soar
+sp {elaborate*state*operator*name
    (state <s> ^superstate <s1>)
    (<s1> ^operator <o>)
    (<o> ^name <name>)
@@ -1252,7 +1252,7 @@ the RHS action gets i-support. Of course, the state bound to `<s>` is destroyed
 when `(<s1> ^operator <o>)` retracts, so o-support would make little difference.
 On the other hand, this production,
 
-``` Soar
+```Soar
    sp {operator*superstate*application
    (state <s> ^superstate <s1>)
               ^operator <o>)
@@ -1273,7 +1273,7 @@ operator, adds an operator augmentation, and adds a non-operator augmentation?
 
 For example:
 
-``` Soar
+```Soar
 sp {operator*augmentation*application
    (state <s> ^task test-support
               ^operator <o>)
