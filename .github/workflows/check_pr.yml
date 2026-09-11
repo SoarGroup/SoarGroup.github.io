@@ -5,31 +5,46 @@ on:
   workflow_dispatch:
 
 jobs:
-  check-pull-request:
+  link-check:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-      with:
-        fetch-depth: 0
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 0
 
-    - uses: gaurav-nelson/github-action-markdown-link-check@v1
-      with:
-        check-modified-files-only: 'yes'
-        base-branch: main
+      - uses: tcort/github-action-markdown-link-check@v1
+        with:
+          check-modified-files-only: "yes"
+          base-branch: main
+          config-file: ".github/workflows/mlc_config.json"
 
-    - uses: tj-actions/changed-files@v40
-      id: changed-files
-      with:
-        files: '**/*.md'
-        separator: ","
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 0
 
-    - uses: DavidAnson/markdownlint-cli2-action@v20
-      continue-on-error: false
-      if: steps.changed-files.outputs.any_changed == 'true'
-      with:
-        globs: ${{ steps.changed-files.outputs.all_changed_files }}
-        separator: ","
-        config: '.markdownlint.jsonc'
+      - uses: tj-actions/changed-files@v40
+        id: changed-files
+        with:
+          files: "**/*.md"
+          separator: ","
 
-    - run: pip install -r requirements.txt
-    - run: zensical build --clean
+      - uses: DavidAnson/markdownlint-cli2-action@v20
+        continue-on-error: false
+        if: steps.changed-files.outputs.any_changed == 'true'
+        with:
+          globs: ${{ steps.changed-files.outputs.all_changed_files }}
+          separator: ","
+          config: ".markdownlint.jsonc"
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+
+      - run: pip install -r requirements.txt
+      - run: zensical build --clean
