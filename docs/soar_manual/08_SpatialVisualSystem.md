@@ -785,5 +785,3 @@ path has two special arguments.
 
 -   `svs PATH dir` prints all the children of the object at `PATH`.
 -   `svs PATH help` prints text about how to use the object, if available.
-
-See [SVS](#spatial-visual-system) for more details.
