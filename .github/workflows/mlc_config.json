@@ -1,0 +1,11 @@
+{
+  "ignorePatterns": [
+    {
+      "pattern": "/TODO$"
+    },
+    {
+      "pattern": "^mailto:"
+    }
+  ],
+  "aliveStatusCodes": [200, 202, 206, 403]
+}

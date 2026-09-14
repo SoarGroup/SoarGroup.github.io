@@ -1,0 +1,17 @@
+/* Justify body text (block alignment) instead of the default left alignment */
+.md-typeset p,
+.md-typeset li {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+/* Keep captions, admonition titles, and tables left-aligned */
+.md-typeset caption,
+.md-typeset figcaption,
+.md-typeset .admonition-title,
+.md-typeset th,
+.md-typeset td {
+  text-align: left;
+  hyphens: manual;
+}

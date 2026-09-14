@@ -8,8 +8,8 @@ Soar, such as the debugger and VisualSoar, you will need
 [Java version 11](https://adoptium.net/temurin/releases/?variant=openjdk11) or
 higher installed.
 
-1.  Download Soar Release archive
-[here](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/SoarSuite_{{soar_version}}-Multiplatform.zip)<!-- markdown-link-check-disable-line -->
+1.  Download the
+[Soar Release archive](https://github.com/SoarGroup/Soar/releases/download/releases%2F{{soar_version}}/SoarSuite_{{soar_version}}-Multiplatform.zip)<!-- markdown-link-check-disable-line -->
 and extract to the location of your choice.
 
 2.  Run the Soar debugger via one of the scripts included in this folder:

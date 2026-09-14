@@ -418,6 +418,9 @@ average/total time for episode storage. Thus, the settings of page size for
 long, complicated runs establishes the
 
 ![Example episodic memory cache setting data.](Images/epmem-cache.png)
+/// caption
+Example episodic memory cache setting data.
+///
 
 desired balance of reactivity (i.e. max computation) and average speed. To
 ground this discussion, the above figure depicts maximum and average episodic

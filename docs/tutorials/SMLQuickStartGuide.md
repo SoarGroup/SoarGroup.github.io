@@ -521,7 +521,7 @@ Therefore for Tcl we recommend shutting down this event thread and polling
 explicitly for incoming events. This can be done in a few lines of code like
 this:
 
-```
+```tcl
 # We want to make sure to handle events in the Tcl thread
 # so we turn off the event thread and poll for events instead.
 $_kernel StopEventThread
@@ -935,7 +935,7 @@ A Tcl package, called Tcl_sml_ClientInterface is available. On Windows it is
 located in the soar-library directory. This can be used by including the
 following line in your Tcl code:
 
-```
+```tcl
 package require tcl_sml_clientinterface
 ```
 

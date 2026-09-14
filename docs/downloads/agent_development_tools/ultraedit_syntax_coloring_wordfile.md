@@ -25,7 +25,7 @@ of its contents except the first line)
 
 *   Version 15.00 and later: Download and save it into your "wordfile" directory
 which by default is `%appdata%\IDMComp\UltraEdit\wordfiles`, unless you have
-specified a different directory. Further help and documentation is available [here](http://www.ultraedit.com/support/tutorials_power_tips/ultraedit/add_a_wordfile.html).
+specified a different directory. Further [help and documentation on adding a wordfile](http://www.ultraedit.com/support/tutorials_power_tips/ultraedit/add_a_wordfile.html) is available.
 *   Version 14.20 and previous: Visit [this page](http://www.ultraedit.com/support/tutorials_power_tips/ultraedit/add_a_wordfile_pre_v15.html)
 for instructions.
 

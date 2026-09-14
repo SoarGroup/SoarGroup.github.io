@@ -7,9 +7,10 @@ Soar cognitive architecture, including source for the PDF's distributed with Soa
 
 The website is not yet fully migrated from the old site, and is still under construction.
 
-The site is built using the [MkDocs](https://www.mkdocs.org/), a static site
-generator that uses Markdown files to generate a website. The theme is
-[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
+The site is built with [Zensical](https://zensical.org/), a static site
+generator from the Material for MkDocs team that uses Markdown files to
+generate a website. It reads the existing `mkdocs.yml` config and renders
+with the Material "classic" theme variant.
 
 Large files that are not displayed but rather downloaded should not be stored here;
 instead, put them in the [website downloads repository](https://github.com/SoarGroup/website-downloads)
@@ -19,9 +20,9 @@ and link to them here.
 
 ```shell
 python -m venv venv
-source venv/bin/activate (or venv\Scripts\activate on Windows)
+source venv/bin/activate # (or venv\Scripts\activate on Windows)
 pip install -r requirements.txt
-mkdocs serve # add -s to abort on any warnings
+zensical serve # add -s to abort on any warnings; zensical build for a one-off build
 ```
 
 ## Deployment
@@ -29,6 +30,10 @@ mkdocs serve # add -s to abort on any warnings
 The site is deployed to GitHub Pages automatically as long as the build workflows
 don't fail. Run it locally to ensure you haven't introduced an error, and then
 just push your commit to the `main` branch and the site will be updated automatically.
+
+Deployment uses the GitHub Actions Pages pipeline (`.github/workflows/publish.yml`,
+`zensical build` + `actions/deploy-pages`). The repository's *Settings → Pages →
+Build and deployment → Source* must be set to **GitHub Actions**.
 
 ## Updates for New Soar Versions
 

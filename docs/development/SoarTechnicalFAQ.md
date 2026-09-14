@@ -283,7 +283,7 @@ is a good model to follow. If you're working on a command line application
 without a GUI, then the _TestCommandLine_ application is a good reference as it
 demonstrates how to support interruption in a single-threaded application.
 
-A detailed explanation about threads in Soar is provided [here](../development/soar/ThreadsInSML.md).
+A detailed explanation about threads in Soar is provided in [Threads in SML](../development/soar/ThreadsInSML.md).
 
 ## How do I properly manage memory in my SML application?
 
