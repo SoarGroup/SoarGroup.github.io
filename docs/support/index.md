@@ -26,9 +26,16 @@ To join a list, sign up on the mailing list page, and then simply send an e-mail
 * [**soar-help**](https://groups.google.com/d/forum/soar-help) is for users to ask questions. If you are experienced with Soar, please consider joining and participating in the discussions.
 * [**soar-cognitive-architecture**](https://groups.google.com/d/forum/soar-cognitive-architecture) is used for announcements and higher level discussions. We recommend that all people who are interested in Soar join the soar-cognitive-architecture mailing list to keep up to date with the latest developments in the Soar community.
 
-Note: All mailing lists have a web archive of previous messages, so you can look for answers to previous questions.
+!!! note
+
+    All mailing lists have a web archive of previous messages, so you can look
+    for answers to previous questions.
 
 ## GitHub Issues
 
 You can report bugs and request features using Soar's Github repository's [issue tracker](https://github.com/SoarGroup/Soar/issues).
-Note: If you have a question, please do not post an issue for it and use the soar-help mailing list instead.
+
+!!! note
+
+    If you have a question, please do not post an issue for it and use the
+    soar-help mailing list instead.

@@ -1,11 +1,18 @@
+# markdownlint is scoped to the rules the Zensical toolchain leaves to it;
+# see .markdownlint.jsonc for the rationale.
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.3.0
+    rev: v6.0.0
     hooks:
       - id: check-yaml
       - id: end-of-file-fixer
+        # Matches .editorconfig insert_final_newline = true (applies to *.md too).
       - id: trailing-whitespace
+        # Markdown trailing whitespace is significant (hard line breaks) and
+        # .editorconfig exempts *.md; leave *.md to the Zensical formatter.
+        exclude_types: [markdown]
   - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: v0.14.0
+    rev: v0.23.2
     hooks:
       - id: markdownlint-cli2
+        # Auto-discovers .markdownlint.jsonc at the repo root.

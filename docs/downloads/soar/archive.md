@@ -2,8 +2,8 @@
 
 ## Soar 9
 
-Releases of Soar 9.6.1 and later are available from the releases page on the
-Soar GitHub repository [here](https://github.com/SoarGroup/Soar/releases).
+Releases of Soar 9.6.1 and later are available from the
+[Soar GitHub releases page](https://github.com/SoarGroup/Soar/releases).
 
 ### Soar 9.6.0
 

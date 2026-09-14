@@ -40,16 +40,25 @@ The plugin highlights both Soar productions and other curly-braced sections,
 like `smem --add` commands:
 
 ![Syntax highlighting](./Images/sublime-soar-syntax-highlighting.jpeg)
+/// caption
+Syntax highlighting
+///
 
 #### Snippets
 
 Production snippets help you code faster:
 
 ![Production snippets](./Images/sublime-soar-prod-snippets.jpg)
+/// caption
+Production snippets
+///
 
 and SoarDoc snippets help you document faster:
 
 ![SoarDoc snippets](./Images/sublime-soar-soardoc-snippets.png)
+/// caption
+SoarDoc snippets
+///
 
 #### SoarUnit Build Command
 
@@ -65,6 +74,9 @@ project [Readme](https://github.com/garfieldnate/Sublime-Soar-Tools) for
 setup details). Highlighting included!
 
 ![Soar REPL](./Images/sublime-soar-repl.jpeg)
+/// caption
+Soar REPL
+///
 
 ## Contributions Welcome
 

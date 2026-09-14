@@ -21,7 +21,7 @@ it VisualSoar.
 ## Documentation
 
 In addition to the manual included with the SoarSuite release, the keyboard and
-mouse controls are documented [here](https://soar.eecs.umich.edu/reference/VisualSoarKeyboardAndMouseControls/).
+mouse controls are documented in the [VisualSoar keyboard and mouse controls reference](https://soar.eecs.umich.edu/reference/VisualSoarKeyboardAndMouseControls/).
 
 ## Developers
 

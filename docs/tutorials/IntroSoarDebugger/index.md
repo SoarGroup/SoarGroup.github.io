@@ -28,6 +28,9 @@ working with the language.
 On launch you should see a display similar to this:
 
 ![Screenshot of default debugger display](./Images/1.png)
+/// caption
+Screenshot of default debugger display
+///
 
 The window on the left side is the main trace window. As Soar executes, debug
 information is streamed to this window.
@@ -40,7 +43,10 @@ into the line to the left of the Expand button.
 
 You should be rewarded with a display like this:
 
-![Screenshot showing output of <code>run 20</code>](./Images/2.png)
+![Screenshot showing output of run 20](./Images/2.png)
+/// caption
+Screenshot showing output of `run 20`
+///
 
 This is hard to read but the trace window on the left shows the series of operators
 that have just fired during the course of the first 20 decisions. You should also
@@ -61,12 +67,18 @@ the command prompt.
 
 This should result in a display like this:
 
-![Screenshot showing output of <code>run 20</code> with watch level set to 5](./Images/3.png)
+![Screenshot showing output of run 20 with watch level set to 5](./Images/3.png)
+/// caption
+Screenshot showing output of `run 20` with watch level set to 5
+///
 
 The trace looks similar, but doing the obvious thing of expanding the tree nodes
 will reveal the detailed trace information collected during the run:
 
 ![Screenshot showing some expanded output nodes](./Images/4.png)
+/// caption
+Screenshot showing some expanded output nodes
+///
 
 You can also expand the current page of trace information using the "expand"
 button or the drop down menu next to it. (Once the expand button has been pressed
@@ -94,6 +106,9 @@ If you load another demo here (e.g. "Water Jug Demo") and then type `run 20` you
 will see both sets of windows updating as both agents run.
 
 ![Screenshot showing multiple debugger windows, one per agent](./Images/5.png)
+/// caption
+Screenshot showing multiple debugger windows, one per agent
+///
 
 The relationship between a top level debugger window (a frame) and the agent is
 pretty loose. For instance, we can switch the second window to observe the first
@@ -129,6 +144,9 @@ get a warning that there's a local kernel running. Say "OK" to shut that down.
 You'll see a dialog like this:
 
 ![Screenshot of remote kernel connection dialog](./Images/6.png)
+/// caption
+Screenshot of remote kernel connection dialog
+///
 
 This allows you to enter an IP address (for a truly remote machine) or a different
 port number (which requires a change to the kernel you are connecting to). For this
@@ -161,6 +179,9 @@ To walkthrough this demonstration, start by launching the
 [Java version of Towers of Hanoi](../../downloads/examples_and_unsupported/towers_of_hanoi.md):
 
 ![Screenshot showing Java Towers of Hanoi starting position](./Images/7.png)
+/// caption
+Screenshot showing Java Towers of Hanoi starting position
+///
 
 The simulation starts an embedded Soar kernel when it's launched. You can run
 the environment by pressing "run"/"stop" as you'd expect.
@@ -173,12 +194,18 @@ You should now see the name of the agent (in the title bar of the debugger) chan
 to "remote TOH" like this:
 
 ![Screenshot of debugger showing name of agent as "remote TOH"](./Images/8.png)
+/// caption
+Screenshot of debugger showing name of agent as "remote TOH"
+///
 
 At this point pressing run in the environment will generate trace output in the
 debugger. (The agent starts at watch 0 in this simulation so you just see `write`
 statements from productions).
 
 ![Screenshot of debugger output for TOH](./Images/9.png)
+/// caption
+Screenshot of debugger output for TOH
+///
 
 Pressing "stop" in the environment again stops the run. So far this is simple enough.
 
@@ -255,10 +282,16 @@ You can also create your own preferred window layout. To start this process, rig
 click on a window in the debugger. The context menu will either look like this:
 
 ![Screenshot of the debugger's Window context menu](./Images/10.png)
+/// caption
+Screenshot of the debugger's Window context menu
+///
 
 Or it will offer this menu as a "Window" pop out on the context menu like this:
 
 ![Screenshot of the debugger's Window context menu as a child of another context menu](./Images/11.png)
+/// caption
+Screenshot of the debugger's Window context menu as a child of another context menu
+///
 
 This window menu allows you to customize the collection of windows by adding,
 removing or replacing windows. The types of windows you can add is based on the list
@@ -266,6 +299,9 @@ of modules loaded into the debugger and should grow in time. Right now there are
 just five:
 
 ![Screenshot of "Select a New Window" dialog](./Images/12.png)
+/// caption
+Screenshot of "Select a New Window" dialog
+///
 
 Creating a new layout can take a while as we don't yet have a "Move Window" option.
 This is something to be added in the future. Once you've created a new layout it
@@ -290,6 +326,9 @@ automatically updating windows (top right in the default layout) brings up these
 properties:
 
 ![Screnshot of window properties dialog](./Images/13.png)
+/// caption
+Screnshot of window properties dialog
+///
 
 By adjusting these properties you can allow the results to collect in the window
 rather than being cleared each time a command is executed or you can have a window

@@ -4,11 +4,12 @@ tags:
 ---
 
 <!-- markdown-link-check-disable-next-line -->
+
 <!-- old URL: https://soar.eecs.umich.edu/CommercialOrganizationsUsingSoar -->
 
 # Commercial Organizations Using Soar
 
-## Soar Technology, Inc. 
+## Soar Technology Inc
 
 [Soar Technology Inc.](http://www.soartech.com/) is utilizing advanced
 artificial intelligence, grounded in scientific principles of human-system
@@ -18,7 +19,7 @@ command and control, information visualization, robotics, and intelligence
 analysis, for the U.S. Army, Navy, Air Force, DARPA, JFCOM, DMSO and the
 intelligence community.
 
-## Cogniteam, Ltd.
+## Cogniteam
 
 [Cogniteam](http://www.cogniteam.com/) is an Israeli company offering project
 development, consulting, and professional services in AI and robotics in

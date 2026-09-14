@@ -16,3 +16,4 @@
 *[EFR]: Expected Future Reward
 *[EBC]: Explanation-based Chunking
 *[ROSK]: Relevant Operator Selection Knowledge
+*[crlf]: carriage return and line feed

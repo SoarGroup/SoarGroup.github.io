@@ -1,11 +1,12 @@
 site_name: Soar Home
 repo_url: https://github.com/SoarGroup/SoarGroup.github.io
 repo_name: Website Source
-copyright: Copyright &copy; SoarGroup 2024
+copyright: Copyright &copy; SoarGroup 2026
 edit_uri: edit/main/docs/
 
 theme:
   name: material
+  variant: modern
   custom_dir: overrides
   locale: en
   logo: Images/soar.png
@@ -53,9 +54,11 @@ theme:
         icon: material/toggle-switch
         name: Switch to light mode
 
+extra_css:
+  - stylesheets/extra.css
+
 extra_javascript:
   - javascript/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 markdown_extensions:
@@ -65,8 +68,6 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
-  - mdx_math
-  - fenced_code
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -80,6 +81,7 @@ markdown_extensions:
       auto_append:
         - includes/abbreviations.md
   - pymdownx.superfences
+  - pymdownx.blocks.caption
   - attr_list
   - md_in_html
   - pymdownx.arithmatex:
@@ -110,130 +112,130 @@ nav:
   - Downloads:
       - downloads/index.md
       - Soar:
-        - downloads/soar/index.md
-        - Latest: downloads/soar/latest.md
-        - Archive: downloads/soar/archive.md
-        - JSoar: downloads/soar/jsoar.md
+          - downloads/soar/index.md
+          - Latest: downloads/soar/latest.md
+          - Archive: downloads/soar/archive.md
+          - JSoar: downloads/soar/jsoar.md
       - Agents:
-        - downloads/agents/index.md
-        - 15-Puzzle: downloads/agents/15-puzzle.md
-        - 8-Puzzle: downloads/agents/8-puzzle.md
-        - Algebra Solver: downloads/agents/algebra_solver.md
-        - Arithmetic: downloads/agents/arithmetic.md
-        - Arithmetic (with Semantic Memory): downloads/agents/arithmetic_(with_semantic_memory).md
-        - Blocks-World (Hierarchical Look-Ahead): downloads/agents/blocks-world_(hierarchical_look-ahead).md
-        - Blocks-World (Hierarchical): downloads/agents/blocks-world_(hierarchical).md
-        - Blocks-World (Look-Ahead with RL): downloads/agents/blocks-world_(look-ahead_with_rl).md
-        - Blocks-World (Look-Ahead): downloads/agents/blocks-world_(look-ahead).md
-        - Blocks-World (Reinforcement Learning): downloads/agents/blocks-world_(reinforcement_learning).md
-        - Blocks-World (Simple): downloads/agents/blocks-world_(simple).md
-        - Blocks-World (Subgoaling with RL): downloads/agents/blocks-world_(subgoaling_with_rl).md
-        - Blocks-World (Subgoaling): downloads/agents/blocks-world_(subgoaling).md
-        - Counting Agent: downloads/agents/counting_agent.md
-        - Eaters (Advanced Move): downloads/agents/eaters_(advanced_move).md
-        - Eaters (Hello World Operator): downloads/agents/eaters_(hello_world_operator).md
-        - Eaters (Hello World Rule): downloads/agents/eaters_(hello_world_rule).md
-        - Eaters (Jump and Move): downloads/agents/eaters_(jump_and_move).md
-        - Eaters (Jump): downloads/agents/eaters_(jump).md
-        - Eaters (Move North 2): downloads/agents/eaters_(move_north_2).md
-        - Eaters (Move North): downloads/agents/eaters_(move_north).md
-        - Eaters (Move To Food): downloads/agents/eaters_(move_to_food).md
-        - Eaters (Move): downloads/agents/eaters_(move).md
-        - Eaters (Semantic Error Example): downloads/agents/eaters_(semantic_error_example).md
-        - Eaters (Syntax Error Example): downloads/agents/eaters_(syntax_error_example).md
-        - Episodic Memory Counting Agent: downloads/agents/episodic_memory_counting_agent.md
-        - Episodic Memory Tutorial Agent: downloads/agents/episodic_memory_tutorial_agent.md
-        - Graph Search: downloads/agents/graph_search.md
-        - Graph Search (with Semantic Memory): downloads/agents/graph_search_(with_semantic_memory).md
-        - Infinite Mario RL: downloads/agents/infinite_mario_rl.md
-        - Knowledge Base Agent: downloads/agents/knowledge_base_agent.md
-        - Left-Right Reinforcement Learning Agent: downloads/agents/left-right_reinforcement_learning_agent.md
-        - Missionaries and Cannibals (Planning): downloads/agents/missionaries_and_cannibals_(planning).md
-        - Missionaries and Cannibals (Simple): downloads/agents/missionaries_and_cannibals_(simple).md
-        - Reinforcement Learning Unit Test: downloads/agents/reinforcement_learning_unit_test.md
-        - Semantic Memory Tutorial Agent: downloads/agents/semantic_memory_tutorial_agent.md
-        - Soar 7 Agents: downloads/agents/soar_7_agents.md
-        - TankSoar (Mapping): downloads/agents/tanksoar_(mapping).md
-        - TankSoar (Obscure Bot): downloads/agents/tanksoar_(obscure_bot).md
-        - TankSoar (Simple Sound): downloads/agents/tanksoar_(simple_sound).md
-        - TankSoar (Simple): downloads/agents/tanksoar_(simple).md
-        - TankSoar (Wander): downloads/agents/tanksoar_(wander).md
-        - Taxi (Hierarchical Reinforcement Learning): downloads/agents/taxi_(hierarchical_reinforcement_learning).md
-        - Taxi (Reinforcement Learning): downloads/agents/taxi_(reinforcement_learning).md
-        - TextIO Example: downloads/agents/textio_example.md
-        - Tower of Hanoi (Recursive): downloads/agents/tower_of_hanoi_(recursive).md
-        - Tower of Hanoi (Simple): downloads/agents/tower_of_hanoi_(simple).md
-        - Water Jug (Hierarchical Task Decomposition): downloads/agents/water_jug_(hierarchical_task_decomposition).md
-        - Water Jug (Look-Ahead with State Evaluation): downloads/agents/water_jug_(look-ahead_with_state_evaluation).md
-        - Water Jug (Look-Ahead): downloads/agents/water_jug_(look-ahead).md
-        - Water Jug (Reinforcement Learning): downloads/agents/water_jug_(reinforcement_learning).md
-        - Water Jug (Simple): downloads/agents/water_jug_(simple).md
+          - downloads/agents/index.md
+          - 15-Puzzle: downloads/agents/15-puzzle.md
+          - 8-Puzzle: downloads/agents/8-puzzle.md
+          - Algebra Solver: downloads/agents/algebra_solver.md
+          - Arithmetic: downloads/agents/arithmetic.md
+          - Arithmetic (with Semantic Memory): downloads/agents/arithmetic_(with_semantic_memory).md
+          - Blocks-World (Hierarchical Look-Ahead): downloads/agents/blocks-world_(hierarchical_look-ahead).md
+          - Blocks-World (Hierarchical): downloads/agents/blocks-world_(hierarchical).md
+          - Blocks-World (Look-Ahead with RL): downloads/agents/blocks-world_(look-ahead_with_rl).md
+          - Blocks-World (Look-Ahead): downloads/agents/blocks-world_(look-ahead).md
+          - Blocks-World (Reinforcement Learning): downloads/agents/blocks-world_(reinforcement_learning).md
+          - Blocks-World (Simple): downloads/agents/blocks-world_(simple).md
+          - Blocks-World (Subgoaling with RL): downloads/agents/blocks-world_(subgoaling_with_rl).md
+          - Blocks-World (Subgoaling): downloads/agents/blocks-world_(subgoaling).md
+          - Counting Agent: downloads/agents/counting_agent.md
+          - Eaters (Advanced Move): downloads/agents/eaters_(advanced_move).md
+          - Eaters (Hello World Operator): downloads/agents/eaters_(hello_world_operator).md
+          - Eaters (Hello World Rule): downloads/agents/eaters_(hello_world_rule).md
+          - Eaters (Jump and Move): downloads/agents/eaters_(jump_and_move).md
+          - Eaters (Jump): downloads/agents/eaters_(jump).md
+          - Eaters (Move North 2): downloads/agents/eaters_(move_north_2).md
+          - Eaters (Move North): downloads/agents/eaters_(move_north).md
+          - Eaters (Move To Food): downloads/agents/eaters_(move_to_food).md
+          - Eaters (Move): downloads/agents/eaters_(move).md
+          - Eaters (Semantic Error Example): downloads/agents/eaters_(semantic_error_example).md
+          - Eaters (Syntax Error Example): downloads/agents/eaters_(syntax_error_example).md
+          - Episodic Memory Counting Agent: downloads/agents/episodic_memory_counting_agent.md
+          - Episodic Memory Tutorial Agent: downloads/agents/episodic_memory_tutorial_agent.md
+          - Graph Search: downloads/agents/graph_search.md
+          - Graph Search (with Semantic Memory): downloads/agents/graph_search_(with_semantic_memory).md
+          - Infinite Mario RL: downloads/agents/infinite_mario_rl.md
+          - Knowledge Base Agent: downloads/agents/knowledge_base_agent.md
+          - Left-Right Reinforcement Learning Agent: downloads/agents/left-right_reinforcement_learning_agent.md
+          - Missionaries and Cannibals (Planning): downloads/agents/missionaries_and_cannibals_(planning).md
+          - Missionaries and Cannibals (Simple): downloads/agents/missionaries_and_cannibals_(simple).md
+          - Reinforcement Learning Unit Test: downloads/agents/reinforcement_learning_unit_test.md
+          - Semantic Memory Tutorial Agent: downloads/agents/semantic_memory_tutorial_agent.md
+          - Soar 7 Agents: downloads/agents/soar_7_agents.md
+          - TankSoar (Mapping): downloads/agents/tanksoar_(mapping).md
+          - TankSoar (Obscure Bot): downloads/agents/tanksoar_(obscure_bot).md
+          - TankSoar (Simple Sound): downloads/agents/tanksoar_(simple_sound).md
+          - TankSoar (Simple): downloads/agents/tanksoar_(simple).md
+          - TankSoar (Wander): downloads/agents/tanksoar_(wander).md
+          - Taxi (Hierarchical Reinforcement Learning): downloads/agents/taxi_(hierarchical_reinforcement_learning).md
+          - Taxi (Reinforcement Learning): downloads/agents/taxi_(reinforcement_learning).md
+          - TextIO Example: downloads/agents/textio_example.md
+          - Tower of Hanoi (Recursive): downloads/agents/tower_of_hanoi_(recursive).md
+          - Tower of Hanoi (Simple): downloads/agents/tower_of_hanoi_(simple).md
+          - Water Jug (Hierarchical Task Decomposition): downloads/agents/water_jug_(hierarchical_task_decomposition).md
+          - Water Jug (Look-Ahead with State Evaluation): downloads/agents/water_jug_(look-ahead_with_state_evaluation).md
+          - Water Jug (Look-Ahead): downloads/agents/water_jug_(look-ahead).md
+          - Water Jug (Reinforcement Learning): downloads/agents/water_jug_(reinforcement_learning).md
+          - Water Jug (Simple): downloads/agents/water_jug_(simple).md
       - Domains:
-        - downloads/domains/index.md
-        - Dice: downloads/domains/dice.md
-        - Eaters: downloads/domains/eaters.md
-        - General Game Player Translator: downloads/domains/general_game_player_translator.md
-        - Infinite Mario RL: downloads/domains/infinite_mario_rl.md
-        - PDDL Translator: downloads/domains/pddl_translator.md
-        - RoomsWorld: downloads/domains/roomsworld.md
-        - Soar QnA: downloads/domains/soar_qna.md
-        - TankSoar: downloads/domains/tanksoar.md
-        - Taxi: downloads/domains/taxi.md
-        - WordNet WSD: downloads/domains/wordnet_wsd.md
-        - WordNet WSD (with Parse Trees): downloads/domains/wordnet_wsd_(with_parse_trees).md
-        - Eaters: downloads/domains/eaters.md
-        - General Game Player Translator: downloads/domains/general_game_player_translator.md
-        - Infinite Mario RL: downloads/domains/infinite_mario_rl.md
-        - PDDL Translator: downloads/domains/pddl_translator.md
-        - RoomsWorld: downloads/domains/roomsworld.md
-        - Soar QnA: downloads/domains/soar_qna.md
-        - SoarText-IO: downloads/domains/soartext-io.md
-        - TankSoar: downloads/domains/tanksoar.md
-        - Taxi: downloads/domains/taxi.md
-        - WordNet WSD: downloads/domains/wordnet_wsd.md
-        - WordNet WSD (with Parse Trees): downloads/domains/wordnet_wsd_(with_parse_trees).md
-        - Eaters: downloads/domains/eaters.md
-        - General Game Player Translator: downloads/domains/general_game_player_translator.md
-        - Infinite Mario RL: downloads/domains/infinite_mario_rl.md
-        - PDDL Translator: downloads/domains/pddl_translator.md
-        - RoomsWorld: downloads/domains/roomsworld.md
-        - Soar QnA: downloads/domains/soar_qna.md
-        - SoarText-IO: downloads/domains/soartext-io.md
-        - TankSoar: downloads/domains/tanksoar.md
-        - Taxi: downloads/domains/taxi.md
-        - WordNet WSD: downloads/domains/wordnet_wsd.md
-        - WordNet WSD (with Parse Trees): downloads/domains/wordnet_wsd_(with_parse_trees).md
+          - downloads/domains/index.md
+          - Dice: downloads/domains/dice.md
+          - Eaters: downloads/domains/eaters.md
+          - General Game Player Translator: downloads/domains/general_game_player_translator.md
+          - Infinite Mario RL: downloads/domains/infinite_mario_rl.md
+          - PDDL Translator: downloads/domains/pddl_translator.md
+          - RoomsWorld: downloads/domains/roomsworld.md
+          - Soar QnA: downloads/domains/soar_qna.md
+          - TankSoar: downloads/domains/tanksoar.md
+          - Taxi: downloads/domains/taxi.md
+          - WordNet WSD: downloads/domains/wordnet_wsd.md
+          - WordNet WSD (with Parse Trees): downloads/domains/wordnet_wsd_(with_parse_trees).md
+          - Eaters: downloads/domains/eaters.md
+          - General Game Player Translator: downloads/domains/general_game_player_translator.md
+          - Infinite Mario RL: downloads/domains/infinite_mario_rl.md
+          - PDDL Translator: downloads/domains/pddl_translator.md
+          - RoomsWorld: downloads/domains/roomsworld.md
+          - Soar QnA: downloads/domains/soar_qna.md
+          - SoarText-IO: downloads/domains/soartext-io.md
+          - TankSoar: downloads/domains/tanksoar.md
+          - Taxi: downloads/domains/taxi.md
+          - WordNet WSD: downloads/domains/wordnet_wsd.md
+          - WordNet WSD (with Parse Trees): downloads/domains/wordnet_wsd_(with_parse_trees).md
+          - Eaters: downloads/domains/eaters.md
+          - General Game Player Translator: downloads/domains/general_game_player_translator.md
+          - Infinite Mario RL: downloads/domains/infinite_mario_rl.md
+          - PDDL Translator: downloads/domains/pddl_translator.md
+          - RoomsWorld: downloads/domains/roomsworld.md
+          - Soar QnA: downloads/domains/soar_qna.md
+          - SoarText-IO: downloads/domains/soartext-io.md
+          - TankSoar: downloads/domains/tanksoar.md
+          - Taxi: downloads/domains/taxi.md
+          - WordNet WSD: downloads/domains/wordnet_wsd.md
+          - WordNet WSD (with Parse Trees): downloads/domains/wordnet_wsd_(with_parse_trees).md
       - Agent Development Tools:
-        - downloads/agent_development_tools/index.md
-        - Episodic Memory Size Tool: downloads/agent_development_tools/episodic_memory_size_tool.md
-        - QuickLink Input Simulator: downloads/agent_development_tools/quicklink_input_simulator.md
-        - Soar Data Collector: downloads/agent_development_tools/soar_data_collector.md
-        - Soar Debugger: downloads/agent_development_tools/soar_debugger.md
-        - SoarEditor: downloads/agent_development_tools/soareditor.md
-        - SoarIDE: downloads/agent_development_tools/soaride.md
-        - SoarUnit: downloads/agent_development_tools/soarunit.md
-        - State2Dot: downloads/agent_development_tools/state2dot.md
-        - SublimeText Soar Tools Package: downloads/agent_development_tools/sublimetext_soar_tools_package/index.md
-        - UltraEdit Syntax Coloring Wordfile: downloads/agent_development_tools/ultraedit_syntax_coloring_wordfile.md
-        - Vim Soar Plug-In: downloads/agent_development_tools/vim_soar_plug-in.md
-        - VisualSoar: downloads/agent_development_tools/visualsoar.md
+          - downloads/agent_development_tools/index.md
+          - Episodic Memory Size Tool: downloads/agent_development_tools/episodic_memory_size_tool.md
+          - QuickLink Input Simulator: downloads/agent_development_tools/quicklink_input_simulator.md
+          - Soar Data Collector: downloads/agent_development_tools/soar_data_collector.md
+          - Soar Debugger: downloads/agent_development_tools/soar_debugger.md
+          - SoarEditor: downloads/agent_development_tools/soareditor.md
+          - SoarIDE: downloads/agent_development_tools/soaride.md
+          - SoarUnit: downloads/agent_development_tools/soarunit.md
+          - State2Dot: downloads/agent_development_tools/state2dot.md
+          - SublimeText Soar Tools Package: downloads/agent_development_tools/sublimetext_soar_tools_package/index.md
+          - UltraEdit Syntax Coloring Wordfile: downloads/agent_development_tools/ultraedit_syntax_coloring_wordfile.md
+          - Vim Soar Plug-In: downloads/agent_development_tools/vim_soar_plug-in.md
+          - VisualSoar: downloads/agent_development_tools/visualsoar.md
       - Examples and Unsupported:
-        - downloads/examples_and_unsupported/index.md
-        - C++ Command Line Filter: downloads/examples_and_unsupported/cpp_command_line_filter_example.md
-        - Towers of Hanoi: downloads/examples_and_unsupported/towers_of_hanoi.md
-        - C++ Logger: downloads/examples_and_unsupported/c++_logger.md
-        - C# Interface Example: downloads/examples_and_unsupported/csharp_interface_example.md
-        - Java Logger: downloads/examples_and_unsupported/java_logger.md
-        - Missionaries and Cannibals: downloads/examples_and_unsupported/missionaries_and_cannibals.md
-        - PHP Interface Example: downloads/examples_and_unsupported/php_interface_example.md
-        - Python Interface Example: downloads/examples_and_unsupported/python_interface_example.md
-        - RL Command Line Interface: downloads/examples_and_unsupported/rl_command_line_interface.md
-        - Soar Obfuscator: downloads/examples_and_unsupported/soar_obfuscator.md
-        - Soar on iOS: downloads/examples_and_unsupported/soar_on_ios.md
-        - Soar Scratch Pad: downloads/examples_and_unsupported/soar_scratch_pad.md
-        - Tcl Command Line Filter Example: downloads/examples_and_unsupported/tcl_command_line_filter_example.md
-        - Tower of Hanoi SML Example: downloads/examples_and_unsupported/tower_of_hanoi_sml_example.md
-        - Working Memory Activation Tracker: downloads/examples_and_unsupported/working_memory_activation_tracker.md
+          - downloads/examples_and_unsupported/index.md
+          - C++ Command Line Filter: downloads/examples_and_unsupported/cpp_command_line_filter_example.md
+          - Towers of Hanoi: downloads/examples_and_unsupported/towers_of_hanoi.md
+          - C++ Logger: downloads/examples_and_unsupported/c++_logger.md
+          - C# Interface Example: downloads/examples_and_unsupported/csharp_interface_example.md
+          - Java Logger: downloads/examples_and_unsupported/java_logger.md
+          - Missionaries and Cannibals: downloads/examples_and_unsupported/missionaries_and_cannibals.md
+          - PHP Interface Example: downloads/examples_and_unsupported/php_interface_example.md
+          - Python Interface Example: downloads/examples_and_unsupported/python_interface_example.md
+          - RL Command Line Interface: downloads/examples_and_unsupported/rl_command_line_interface.md
+          - Soar Obfuscator: downloads/examples_and_unsupported/soar_obfuscator.md
+          - Soar on iOS: downloads/examples_and_unsupported/soar_on_ios.md
+          - Soar Scratch Pad: downloads/examples_and_unsupported/soar_scratch_pad.md
+          - Tcl Command Line Filter Example: downloads/examples_and_unsupported/tcl_command_line_filter_example.md
+          - Tower of Hanoi SML Example: downloads/examples_and_unsupported/tower_of_hanoi_sml_example.md
+          - Working Memory Activation Tracker: downloads/examples_and_unsupported/working_memory_activation_tracker.md
   - Tutorials:
       - tutorials/index.md
       - Official Soar Tutorials:
@@ -266,51 +268,51 @@ nav:
       - development/index.md
       - Technical FAQ: development/SoarTechnicalFAQ.md
       - Robot Operating System (ROS):
-        - ROS 1: development/BuildingSoarRos.md
-        - ROS 2: https://github.com/THA-Embedded-Systems-Lab/soar_ros
+          - ROS 1: development/BuildingSoarRos.md
+          - ROS 2: https://github.com/THA-Embedded-Systems-Lab/soar_ros
       - Soar Agents:
-        - Design Dogma: development/agents/DesignDogma.md
-        - Soar Programmer's Guide: development/agents/SoarProgrammersGuide.md
-        - SML Output Link Guide: development/agents/SMLOutputLinkGuide.md
-        - How to compile SML Clients: development/agents/HowToCompileSmlClients.md
+          - Design Dogma: development/agents/DesignDogma.md
+          - Soar Programmer's Guide: development/agents/SoarProgrammersGuide.md
+          - SML Output Link Guide: development/agents/SMLOutputLinkGuide.md
+          - How to compile SML Clients: development/agents/HowToCompileSmlClients.md
       - Soar Kernel:
-        - Basic Kernel Terminology: development/soar/BasicKernelTerminology.md
-        - CLI Parsing Code: development/soar/CLIParsingCode.md
-        - IO and Reward Links: development/soar/IOAndRewardLinks.md
-        - Memory Leak Debugging with Visual Studio: development/soar/MemoryLeakDebuggingWithVisualStudio.md
-        - Threads in SML: development/soar/ThreadsInSML.md
-        - Timers: development/soar/Timers.md
-        - Waterfall: development/soar/Waterfall.md
+          - Basic Kernel Terminology: development/soar/BasicKernelTerminology.md
+          - CLI Parsing Code: development/soar/CLIParsingCode.md
+          - IO and Reward Links: development/soar/IOAndRewardLinks.md
+          - Memory Leak Debugging with Visual Studio: development/soar/MemoryLeakDebuggingWithVisualStudio.md
+          - Threads in SML: development/soar/ThreadsInSML.md
+          - Timers: development/soar/Timers.md
+          - Waterfall: development/soar/Waterfall.md
   - Workshops:
-    - workshops/index.md
-    - workshops/45.md
-    - workshops/44.md
-    - workshops/43.md
-    - workshops/42.md
-    - workshops/41.md
-    - workshops/40.md
-    - workshops/39.md
-    - workshops/38.md
-    - workshops/37.md
-    - workshops/36.md
-    - workshops/35.md
-    - workshops/34.md
-    - workshops/33.md
-    - workshops/32.md
-    - workshops/31.md
-    - workshops/30.md
-    - workshops/29.md
-    - workshops/28.md
-    - workshops/27.md
-    - workshops/26/index.md
-    - workshops/25/index.md
-    - workshops/24/index.md
-    - workshops/23.md
-    - workshops/22.md
-    - workshops/21.md
-    - workshops/20/index.md
-    - workshops/19.md
-    - workshops/17.md
+      - workshops/index.md
+      - workshops/45.md
+      - workshops/44.md
+      - workshops/43.md
+      - workshops/42.md
+      - workshops/41.md
+      - workshops/40.md
+      - workshops/39.md
+      - workshops/38.md
+      - workshops/37.md
+      - workshops/36.md
+      - workshops/35.md
+      - workshops/34.md
+      - workshops/33.md
+      - workshops/32.md
+      - workshops/31.md
+      - workshops/30.md
+      - workshops/29.md
+      - workshops/28.md
+      - workshops/27.md
+      - workshops/26/index.md
+      - workshops/25/index.md
+      - workshops/24/index.md
+      - workshops/23.md
+      - workshops/22.md
+      - workshops/21.md
+      - workshops/20/index.md
+      - workshops/19.md
+      - workshops/17.md
   - Support:
       - support/index.md
   - Reference:
@@ -352,8 +354,4 @@ plugins:
   - macros:
       on_error_fail: true
       on_undefined: strict
-  - tags:
-      tags_file: home/tags.md
-
-hooks:
-  - hooks.py
+  - tags

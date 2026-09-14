@@ -31,7 +31,7 @@ the plugin.
 
 ## Documentation
 
-While there isn't much documentation yet, you can find a page on the basics [here](https://github.com/SoarGroup/Soar-Editor/wiki/Using-the-Soar-Editor).
+While there isn't much documentation yet, you can find a [page on the basics](https://github.com/SoarGroup/Soar-Editor/wiki/Using-the-Soar-Editor).
 
 ## Developers
 

@@ -21,6 +21,9 @@ propagates the relationships implicit in spatial environments, and doesn't
 suffer from the frame problem that relational representations have.
 
 ![(a) Typical environment setup without using SVS. (b) Same environment using SVS.](Images/svs-setup.svg)
+/// caption
+(a) Typical environment setup without using SVS. (b) Same environment using SVS.
+///
 
 ## The scene graph
 
@@ -42,6 +45,9 @@ respect to the chassis?). The scene graph always contains at least a root node:
 the **world node**.
 
 ![(a) A 3D scene. (b) The scene graph representation.](Images/scene_graph.svg)
+/// caption
+(a) A 3D scene. (b) The scene graph representation.
+///
 
 Each node other than the world node has a transform with respect to its parent.
 A transform consists of three components:
@@ -712,10 +718,10 @@ bool node_test(sgnode* a, sgnode* b, const filter_params* p)
 
 For an example of how the following base filters are used, see filters/intersect.cpp.
 
--   node_test_filter  
+-   node_test_filter
     For each input pair (a, b) this outputs the boolean result of .
--   node_test_select_filter  
-    For each input pair (a, b) this outputs node b if .  
+-   node_test_select_filter
+    For each input pair (a, b) this outputs node b if .
     (Can choose to select b if the test is false by calling ).
 
 #### Node Comparison Filters
@@ -729,14 +735,14 @@ double node_comparison(sgnode* a, sgnode* b, const filter_params* p)
 
 For an example of how the following base filters are used, see filters/distance.cpp.
 
--   node_comparison_filter  
+-   node_comparison_filter
     For each input pair (a, b), outputs the numerical result of
     `node_comparison(a, b)`.
--   node_comparison_select_filter  
+-   node_comparison_select_filter
     For each input pair (a, b), outputs node b if `min <= node_comparison(a, b) <=
     max`. Min and max can be set through calling `set_min(double)` and
     `set_max(double)`, or as specified by the user through the filter_params.
--   node_comparison_rank_filter  
+-   node_comparison_rank_filter
     This outputs the input pair (a, b) for which `node_comparison(a, b)` produces
     the highest value.
     To instead have the lowest value output call `set_select_highest(true)`.
@@ -752,13 +758,13 @@ double node_evaluation(sgnode* a, const filter_params* p)
 
 For an example of how the following base filters are used, see filters/volume.cpp.
 
--   node_evaluation_filter  
+-   node_evaluation_filter
     For each input node a, this outputs the numerical result of .
--   node_evaluation_select_filter  
+-   node_evaluation_select_filter
     or each input node a, this outputs the node if . Min and max can be set
     through calling and , or as specified by the user through the
     filter_params.
--   node_evaluation_rank_filter  
+-   node_evaluation_rank_filter
     This outputs the input node a for which produces the highest value. To
     instead have the lowest value output call .
 
