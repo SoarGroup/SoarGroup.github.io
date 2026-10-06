@@ -10,6 +10,8 @@ tags:
 
 ## 2026
 
+Jalali, Z. M., Nourbakhsh, A., & Motamed, S. (2026). A Neuro-Symbolic Framework for Face Recognition Using a SOAR-Based Cognitive Meta-Controller, Parameter-Efficient Fine-Tuning (PEFT), and Test-Time Adaptation (TTA). Iranian Journal of Operations Research, 17(2), 31–55.
+
 Laird, J. E., Lebiere, C., Rosenbloom, P. S., & Stocco, A. (2026). Unified, Comprehensive Metacognition within the Common Model of Cognition. Proceedings of the 19th Annual Conference on Artificial General Intelligence. In press.
 
 Ganeriwala, P., Chambers, C., Lathrop, J. I., Bhattacharyya, S., Babar, J., Gilbert, S. B., Amundson, I., Dorneich, M. C., & Khan, M. A. H. (2026). Formal Analysis of Stochastic Cognitive Models: A Translation Framework from Soar to PRISM. NASA Formal Methods Symposium, 192-213.
